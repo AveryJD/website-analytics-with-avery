@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ post['title'] }}</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+  <div id="navbar"></div>
+
+  <main>
+    <h1>The Analytics With Avery Blog</h1>
+    <div class="blog-post">
+      <h2>{{ post['title'] }}</h2>
+      <h3>By Avery Doiron | {{ post['date'] }}</h3>
+      <div class="blog-text">
+        {{ post['content'] | safe }}
+      </div>
+    </div>
+
+    <a href="/blog">← Back to all posts</a>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
