@@ -1,0 +1,276 @@
+/* ==================== GENERAL ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: 50px;
+  font-family: Arial, sans-serif;
+}
+
+main p {
+  font-size: 20px;
+  text-align: justify;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+main h1{
+  font-size: 60px;
+  text-align: center;
+}
+
+main h2{
+  font-size: 30px;
+  margin: 0px;
+  padding-bottom: 10px;
+}
+
+main h3{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.sub-heading{
+  font-size: 50px;
+  text-align: center;
+}
+
+.text-beside-image {
+  padding-left: 50px;
+}
+
+.main-image {
+  width: 300px;
+  height: 100%;
+}
+
+.main-image-round {
+  width: 300px;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* ==================== HOME ==================== */
+
+.home-section {
+  display: flex;
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+/* ==================== ABOUT ==================== */
+
+.about-section {
+  display: flex;
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+
+/* ==================== CONTACT AND SOCIALS ==================== */
+
+.socials-section {
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+.socials-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+
+.socials-icon {
+  width: 150px;
+  height: 150px;
+}
+
+.socials-icon:hover{
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+
+/* ==================== EDUCATION ==================== */
+
+.education-section {
+  display: flex;
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+.courses-section {
+  display: flex;
+}
+
+.education-list {
+  margin: 0;
+}
+
+.education-list ul{
+  margin: 0px;
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.education-list li{
+  font-size: 17px;
+}
+
+/* ==================== EXPERINCE ==================== */
+
+.experience-section {
+  display: flex;
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+/* ==================== RESUME ==================== */
+
+.resume-section {
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+.resume-image {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: black;
+}
+
+
+
+/* ==================== BLOG ==================== */
+
+.blog-section {
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+
+.blog-post {
+  font-family: Menlo, sans-serif;
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+.blog-post h2{
+  font-size: 40px;
+  text-align: center;
+}
+
+.blog-post h3{
+  font-size: 20px;
+  text-align: center;
+}
+
+.blog-post p{
+  font-size: 15px;
+}
+
+.blog-text {
+  padding: 50px;
+}
+
+
+
+
+/* ==================== PROJECTS ==================== */
+
+.card-section {
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
+  margin: 20px;
+}
+
+
+
+/* ==================== NAVIGATION BAR ==================== */
+
+.nav-bar {
+  display: flex;
+  width: 100%;
+  height: 75px;
+  font-family: Futura, sans-serif;
+  position: relative;
+}
+
+
+.portfolio-nav {
+  display: flex;
+  align-items: center;
+  background-color: rgb(100, 100, 255);
+  justify-content: flex-start;
+}
+
+.content-nav {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 100, 100);
+  justify-content: flex-end;
+}
+
+.sub-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.nav-titles {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.nav-titles:hover {
+  cursor: default;
+}
+
+
+.sub-links a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.portfolio-nav a:hover {
+  color: rgb(200, 200, 255);
+}
+
+.content-nav a:hover {
+  color: rgb(255, 200, 200);
+}
+
+
+/* ==================== FOOTER ==================== */
+
+.footer {
+  background: rgb(240, 240, 240);
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
