@@ -5,6 +5,16 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -55,6 +65,7 @@ main h3{
   border-radius: 50%;
 }
 
+
 /* ==================== HOME ==================== */
 
 .home-section {
@@ -63,6 +74,7 @@ main h3{
   padding: 50px;
   margin: 20px;
 }
+
 
 /* ==================== ABOUT ==================== */
 
@@ -86,10 +98,9 @@ main h3{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
-
 
 .socials-icon {
   width: 150px;
@@ -129,6 +140,7 @@ main h3{
   font-size: 17px;
 }
 
+
 /* ==================== EXPERINCE ==================== */
 
 .experience-section {
@@ -137,6 +149,7 @@ main h3{
   padding: 50px;
   margin: 20px;
 }
+
 
 /* ==================== RESUME ==================== */
 
@@ -154,7 +167,6 @@ main h3{
 }
 
 
-
 /* ==================== BLOG ==================== */
 
 .blog-section {
@@ -162,7 +174,6 @@ main h3{
   padding: 50px;
   margin: 20px;
 }
-
 
 .blog-post {
   font-family: Menlo, sans-serif;
@@ -190,8 +201,6 @@ main h3{
 }
 
 
-
-
 /* ==================== PROJECTS ==================== */
 
 .card-section {
@@ -199,7 +208,6 @@ main h3{
   padding: 50px;
   margin: 20px;
 }
-
 
 
 /* ==================== NAVIGATION BAR ==================== */
@@ -211,7 +219,6 @@ main h3{
   font-family: Futura, sans-serif;
   position: relative;
 }
-
 
 .portfolio-nav {
   display: flex;
@@ -233,7 +240,6 @@ main h3{
   justify-content: space-evenly;
 }
 
-
 .nav-titles {
   color: white;
   text-decoration: none;
@@ -247,7 +253,6 @@ main h3{
 .nav-titles:hover {
   cursor: default;
 }
-
 
 .sub-links a {
   display: inline-block;

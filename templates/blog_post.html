@@ -7,24 +7,29 @@
 </head>
 
 <body>
+    <div class="page-content">
 
-  <div id="navbar"></div>
+    <div id="navbar"></div>
 
-  <main>
-    <h1>The Analytics With Avery Blog</h1>
-    <div class="blog-post">
-      <h2>{{ post['title'] }}</h2>
-      <h3>By Avery Doiron | {{ post['date'] }}</h3>
-      <div class="blog-text">
-        {{ post['content'] | safe }}
-      </div>
+    <main>
+        <h1>The Analytics With Avery Blog</h1>
+        <div class="blog-post">
+        <h2>{{ post['title'] }}</h2>
+        <h3>By Avery Doiron | {{ post['date'] }}</h3>
+        <div class="blog-text">
+            {{ post['content'] | safe }}
+        </div>
+        </div>
+
+        <a href="/blog">← Back to all posts</a>
+    </main>
+
     </div>
-
-    <a href="/blog">← Back to all posts</a>
-  </main>
 
   <div id="footer"></div>
 
   <script src="/static/js/main.js"></script>
+
 </body>
+
 </html>
