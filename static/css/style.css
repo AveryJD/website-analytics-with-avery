@@ -127,19 +127,33 @@ main h3{
 }
 
 .education-list {
-  margin: 0;
+  margin: 0px;
 }
 
 .education-list ul{
   margin: 0px;
   padding: 20px;
   padding-top: 5px;
+  padding-right: 50px;
 }
 
 .education-list li{
   font-size: 17px;
 }
 
+.awards-list {
+  margin: 0px;
+}
+
+.awards-list ul{
+  margin: 0px;
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.awards-list li{
+  font-size: 17px;
+}
 
 /* ==================== EXPERINCE ==================== */
 
