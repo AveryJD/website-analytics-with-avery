@@ -164,6 +164,16 @@ main h3{
   margin: 20px;
 }
 
+.experience-section ul{
+  margin: 0px;
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.experience-section li{
+  font-size: 17px;
+}
+
 
 /* ==================== RESUME ==================== */
 
