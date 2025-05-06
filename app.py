@@ -1,8 +1,19 @@
 from flask import Flask, render_template
-from database.database import get_db
+from database.database import get_db, get_all_posts, create_tables
+from import_posts import import_posts
 import markdown
 
+
 app = Flask(__name__, template_folder="templates", static_folder="static")
+
+
+try:
+    create_tables()
+    if not get_all_posts():
+        print("Blog DB empty — importing posts...")
+        import_posts()
+except Exception as e:
+    print(f"Error checking/initializing database: {e}")
 
 
 @app.route("/")
@@ -29,6 +40,10 @@ def resume():
 def contact():
     return render_template("portfolio_contact.html")
 
+@app.route("/socials")
+def socials():
+    return render_template("content_socials.html")
+
 @app.route("/content_about")
 def content_about():
     return render_template("content_about.html")
@@ -46,12 +61,9 @@ def blog():
     converted_posts = []
     for post in posts:
         converted_post = dict(post)
-        # You could still markdown the content if needed
         converted_posts.append(converted_post)
 
     return render_template("content_blog.html", posts=converted_posts)
-
-
 
 @app.route("/blog/<int:post_id>")
 def blog_post(post_id):
@@ -61,16 +73,10 @@ def blog_post(post_id):
     if post is None:
         return "Post not found", 404
 
-    # Convert Markdown to HTML
     converted_post = dict(post)
     converted_post['content'] = markdown.markdown(post['content'])
 
     return render_template("blog_post.html", post=converted_post)
-
-
-@app.route("/socials")
-def socials():
-    return render_template("content_socials.html")
 
 
 if __name__ == '__main__':
