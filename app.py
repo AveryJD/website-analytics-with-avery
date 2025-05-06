@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from database.database import get_db, get_all_posts, create_tables
-from import_posts import import_posts
+from database.import_posts import import_posts
 import markdown
 
 
