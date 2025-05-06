@@ -1,6 +1,8 @@
 # Avery Doiron's Personal Website
 
-This is a personal website I created to showcase my portfolio and content I create.
+This is my personal website that I created to showcase my portfolio and content I create.
+
+You can find the website at [analyticswithavery.com](https://analyticswithavery.com)
 
 ## Features
 - About Me
@@ -9,9 +11,9 @@ This is a personal website I created to showcase my portfolio and content I crea
 - Resume
 - Contact Information
 - About My Content
-- Blog on Hockey Analytics
-- NHL Player Analytics Projects
-- Online Brand Social Media Information
+- Hockey Analytics Blog
+- Hockey Analytics Projects
+- Analytics With Avery Social Media Information
 
 ## Languages and Libraries/Frameworks Used
 - HTML
@@ -22,7 +24,6 @@ This is a personal website I created to showcase my portfolio and content I crea
 - SQLite3
 
 ## Upcoming Additions
-- Website Launch
 - Blog Posts Being Added
 - Projects Being Added
 - Improved Mobile Responsiveness
