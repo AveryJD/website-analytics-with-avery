@@ -70,6 +70,7 @@ main h3{
 
 .home-section {
   display: flex;
+  flex-direction: column;
   background-color: rgb(240, 240, 240);
   padding: 50px;
   margin: 20px;

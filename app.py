@@ -8,7 +8,11 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    with get_db() as conn:
+        post = conn.execute('SELECT * FROM blog_posts ORDER BY id DESC LIMIT 1').fetchone()
+
+    most_recent_post = dict(post) if post else None
+    return render_template("index.html", post=most_recent_post)
 
 @app.route("/portfolio_about")
 def portfolio_about():
@@ -60,9 +64,6 @@ def blog_post(post_id):
     with get_db() as conn:
         post = conn.execute('SELECT * FROM blog_posts WHERE id = ?', (post_id,)).fetchone()
 
-    if post is None:
-        return "Post not found", 404
-
     converted_post = dict(post)
     converted_post['content'] = markdown.markdown(post['content'])
 
@@ -70,6 +71,8 @@ def blog_post(post_id):
 
 
 if __name__ == '__main__':
+
     create_tables()
     import_posts()
+
     app.run(host="localhost", port=8000, debug=True)
