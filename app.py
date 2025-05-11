@@ -1,19 +1,9 @@
 from flask import Flask, render_template
-from database.database import get_db, get_all_posts, create_tables
-from database.import_posts import import_posts
+from database.database import get_db, create_tables, import_posts
 import markdown
 
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
-
-
-try:
-    create_tables()
-    if not get_all_posts():
-        print("Blog DB empty — importing posts...")
-        import_posts()
-except Exception as e:
-    print(f"Error checking/initializing database: {e}")
 
 
 @app.route("/")
@@ -80,4 +70,6 @@ def blog_post(post_id):
 
 
 if __name__ == '__main__':
+    create_tables()
+    import_posts()
     app.run(host="localhost", port=8000, debug=True)
