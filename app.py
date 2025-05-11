@@ -70,9 +70,9 @@ def blog_post(post_id):
     return render_template("blog_post.html", post=converted_post)
 
 
+create_tables()
+import_posts()
+
+
 if __name__ == '__main__':
-
-    create_tables()
-    import_posts()
-
     app.run(host="localhost", port=8000, debug=True)

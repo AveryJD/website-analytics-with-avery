@@ -2,7 +2,7 @@ import sqlite3
 import os
 from contextlib import contextmanager
 
-DATABASE_NAME = 'database/blog.db'
+DATABASE_NAME = 'database/blog_posts.db'
 POSTS_FOLDER = 'posts'
 
 
