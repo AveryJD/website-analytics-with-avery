@@ -1,10 +1,8 @@
-Temporary Post Title
-May 5, 2025
-Temporary summary here.
+Title (Temporary)
+Month Day, Year
+[Preview Here]
 
 Blog post text here...
-
-**Subtitle**
 
 Lorem ipsum dolor sit amet, munere fabulas adipisci ea usu, mei nibh latine iudicabit te. Vix sadipscing scriptorem an, nec an animal consequuntur. Sed porro deleniti ut, ad usu prodesset definiebas scripserit. Blandit persequeris at sea.
 
@@ -15,5 +13,4 @@ Agam placerat interesset mea cu, mei luptatum invenire at, viderer perpetua ne e
 Quo te alii suas illum. At eros docendi his. Et qui tale feugiat detracto. Mei ne oblique vivendum probatus.
 
 Quot persequeris usu in. An sed ipsum necessitatibus, alia causae eu mel, cum ceteros voluptaria ne. Sea id quod scribentur. Ius cu nibh soleat suscipiantur, decore ridens euismod no est, tale nemore quodsi eam at. Ad facer cetero inimicus sit, facer platonem vis ex, ex dico ignota vocibus vel.
-
 
