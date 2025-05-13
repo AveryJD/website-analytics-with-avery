@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from database.database import get_db, create_tables, import_posts
+from database.database import get_db, delete_tables, create_tables, import_posts
 import markdown
 
 
@@ -70,6 +70,7 @@ def blog_post(post_id):
     return render_template("blog_post.html", post=converted_post)
 
 
+delete_tables()
 create_tables()
 import_posts()
 

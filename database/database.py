@@ -19,6 +19,11 @@ def create_tables():
             )
         ''')
 
+def delete_tables():
+    with sqlite3.connect(DATABASE_NAME) as conn:
+        conn.execute('DROP TABLE IF EXISTS blog_posts')
+
+
 
 @contextmanager
 def get_db():
@@ -30,9 +35,6 @@ def get_db():
         conn.commit()
         conn.close()
 
-def get_all_posts():
-    with get_db() as conn:
-        return conn.execute('SELECT * FROM blog_posts').fetchall()
     
 def create_post(filename, title, date, preview, content):
     with get_db() as conn:
