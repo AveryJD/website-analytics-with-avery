@@ -117,8 +117,8 @@ main h3{
 }
 
 .socials-icon {
-  width: 13rem;
-  height: 13rem;
+  width: 20%;
+  height: 20%;
 }
 
 .socials-icon:hover{
@@ -251,7 +251,6 @@ main h3{
   font-size: 2.5rem;
   text-align: center;
 }
-
 
 .blog-post img {
   max-width: 100%;
@@ -466,5 +465,44 @@ main h3{
     display: flex;
     margin: auto;
   }
+
+}
+
+
+@media (max-width: 1200px) {
+
+  .text-beside-image {
+    padding: 0rem;
+    padding-top: 3rem;
+    width: 100%;
+  }
+
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-section img{
+    width: 70%;
+  }
+
+  .education-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-section img{
+    width: 70%;
+  }
+
+  .experience-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-section img{
+    width: 70%;
+  }
+
 }
 
