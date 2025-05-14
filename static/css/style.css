@@ -77,24 +77,15 @@ main h3{
 }
 
 
-/* ==================== HOME ==================== */
-
-.home-section {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(240, 240, 240);
-  padding: 3rem;
-  margin: 1.25rem;
-}
-
-
 /* ==================== ABOUT ==================== */
 
 .about-section {
   display: flex;
   background-color: rgb(240, 240, 240);
-  padding: 3rem;
   margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 
@@ -103,9 +94,9 @@ main h3{
 .socials-section {
   background-color: rgb(240, 240, 240);
   margin: 1.25rem;
-  padding: 3rem;
-  padding-left: 6.25rem;
-  padding-right: 6.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .socials-container {
@@ -132,8 +123,10 @@ main h3{
 .education-section {
   display: flex;
   background-color: rgb(240, 240, 240);
-  padding: 3rem;
   margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .courses-section {
@@ -174,8 +167,10 @@ main h3{
 .experience-section {
   display: flex;
   background-color: rgb(240, 240, 240);
-  padding: 3rem;
   margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .experience-section ul{
@@ -193,8 +188,10 @@ main h3{
 
 .resume-section {
   background-color: rgb(240, 240, 240);
-  padding: 3rem;
   margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   align-items: center;
   text-align: center;
 }
@@ -221,9 +218,9 @@ main h3{
 .blog-section {
   background-color: rgb(240, 240, 240);
   margin: 1.25rem;
-  padding: 3rem;
-  padding-left: 6.25rem;
-  padding-right: 6.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .blog-section h4{
@@ -242,8 +239,10 @@ main h3{
 .blog-post {
   font-family: "Space Mono", monospace;
   background-color: rgb(240, 240, 240);
-  padding: 3rem;
   margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
 }
 
@@ -259,8 +258,7 @@ main h3{
 }
 
 .blog-text {
-  width: 80%;
-  padding: 3rem;
+  width: 90%;
   margin: auto;
 }
 
@@ -289,9 +287,9 @@ main h3{
 .card-section {
   background-color: rgb(240, 240, 240);
   margin: 1.25rem;
-  padding: 3rem;
-  padding-left: 6.25rem;
-  padding-right: 6.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
 }
 
