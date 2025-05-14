@@ -297,33 +297,57 @@ main h3{
 }
 
 
+/* ==================== FOOTER ==================== */
+
+.footer {
+  background: rgb(240, 240, 240);
+  text-align: center;
+  width: 100%;
+  padding: 1.25rem;
+}
+
+
 /* ==================== NAVIGATION BAR ==================== */
 
 .nav-bar {
   display: flex;
   width: 100%;
   height: 5rem;
+  align-items: center;
   position: relative;
 }
 
-.portfolio-nav {
+.portfolio-nav,
+.content-nav {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.portfolio-nav {
   background-color: rgb(100, 100, 255);
-  justify-content: flex-start;
 }
 
 .content-nav {
-  display: flex;
-  align-items: center;
   background-color: rgb(255, 100, 100);
-  justify-content: flex-end;
 }
 
 .sub-links {
-  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.sub-links li{
+  width: min-content;
+  white-space: nowrap;
 }
 
 .nav-titles {
@@ -358,12 +382,89 @@ main h3{
   color: rgb(255, 200, 200);
 }
 
-
-/* ==================== FOOTER ==================== */
-
-.footer {
-  background: rgb(240, 240, 240);
-  text-align: center;
-  width: 100%;
-  padding: 1.25rem;
+.hamburger-button {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
+
+.hamburger-logo {
+  width: 2rem;
+  height: 2rem;
+}
+
+.hamburger-nav {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: row;
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.portfolio-menu {
+  background-color: rgb(120, 120, 255);
+  flex: 1;
+  padding: 1rem;
+  list-style: none;
+}
+
+.content-menu {
+  background-color: rgb(255, 120, 120);
+  flex: 1;
+  padding: 1rem;
+  list-style: none;
+}
+
+.portfolio-menu a:hover{
+  color: rgb(200, 200, 255);
+}
+
+.content-menu a:hover{
+  color: rgb(255, 200, 200);
+}
+
+.hamburger-links li a {
+  font-family: "Armata", serif;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hamburger-links li {
+  padding: 0.5rem 0;
+}
+
+
+/* ==================== MEDIA QUERIES ==================== */
+
+@media (max-width: 1400px) {
+  .portfolio-nav .sub-links,
+  .content-nav .sub-links {
+    display: none;
+  }
+
+  .portfolio-nav,
+  .content-nav {
+    justify-content: center;
+  }
+
+  .hamburger-button {
+    display: flex;
+    margin: auto;
+  }
+}
+
