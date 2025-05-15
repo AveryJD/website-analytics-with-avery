@@ -293,6 +293,19 @@ main h3{
   text-align: center;
 }
 
+.card-image{
+  width: 90%;
+}
+
+.card-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.card-preview img{
+  width: 33%;
+  margin: 1rem;
+}
 
 /* ==================== FOOTER ==================== */
 
@@ -505,6 +518,15 @@ main h3{
 
   .experience-section img{
     width: 70%;
+  }
+
+  .card-preview {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-preview img{
+    width: 80%;
   }
 
 }
