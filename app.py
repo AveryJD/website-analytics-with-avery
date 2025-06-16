@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 @app.route("/")
 def home():
     with get_db() as conn:
-        post = conn.execute('SELECT * FROM blog_posts ORDER BY id DESC LIMIT 1').fetchone()
+        post = conn.execute('SELECT * FROM blog_posts ORDER BY id ASC LIMIT 1').fetchone()
 
     most_recent_post = dict(post) if post else None
     return render_template("index.html", post=most_recent_post)
@@ -50,7 +50,7 @@ def projects():
 @app.route("/blog")
 def blog():
     with get_db() as conn:
-        posts = conn.execute('SELECT * FROM blog_posts ORDER BY id DESC').fetchall()
+        posts = conn.execute('SELECT * FROM blog_posts ORDER BY id ASC').fetchall()
 
     converted_posts = []
     for post in posts:
