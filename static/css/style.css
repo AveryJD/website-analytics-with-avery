@@ -131,6 +131,7 @@ main h3{
 
 .courses-section {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .education-list {
