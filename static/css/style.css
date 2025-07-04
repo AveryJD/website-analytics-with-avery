@@ -273,6 +273,21 @@ main h3{
   padding-bottom: 0.3rem;
 }
 
+.blog-text table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.75rem;
+  table-layout: fixed;
+}
+
+.blog-text th,
+.blog-text td {
+  border: 1px solid black;
+  padding: 0.5rem 0.8rem;
+  text-align: center;
+}
+
 .back-arrow {
   font-size: 1.25rem;
   text-align: center;

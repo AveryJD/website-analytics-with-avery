@@ -65,7 +65,7 @@ def blog_post(post_id):
         post = conn.execute('SELECT * FROM blog_posts WHERE id = ?', (post_id,)).fetchone()
 
     converted_post = dict(post)
-    converted_post['content'] = markdown.markdown(post['content'])
+    converted_post['content'] = markdown.markdown(post['content'], extensions=['tables'])
 
     return render_template("blog_post.html", post=converted_post)
 
