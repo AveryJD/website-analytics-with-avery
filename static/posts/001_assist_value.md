@@ -27,13 +27,13 @@ During each test, for every player who met the TOI requirement, I averaged their
 
 Below I plotted the R² values produced by each TOI-based sample. The green line in the graph shows the highest R² value found by the optimum assist weights from each test through the grid search. For comparison, I also plotted the R² results for when the primary and secondary assist weightings were both 0.00, 0.50, and 1.00, represented by red, orange, and yellow lines, respectively. As you can see, the best found assist weights, always gave a higher R² than the other commonly used assist weightings.
 
-![R² Line Graph](/static/post_images/0_0_linegraph.png)
+![R² Line Graph](/static/post_images/001_1_linegraph.png)
 
 To determine which sample size to use for deriving the final assist weights, I wanted a balance between a strong R² and a large sample of players. The 0-minute TOI requirement was discarded early, as it included too many players with minimal ice time leading to atypical data, which resulted in an unacceptably low R². On the opposite end, the 800-minute filter limited the player pool to just 125, which felt like too small of a sample size, especially with other TOI-filtered samples having closer to 200-300 players.
 
 As shown in the graph, we can see that R² rises from the 100-minute to the 300-minute TOI minimum sample where it then starts to level off until the 800-minute TOI sample (which we previously discarded from using as the best sample). After the 300-minute TOI threshold, the increase in R² becomes very minimal, while the sample size continues to decrease. I think it's safe for the minimum TOI requirement to be 300 minutes as it yields a good R² while maintaining a large sample size of 289 players. This also coincides with Tyrel's post, as he also chose 300 minutes to be the TOI threshold for his study. With the sample of players selected, we can now use them to find the optimal assist weights.
   
-![Predicted vs Actual GC/60 Scatter Plot](/static/post_images/0_1_scatterplot.png)
+![Predicted vs Actual GC/60 Scatter Plot](/static/post_images/001_2_scatterplot.png)
  
 Above is a scatter plot of the predicted GC/60 vs the actual GC/60, with both metrics calculated using the optimal weights found through the grid search. The value of R² came out to be 0.722. Considering how volatile a player's stats can be by season, I was pretty happy with this value. So what were the assist weights that led to this R²? 
  
@@ -41,7 +41,7 @@ The results showed that the best-performing weight for primary assists was 0.78,
  
 Where things got more interesting was with secondary assists. The optimal weight found for secondary assists was 0.00, suggesting that, on average, they provide little to no predictive value for future offensive production. While Tyrel’s study assigned them a value of 0.19, he did note that the value of secondary assists tends toward zero, especially for forwards.
 
-![Assist Combination Heat Map](/static/post_images/0_2_heatmap.png)
+![Assist Combination Heat Map](/static/post_images/001_3_heatmap.png)
 
 The heat map above visualizes the R² values produced by each combination of primary and secondary assist weights tested in the grid search. The cooler colors (purples, blues, and greens) represent higher R² values, indicating better model performance, while warmer colors (reds, oranges, and yellows) reflect weaker fits. As shown, the highest R² values cluster around the primary assist weights between 0.70 and 0.90, while the secondary assist weight hovers near 0.00 across the best-performing combinations. This reinforces the earlier result that primary assists carry stronger predictive value, while secondary assists do not appear to improve model performance and may even introduce noise when weighted too heavily.
  

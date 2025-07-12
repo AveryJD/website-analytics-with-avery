@@ -10,7 +10,7 @@ def create_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('''
             CREATE TABLE IF NOT EXISTS blog_posts (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY NOT NULL,
                 filename TEXT NOT NULL,
                 title TEXT NOT NULL,
                 date TEXT NOT NULL,
@@ -36,11 +36,11 @@ def get_db():
         conn.close()
 
     
-def create_post(filename, title, date, preview, content):
+def create_post(id, filename, title, date, preview, content):
     with get_db() as conn:
         conn.execute(
-            'INSERT INTO blog_posts (filename, title, date, preview, content) VALUES (?, ?, ?, ?, ?)', 
-            (filename, title, date, preview, content)
+            'INSERT INTO blog_posts (id, filename, title, date, preview, content) VALUES (?, ?, ?, ?, ?, ?)', 
+            (id, filename, title, date, preview, content)
         )
 
 def delete_all_posts():
@@ -61,11 +61,12 @@ def import_posts():
             with open(filepath, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
 
+            id = int(filename.split('_', 1)[0])
             filename = filename.rsplit('.', 1)[0]
             title = lines[0].strip()                # First line = title
             date = lines[1].strip()                 # Second line = date
             preview = lines[2].strip()              # Third line = preview
             content = ''.join(lines[3:]).strip()    # Everything after = content
 
-            create_post(filename, title, date, preview, content)
+            create_post(id, filename, title, date, preview, content)
             print(f"Imported: {title}")
