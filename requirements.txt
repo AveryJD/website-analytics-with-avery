@@ -15,5 +15,4 @@ tzdata==2025.2
 Werkzeug==3.1.3
 gunicorn>=23.0.0
 
-# Install NHL Player Stat Cards package from GitHub
 -e git+https://github.com/averyjdoiron/NHL-Player-Stat-Cards.git#egg=nhl-player-stat-cards&subdirectory=src
