@@ -24,6 +24,6 @@ You can find the website at [analyticswithavery.com](https://analyticswithavery.
 - SQLite3
 
 ## Upcoming Additions
-- Blog Posts Being Added
-- Projects Being Added
+- More Blog Posts Being Added
+- More Projects Being Added
 - Improved Mobile Responsiveness

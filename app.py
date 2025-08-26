@@ -141,15 +141,15 @@ def card_image():
     return send_file(buf, mimetype="image/png")
 
 
+delete_blog_tables()
+create_blog_tables()
+import_blog_posts()
 
+delete_card_tables()
+create_card_tables()
+import_card_data()
+
+    
 if __name__ == '__main__':
-
-    delete_blog_tables()
-    create_blog_tables()
-    import_blog_posts()
-
-    delete_card_tables()
-    create_card_tables()
-    import_card_data()
 
     app.run(host="localhost", port=8000, debug=True)
