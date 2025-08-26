@@ -67,7 +67,7 @@ def get_card_db():
         conn.close()
 
 
-def import_card_data(csv_folder='static/card_data'):
+def import_card_data(csv_folder='card_data'):
     with get_card_db() as conn:
         for folder in ['forwards', 'defensemen']: #, 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
