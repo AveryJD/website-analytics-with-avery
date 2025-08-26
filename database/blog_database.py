@@ -6,7 +6,7 @@ DATABASE_NAME = 'database/blog_posts.db'
 POSTS_FOLDER = 'static/posts'
 
 
-def create_tables():
+def create_blog_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('''
             CREATE TABLE IF NOT EXISTS blog_posts (
@@ -19,14 +19,13 @@ def create_tables():
             )
         ''')
 
-def delete_tables():
+def delete_blog_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('DROP TABLE IF EXISTS blog_posts')
 
 
-
 @contextmanager
-def get_db():
+def get_blog_db():
     conn = sqlite3.connect(DATABASE_NAME)
     conn.row_factory = sqlite3.Row 
     try:
@@ -36,24 +35,15 @@ def get_db():
         conn.close()
 
     
-def create_post(id, filename, title, date, preview, content):
-    with get_db() as conn:
+def create_blog_post(id, filename, title, date, preview, content):
+    with get_blog_db() as conn:
         conn.execute(
             'INSERT INTO blog_posts (id, filename, title, date, preview, content) VALUES (?, ?, ?, ?, ?, ?)', 
             (id, filename, title, date, preview, content)
         )
 
-def delete_all_posts():
-    with get_db() as conn:
-        conn.execute('DELETE FROM blog_posts')
-        conn.commit()
 
-
-
-def import_posts():
-
-    # Reset posts table
-    delete_all_posts()
+def import_blog_posts():
 
     for filename in os.listdir(POSTS_FOLDER):
         if filename.endswith('.md') or filename.endswith('.txt'):
@@ -68,5 +58,5 @@ def import_posts():
             preview = lines[2].strip()              # Third line = preview
             content = ''.join(lines[3:]).strip()    # Everything after = content
 
-            create_post(id, filename, title, date, preview, content)
+            create_blog_post(id, filename, title, date, preview, content)
             print(f"Imported: {title}")

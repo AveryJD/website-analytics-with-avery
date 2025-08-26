@@ -86,6 +86,7 @@ main h3{
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  border-radius: 0.8rem;
 }
 
 
@@ -97,6 +98,7 @@ main h3{
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  border-radius: 0.8rem;
 }
 
 .socials-container {
@@ -127,6 +129,7 @@ main h3{
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  border-radius: 0.8rem;
 }
 
 .courses-section {
@@ -172,6 +175,7 @@ main h3{
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  border-radius: 0.8rem;
 }
 
 .experience-section ul{
@@ -195,6 +199,7 @@ main h3{
   padding-right: 10%;
   align-items: center;
   text-align: center;
+  border-radius: 0.8rem;
 }
 
 .resume-section p {
@@ -222,6 +227,7 @@ main h3{
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  border-radius: 0.8rem;
 }
 
 .blog-section h4{
@@ -278,7 +284,7 @@ main h3{
   width: 100%;
   margin: 1rem 0;
   font-size: 0.75rem;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .blog-text th,
@@ -307,6 +313,7 @@ main h3{
   padding-left: 10%;
   padding-right: 10%;
   text-align: center;
+  border-radius: 0.8rem;
 }
 
 .card-image{
@@ -323,13 +330,132 @@ main h3{
   margin: 1rem;
 }
 
-/* ==================== FOOTER ==================== */
 
-.footer {
-  background: rgb(240, 240, 240);
-  text-align: center;
-  width: 100%;
-  padding: 1.25rem;
+/* ==================== CARD PROJECT ==================== */
+
+#filter-form {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 900px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.2rem;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.filters-row label {
+  font-weight: bold;
+}
+
+.filters-row select {
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  font-size: 1.5rem;
+  font-family: "Armata", serif;
+  background-color: white;
+  transition: border-color 0.2s ease;
+}
+
+.filters-row select:focus {
+  border-color: #6666ff;
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(100, 100, 255, 0.4);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button-row button {
+  background-color: rgb(100, 100, 255);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Armata", serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.filters-row button:hover {
+  background-color: rgb(80, 80, 230);
+  transform: scale(1.05);
+}
+
+.placeholder-text {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.player-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.player-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.card-explanation {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.card-explanation h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-explanation p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.card-explanation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.card-explanation li {
+  background: rgb(245, 245, 245);
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: background 0.2s ease;
 }
 
 
@@ -480,6 +606,16 @@ main h3{
 }
 
 
+/* ==================== FOOTER ==================== */
+
+.footer {
+  background: rgb(240, 240, 240);
+  text-align: center;
+  width: 100%;
+  padding: 1.25rem;
+}
+
+
 /* ==================== MEDIA QUERIES ==================== */
 
 @media (max-width: 1400px) {
@@ -547,3 +683,15 @@ main h3{
 
 }
 
+@media (max-width: 768px) {
+  .filters-row,
+  .player-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .player-row button {
+    width: 100%;
+    text-align: center;
+  }
+}

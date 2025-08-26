@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analytics With Avery | NHL Player Cards</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+
+<body>
+
+  <div class="page-content">
+
+    <div id="navbar"></div>
+
+    <main>
+        <h1 class="main-heading">NHL Player Cards</h1>
+            
+        <div class="card-section">
+
+            <form method="POST" id="filter-form">
+
+                <div class="filters-row">
+                    <div>
+                        <label for="season">Season:</label>
+                        <select name="season" id="season">
+                            {% for s in seasons %}
+                            <option value="{{ s }}" 
+                                {% if selected_card %}
+                                    {% if selected_card.season == s %}selected{% endif %}
+                                {% else %}
+                                    {% if loop.first %}selected{% endif %}
+                                {% endif %}
+                            >
+                                {{ s }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="position">Position:</label>
+                        <select name="position" id="position">
+                            {% for p in positions %}
+                            <option value="{{ p }}"
+                                {% if selected_card %}
+                                    {% if selected_card.position == p %}selected{% endif %}
+                                {% else %}
+                                    {% if loop.first %}selected{% endif %}
+                                {% endif %}
+                            >
+                                {{ position_names[p] }}
+                            </option>
+                            {% endfor %}
+                        </select>                        
+                    </div>
+            
+                    <div>
+                        <label for="team">Team:</label>
+                        <select name="team" id="team">
+                            {% for t in teams %}
+                            <option value="{{ t }}" 
+                                {% if selected_card %}
+                                    {% if selected_card.team == t %}selected{% endif %}
+                                {% else %}
+                                    {% if loop.first %}selected{% endif %}
+                                {% endif %}
+                            >
+                                {{ team_names[t] }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="player">Player:</label>
+                        <select name="player" id="player" required>
+                            {% for p in players_list %}
+                            <option value="{{ p.player }}" 
+                                    data-season="{{ p.season }}" 
+                                    data-position="{{ p.position }}" 
+                                    data-team="{{ p.team }}"
+                                    {% if selected_card and selected_card.name == p.player %}selected{% endif %}>
+                                {{ p.player }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+            
+                <div class="button-row">
+                    <button type="submit">Generate Card</button>
+                </div>
+
+            </form>
+            
+            <div class="player-card">
+                {% if selected_card %}
+                  <img src="/card_image?season={{ selected_card.season }}&position={{ selected_card.position }}&player={{ selected_card.name }}{% if selected_card.team %}&team={{ selected_card.team }}{% endif %}" 
+                       alt="{{ selected_card.name }} card"> 
+                {% else %}
+                <div class="placeholder-text">
+                    <p>Player card will generate here.</p>
+                    <p>Cards will not load instantly, so wait a second.</p>
+                </div>
+
+                {% endif %}
+              </div>              
+
+          <div class="card-explanation">
+            <h3>Notes:</h3>
+            <p>The ranking model is not 100% finished, so changes will be made over time to player rankings.</p>
+            <p>Currently, you cannot generate cards for players who have played for multiple teams in a season. This will be updated soon.</p>
+            <p>Goalie cards will be added soon.</p>
+            <p>Salary information will be added soon.</p>
+            <p>The data was last updated on August 25, 2025.</p>
+          
+            <h3>Card Explanation:</h3> 
+            <p>All attributes are weighted based on the past 3 seasons, with the most recent season being weighted the most.</p>
+            <p>Each ranking section has a large number (the player's ranking for that attribute), a small number (the total number of players that qualify for that attribute), 
+               and a percentile bar showing the percentage of players that the selected player ranks above in that attribute.</p>
+            <p>To qualify for rankings, a player must have played at least 25% of games in the season.</p>
+            <p>To qualify for 5v4 and 4v5 rankings, a player must have played over 45 seconds of the respective special teams per total games in the season. 
+               To qualify for faceoffs, a player must have taken at least 3 faceoffs per total games in the season. Players that do not qualify for an attribute 
+               receive an "N/A" as their rank.</p>
+            <ul>
+              <li><b>5v5 Offense</b> - How well a player performs offensively at 5-on-5 play (even strength). Adjusted to a per 60-minute rate.</li>
+              <li><b>5v5 Defense</b> - How well a player performs defensively at 5-on-5 play. Adjusted to a per 60-minute rate.</li>
+              <li><b>5v4 Offense</b> - How well a player performs offensively at 5-on-4 play (power play). Adjusted to a per 60-minute rate.</li>
+              <li><b>4v5 Defense</b> - How well a player performs defensively at 4-on-5 play (penalty kill). Adjusted to a per 60-minute rate.</li>
+              <li><b>On-Ice Offense</b> - How well a player's team performs offensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
+              <li><b>On-Ice Defense</b> - How well a player's team performs defensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
+              <li><b>Shooting</b> - How proficient a player is at shooting the puck in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Scoring</b> - How proficient a player is at scoring in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Playmaking</b> - How proficient a player is at earning assists in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>O-Zone Starts</b> - How often a player's shift starts in the offensive zone at 5-on-5. Adjusted to a per 60-minute rate.</li>
+              <li><b>Penalties</b> - How proficient a player is at drawing penalties compared to taking penalties in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Physicality</b> - How proficient a player is at hitting in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Fantasy</b> - How well a player earns points in a typical fantasy league. Adjusted to a per-game rate.</li>
+            </ul>
+          </div>
+          
+        </div>
+
+    </main>
+
+  <div id="footer"></div>
+
+  <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>
