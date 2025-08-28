@@ -348,7 +348,7 @@ main h3{
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1.2rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   align-items: center;
   margin: 0.5rem;
 }
@@ -361,7 +361,8 @@ main h3{
   padding: 0.5rem 0.8rem;
   border-radius: 0.4rem;
   border: 1px solid #ccc;
-  font-size: 1.5rem;
+  width: 300px;
+  font-size: 1.3rem;
   font-family: "Armata", serif;
   background-color: white;
   transition: border-color 0.2s ease;
