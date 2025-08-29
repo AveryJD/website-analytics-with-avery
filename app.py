@@ -23,7 +23,7 @@ TEAM_NAMES = {
 
 POSITION_NAMES = {
     'F': 'Forward',
-    'D': 'Defenseman',
+    'D': 'Defense',
     'G': 'Goalie'
 }
 

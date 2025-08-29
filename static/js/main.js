@@ -22,14 +22,13 @@ function openMenu() {
   }
 }
 
-// Card database and generation
+// Card generation
 document.addEventListener("DOMContentLoaded", function () {
   const seasonFilter = document.getElementById("season");
   const positionFilter = document.getElementById("position");
   const teamFilter = document.getElementById("team");
   const playerSelect = document.getElementById("player");
 
-  // store all players once
   const allPlayers = Array.from(playerSelect.options).map(opt => ({
       name: opt.value,
       text: opt.textContent,
@@ -39,38 +38,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }));
 
   function filterPlayers() {
-      const season = seasonFilter.value;
-      const position = positionFilter.value;
-      const team = teamFilter.value;
+    const season = seasonFilter.value;
+    const position = positionFilter.value;
+    const team = teamFilter.value;
+    const selectedPlayer = playerSelect.dataset.selected; // <-- comes from template
 
-      // clear current list
-      playerSelect.innerHTML = "";
+    // clear current list
+    playerSelect.innerHTML = "";
 
-      // filter + repopulate
-      const filtered = allPlayers.filter(p =>
-          (!season || p.season === season) &&
-          (!position || p.position === position) &&
-          (!team || p.team === team)
-      );
+    // filter + repopulate
+    const filtered = allPlayers.filter(p =>
+        (!season || p.season === season) &&
+        (!position || p.position === position) &&
+        (!team || p.team === team)
+    );
 
-      if (filtered.length === 0) {
-          const opt = document.createElement("option");
-          opt.text = "No players found";
-          opt.disabled = true;
-          opt.selected = true;
-          playerSelect.add(opt);
-      } else {
-          filtered.forEach(p => {
-              const opt = document.createElement("option");
-              opt.value = p.name;
-              opt.text = p.text;
-              opt.dataset.season = p.season;
-              opt.dataset.position = p.position;
-              opt.dataset.team = p.team;
-              playerSelect.add(opt);
-          });
-      }
-  }
+    if (filtered.length === 0) {
+        const opt = document.createElement("option");
+        opt.text = "No players found";
+        opt.disabled = true;
+        opt.selected = true;
+        playerSelect.add(opt);
+    } else {
+        filtered.forEach(p => {
+            const opt = document.createElement("option");
+            opt.value = p.name;
+            opt.text = p.text;
+            opt.dataset.season = p.season;
+            opt.dataset.position = p.position;
+            opt.dataset.team = p.team;
+            if (p.name === selectedPlayer) {
+                opt.selected = true; // <-- reapply selection
+            }
+            playerSelect.add(opt);
+        });
+    }
+}
 
   seasonFilter.addEventListener("change", filterPlayers);
   positionFilter.addEventListener("change", filterPlayers);

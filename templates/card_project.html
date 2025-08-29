@@ -74,7 +74,7 @@
                     
                     <div>
                         <label for="player">Player:</label>
-                        <select name="player" id="player" required>
+                        <select name="player" id="player" required data-selected="{{ selected_card.name if selected_card }}">
                             {% for p in players_list %}
                             <option value="{{ p.player }}" 
                                     data-season="{{ p.season }}" 
@@ -84,7 +84,7 @@
                                 {{ p.player }}
                             </option>
                             {% endfor %}
-                        </select>
+                        </select>                        
                     </div>
 
                 </div>
