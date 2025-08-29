@@ -1,0 +1,14 @@
+name: Keep Render Service Awake
+
+on:
+  schedule:
+    # Run every 10 minutes
+    - cron: "*/10 * * * *"
+  workflow_dispatch:  # allows you to run manually too
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render site
+        run: curl -s https://analyticswithavery.com > /dev/null
