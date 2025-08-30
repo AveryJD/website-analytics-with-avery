@@ -3,12 +3,12 @@ import pandas as pd
 import os
 from contextlib import contextmanager
 
-DATABASE_NAME = 'database/card_data.db'
+DATABASE_NAME = 'database/data_card.db'
 
 def create_card_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('''
-            CREATE TABLE IF NOT EXISTS card_data (
+            CREATE TABLE IF NOT EXISTS data_card (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 season TEXT NOT NULL,
                 player TEXT NOT NULL,
@@ -53,7 +53,7 @@ def create_card_tables():
 
 def delete_card_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
-        conn.execute('DROP TABLE IF EXISTS card_data')
+        conn.execute('DROP TABLE IF EXISTS data_card')
 
 
 @contextmanager
@@ -67,7 +67,7 @@ def get_card_db():
         conn.close()
 
 
-def import_card_data(csv_folder='card_data'):
+def import_card_data(csv_folder='data_card'):
     with get_card_db() as conn:
         for folder in ['forwards', 'defensemen']: #, 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
@@ -78,7 +78,7 @@ def import_card_data(csv_folder='card_data'):
 
                 for _, row in df.iterrows():
                     conn.execute('''
-                        INSERT OR IGNORE INTO card_data (
+                        INSERT OR IGNORE INTO data_card (
                             season, player, position, team, evo_rank, evd_rank, ppl_rank, pkl_rank, 
                             oio_rank, oid_rank, sht_rank, scr_rank, zon_rank, plm_rank, tra_rank, pen_rank, phy_rank, fof_rank,
                             fan_rank, Role, GP, TOI, Goals, "First Assists", Age, "Date of Birth", "Birth Country",
