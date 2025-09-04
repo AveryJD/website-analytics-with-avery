@@ -1,4 +1,4 @@
-# Avery Doiron's Personal Website
+# analyticswithavery.com (Avery Doiron's Personal Website)
 
 This is my personal website that I created to showcase my portfolio and content I create.
 
@@ -16,14 +16,11 @@ You can find the website at [analyticswithavery.com](https://analyticswithavery.
 - Analytics With Avery Social Media Information
 
 ## Languages and Libraries/Frameworks Used
-- HTML
-- CSS
-- JavaScript
-- Python
-- Flask 
-- SQLite3
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python, Flask 
+- **Database:** SQLite3
 
 ## Upcoming Additions
-- More Blog Posts Being Added
-- More Projects Being Added
-- Improved Mobile Responsiveness
+- New blog posts and analyses
+- Additional projects and interactive features
+- Improved mobile responsiveness and user experience
