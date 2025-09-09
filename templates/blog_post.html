@@ -22,9 +22,9 @@
         <div class="blog-post">
           <h2>{{ post['title'] }}</h2>
           <h3>By Avery Doiron | {{ post['date'] }}</h3>
-          <div class="blog-text">
+          <div class="blog-text post-{{ post['id'] }}">
             {{ post['content'] | safe }}
-          </div>
+          </div>        
         </div>
 
         <div class="back-arrow">

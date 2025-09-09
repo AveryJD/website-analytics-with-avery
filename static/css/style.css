@@ -279,21 +279,6 @@ main h3{
   padding-bottom: 0.3rem;
 }
 
-.blog-text table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1rem 0;
-  font-size: 0.75rem;
-  table-layout: auto;
-}
-
-.blog-text th,
-.blog-text td {
-  border: 1px solid black;
-  padding: 0.5rem 0.8rem;
-  text-align: center;
-}
-
 .back-arrow {
   font-size: 1.25rem;
   text-align: center;
@@ -302,6 +287,50 @@ main h3{
 .back-arrow a{
   text-decoration: none;
 }
+
+/* Table styling */
+.blog-text table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  table-layout: auto;
+  text-align: center;
+}
+
+.blog-text table td {
+  padding: 0.3rem;
+  background-color: #fafafa;
+  border: 1px solid black;
+}
+
+.blog-text table th {
+  font-weight: bold;
+  background-color: #ddd;
+  border: 1px solid black;
+}
+
+/* Custom table styling for tanking effectiveness blog posts */
+.post-3 table th:nth-child(1),
+.post-3 table td:nth-child(1),
+.post-4 table th:nth-child(1),
+.post-4 table td:nth-child(1) { width: 8%; }  /* Season */
+.post-3 table th:nth-child(2),
+.post-3 table td:nth-child(2),
+.post-4 table th:nth-child(2),
+.post-4 table td:nth-child(2) { width: 20%; }  /* League Finish */
+.post-3 table th:nth-child(3),
+.post-3 table td:nth-child(3),
+.post-4 table th:nth-child(3),
+.post-4 table td:nth-child(3) { width: 15%; }  /* Draft Pick */
+.post-3 table th:nth-child(4),
+.post-3 table td:nth-child(4),
+.post-4 table th:nth-child(4),
+.post-4 table td:nth-child(4) { width: 20%; }  /* Player Selected */
+.post-3 table th:nth-child(5),
+.post-3 table td:nth-child(5),
+.post-4 table th:nth-child(5),
+.post-4 table td:nth-child(5) { width: 37%; }  /* Player Result */
 
 
 /* ==================== PROJECTS ==================== */
