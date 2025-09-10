@@ -374,12 +374,17 @@ main h3{
 
 .filters-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.2rem;
-  font-size: 1.3rem;
+  flex-direction: column;
   align-items: center;
-  margin: 0.5rem;
+  gap: 1.5rem;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.filters-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .filters-row label {
@@ -390,7 +395,9 @@ main h3{
   padding: 0.5rem 0.8rem;
   border-radius: 0.4rem;
   border: 1px solid #ccc;
-  width: 300px;
+  width: 20rem;
+  text-align: center;
+  text-align-last: center;
   font-size: 1.3rem;
   font-family: "Armata", serif;
   background-color: white;
