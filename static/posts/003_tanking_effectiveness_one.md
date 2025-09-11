@@ -28,7 +28,7 @@ To define what counted as the tanking period for a team, I came up with this cri
 
 For each team, I identified if they had a tanking period, which players were acquired with their lottery picks during that tanking period, and the results these players had with the team. For the purposes of this study, we'll only be looking at the top draft picks that teams acquire through tanking, and not the accompanying trades and moves that occur during a rebuild, as often the high draft picks are the franchise-defining pieces that teams are looking for when tanking. 
 
-Note that the player's results are how the player performed during their time with that team. Sam Reinhart was just a solid top-line forward during his time with the Sabres, but became the elite player he is now after he was traded to the Panthers, so for the Sabres, he'll be labeled as a top-line player. The same goes for players who have more potential. Connor Bedard might be one of the best players in the league someday, but as of this point, the results he has performed with the Blackhawks are those of a top-line player, not necessarily elite (yet). Options for the player results are franchise, elite, top-line, middle-line, bottom-line, fringe, non-NHL player, and prospect (too early to tell).
+Note that the player's results are how the player performed during their time with that team. Sam Reinhart was just a solid top-line forward during his time with the Sabres, but became the elite player he is now after he was traded to the Panthers, so for the Sabres, he'll be labeled as a top-line player. The same goes for players who have more potential. Connor Bedard might be one of the best players in the league someday, but as of this point, the results he has performed with the Blackhawks are those of a top-line player, not necessarily elite (yet). Options for the player results are elite, top-line, middle-line, bottom-line, fringe, non-NHL player, and prospect (too early to tell).
 
 Along with the player results, I'll also be looking at team results, mainly whether or not they reached the ultimate goal of winning a Cup. I'll classify whether or not the team tanked, whether or not the team won, and what the team's current status is as of the end of last season (to give context to the cases where some teams may not have won yet with their core built through tanking, but could do so in the near future). In part 2, after going over every NHL team, I'll also get into some of the numbers surrounding the effectiveness of tanking. With all that laid out, let's look at the first half of the league and see which teams had a successful tank, which teams saw it fail, and how non-tanking teams fared by comparison.
 
@@ -135,7 +135,7 @@ Despite that, Carolina built a strong foundation through smart scouting, player 
 | 2003-2004   | 29th (2nd worst) | 3rd overall | Cam Barker (D) | Bottom-line player, played 5 seasons, was traded for Kim Johnsson (D, fringe player) and Nick Leddy (D, middle-line player), who contributed to the 2012-2013 Cup win |
 | 2004-2005   | N/A (lockout year) | 7th overall | Jack Skille (D) | Bottom-line player, played 5 seasons, was traded in a package for Alexander Salák (G, non-NHL player) and  Michael Frolík (F, bottom-line player), who contributed to the 2012-2013 Cup win |
 | 2005-2006   | 28th (3rd worst) | 3rd overall | Jonathan Toews (F) | Elite player, played 15 seasons, captain for 15 seasons, won a Selke, a Conn Smythe, and 3 Cups, eventually left in free agency due to health |
-| 2006-2007   | 26th (5th worst) | 1st overall | Patrick Kane (F) | Franchise player, played 16 seasons, won a Calder, a Hart, an Art Ross, a Ted Lindsay, a Conn Smythe, and 3 Cups, eventually was traded for picks and Cooper Zech (D, non-NHL player) |
+| 2006-2007   | 26th (5th worst) | 1st overall | Patrick Kane (F) | Elite player, played 16 seasons, won a Calder, a Hart, an Art Ross, a Ted Lindsay, a Conn Smythe, and 3 Cups, eventually was traded for picks and Cooper Zech (D, non-NHL player) |
 
 2022-2023 - Present
 
@@ -166,11 +166,11 @@ The Blackhawks now find themselves in a second tanking cycle. After tearing down
 | 2009-2010   | 12th (19th worst) | 17th overall        | Joey Hishon (F)         | Fringe player, played 1 season, left in free agency to the KHL |
 | 2010-2011   | 29th (2nd worst)  | 2nd overall         | Gabriel Landeskog (F)   | Top-line player, played 11 seasons, current captain for 13 seasons, won a Calder and a Cup |
 | 2011-2012   | 20th (11th worst) | 11th overall        | Traded for Semyon Varlamov (G) | Top-line player, played 8 seasons, eventually left in free agency |
-| 2012-2013   | 29th (2nd worst)  | 1st overall         | Nathan MacKinnon (F)    | Franchise player, played 12 seasons with the Avs, won a Calder, a Hart, a Ted Lindsay, and a Cup|
+| 2012-2013   | 29th (2nd worst)  | 1st overall         | Nathan MacKinnon (F)    | Elite player, played 12 seasons with the Avs, won a Calder, a Hart, a Ted Lindsay, and a Cup|
 | 2013-2014   | 3rd (28th worst)  | 23rd overall        | Conner Bleackley (F)     | Non-NHL player, did not sign and re-entered the draft |
 | 2014-2015   | 21st (10th worst) | 10th overall        | Mikko Rantanen (F)       | Elite player, played 10 seasons, won a cup, eventually traded for Martin Necas (F, top-line player), Jack Drury (F, bottom-line player), and picks |
 | 2015-2016   | 21st (10th worst) | 10th overall        | Tyson Jost (F)           | Bottom-line player, played 6 seasons, was traded for Nico Sturm (F, bottom-line player), who contributed to the Avs Cup win |
-| 2016-2017   | 30th (1st worst)  | 4th overall         | Cale Makar (D)          | Franchise player, played 6 seasons, won a Calder, Cup, Conn Smythe, and 2 Norris' |
+| 2016-2017   | 30th (1st worst)  | 4th overall         | Cale Makar (D)          | Elite player, played 6 seasons, won a Calder, Cup, Conn Smythe, and 2 Norris' |
 
 **Cup Wins:** 1 (2021-2022)
 
@@ -268,8 +268,8 @@ Their streak of making the playoffs ended and a new streak of not missing the pl
 | 2010-2011   | 30th (1st worst) | 1st overall | Ryan Nugent-Hopkins (F) | Top-line player, played 14 seasons |
 | 2011-2012   | 29th (2nd worst) | 1st overall | Nail Yakupov (F) | Middle-line player, played 4 seasons, was traded for Zach Pochiro (F, non-NHL player) and a third round pick |
 | 2012-2013   | 24th (7th worst) | 7th overall | Darnell Nurse (D) | Top-line player, played 10 seasons |
-| 2013-2014   | 28th (3rd worst) | 3rd overall | Leon Draisaitl (F) | Franchise player, played 11 seasons, won a Hart, an Art Ross, a Ted Lindsay and a Rocket |
-| 2014-2015   | 28th (3rd worst) | 1st overall | Connor McDavid (F) | Franchise player, played 10 seasons, won 3 Harts, 4 Art Ross', 4 Ted Lindsays, a Rocket, and a Conn Smythe |
+| 2013-2014   | 28th (3rd worst) | 3rd overall | Leon Draisaitl (F) | Elite player, played 11 seasons, won a Hart, an Art Ross, a Ted Lindsay and a Rocket |
+| 2014-2015   | 28th (3rd worst) | 1st overall | Connor McDavid (F) | Elite player, played 10 seasons, won 3 Harts, 4 Art Ross', 4 Ted Lindsays, a Rocket, and a Conn Smythe |
 | 2015-2016   | 29th (2nd worst) | 4th overall | Jesse Puljujarvi (F) | Bottom-line player, played 6 seasons, was traded for Patrick Puistola (F, non-NHL player) |
 
 **Cup Wins:** 0
