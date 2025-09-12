@@ -376,7 +376,7 @@ main h3{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
   font-size: 1.3rem;
   margin: 0.5rem 0;
 }
@@ -384,7 +384,6 @@ main h3{
 .filters-row > div {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .filters-row label {
@@ -404,29 +403,23 @@ main h3{
   transition: border-color 0.2s ease;
 }
 
-.filters-row select:focus {
-  border-color: #6666ff;
-  outline: none;
-  box-shadow: 0px 0px 4px rgba(100, 100, 255, 0.4);
-}
-
 .button-row {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .button-row button {
-  background-color: rgb(100, 100, 255);
   color: white;
+  background-color: rgb(100, 100, 255);
+  width: 20rem;
   border: none;
-  padding: 0.7rem 1.2rem;
   border-radius: 0.5rem;
+  padding: 1rem;
   cursor: pointer;
   font-family: "Armata", serif;
   font-weight: bold;
   font-size: 1.05rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .filters-row button:hover {
@@ -435,8 +428,7 @@ main h3{
 }
 
 .placeholder-text {
-  margin: 1rem;
-  justify-content: center;
+  margin: 2rem;
   font-size: 1.5rem;
   font-style: italic;
 }

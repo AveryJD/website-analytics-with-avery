@@ -93,6 +93,10 @@
                     <button type="submit">Generate Card</button>
                 </div>
 
+                <div class="placeholder-text">
+                    <p>The player card will generate below. Cards do not load instantly, so please wait while it loads.</p>
+                </div>
+
             </form>
             
             <div class="player-card">
@@ -100,21 +104,21 @@
                   <img src="/card_image?season={{ selected_card.season }}&position={{ selected_card.position }}&player={{ selected_card.name }}{% if selected_card.team %}&team={{ selected_card.team }}{% endif %}" 
                        alt="{{ selected_card.name }} card"> 
                 {% else %}
-                <div class="placeholder-text">
-                    <p>Player card will generate here. Cards will not load instantly, so please wait a second.</p>
-                </div>
 
                 {% endif %}
               </div>              
 
           <div class="card-explanation">
-            <h3>Notes:</h3>
-            <p>The ranking model is not 100% finished, so changes will be made over time to player rankings.</p>
-            <p>Currently, you cannot generate cards for players who have played for multiple teams in a season. This will be updated soon.</p>
-            <p>Goalie cards will be added soon.</p>
-            <p>Salary information will be added soon.</p>
-            <p>The data was last updated on August 25, 2025.</p>
-          
+            <h3>Note: These cards are currently in beta. Upcoming updates include:</h3>
+                <ul>
+                <li>Ranking model updates (player rankings may change over time).</li>
+                <li>Support for players who played for multiple teams in a season.</li>
+                <li>Goalie cards.</li>
+                <li>Salary information.</li>
+                </ul>
+          </div>
+
+          <div class="card-explanation">
             <h3>Card Explanation:</h3> 
             <p>All attributes are weighted based on the past 3 seasons, with the most recent season being weighted the most.</p>
             <p>Each ranking section has the player's ranking for that attribute (the largest number), 
@@ -140,6 +144,8 @@
               <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.</li>
               <li><b>Fantasy</b> - How well a player earns points in a typical fantasy league. Adjusted to a per-game rate.</li>
             </ul>
+
+            <p>Data was last updated on September 10, 2025.</p>
           </div>
           
         </div>
