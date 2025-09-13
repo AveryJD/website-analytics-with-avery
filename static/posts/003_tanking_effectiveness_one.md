@@ -134,8 +134,8 @@ Despite that, Carolina built a strong foundation through smart scouting, player 
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
 | 2003-2004   | 29th (2nd worst) | 3rd overall | Cam Barker (D) | Bottom-line player, played 5 seasons, was traded for Kim Johnsson (D, fringe player) and Nick Leddy (D, middle-line player), who contributed to the 2012-2013 Cup win |
 | 2004-2005   | N/A (lockout year) | 7th overall | Jack Skille (D) | Bottom-line player, played 5 seasons, was traded in a package for Alexander Salák (G, non-NHL player) and  Michael Frolík (F, bottom-line player), who contributed to the 2012-2013 Cup win |
-| 2005-2006   | 28th (3rd worst) | 3rd overall | Jonathan Toews (F) | Elite player, played 15 seasons, captain for 15 seasons, won a Selke, a Conn Smythe, and 3 Cups, eventually left in free agency due to health |
-| 2006-2007   | 26th (5th worst) | 1st overall | Patrick Kane (F) | Elite player, played 16 seasons, won a Calder, a Hart, an Art Ross, a Ted Lindsay, a Conn Smythe, and 3 Cups, eventually was traded for picks and Cooper Zech (D, non-NHL player) |
+| 2005-2006   | 28th (3rd worst) | 3rd overall | Jonathan Toews (F) | Elite player, played 15 seasons, captain for 15 seasons, won a Selke, a Conn Smythe, and 3 Cups, left in free agency due to health |
+| 2006-2007   | 26th (5th worst) | 1st overall | Patrick Kane (F) | Elite player, played 16 seasons, won a Calder, a Hart, an Art Ross, a Ted Lindsay, a Conn Smythe, and 3 Cups, was traded for picks and Cooper Zech (D, non-NHL player) |
 
 2022-2023 - Present
 
@@ -165,12 +165,12 @@ The Blackhawks now find themselves in a second tanking cycle. After tearing down
 | 2008-2009   | 28th (3rd worst)  | 3rd overall         | Matt Duchene (F)     | Top-line player, played 8 seasons, traded for a package that included Samuel Girard (D, middle-line player) and the pick that would be used 4th overall to draft Bowen Byram (D, middle-line player), two key contributors to the Cup win |
 | 2009-2010   | 12th (19th worst) | 17th overall        | Joey Hishon (F)         | Fringe player, played 1 season, left in free agency to the KHL |
 | 2010-2011   | 29th (2nd worst)  | 2nd overall         | Gabriel Landeskog (F)   | Top-line player, played 11 seasons, current captain for 13 seasons, won a Calder and a Cup |
-| 2011-2012   | 20th (11th worst) | 11th overall        | Traded for Semyon Varlamov (G) | Top-line player, played 8 seasons, eventually left in free agency |
+| 2011-2012   | 20th (11th worst) | 11th overall        | Traded for Semyon Varlamov (G) | Top-line player, played 8 seasons, left in free agency |
 | 2012-2013   | 29th (2nd worst)  | 1st overall         | Nathan MacKinnon (F)    | Elite player, played 12 seasons with the Avs, won a Calder, a Hart, a Ted Lindsay, and a Cup|
 | 2013-2014   | 3rd (28th worst)  | 23rd overall        | Conner Bleackley (F)     | Non-NHL player, did not sign and re-entered the draft |
-| 2014-2015   | 21st (10th worst) | 10th overall        | Mikko Rantanen (F)       | Elite player, played 10 seasons, won a cup, eventually traded for Martin Necas (F, top-line player), Jack Drury (F, bottom-line player), and picks |
+| 2014-2015   | 21st (10th worst) | 10th overall        | Mikko Rantanen (F)       | Elite player, played 10 seasons, won a cup, was traded for Martin Necas (F, top-line player), Jack Drury (F, bottom-line player), and picks |
 | 2015-2016   | 21st (10th worst) | 10th overall        | Tyson Jost (F)           | Bottom-line player, played 6 seasons, was traded for Nico Sturm (F, bottom-line player), who contributed to the Avs Cup win |
-| 2016-2017   | 30th (1st worst)  | 4th overall         | Cale Makar (D)          | Elite player, played 6 seasons, won a Calder, Cup, Conn Smythe, and 2 Norris' |
+| 2016-2017   | 30th (1st worst)  | 4th overall         | Cale Makar (D)          | Elite player, played 6 seasons, won a Calder, a Cup, Conn Smythe, and 2 Norris' |
 
 **Cup Wins:** 1 (2021-2022)
 
