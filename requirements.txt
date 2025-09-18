@@ -36,5 +36,5 @@ urllib3==2.5.0
 webencodings==0.5.1
 Werkzeug==3.1.3
 
-git+https://github.com/AveryJD/NHL-Player-Stat-Cards.git@main
+git+https://github.com/AveryJD/project-nhl-player-cards.git@main
 
