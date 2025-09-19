@@ -64,7 +64,7 @@ It could end up being worth it, as they drafted three top-3 picks in the early 2
 **Seasons After Tanking Before Winning First Cup:** N/A
 
 **Summary:**
-For a while, it seemed like the Boston Bruins didn't know how to be bad. They made the playoffs in 14 out of the 17 years that I looked, with them hoisting the Cup in 2011. The highest Bruin draft pick during this period was 5th overall in 2006, which they acquired through the lockout lottery. They selected Phil Kessel, who had a solid first two seasons and then an excellent third season before being traded to the Toronto Maple Leafs for two first round picks and a second round pick. After a dreadful next season by the Leafs, the 2010 first round pick that the Bruins received was used to select forward Tyler Seguin 2nd overall. The very next season is when the Bruins would lift the Cup with rookie Seguin making contributions in the final two rounds. 
+For a while, it seemed like the Boston Bruins didn't know how to be bad. They made the playoffs in 14 out of the 17 years that I looked, with them hoisting the Cup in 2011. The highest Bruin draft pick during this period was 5th overall in 2006, which they acquired through the lockout lottery. They selected Phil Kessel, who had a solid first two seasons and then an excellent third season before being traded to the Toronto Maple Leafs for two first-round picks and a second-round pick. After a dreadful next season by the Leafs, the 2010 first-round pick that the Bruins received was used to select forward Tyler Seguin 2nd overall. The very next season is when the Bruins would lift the Cup with rookie Seguin making contributions in the final two rounds. 
 
 Along with their Cup win, the Bruins also experienced two Cup final losses and multiple early playoff exits, with the team regressing to a bottom-5 finish in their most recent seasons. Could the addition of a franchise player have helped them enough to get them past the hump a few more times? Possibly, but it's hard to argue with the success the Bruins have had over the years. I doubt fans or management would have asked for many changes to the 21st-century Bruins. 
 
@@ -76,12 +76,12 @@ Along with their Cup win, the Bruins also experienced two Cup final losses and m
 
 | Season      | Team's League Finish     | Team's Draft Pick   | Pick Result      | Player Result                    |
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
-| 2013-2014   | 30th (1st worst) | 2nd overall | Sam Reinhart (F) | Top-line player, played 6 seasons, was traded for a first round pick and Devon Levi (G, too early to tell) |
-| 2014-2015   | 30th (1st worst) | 2nd overall | Jack Eichel (F) | Elite player, played 6 seasons, was traded for Peyton Krebs (F, middle-line player), Alex Tuch (F, top-line player), a first round pick, and a second round pick |
+| 2013-2014   | 30th (1st worst) | 2nd overall | Sam Reinhart (F) | Top-line player, played 6 seasons, was traded for a first-round pick and Devon Levi (G, too early to tell) |
+| 2014-2015   | 30th (1st worst) | 2nd overall | Jack Eichel (F) | Elite player, played 6 seasons, was traded for Peyton Krebs (F, middle-line player), Alex Tuch (F, top-line player), a first-round pick, and a second-round pick |
 | 2015-2016   | 23rd (8th worst) | 8th overall | Alex Nylander (F) | Fringe player, played parts of 3 seasons, was traded for Henri Jokiharju (D, bottom-line player) |
 | 2016-2017   | 26th (5th worst) | 8th overall | Casey Mittelstadt (F) | Middle-line player, played 7 seasons, was traded for Bowen Byram (D, middle-line player) |
 | 2017-2018   | 31st (1st worst) | 1st overall | Rasmus Dahlin (D) | Elite player, played 7 seasons, current captain for 2 seasons |
-| 2018-2019   | 27th (5th worst) | 7th overall | Dylan Cozens (F) | Top-line player, played 5 seasons, was packaged in a trade for Josh Norris (F, top-line player) and Jacob Bernard-Docker (D, bottom-line player) |
+| 2018-2019   | 27th (5th worst) | 7th overall | Dylan Cozens (F) | Top-line player, played 5 seasons, was traded in a package for Josh Norris (F, top-line player) and Jacob Bernard-Docker (D, bottom-line player) |
 | 2019-2020   | 25th (7th worst) | 8th overall | Jack Quinn (F) | Middle-line player, played 4 seasons, has potential to grow |
 | 2020-2021   | 31st (1st worst) | 1st overall | Owen Power (D) | Top-line player, played 4 seasons, has potential to grow |
 
@@ -162,7 +162,7 @@ The Blackhawks now find themselves in a second tanking cycle. After tearing down
 
 | Season      | Team's League Finish     | Team's Draft Pick   | Pick Result      | Player Result                    |
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
-| 2008-2009   | 28th (3rd worst)  | 3rd overall         | Matt Duchene (F)     | Top-line player, played 8 seasons, traded for a package that included Samuel Girard (D, middle-line player) and the pick that would be used 4th overall to draft Bowen Byram (D, middle-line player), two key contributors to the Cup win |
+| 2008-2009   | 28th (3rd worst)  | 3rd overall         | Matt Duchene (F)     | Top-line player, played 8 seasons, was traded for a package that included Samuel Girard (D, middle-line player) and the pick that would be used 4th overall to draft Bowen Byram (D, middle-line player), two key contributors to the Cup win |
 | 2009-2010   | 12th (19th worst) | 17th overall        | Joey Hishon (F)         | Fringe player, played 1 season, left in free agency to the KHL |
 | 2010-2011   | 29th (2nd worst)  | 2nd overall         | Gabriel Landeskog (F)   | Top-line player, played 11 seasons, current captain for 13 seasons, won a Calder and a Cup |
 | 2011-2012   | 20th (11th worst) | 11th overall        | Traded for Semyon Varlamov (G) | Top-line player, played 8 seasons, left in free agency |
@@ -189,24 +189,24 @@ After their historically bad 2016-2017 season, the Avs haven't looked back, maki
 
 | Season      | Team's League Finish     | Team's Draft Pick   | Pick Result      | Player Result                    |
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
-| 2001-2002   | 29th (2nd worst) | 3rd overall | Traded for the 1st overall pick to select Rick Nash (F) | Top-line player, played 9 seasons, won a Rocket, was traded in a package for Brandon Dubinsky (F, middle-line player), Artem Anisimov (F, middle-line player), Tim Erixon (D, fringe player), and a first round pick |
+| 2001-2002   | 29th (2nd worst) | 3rd overall | Traded for the 1st overall pick to select Rick Nash (F) | Top-line player, played 9 seasons, won a Rocket, was traded in a package for Brandon Dubinsky (F, middle-line player), Artem Anisimov (F, middle-line player), Tim Erixon (D, fringe player), and a first-round pick |
 | 2002-2003   | 28th (3rd worst) | 4th overall | Nikolai Zherdev (F) | Middle-line player, played 4 seasons, was traded with Dan Fritsche for Christian Backman (D, fringe player) and Fedor Tyutin (D, middle-line player) |
 | 2003-2004   | 27th (4th worst) | 4th overall | Traded for the 8th overall pick to select Alexandre Picard (F) and 59th overall pick to select Kyle Wharton (D) | Alexandre Picard was a fringe player who played 5 seasons, and Kyle Wharton was a non-NHL player who played 0 seasons |
 | 2004-2005   | N/A (lockout season) | 6th overall | Gilbert Brule (F) | Fringe player, played 3 seasons, was traded for Raffi Torres (F, bottom-line player) |
 | 2005-2006   | 25th (6th worst) | 6th overall | Derick Brassard (F) | Middle-line player, played 6 seasons, was traded in a package for Marian Gaborik (F, middle-line player), Blake Parlett (D, non-NHL player), and Steven Delisle (D, non-NHL player) |
-| 2006-2007   | 24th (7th worst) | 7th overall | Jakub Voracek (F) | Middle-line player, played 3 seasons, was traded with a first round pick and a third round pick for Jeff Carter (F, top-line player) |
-| 2007-2008   | 25th (6th worst) | 6th overall | Nikita Filatov (F) | Fringe player, played 3 seasons, was traded for a third round pick |
+| 2006-2007   | 24th (7th worst) | 7th overall | Jakub Voracek (F) | Middle-line player, played 3 seasons, was traded with a first-round pick and a third-round pick for Jeff Carter (F, top-line player) |
+| 2007-2008   | 25th (6th worst) | 6th overall | Nikita Filatov (F) | Fringe player, played 3 seasons, was traded for a third-round pick |
 | 2008-2009   | 16th (15th worst) | 21st overall | John Moore (D) | Fringe player, played 3 seasons, was traded in the previously mentioned Derick Brassard package |
 | 2009-2010   | 27th (4th worst) | 4th overall | Ryan Johansen (F) | Top-line player, played 5 seasons, was traded for Seth Jones (D, top-line player) |
-| 2010-2011   | 24th (7th worst) | 8th overall | Traded with Jakub Voracek and a third round pick for F, Jeff Carter (F) | Top-line player, played 2 seasons, was traded for Jack Johnson (D, middle-line player) and a first round pick |
-| 2011-2012   | 30th (1st worst) | 2nd overall | Ryan Murray (D) | Middle-line player, played 7 seasons, was traded for a fifth round pick |
+| 2010-2011   | 24th (7th worst) | 8th overall | Traded with Jakub Voracek and a third-round pick for F, Jeff Carter (F) | Top-line player, played 2 seasons, was traded for Jack Johnson (D, middle-line player) and a first-round pick |
+| 2011-2012   | 30th (1st worst) | 2nd overall | Ryan Murray (D) | Middle-line player, played 7 seasons, was traded for a fifth-round pick |
 
 2020-2021 - 2023-2024
 
 | Season      | Team's League Finish     | Team's Draft Pick   | Pick Result      | Player Result                    |
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
 | 2020-2021   | 28th (4th worst) | 5th overall | Kent Johnson (F) | Top-line player, played 4 seasons, has potential to grow |
-| 2021-2022   | 21st (12th worst) | 6th overall | David Jirichek (D) | Fringe player, played 3 seasons, traded with a fifth round pick for Damon Hunt (D, fringe player), a first round pick, a second round pick, and a fourth round pick |
+| 2021-2022   | 21st (12th worst) | 6th overall | David Jirichek (D) | Fringe player, played 3 seasons, traded with a fifth-round pick for Damon Hunt (D, fringe player), a first-round pick, a second-round pick, and a fourth-round pick |
 | 2022-2023   | 31st (2nd worst) | 3rd overall | Adam Fantilli (F) | Middle-line player, played 2 seasons, has potential to grow |
 | 2023-2024   | 29th (4th worst) | 4th overall | Cayden Lindstrom (F) | Prospect, played 0 seasons |
 
@@ -266,7 +266,7 @@ Their streak of making the playoffs ended and a new streak of not missing the pl
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
 | 2009-2010   | 30th (1st worst) | 1st overall | Taylor Hall (F) | Top-line player, played 6 seasons, was traded for Adam Larsson (D, middle-line player) |
 | 2010-2011   | 30th (1st worst) | 1st overall | Ryan Nugent-Hopkins (F) | Top-line player, played 14 seasons |
-| 2011-2012   | 29th (2nd worst) | 1st overall | Nail Yakupov (F) | Middle-line player, played 4 seasons, was traded for Zach Pochiro (F, non-NHL player) and a third round pick |
+| 2011-2012   | 29th (2nd worst) | 1st overall | Nail Yakupov (F) | Middle-line player, played 4 seasons, was traded for Zach Pochiro (F, non-NHL player) and a third-round pick |
 | 2012-2013   | 24th (7th worst) | 7th overall | Darnell Nurse (D) | Top-line player, played 10 seasons |
 | 2013-2014   | 28th (3rd worst) | 3rd overall | Leon Draisaitl (F) | Elite player, played 11 seasons, won a Hart, an Art Ross, a Ted Lindsay and a Rocket |
 | 2014-2015   | 28th (3rd worst) | 1st overall | Connor McDavid (F) | Elite player, played 10 seasons, won 3 Harts, 4 Art Ross', 4 Ted Lindsays, a Rocket, and a Conn Smythe |
@@ -289,9 +289,9 @@ Despite having two of the league’s most dominant players, the Oilers have yet 
 			
 | Season      | Team's League Finish     | Team's Draft Pick   | Pick Result      | Player Result                    |
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
-| 2009-2010   | 28th (3rd worst)  | 3rd overall | Erik Gudbranson (D) | Bottom-line player, played 5 seasons, was packaged in a trade for Jared McCann (F, middle-line player) |
-| 2010-2011   | 28th (3rd worst)  | 3rd overall | Jonathan Huberdeau (F) | Elite player, played 10 seasons, was packaged in a trade for Matthew Tkachuk (F, elite player), who was key in winning 2 cups |
-| 2011-2012   | 14th (17th worst) | 23rd overall | Mike Matheson (D) | Middle-line player, played 5 seasons, was traded for Patric Hornqvist (F, middle-line player) |
+| 2009-2010   | 28th (3rd worst)  | 3rd overall | Erik Gudbranson (D) | Bottom-line player, played 5 seasons, was traded in a package for Jared McCann (F, middle-line player) |
+| 2010-2011   | 28th (3rd worst)  | 3rd overall | Jonathan Huberdeau (F) | Elite player, played 10 seasons, was traded in a package for Matthew Tkachuk (F, elite player), who was key in winning 2 cups |
+| 2011-2012   | 14th (17th worst) | 23rd overall | Mike Matheson (D) | Middle-line player, played 5 seasons, was traded in a package for Patric Hornqvist (F, middle-line player) |
 | 2012-2013   | 30th (1st worst)  | 2nd overall | Aleksander Barkov (F) | Elite player, played 12 seasons, current captain for 8 seasons, won 3 Selke's and 2 Cups |
 | 2013-2014   | 29th (2nd worst)  | 1st overall | Aaron Ekblad (D) | Top-line player, played 11 seasons, won 2 Cups |
 
@@ -314,7 +314,7 @@ These moves highlight how tanking can provide flexibility. It doesn’t just sup
 |-------------|-------------------|---------------------|----------------------|----------------------------------|
 | 2006-2007   | 28th (3rd worst)  | 4th overall | Thomas Hickey (D) | Non-NHL player, played 0 seasons, was claimed off waivers |
 | 2007-2008   | 29th (2nd worst)  | 2nd overall | Drew Doughty (D)  | Elite player, played 17 seasons, won a Norris and 2 Cups |
-| 2008-2009   | 26th (5th worst)  | 5th overall | Brayden Schenn (F) | Prospect, traded in a package for Rob Bordson (F, non-NHL player) and Mike Richards (F, top-line player), who contributed to both Cup wins |
+| 2008-2009   | 26th (5th worst)  | 5th overall | Brayden Schenn (F) | Prospect, was traded in a package for Rob Bordson (F, non-NHL player) and Mike Richards (F, top-line player), who contributed to both Cup wins |
 
 **Cup Wins:** 2 (2011-2012, 2013-2014)
 
@@ -336,9 +336,9 @@ In the modern era, the Kings once again found themselves near the bottom of the 
 **Seasons After Tanking Before Winning First Cup:** N/A 
 
 **Summary:**
-In the 24 seasons that the Wild have played, they have made the playoffs 13 times. In those 13 playoff runs, the Wild have made it out of the first round only 3 times. The highest in the standings they've placed is 5th, while the lowest is 25th. Minnesota has constantly been competitive, but rarely dominant. Many blame this on the lack of star power they've had over the years. That is, until former fith round pick Kirill Kaprizov came over from Russia and gave Wild fans a truly elite player to cheer for.
+In the 24 seasons that the Wild have played, they have made the playoffs 13 times. In those 13 playoff runs, the Wild have made it out of the first round only 3 times. The highest in the standings they've placed is 5th, while the lowest is 25th. Minnesota has constantly been competitive, but rarely dominant. Many blame this on the lack of star power they've had over the years. That is, until former fith-round pick Kirill Kaprizov came over from Russia and gave Wild fans a truly elite player to cheer for.
 
-Previous big moves from the Wild include the signings of Zach Parise and Ryan Suter in 2012, drafting Marian Gaborik, 3rd overall in their inaugural draft, and trading Kevin Fiala for eventual Calder runner-up, Brock Faber, and a first round pick. All these moves have made the Wild better (at least for a period of time), but nothing quite enough to make them contenders. Is Kaprizov and their current core enough to get them out of NHL purgatory, or will Minnesota remain good enough to stay out of the basement, but bad enough to not reach the top?
+Previous big moves from the Wild include the signings of Zach Parise and Ryan Suter in 2012, drafting Marian Gaborik, 3rd overall in their inaugural draft, and trading Kevin Fiala for eventual Calder runner-up, Brock Faber, and a first-round pick. All these moves have made the Wild better (at least for a period of time), but nothing quite enough to make them contenders. Is Kaprizov and their current core enough to get them out of NHL purgatory, or will Minnesota remain good enough to stay out of the basement, but bad enough to not reach the top?
 
 **Classification:** Did not tank, did win, bubble playoff team. 
 
