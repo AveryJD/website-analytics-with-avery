@@ -18,11 +18,12 @@
             
         <div class="card-section">
 
-            <h2>Choose a player:</h2>
-
             <form method="POST" id="filter-form">
+                
+                <h2>Choose a player:</h2>
 
                 <div class="filters-row">
+                    
                     <div>
                         <label for="season">Season:</label>
                         <select name="season" id="season">
@@ -95,9 +96,7 @@
                     <button type="submit">Generate Card</button>
                 </div>
 
-                <div class="placeholder-text">
-                    <p>The player card will generate below. Cards do not load instantly, so please wait while it loads.</p>
-                </div>
+                <h5>Please allow a moment for the card to load</h5>
 
             </form>
             
@@ -111,30 +110,19 @@
             </div>              
 
           <div class="card-explanation">
-            <h3>Note: These cards are currently in beta. Upcoming updates include:</h3>
-                <ul>
-                <li>Ranking model updates (player rankings may change over time).</li>
-                <li>Support for players who played for multiple teams in a season.</li>
-                <li>Goalie cards.</li>
-                <li>Salary information.</li>
-                </ul>
-          </div>
-
-          <div class="card-explanation">
             <h3>Card Explanation:</h3> 
             <p>All attributes are weighted based on the past 3 seasons, with the most recent season being weighted the most.</p>
             <p>Each ranking section has the player's ranking for that attribute (the largest number), 
                the total number of players that qualify for that attribute (the smallest number), 
                and a percentile bar showing the percentage of players that the selected player ranks above in that attribute.</p>
             <p>To qualify for rankings, a player must have played at least 25% of games in the season.</p>
-            <p>To qualify for 5v4 and 4v5 rankings, a player must have played over 45 seconds of the respective special teams per total games in the season. 
-               To qualify for faceoffs, a player must have taken at least 3 faceoffs per total games in the season. Players that do not qualify for an attribute 
-               receive an "N/A" as their rank.</p>
             <ul>
-              <li><b>5v5 Offense</b> - How well a player performs offensively at 5-on-5 play (even strength). Adjusted to a per 60-minute rate.</li>
-              <li><b>5v5 Defense</b> - How well a player performs defensively at 5-on-5 play. Adjusted to a per 60-minute rate.</li>
-              <li><b>5v4 Offense</b> - How well a player performs offensively at 5-on-4 play (power play). Adjusted to a per 60-minute rate.</li>
-              <li><b>4v5 Defense</b> - How well a player performs defensively at 4-on-5 play (penalty kill). Adjusted to a per 60-minute rate.</li>
+              <li><b>5v5 Offense</b> - How well a player performs offensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
+              <li><b>5v5 Defense</b> - How well a player performs defensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
+              <li><b>5v4 Offense</b> - How well a player performs offensively at 5-on-4 play (power play). Adjusted to a per 60-minute rate. 
+                To qualify, a player must have played over 45 seconds of the 5v4 time per total games in the season.</li>
+              <li><b>4v5 Defense</b> - How well a player performs defensively at 4-on-5 play (penalty kill). Adjusted to a per 60-minute rate.
+                To qualify, a player must have played over 45 seconds of the 4v5 time per total games in the season.</li>
               <li><b>On-Ice Offense</b> - How well a player's team performs offensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
               <li><b>On-Ice Defense</b> - How well a player's team performs defensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
               <li><b>Shooting</b> - How proficient a player is at shooting the puck in all situations. Adjusted to a per 60-minute rate.</li>
@@ -143,11 +131,24 @@
               <li><b>O-Zone Starts</b> - How often a player's shift starts in the offensive zone at 5-on-5. Adjusted to a per 60-minute rate.</li>
               <li><b>Penalties</b> - How proficient a player is at drawing penalties compared to taking penalties in all situations. Adjusted to a per 60-minute rate.</li>
               <li><b>Physicality</b> - How proficient a player is at hitting in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.</li>
+              <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.
+                To qualify, a player must have taken at least 3 faceoffs per total games in the season</li></li>
               <li><b>Fantasy</b> - How well a player earns points in a typical fantasy league. Adjusted to a per-game rate.</li>
             </ul>
 
-            <p>Data was last updated on September 10, 2025.</p>
+            <h4>Card Data was last updated on September 10, 2025.</h4>
+          </div>
+
+
+          <div class="card-explanation">
+            <h3>These cards are currently in beta. Upcoming additions and updates include:</h3>
+                <ul>
+                <li>Goalie cards.</li>
+                <li>Salary information.</li>
+                <li>Ranking model improvements (player rankings may change over time).</li>
+                <li>Cards for players who played for multiple teams in a season.</li>
+                <li>Visual updates (such as having headshots for players who were moved in the offseason).</li>
+                </ul>
           </div>
           
         </div>
