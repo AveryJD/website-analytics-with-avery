@@ -66,8 +66,12 @@ main h3{
 }
 
 .main-image {
-  width: 18.75rem;
-  height: 100%;
+  max-width: 15rem;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .main-image-round {
