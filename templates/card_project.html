@@ -6,159 +6,142 @@
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 
-
 <body>
-
   <div class="page-content">
 
     <div id="navbar"></div>
 
     <main>
-        <h1 class="main-heading">NHL Player Cards</h1>
-            
-        <div class="card-section">
+      <h1 class="main-heading">NHL Player Cards</h1>
 
-            <form method="POST" id="filter-form">
-                
-                <h2>Choose a player:</h2>
+      <div class="card-section">
 
-                <div class="filters-row">
-                    
-                    <div>
-                        <label for="season">Season:</label>
-                        <select name="season" id="season">
-                            {% for s in seasons %}
-                            <option value="{{ s }}" 
-                                {% if selected_card %}
-                                    {% if selected_card.season == s %}selected{% endif %}
-                                {% else %}
-                                    {% if loop.first %}selected{% endif %}
-                                {% endif %}
-                            >
-                                {{ s }}
-                            </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="position">Position:</label>
-                        <select name="position" id="position">
-                            {% for p in positions %}
-                            <option value="{{ p }}"
-                                {% if selected_card %}
-                                    {% if selected_card.position == p %}selected{% endif %}
-                                {% else %}
-                                    {% if loop.first %}selected{% endif %}
-                                {% endif %}
-                            >
-                                {{ position_names[p] }}
-                            </option>
-                            {% endfor %}
-                        </select>                        
-                    </div>
-            
-                    <div>
-                        <label for="team">Team:</label>
-                        <select name="team" id="team">
-                            {% for t in teams %}
-                            <option value="{{ t }}" 
-                                {% if selected_card %}
-                                    {% if selected_card.team == t %}selected{% endif %}
-                                {% else %}
-                                    {% if loop.first %}selected{% endif %}
-                                {% endif %}
-                            >
-                                {{ team_names[t] }}
-                            </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="player">Player:</label>
-                        <select name="player" id="player" required data-selected="{{ selected_card.name if selected_card }}">
-                            {% for p in players_list %}
-                            <option value="{{ p.player }}" 
-                                    data-season="{{ p.season }}" 
-                                    data-position="{{ p.position }}" 
-                                    data-team="{{ p.team }}"
-                                    {% if selected_card and selected_card.name == p.player %}selected{% endif %}>
-                                {{ p.player }}
-                            </option>
-                            {% endfor %}
-                        </select>                        
-                    </div>
-
-                </div>
-            
-                <div class="button-row">
-                    <button type="submit">Generate Card</button>
-                </div>
-
-                <h5>Please allow a moment for the card to load</h5>
-
-            </form>
-            
-            <div class="player-card">
-                {% if selected_card %}
-                  <img src="/card_image?season={{ selected_card.season }}&position={{ selected_card.position }}&player={{ selected_card.name }}{% if selected_card.team %}&team={{ selected_card.team }}{% endif %}" 
-                       alt="{{ selected_card.name }} card"> 
-                {% else %}
-
-                {% endif %}
-            </div>              
-
-          <div class="card-explanation">
-            <h3>Card Explanation:</h3> 
-            <p>All attributes are weighted based on the past 3 seasons, with the most recent season being weighted the most.</p>
-            <p>Each ranking section has the player's ranking for that attribute (the largest number), 
-               the total number of players that qualify for that attribute (the smallest number), 
-               and a percentile bar showing the percentage of players that the selected player ranks above in that attribute.</p>
-            <p>To qualify for rankings, a player must have played at least 25% of games in the season.</p>
-            <ul>
-              <li><b>5v5 Offense</b> - How well a player performs offensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
-              <li><b>5v5 Defense</b> - How well a player performs defensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
-              <li><b>5v4 Offense</b> - How well a player performs offensively at 5-on-4 play (power play). Adjusted to a per 60-minute rate. 
-                To qualify, a player must have played over 45 seconds of the 5v4 time per total games in the season.</li>
-              <li><b>4v5 Defense</b> - How well a player performs defensively at 4-on-5 play (penalty kill). Adjusted to a per 60-minute rate.
-                To qualify, a player must have played over 45 seconds of the 4v5 time per total games in the season.</li>
-              <li><b>On-Ice Offense</b> - How well a player's team performs offensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
-              <li><b>On-Ice Defense</b> - How well a player's team performs defensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
-              <li><b>Shooting</b> - How proficient a player is at shooting the puck in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>Scoring</b> - How proficient a player is at scoring in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>Playmaking</b> - How proficient a player is at earning assists in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>O-Zone Starts</b> - How often a player's shift starts in the offensive zone at 5-on-5. Adjusted to a per 60-minute rate.</li>
-              <li><b>Penalties</b> - How proficient a player is at drawing penalties compared to taking penalties in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>Physicality</b> - How proficient a player is at hitting in all situations. Adjusted to a per 60-minute rate.</li>
-              <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.
-                To qualify, a player must have taken at least 3 faceoffs per total games in the season</li></li>
-              <li><b>Fantasy</b> - How well a player earns points in a typical fantasy league. Adjusted to a per-game rate.</li>
-            </ul>
-
-            <h4>Card Data was last updated on September 10, 2025.</h4>
-          </div>
-
-
-          <div class="card-explanation">
-            <h3>These cards are currently in beta. Upcoming additions and updates include:</h3>
-                <ul>
-                <li>Goalie cards.</li>
-                <li>Salary information.</li>
-                <li>Ranking model improvements (player rankings may change over time).</li>
-                <li>Cards for players who played for multiple teams in a season.</li>
-                <li>Visual updates (such as having headshots for players who were moved in the offseason).</li>
-                </ul>
-          </div>
-          
+        <div class="nav-button">
+          <a href="/compare_player_cards">Compare Two Player Cards</a>
         </div>
 
+        <form method="POST" id="filter-form-0">
+          <h2>Choose a Player:</h2>
+
+          <div class="filters-row">
+            <label for="season-0">Season:</label>
+            <select name="season" id="season-0">
+              {% for s in seasons %}
+              <option value="{{ s }}" 
+                {% if selected_card %}
+                  {% if selected_card.season == s %}selected{% endif %}
+                {% else %}
+                  {% if loop.first %}selected{% endif %}
+                {% endif %}
+              >
+                {{ s }}
+              </option>
+              {% endfor %}
+            </select>
+
+            <label for="position-0">Position:</label>
+            <select name="position" id="position-0">
+              {% for p in positions %}
+              <option value="{{ p }}"
+                {% if selected_card %}
+                  {% if selected_card.position == p %}selected{% endif %}
+                {% else %}
+                  {% if loop.first %}selected{% endif %}
+                {% endif %}
+              >
+                {{ position_names[p] }}
+              </option>
+              {% endfor %}
+            </select>
+
+            <label for="team-0">Team:</label>
+            <select name="team" id="team-0">
+              {% for t in teams %}
+              <option value="{{ t }}" 
+                {% if selected_card %}
+                  {% if selected_card.team == t %}selected{% endif %}
+                {% else %}
+                  {% if loop.first %}selected{% endif %}
+                {% endif %}
+              >
+                {{ team_names[t] }}
+              </option>
+              {% endfor %}
+            </select>
+
+            <label for="player-0">Player:</label>
+            <select name="player" id="player-0" required data-selected="{{ selected_card.name if selected_card }}">
+              {% for p in players_list %}
+              <option value="{{ p.player }}" 
+                data-season="{{ p.season }}" 
+                data-position="{{ p.position }}" 
+                data-team="{{ p.team }}"
+                {% if selected_card and selected_card.name == p.player %}selected{% endif %}
+              >
+                {{ p.player }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="player-card">
+            <img id="card-img-0" alt="{{ selected_card.name }} card">
+          </div>
+        </form>
+
+        <div class="card-explanation">
+          <h3>Card Explanation:</h3>
+          <p>All attributes are weighted based on the past 3 seasons, with the most recent season being weighted the most.</p>
+          <p>Each ranking section has the player's ranking for that attribute (the largest number), 
+            the total number of players that qualify for that attribute (the smallest number), 
+            and a percentile bar showing the percentage of players that the selected player ranks above in that attribute.
+          </p>
+          <p>To qualify for rankings, a player must have played at least 25% of games in the season.</p>
+
+          <ul>
+            <li><b>5v5 Offense</b> - How well a player performs offensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
+            <li><b>5v5 Defense</b> - How well a player performs defensively at 5-on-5 (even strength) play. Adjusted to a per 60-minute rate.</li>
+            <li><b>5v4 Offense</b> - How well a player performs offensively at 5-on-4 play (power play). Adjusted to a per 60-minute rate. 
+              To qualify, a player must have played over 45 seconds of the 5v4 time per total games in the season.
+            </li>
+            <li><b>4v5 Defense</b> - How well a player performs defensively at 4-on-5 play (penalty kill). Adjusted to a per 60-minute rate.
+              To qualify, a player must have played over 45 seconds of the 4v5 time per total games in the season.
+            </li>
+            <li><b>On-Ice Offense</b> - How well a player's team performs offensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
+            <li><b>On-Ice Defense</b> - How well a player's team performs defensively at 5-on-5 when the player is on the ice. Adjusted to a per 60-minute rate.</li>
+            <li><b>Shooting</b> - How proficient a player is at shooting the puck in all situations. Adjusted to a per 60-minute rate.</li>
+            <li><b>Scoring</b> - How proficient a player is at scoring in all situations. Adjusted to a per 60-minute rate.</li>
+            <li><b>Playmaking</b> - How proficient a player is at earning assists in all situations. Adjusted to a per 60-minute rate.</li>
+            <li><b>O-Zone Starts</b> - How often a player's shift starts in the offensive zone at 5-on-5. Adjusted to a per 60-minute rate.</li>
+            <li><b>Penalties</b> - How proficient a player is at drawing penalties compared to taking penalties in all situations. Adjusted to a per 60-minute rate.</li>
+            <li><b>Physicality</b> - How proficient a player is at hitting in all situations. Adjusted to a per 60-minute rate.</li>
+            <li><b>Faceoffs</b> - How proficient a player is at winning faceoffs in all situations. Adjusted to a per 60-minute rate.
+              To qualify, a player must have taken at least 3 faceoffs per total games in the season.
+            </li>
+            <li><b>Fantasy</b> - How well a player earns points in a typical fantasy league. Adjusted to a per-game rate.</li>
+          </ul>
+
+          <h4>Card Data was last updated on September 10, 2025.</h4>
+        </div>
+
+        <div class="card-explanation">
+          <h3>These cards are currently in beta. Upcoming additions and updates include:</h3>
+          <ul>
+            <li>Goalie cards.</li>
+            <li>Salary information.</li>
+            <li>Ranking model improvements (player rankings may change over time).</li>
+            <li>Cards for players who played for multiple teams in a season.</li>
+            <li>Visual updates (such as having headshots for players who were moved in the offseason).</li>
+          </ul>
+        </div>
+
+      </div>
     </main>
 
-  <div id="footer"></div>
+    <div id="footer"></div>
+
+  </div>
 
   <script src="/static/js/main.js"></script>
-
 </body>
-
 </html>
