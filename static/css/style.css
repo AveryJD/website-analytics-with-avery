@@ -80,6 +80,34 @@ main h3{
   border-radius: 50%;
 }
 
+.nav-button {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-button a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: rgb(80, 80, 255);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  margin: 0.5rem;
+}
+
+.nav-button a:hover {
+  background-color: rgb(100, 100, 255);
+  transform: scale(1.05);
+}
+
+.horizontal-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 
 /* ==================== ABOUT ==================== */
 
@@ -136,7 +164,6 @@ main h3{
 }
 
 
-
 /* ==================== EDUCATION ==================== */
 
 .education-section {
@@ -182,6 +209,7 @@ main h3{
 .awards-list li{
   font-size: 1rem;
 }
+
 
 /* ==================== EXPERINCE ==================== */
 
@@ -296,16 +324,6 @@ main h3{
   padding-bottom: 0.3rem;
 }
 
-.back-arrow {
-  font-size: 1.25rem;
-  text-align: center;
-}
-
-.back-arrow a{
-  text-decoration: none;
-}
-
-/* Table styling */
 .blog-text table {
   border-collapse: collapse;
   width: 100%;
@@ -359,6 +377,7 @@ main h3{
   padding-left: 10%;
   padding-right: 10%;
   text-align: center;
+  justify-content: center;
   border-radius: 0.8rem;
 }
 
@@ -379,21 +398,35 @@ main h3{
 
 /* ==================== CARD PROJECT ==================== */
 
-#filter-form {
-  background: #f8f9fa;
-  border: 1px solid #ddd;
+#filter-form-0 {
+  background: #ffffff;
   border-radius: 0.8rem;
   padding: 1.5rem;
-  margin: 1.5rem auto;
-  max-width: 900px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  align-items: center;
+}
+
+#filter-form-1 {
+  background: #ffffff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  max-width: 100%;
+  align-items: center;
+}
+
+#filter-form-2 {
+  background: #ffffff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  max-width: 100%;
+  align-items: center;
 }
 
 .filters-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0rem;
   font-size: 1.3rem;
   margin: 0.5rem 0;
 }
@@ -420,34 +453,21 @@ main h3{
   transition: border-color 0.2s ease;
 }
 
-.button-row {
+.compare-section {
   display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.button-row button {
-  color: white;
-  background-color: rgb(100, 100, 255);
-  width: 20rem;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  cursor: pointer;
-  font-family: "Armata", serif;
-  font-weight: bold;
-  font-size: 1.05rem;
+.compare-player {
+  flex: 0 0 49.5%;
+  max-width: 49.5%;
+  box-sizing: border-box;
 }
 
-.filters-row button:hover {
-  background-color: rgb(80, 80, 230);
-  transform: scale(1.05);
-}
-
-.placeholder-text {
-  margin: 2rem;
-  font-size: 1.5rem;
-  font-style: italic;
+.compare-player h5 {
+  margin: 0rem;
 }
 
 .player-card {
@@ -456,7 +476,7 @@ main h3{
   align-items: center;
   margin: 2rem auto;
   padding: 1rem;
-  max-width: 900px;
+  max-width: 40rem;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -474,7 +494,7 @@ main h3{
   border-radius: 0.75rem;
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 900px;
+  max-width: 100%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: left;
 }
@@ -729,9 +749,26 @@ main h3{
     width: 80%;
   }
 
+  .compare-section {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .compare-player {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
 }
 
+
 @media (max-width: 768px) {
+
+  main {
+    margin: 1.5rem;
+  }
+
   .filters-row,
   .player-row {
     flex-direction: column;
@@ -742,4 +779,20 @@ main h3{
     width: 100%;
     text-align: center;
   }
+
+  .compare-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compare-player {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .horizontal-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
 }
