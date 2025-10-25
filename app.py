@@ -124,6 +124,24 @@ def cards():
         selected_card=selected_card,
     )
 
+@app.route("/compare_player_cards", methods=["GET", "POST"])
+def compare_cards():
+    with get_card_db() as conn:
+        players = conn.execute("SELECT player, season, position, team FROM data_card").fetchall()
+        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM data_card ORDER BY season DESC")]
+        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM data_card")]
+        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM data_card ORDER BY team ASC")]
+
+    return render_template(
+        "compare_cards.html",
+        players_list=players,
+        seasons=seasons,
+        positions=positions,
+        position_names=POSITION_NAMES,
+        teams=teams,
+        team_names=TEAM_NAMES
+    )
+
 
 @app.route("/card_image")
 def card_image():
