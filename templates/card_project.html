@@ -16,13 +16,8 @@
 
       <div class="card-section">
 
-        <div class="nav-button">
-          <a href="/compare_player_cards">Compare Two Player Cards</a>
-        </div>
-
         <form method="POST" id="filter-form-0">
           <h2>Choose a Player:</h2>
-          <h5>Note: When generating a card, please allow a moment for it to load.</h5>
 
           <div class="filters-row">
             <label for="season-0">Season:</label>
@@ -85,10 +80,18 @@
             </select>
           </div>
 
+          <button type="button" class="project-button">Generate Card</button>
+
           <div class="player-card">
-            <img id="card-img-0" alt="{{ selected_card.name }} card">
+            <a id="card-link-0" href="" target="_blank">
+              <img id="card-img-0" alt="{{ selected_card.name }} card">
+            </a>
           </div>
         </form>
+
+        <div class="project-button">
+          <a href="/compare_player_cards">Compare Two Player Cards</a>
+        </div>
 
         <div class="card-explanation">
           <h3>Card Explanation:</h3>

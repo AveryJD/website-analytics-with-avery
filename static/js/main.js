@@ -22,6 +22,9 @@ function setupPlayerFilter(suffix) {
   const player = document.getElementById(`player-${suffix}`);
   const form = document.getElementById(`filter-form-${suffix}`);
   const card = document.getElementById(`card-img-${suffix}`);
+  const generateBtn = form.querySelector(".project-button");
+
+  const preload = PRELOAD_CARDS[suffix];
 
   const allPlayers = Array.from(player.options).map(opt => ({
     name: opt.value,
@@ -53,12 +56,7 @@ function setupPlayerFilter(suffix) {
       player.add(opt);
     });
 
-    if (filtered.length > 0) {
-      player.value = filtered[0].name;
-      updateCardImage();
-    } else {
-      card.src = "";
-    }
+    card.src = "";
   }
 
   function updateCardImage() {
@@ -66,25 +64,49 @@ function setupPlayerFilter(suffix) {
     if (!selected) return;
     const imgSrc = `/card_image?season=${selected.dataset.season}&position=${selected.dataset.position}&player=${selected.value}${selected.dataset.team ? `&team=${selected.dataset.team}` : ''}`;
     card.src = imgSrc;
+    const cardLink = document.getElementById(`card-link-${suffix}`);
+    if (cardLink) cardLink.href = imgSrc;
   }
 
+  // Event listeners
   season.addEventListener("change", filterPlayers);
   position.addEventListener("change", filterPlayers);
   team.addEventListener("change", filterPlayers);
-  player.addEventListener("change", updateCardImage);
+  generateBtn.addEventListener("click", updateCardImage);
 
+  // Initialize
   filterPlayers();
+
+  // Apply preload if defined
+  if (preload) {
+    season.value = preload.season;
+    position.value = preload.position;
+    team.value = preload.team;
+    filterPlayers();
+
+    const preloadOption = Array.from(player.options).find(
+      opt => opt.value === preload.player &&
+             opt.dataset.season === preload.season &&
+             opt.dataset.position === preload.position &&
+             opt.dataset.team.includes(preload.team)
+    );
+
+    if (preloadOption) {
+      player.value = preload.player;
+      updateCardImage();
+    }
+  }
 }
 
-if (document.getElementById("filter-form-0")) {
-  setupPlayerFilter("0");
-}
+const PRELOAD_CARDS = {
+  0: { season: "2024-2025", position: "F", team: "EDM", player: "Connor McDavid" },
+  1: { season: "2024-2025", position: "D", team: "COL", player: "Cale Makar" },
+  2: { season: "2024-2025", position: "D", team: "VAN", player: "Quinn Hughes" }
+};
 
-if (document.getElementById("filter-form-1")) {
-  setupPlayerFilter("1");
-}
-
-if (document.getElementById("filter-form-2")) {
-  setupPlayerFilter("2");
-}
-
+// Initialize filters for all forms that exist
+["0", "1", "2"].forEach(suffix => {
+  if (document.getElementById(`filter-form-${suffix}`)) {
+    setupPlayerFilter(suffix);
+  }
+});

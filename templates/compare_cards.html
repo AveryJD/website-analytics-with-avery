@@ -15,15 +15,10 @@
 
       <div class="card-section">
 
-        <div class="nav-button">
-          <a href="/player_cards">View Single Player Cards</a>
-        </div>
-
         <div class="compare-section">
 
           <form method="POST" class="filter-form compare-player" id="filter-form-1">
             <h2>Choose Player 1:</h2>
-            <h5>Note: When generating cards, select one and allow it to load before selecting the other</h5>
 
             <div class="filters-row">
               <label>Season:</label>
@@ -55,14 +50,17 @@
               </select>
             </div>
 
+            <button type="button" class="project-button">Generate Card</button>
+
             <div class="player-card">
-              <img id="card-img-1" alt="Player 1 card">
+              <a id="card-link-1" href="" target="_blank">
+                <img id="card-img-1" alt="Player 1 card">
+              </a>
             </div>
           </form>
 
           <form method="POST" class="filter-form compare-player" id="filter-form-2">
             <h2>Choose Player 2:</h2>
-            <h5>Note: When generating cards, select one and allow it to load before selecting the other</h5>
 
             <div class="filters-row">
               <label>Season:</label>
@@ -94,11 +92,19 @@
               </select>
             </div>
 
+            <button type="button" class="project-button">Generate Card</button>
+
             <div class="player-card">
-              <img id="card-img-2" alt="Player 2 card">
+              <a id="card-link-2" href="" target="_blank">
+                <img id="card-img-2" alt="Player 2 card">
+              </a>
             </div>
           </form>
 
+        </div>
+
+        <div class="project-button">
+          <a href="/player_cards">View Single Player Cards</a>
         </div>
 
         <div class="card-explanation">
