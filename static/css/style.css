@@ -104,7 +104,7 @@ main h3{
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 
@@ -526,6 +526,20 @@ main h3{
   transform: scale(1.05);
 }
 
+.button-background {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin: 1rem 0rem;
+  max-width: 100%;
+  text-align: left;
+}
+
+.button-background h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
 .project-button {
   background-color: rgb(50, 50, 50);
   color: white;
@@ -534,11 +548,12 @@ main h3{
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  width: 20rem;
-  padding: 0.6rem 0.8rem;
+  width: 100%;
+  padding: 0.5rem;
   margin: 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: 3rem;
   border-style: none;
+  flex: 1;
 }
 
 .project-button a {
@@ -555,13 +570,41 @@ main h3{
   opacity: 0.8;
 }
 
+.generate-button {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Armata", serif;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem;
+  width: 20rem;
+  margin: 0.5rem;
+  border-radius: 0.4rem;
+  border-style: none;
+}
+
+.generate-button a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.8rem;
+}
+
+.generate-button:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
 .card-explanation {
   background-color: #ffffff;
   border-radius: 0.75rem;
   padding: 2rem;
   margin-bottom: 1rem;
   max-width: 100%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: left;
 }
 
@@ -753,7 +796,7 @@ main h3{
 /* ==================== MEDIA QUERIES ==================== */
 
 @media (max-width: 1400px) {
-  
+
   .portfolio-nav .sub-links,
   .content-nav .sub-links {
     display: none;

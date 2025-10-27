@@ -22,7 +22,7 @@ function setupPlayerFilter(suffix) {
   const player = document.getElementById(`player-${suffix}`);
   const form = document.getElementById(`filter-form-${suffix}`);
   const card = document.getElementById(`card-img-${suffix}`);
-  const generateBtn = form.querySelector(".project-button");
+  const generateBtn = form.querySelector(".generate-button");
 
   const preload = PRELOAD_CARDS[suffix];
 
