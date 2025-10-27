@@ -732,7 +732,7 @@ main h3{
   font-family: "Armata", serif;
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .hamburger-links li {
@@ -753,6 +753,7 @@ main h3{
 /* ==================== MEDIA QUERIES ==================== */
 
 @media (max-width: 1400px) {
+  
   .portfolio-nav .sub-links,
   .content-nav .sub-links {
     display: none;
@@ -833,6 +834,13 @@ main h3{
 
   main {
     margin: 1.5rem;
+  }
+
+  .hamburger-links li a {
+    font-family: "Armata", serif;
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
   }
 
   .filters-row,
