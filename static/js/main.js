@@ -14,6 +14,14 @@ function openMenu() {
   menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
 
+// Close hamburger menu when resizing to large screens
+window.addEventListener("resize", () => {
+  const menu = document.getElementById("hamburgerNav");
+  if (window.innerWidth > 1400 && menu.style.display === "flex") {
+    menu.style.display = "none";
+  }
+});
+
 // Setup player filter and card generation for each player
 function setupPlayerFilter(suffix) {
   const season = document.getElementById(`season-${suffix}`);
