@@ -2,6 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --primary-blue: rgb(100, 100, 255);
+  --secondary-blue: rgb(80, 80, 255);
+  --primary-red: rgb(255, 100, 100);
+  --secondary-red: rgb(255, 120, 120);
+  --bg-gray: rgb(240, 240, 240);
+  --font-main: "Armata", serif;
+  --font-nav: "Train One", system-ui;
+  --font-blog: "Space Mono", monospace;
+}
+
 /* ==================== GENERAL ==================== */
 * {
   box-sizing: border-box;
@@ -23,7 +34,7 @@ body {
 
 main{
   margin: 3rem;
-  font-family: "Armata", serif;
+  font-family: var(--font-main);
 }
 
 main p{
@@ -88,14 +99,14 @@ main h3{
   display: inline-block;
   padding: 0.5rem 1rem;
   color: white;
-  background-color: rgb(80, 80, 255);
+  background-color: var(--primary-blue);
   border-radius: 0.5rem;
   text-decoration: none;
   margin: 0.5rem;
 }
 
 .nav-button a:hover {
-  background-color: rgb(100, 100, 255);
+  background-color: var(--secondary-blue);
   transform: scale(1.05);
 }
 
@@ -191,10 +202,13 @@ main h3{
 .courses-section {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .education-list {
-  margin: 0rem;
+  flex: 1 1 50%;
+  width: 50%;
+  box-sizing: border-box;
 }
 
 .education-list ul{
@@ -309,7 +323,7 @@ main h3{
 }
 
 .blog-post {
-  font-family: "Space Mono", monospace;
+  font-family: var(--font-blog);
   background-color: rgb(240, 240, 240);
   margin: 1.25rem;
   padding: 5%;
@@ -482,7 +496,6 @@ main h3{
   text-align: center;
   text-align-last: center;
   font-size: 1.3rem;
-  font-family: "Armata", serif;
   background-color: white;
 }
 
@@ -544,7 +557,6 @@ main h3{
   background-color: rgb(50, 50, 50);
   color: white;
   font-size: 1.2rem;
-  font-family: "Armata", serif;
   text-align: center;
   display: inline-block;
   text-decoration: none;
@@ -574,7 +586,6 @@ main h3{
   background-color: rgb(50, 50, 50);
   color: white;
   font-size: 1.2rem;
-  font-family: "Armata", serif;
   text-align: center;
   display: inline-block;
   text-decoration: none;
@@ -639,6 +650,7 @@ main h3{
 /* ==================== NAVIGATION BAR ==================== */
 
 .nav-bar {
+  font-family: var(--font-main);
   display: flex;
   width: 100%;
   height: 5rem;
@@ -657,11 +669,11 @@ main h3{
 }
 
 .portfolio-nav {
-  background-color: rgb(100, 100, 255);
+  background-color: var(--primary-blue);
 }
 
 .content-nav {
-  background-color: rgb(255, 100, 100);
+  background-color: var(--primary-red);
 }
 
 .sub-links {
@@ -680,7 +692,7 @@ main h3{
 }
 
 .nav-titles {
-  font-family: "Train One", system-ui;
+  font-family: var(--font-nav);
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -695,7 +707,6 @@ main h3{
 }
 
 .sub-links a {
-  font-family: "Armata", serif;
   display: inline-block;
   color: white;
   text-decoration: none;
@@ -759,7 +770,7 @@ main h3{
 }
 
 .content-menu {
-  background-color: rgb(255, 120, 120);
+  background-color: var(--secondary-red);
   flex: 1;
   padding: 1rem;
   list-style: none;
@@ -774,10 +785,9 @@ main h3{
 }
 
 .hamburger-links li a {
-  font-family: "Armata", serif;
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: inline-block;
 }
 
@@ -887,10 +897,7 @@ main h3{
   }
 
   .hamburger-links li a {
-    font-family: "Armata", serif;
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .filters-row,
