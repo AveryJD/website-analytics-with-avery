@@ -33,6 +33,7 @@ function setupPlayerFilter(suffix) {
   const generateBtn = form.querySelector(".generate-button");
 
   const preload = PRELOAD_CARDS[suffix];
+  let firstInit = true;
 
   const allPlayers = Array.from(player.options).map(opt => ({
     name: opt.value,
@@ -46,35 +47,54 @@ function setupPlayerFilter(suffix) {
     const s = season.value;
     const p = position.value;
     const t = team.value;
-
+  
+    const previousValue = player.value; // remember selected player
     player.innerHTML = "";
+  
     const filtered = allPlayers.filter(pl =>
       (!s || pl.season === s) &&
       (!p || pl.position === p) &&
       (!t || pl.team.includes(t))
     );
-
-    filtered.forEach(pl => {
+  
+    if (filtered.length === 0) {
       const opt = document.createElement("option");
-      opt.value = pl.name;
-      opt.text = pl.text;
-      opt.dataset.season = pl.season;
-      opt.dataset.position = pl.position;
-      opt.dataset.team = pl.team;
+      opt.text = "No Players Available";
+      opt.disabled = true;
+      opt.selected = true;
       player.add(opt);
-    });
-
-    card.src = "";
+    } else {
+      filtered.forEach(pl => {
+        const opt = document.createElement("option");
+        opt.value = pl.name;
+        opt.text = pl.text;
+        opt.dataset.season = pl.season;
+        opt.dataset.position = pl.position;
+        opt.dataset.team = pl.team;
+        player.add(opt);
+      });
+  
+      // Restore previous selection if it still exists
+      if (previousValue && Array.from(player.options).some(o => o.value === previousValue)) {
+        player.value = previousValue;
+      }
+    }
   }
-
+  
   function updateCardImage() {
     const selected = player.selectedOptions[0];
-    if (!selected) return;
+    if (!selected || selected.disabled) return;
+  
+    // Store selected value for later
+    player.dataset.selectedValue = selected.value;
+  
     const imgSrc = `/card_image?season=${selected.dataset.season}&position=${selected.dataset.position}&player=${selected.value}${selected.dataset.team ? `&team=${selected.dataset.team}` : ''}`;
     card.src = imgSrc;
+    card.style.display = "block";
+  
     const cardLink = document.getElementById(`card-link-${suffix}`);
     if (cardLink) cardLink.href = imgSrc;
-  }
+  }  
 
   // Event listeners
   season.addEventListener("change", filterPlayers);
@@ -82,7 +102,7 @@ function setupPlayerFilter(suffix) {
   team.addEventListener("change", filterPlayers);
   generateBtn.addEventListener("click", updateCardImage);
 
-  // Initialize
+  // Initialize filters
   filterPlayers();
 
   // Apply preload if defined
@@ -101,7 +121,9 @@ function setupPlayerFilter(suffix) {
 
     if (preloadOption) {
       player.value = preload.player;
+      // Show first card immediately
       updateCardImage();
+      firstInit = false;
     }
   }
 }
