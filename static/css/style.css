@@ -852,19 +852,23 @@ main h3{
   .education-section {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .education-section img{
     width: 70%;
+    margin: 0 auto;
   }
 
   .experience-section {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .experience-section img{
     width: 70%;
+    margin: 0 auto;
   }
 
   .card-preview {
@@ -891,13 +895,45 @@ main h3{
 
 
 @media (max-width: 768px) {
-
   main {
     margin: 1.5rem;
   }
 
-  .hamburger-links li a {
+  main p {
+    font-size: 1rem;
+  }
+
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .sub-heading {
     font-size: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+
+  main h3 {
+    font-size: 1rem;
+  }
+
+  .blog-post h2 {
+    font-size: 1.75rem;
+  }
+
+  .blog-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .nav-titles {
+    font-size: 1.5rem
+  }
+  
+  .hamburger-links li a {
+    font-size: 1.2rem;
   }
 
   .filters-row,
