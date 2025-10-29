@@ -852,10 +852,9 @@ main h3{
   .education-section {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
-  .education-section img{
+  .education-section .main-image {
     width: 70%;
     margin: 0 auto;
   }
@@ -863,11 +862,10 @@ main h3{
   .experience-section {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
-  .experience-section img{
-    width: 70%;
+  .experience-section .main-img{
+    width: 80%;
     margin: 0 auto;
   }
 
@@ -934,6 +932,26 @@ main h3{
   
   .hamburger-links li a {
     font-size: 1.2rem;
+  }
+
+  .experience-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-section .main-img{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .education-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-section .main-image {
+    width: 100%;
+    margin: 0 auto;
   }
 
   .filters-row,
