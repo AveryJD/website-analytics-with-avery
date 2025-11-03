@@ -1,33 +1,37 @@
 <nav class="nav-bar">
-  <div class="content-nav">
-    <b class="nav-titles">CONTENT</b>
-    <ul class="sub-links">
+
+  <div class="nav-bar-top">
+    <div class="content-nav-top">CONTENT</div>
+
+    <button onclick="openMenu()" class="hamburger-button">
+      <img src="/static/assets/hamburger.png" alt="Menu" class="hamburger-icon">
+    </button>
+
+    <div class="portfolio-nav-top">PORTFOLIO</div>
+  </div>
+
+
+  <div class="nav-bar-bottom">
+    <ul class="sub-links content-links">
       <li><a href="/content_about">About My Content</a></li>
       <li><a href="/socials">Socials</a></li>
       <li><a href="/projects">Projects</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/">Home</a></li>
     </ul>
-  </div>
 
-  <button onclick="openMenu()" class="hamburger-button">
-    <img src="/static/assets/hamburger.png" alt="hamburger menu logo" class="hamburger-icon">
-  </button>
-
-  <div class="portfolio-nav">
-    <ul class="sub-links">
+    <ul class="sub-links portfolio-links">
       <li><a href="/education">Education</a></li>
       <li><a href="/experience">Experience</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/portfolio_about">About Me</a></li>
     </ul>
-    <b class="nav-titles">PORTFOLIO</b>
   </div>
 
 
-  <div class="hamburger-nav" id="hamburgerNav">
-    <div class="menu">
+  <div id="hamburgerNav" class="hamburger-nav">
+    <div class="hamburger-menu">
       <ul class="hamburger-links content-menu">
         <li><a href="/">Home</a></li>
         <li><a href="/blog">Blog</a></li>
@@ -42,6 +46,6 @@
         <li><a href="/contact">Contact</a></li>
         <li><a href="/portfolio_about">About Me</a></li>
       </ul>
-    </div>
+      </div>
   </div>
 </nav>

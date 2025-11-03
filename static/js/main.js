@@ -17,7 +17,7 @@ function openMenu() {
 // Close hamburger menu when resizing to large screens
 window.addEventListener("resize", () => {
   const menu = document.getElementById("hamburgerNav");
-  if (window.innerWidth > 1400 && menu.style.display === "flex") {
+  if (window.innerWidth > 768 && menu.style.display === "flex") {
     menu.style.display = "none";
   }
 });
