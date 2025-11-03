@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --primary-blue: rgb(100, 100, 255);
-  --secondary-blue: rgb(80, 80, 255);
-  --primary-red: rgb(255, 100, 100);
+  --secondary-blue: rgb(120, 120, 255);
+  --primary-red: rgb(255, 80, 80);
   --secondary-red: rgb(255, 120, 120);
   --bg-gray: rgb(240, 240, 240);
-  --font-main: "Armata", serif;
-  --font-nav: "Train One", system-ui;
+  --font-main: "REM", sans-serif;
+  --font-nav-title: "Train One", system-ui;
+  --font-nav-sub: "Momo Trust Display", system-ui;
   --font-blog: "Space Mono", monospace;
 }
 
@@ -26,47 +29,47 @@ body {
   flex-direction: column;
 }
 
-.page-content{
+.page-content {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-main{
+main {
   margin: 3rem;
   font-family: var(--font-main);
 }
 
-main p{
+main p {
   font-size: 1.25rem;
   text-align: justify;
   margin-top: 0rem;
   margin-bottom: 1.25rem;
 }
 
-main h1{
-  margin: 0rem;
-}
-
-.main-heading{
-  font-size: 3.5rem;
+.main-heading {
   font-weight: bolder;
   text-align: center;
 }
 
-.sub-heading{
+.sub-heading {
   font-size: 2.5rem;
   text-align: center;
   padding-top: 2rem;
 }
 
-main h2{
+main h1 {
+  font-size: 3.5rem;
+  margin: 0rem;
+}
+
+main h2 {
   font-size: 2rem;
   margin: 0rem;
   padding-bottom: 0.75rem;
 }
 
-main h3{
+main h3 {
   font-size: 1.25rem;
   margin: 0rem;
 }
@@ -123,7 +126,7 @@ main h3{
 
 .about-section {
   display: flex;
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -135,7 +138,7 @@ main h3{
 /* ==================== CONTACT AND SOCIALS ==================== */
 
 .socials-section {
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -152,7 +155,7 @@ main h3{
 }
 
 
-.socials-icon:hover{
+.socials-icon:hover {
   cursor: pointer;
   pointer-events: auto;
 }
@@ -178,7 +181,7 @@ main h3{
 
 .education-section {
   display: flex;
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -186,14 +189,14 @@ main h3{
   border-radius: 0.8rem;
 }
 
-.education-section h1{
+.education-section h1 {
   font-size: 3rem;
   text-align: left;
   padding: 0rem;
   margin: 0rem;
 }
 
-.education-section h2{
+.education-section h2 {
   text-align: left;
   padding: 0rem;
   margin: 0rem;
@@ -211,14 +214,14 @@ main h3{
   box-sizing: border-box;
 }
 
-.education-list ul{
+.education-list ul {
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
   padding-right: 3rem;
 }
 
-.education-list li{
+.education-list li {
   font-size: 1rem;
 }
 
@@ -226,13 +229,13 @@ main h3{
   margin: 0rem;
 }
 
-.awards-list ul{
+.awards-list ul {
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
 }
 
-.awards-list li{
+.awards-list li {
   font-size: 1rem;
 }
 
@@ -241,7 +244,7 @@ main h3{
 
 .experience-section {
   display: flex;
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -249,13 +252,13 @@ main h3{
   border-radius: 0.8rem;
 }
 
-.experience-section ul{
+.experience-section ul {
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
 }
 
-.experience-section li{
+.experience-section li {
   font-size: 1rem;
 }
 
@@ -263,7 +266,7 @@ main h3{
 /* ==================== RESUME ==================== */
 
 .resume-section {
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -292,8 +295,8 @@ main h3{
 
 /* ==================== BLOG ==================== */
 
-.blog-section{
-  background-color: rgb(240, 240, 240);
+.blog-section {
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -301,7 +304,7 @@ main h3{
   border-radius: 0.8rem;
 }
 
-.blog-section h1{
+.blog-section h1 {
   font-size: 3rem;
   text-align: center;
   padding: 0rem;
@@ -309,22 +312,22 @@ main h3{
   margin-bottom: 1rem;
 }
 
-.blog-section h4{
+.blog-section h4 {
   margin: 0rem;
 }
 
-.blog-section p{
+.blog-section p {
   margin: 0rem;
   padding-top: 0.75rem;
 }
 
-.blog-section a{
+.blog-section a {
   text-decoration: none;
 }
 
 .blog-post {
   font-family: var(--font-blog);
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -332,7 +335,7 @@ main h3{
   text-align: center;
 }
 
-.blog-post h2{
+.blog-post h2 {
   font-size: 2.5rem;
   text-align: center;
 }
@@ -348,11 +351,11 @@ main h3{
   margin: auto;
 }
 
-.blog-text p{
+.blog-text p {
   font-size: 1rem;
 }
 
-.blog-text h3{
+.blog-text h3 {
   font-size: 2rem;
   text-align: left;
   padding-bottom: 0.3rem;
@@ -405,7 +408,7 @@ main h3{
 /* ==================== PROJECTS ==================== */
 
 .card-section {
-  background-color: rgb(240, 240, 240);
+  background-color: var(--bg-gray);
   margin: 1.25rem;
   padding: 5%;
   padding-left: 10%;
@@ -415,7 +418,7 @@ main h3{
   border-radius: 0.8rem;
 }
 
-.card-section h1{
+.card-section h1 {
   font-size: 3rem;
   text-align: center;
   padding: 0rem;
@@ -423,7 +426,7 @@ main h3{
   margin-bottom: 1rem;
 }
 
-.card-image{
+.card-image {
   width: 60%;
 }
 
@@ -437,7 +440,7 @@ main h3{
   margin: 1rem;
 }
 
-.card-preview img:hover{
+.card-preview img:hover {
   transform: scale(1.1);
 }
 
@@ -489,6 +492,7 @@ main h3{
 }
 
 .filters-row select {
+  font-family: var(--font-main);
   padding: 0.5rem 0.8rem;
   border-radius: 0.4rem;
   border: 1px solid #ccc;
@@ -535,7 +539,7 @@ main h3{
   border-radius: 12px;
 }
 
-.player-card:hover{
+.player-card:hover {
   transform: scale(1.05);
 }
 
@@ -650,138 +654,114 @@ main h3{
 /* ==================== NAVIGATION BAR ==================== */
 
 .nav-bar {
-  font-family: var(--font-main);
+  width: 100%;
+}
+
+.nav-bar-top, .nav-bar-bottom {
   display: flex;
   width: 100%;
-  height: 5rem;
-  align-items: center;
+  height: 3rem;
   position: relative;
 }
 
-.portfolio-nav,
-.content-nav {
+.nav-bar-top div {
   flex: 1;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 0 1rem;
+  justify-content: center;
 }
 
-.portfolio-nav {
-  background-color: var(--primary-blue);
+.nav-bar-top {
+  font-family: var(--font-nav-title);
+  position: relative;
 }
 
-.content-nav {
+.nav-bar-bottom {
+  font-family: var(--font-nav-sub);
+  height: 3rem;
+}
+
+.content-nav-top {
   background-color: var(--primary-red);
 }
 
+.portfolio-nav-top {
+  background-color: var(--primary-blue);
+}
+
 .sub-links {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style-type: none;
-  width: 100%;
-  padding: 0;
+  list-style: none;
   margin: 0;
-}
-
-.sub-links li{
-  width: min-content;
-  white-space: nowrap;
-}
-
-.nav-titles {
-  font-family: var(--font-nav);
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 0.3rem;
-  transition: background-color 0.2s ease, padding 0.2s ease;
-}
-
-.nav-titles:hover {
-  cursor: default;
-}
-
-.sub-links a {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background-color 0.2s ease, padding 0.2s ease;
-}
-
-.portfolio-nav a:hover {
-  color: rgb(200, 200, 255);
-  transform: scale(1.2);
-}
-
-.content-nav a:hover {
-  color: rgb(255, 200, 200);
-  transform: scale(1.2);
-}
-
-.hamburger-button {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  background: none;
-  border: none;
   padding: 0;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
 }
 
-.hamburger-icon {
-  width: 2rem;
-  height: 2rem;
+.content-links {
+  background-color: var(--secondary-red);
 }
 
-.hamburger-icon:hover{
-  width: 2.3rem;
-  height: 2.3rem;
+.portfolio-links {
+  background-color: var(--secondary-blue);
 }
 
-.hamburger-nav {
-  position: absolute;
-  top: 4rem;
-  left: 0;
-  width: 100%;
+.sub-links li a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding: 0 0.5rem;
+}
+
+.sub-links li a:hover {
+  transform: scale(1.1);
+}
+
+.portfolio-links a:hover {
+  color: rgb(200, 200, 255);
+}
+
+.content-links a:hover {
+  color: rgb(255, 200, 200);
+}
+
+#hamburgerNav {
   display: none;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 9;
 }
 
-.menu {
+.hamburger-menu {
   display: flex;
   width: 100%;
   text-align: center;
+  font-family: var(--font-nav-sub);
 }
 
 .portfolio-menu {
-  background-color: rgb(120, 120, 255);
+  background-color: var(--secondary-blue);
   flex: 1;
-  padding: 1rem;
   list-style: none;
 }
 
 .content-menu {
   background-color: var(--secondary-red);
   flex: 1;
-  padding: 1rem;
   list-style: none;
 }
 
-.portfolio-menu a:hover{
-  color: rgb(200, 200, 255);
-}
-
-.content-menu a:hover{
-  color: rgb(255, 200, 200);
+.hamburger-links {
+  margin: 0rem;
+  padding: 0rem;
 }
 
 .hamburger-links li a {
@@ -789,21 +769,47 @@ main h3{
   text-decoration: none;
   font-size: 1.2rem;
   display: inline-block;
+  padding: 0.2rem 0;
 }
 
-.hamburger-links li {
-  padding: 0.5rem 0;
+.hamburger-button {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.hamburger-links li a:hover{
+.hamburger-icon {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.hamburger-icon:hover {
   transform: scale(1.2);
 }
 
+.hamburger-links a:hover {
+  transform: scale(1.2);
+}
+
+.portfolio-menu a:hover {
+  color: rgb(200, 200, 255);
+}
+
+.content-menu a:hover {
+  color: rgb(255, 200, 200);
+}
 
 /* ==================== FOOTER ==================== */
 
 .footer {
-  background: rgb(240, 240, 240);
+  background: var(--bg-gray);
   text-align: center;
   width: 100%;
   padding: 1.25rem;
@@ -813,21 +819,6 @@ main h3{
 /* ==================== MEDIA QUERIES ==================== */
 
 @media (max-width: 1400px) {
-
-  .portfolio-nav .sub-links,
-  .content-nav .sub-links {
-    display: none;
-  }
-
-  .portfolio-nav,
-  .content-nav {
-    justify-content: center;
-  }
-
-  .hamburger-button {
-    display: flex;
-    margin: auto;
-  }
 
 }
 
@@ -845,7 +836,7 @@ main h3{
     align-items: center;
   }
 
-  .about-section img{
+  .about-section img {
     width: 70%;
   }
 
@@ -864,7 +855,7 @@ main h3{
     align-items: center;
   }
 
-  .experience-section .main-img{
+  .experience-section .main-img {
     width: 80%;
     margin: 0 auto;
   }
@@ -874,7 +865,7 @@ main h3{
     align-items: center;
   }
 
-  .card-preview img{
+  .card-preview img {
     width: 80%;
   }
 
@@ -889,6 +880,10 @@ main h3{
     margin-bottom: 1rem;
   }
 
+  .sub-links li a {
+    font-size: 0.8rem;
+  }
+
 }
 
 
@@ -901,13 +896,8 @@ main h3{
     font-size: 1rem;
   }
 
-  .main-heading {
-    font-size: 2rem;
-  }
-
-  .sub-heading {
-    font-size: 1.5rem;
-    padding-top: 1rem;
+  main h1 {
+    font-size: 3rem;
   }
 
   main h2 {
@@ -916,6 +906,18 @@ main h3{
 
   main h3 {
     font-size: 1rem;
+  }
+
+  .education-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .blog-section h1 {
+    font-size: 2.5rem;
   }
 
   .blog-post h2 {
@@ -930,8 +932,15 @@ main h3{
     font-size: 1.5rem
   }
   
-  .hamburger-links li a {
-    font-size: 1.2rem;
+  .nav-bar-bottom {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
   }
 
   .experience-section {
@@ -939,7 +948,7 @@ main h3{
     align-items: center;
   }
 
-  .experience-section .main-img{
+  .experience-section .main-img {
     width: 100%;
     margin: 0 auto;
   }
