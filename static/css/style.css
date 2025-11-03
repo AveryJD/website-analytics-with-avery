@@ -93,24 +93,24 @@ main h3 {
   border-radius: 50%;
 }
 
-.nav-button {
+.content-button {
   display: flex;
   justify-content: center;
 }
 
-.nav-button a {
+.content-button a {
   display: inline-block;
   padding: 0.5rem 1rem;
   color: white;
-  background-color: var(--primary-blue);
+  background-color: var(--primary-red);
   border-radius: 0.5rem;
   text-decoration: none;
   margin: 0.5rem;
 }
 
-.nav-button a:hover {
-  background-color: var(--secondary-blue);
+.content-button a:hover {
   transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .horizontal-buttons {
@@ -703,11 +703,11 @@ main h3 {
 }
 
 .content-links {
-  background-color: var(--secondary-red);
+  background: linear-gradient(to bottom, var(--primary-red), var(--secondary-red));
 }
 
 .portfolio-links {
-  background-color: var(--secondary-blue);
+  background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
 }
 
 .sub-links li a {
@@ -747,14 +747,14 @@ main h3 {
   font-family: var(--font-nav-sub);
 }
 
-.portfolio-menu {
-  background-color: var(--secondary-blue);
+.content-menu {
+  background: linear-gradient(to bottom, var(--primary-red), var(--secondary-red));
   flex: 1;
   list-style: none;
 }
 
-.content-menu {
-  background-color: var(--secondary-red);
+.portfolio-menu {
+  background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
   flex: 1;
   list-style: none;
 }
