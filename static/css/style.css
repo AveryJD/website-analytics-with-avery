@@ -431,18 +431,37 @@ main h3 {
 }
 
 .card-preview {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 30vw;
+  flex-wrap: wrap;
 }
 
 .card-preview img {
-  width: 33%;
-  margin: 1rem;
+  position: absolute;
+  width: 35vw;
+  max-width: 300px;
+  min-width: 160px;
+  border-radius: 12px;
 }
 
+.card-preview img:nth-child(1) { transform: translateX(-20vw) rotate(-8deg); z-index: 1; }
+.card-preview img:nth-child(2) { transform: translateX(-7vw) rotate(-3deg); z-index: 2; }
+.card-preview img:nth-child(3) { transform: translateX(7vw) rotate(3deg); z-index: 3; }
+.card-preview img:nth-child(4) { transform: translateX(20vw) rotate(8deg); z-index: 4; }
+
 .card-preview img:hover {
-  transform: scale(1.1);
+  z-index: 10;
+  transform: scale(1.05) translateX(var(--x, 0)) rotate(var(--r, 0deg));
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+.card-preview img:nth-child(1):hover { --x: -20vw; --r: -8deg; }
+.card-preview img:nth-child(2):hover { --x: -7vw;  --r: -3deg; }
+.card-preview img:nth-child(3):hover { --x: 7vw;   --r: 3deg; }
+.card-preview img:nth-child(4):hover { --x: 20vw;  --r: 8deg; }
 
 
 /* ==================== CARD PROJECT ==================== */
@@ -541,6 +560,7 @@ main h3 {
 
 .player-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .button-background {
@@ -861,13 +881,24 @@ main h3 {
   }
 
   .card-preview {
-    flex-direction: column;
-    align-items: center;
+    height: 22rem;
   }
 
-  .card-preview img {
-    width: 80%;
+  .card-preview img:nth-child(1) { transform: translateX(-12vw) rotate(-7deg); }
+  .card-preview img:nth-child(2) { transform: translateX(-4vw) rotate(-2deg); }
+  .card-preview img:nth-child(3) { transform: translateX(4vw) rotate(2deg); }
+  .card-preview img:nth-child(4) { transform: translateX(12vw) rotate(7deg); }
+
+  .card-preview img:hover {
+    z-index: 10;
+    transform: scale(1.05) translateX(var(--x, 0)) rotate(var(--r, 0deg));
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   }
+
+  .card-preview img:nth-child(1):hover { --x: -12vw; --r: -7deg; }
+  .card-preview img:nth-child(2):hover { --x: -4vw;  --r: -2deg; }
+  .card-preview img:nth-child(3):hover { --x: 4vw;   --r: 2deg; }
+  .card-preview img:nth-child(4):hover { --x: 12vw;  --r: 7deg; }
 
   .compare-section {
     justify-content: center;
@@ -994,5 +1025,25 @@ main h3 {
     margin: 0.5rem auto;
     width: 90%;
   }
+
+  .card-preview {
+    height: 18rem;
+  }
+
+  .card-preview img:nth-child(1) { transform: translateX(-8vw) rotate(-5deg); }
+  .card-preview img:nth-child(2) { transform: translateX(-2vw) rotate(-2deg); }
+  .card-preview img:nth-child(3) { transform: translateX(2vw) rotate(2deg); }
+  .card-preview img:nth-child(4) { transform: translateX(8vw) rotate(5deg); }
+
+  .card-preview img:hover {
+    z-index: 10;
+    transform: scale(1.05) translateX(var(--x, 0)) rotate(var(--r, 0deg));
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  .card-preview img:nth-child(1):hover { --x: -8vw; --r: -5deg; }
+  .card-preview img:nth-child(2):hover { --x: -2vw;  --r: -1deg; }
+  .card-preview img:nth-child(3):hover { --x: 2vw;   --r: 1deg; }
+  .card-preview img:nth-child(4):hover { --x: 8vw;  --r: 5deg; }
 
 }
