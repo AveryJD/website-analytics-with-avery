@@ -71,6 +71,10 @@ def import_card_data(csv_folder='data_card'):
     with get_card_db() as conn:
         for folder in ['forwards', 'defensemen']: #, 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
+
+                if filename == '.DS_Store':
+                    continue
+                
                 df = pd.read_csv(os.path.join(csv_folder, folder, filename))
 
                 # Drop rows where "Team" contains a comma. Currently to avoid players who have played for multipl teams in a season as it causes errors in generating cards
