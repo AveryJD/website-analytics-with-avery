@@ -69,7 +69,7 @@ def get_card_db():
 
 def import_card_data(csv_folder='data_card'):
     with get_card_db() as conn:
-        for folder in ['forwards', 'defensemen']: #, 'goalies']:
+        for folder in ['forwards', 'defensemen', 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
 
                 if filename == '.DS_Store':
