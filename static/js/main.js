@@ -25,8 +25,8 @@ window.addEventListener("resize", () => {
 // Setup player filter and card generation for each player
 function setupPlayerFilter(suffix) {
   const season = document.getElementById(`season-${suffix}`);
-  const position = document.getElementById(`position-${suffix}`);
   const team = document.getElementById(`team-${suffix}`);
+  const position = document.getElementById(`position-${suffix}`);
   const player = document.getElementById(`player-${suffix}`);
   const form = document.getElementById(`filter-form-${suffix}`);
   const card = document.getElementById(`card-img-${suffix}`);
@@ -40,22 +40,22 @@ function setupPlayerFilter(suffix) {
     name: opt.value,
     text: opt.textContent,
     season: opt.dataset.season,
-    position: opt.dataset.position,
-    team: opt.dataset.team
+    team: opt.dataset.team,
+    position: opt.dataset.position
   }));
 
   function filterPlayers() {
     const s = season.value;
-    const p = position.value;
     const t = team.value;
+    const p = position.value;
   
     const previousValue = player.value; // remember selected player
     player.innerHTML = "";
   
     const filtered = allPlayers.filter(pl =>
       (!s || pl.season === s) &&
-      (!p || pl.position === p) &&
-      (!t || pl.team.includes(t))
+      (!t || pl.team.includes(t)) &&
+      (!p || pl.position === p)
     );
   
     if (filtered.length === 0) {
@@ -70,8 +70,8 @@ function setupPlayerFilter(suffix) {
         opt.value = pl.name;
         opt.text = pl.text;
         opt.dataset.season = pl.season;
-        opt.dataset.position = pl.position;
         opt.dataset.team = pl.team;
+        opt.dataset.position = pl.position;
         player.add(opt);
       });
   
@@ -113,7 +113,7 @@ function setupPlayerFilter(suffix) {
     };
   
     // Change the image source, which triggers the fetch
-    const imgSrc = `/card_image?season=${selected.dataset.season}&position=${selected.dataset.position}&player=${selected.value}${selected.dataset.team ? `&team=${selected.dataset.team}` : ''}`;
+    const imgSrc = `/card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${selected.value}`;
     card.src = imgSrc + "&t=" + Date.now();
   
     const cardLink = document.getElementById(`card-link-${suffix}`);

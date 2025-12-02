@@ -54,21 +54,6 @@
               {% endfor %}
             </select>
 
-            <label for="position-0">Position:</label>
-            <select name="position" id="position-0">
-              {% for p in positions %}
-              <option value="{{ p }}"
-                {% if selected_card %}
-                  {% if selected_card.position == p %}selected{% endif %}
-                {% else %}
-                  {% if loop.first %}selected{% endif %}
-                {% endif %}
-              >
-                {{ position_names[p] }}
-              </option>
-              {% endfor %}
-            </select>
-
             <label for="team-0">Team:</label>
             <select name="team" id="team-0">
               {% for t in teams %}
@@ -80,6 +65,21 @@
                 {% endif %}
               >
                 {{ team_names[t] }}
+              </option>
+              {% endfor %}
+            </select>
+
+            <label for="position-0">Position:</label>
+            <select name="position" id="position-0">
+              {% for p in positions %}
+              <option value="{{ p }}"
+                {% if selected_card %}
+                  {% if selected_card.position == p %}selected{% endif %}
+                {% else %}
+                  {% if loop.first %}selected{% endif %}
+                {% endif %}
+              >
+                {{ position_names[p] }}
               </option>
               {% endfor %}
             </select>
