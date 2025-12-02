@@ -30,6 +30,7 @@ function setupPlayerFilter(suffix) {
   const player = document.getElementById(`player-${suffix}`);
   const form = document.getElementById(`filter-form-${suffix}`);
   const card = document.getElementById(`card-img-${suffix}`);
+  const spinner = document.getElementById(`loading-spinner-${suffix}`);
   const generateBtn = form.querySelector(".generate-button");
 
   const preload = PRELOAD_CARDS[suffix];
@@ -88,13 +89,36 @@ function setupPlayerFilter(suffix) {
     // Store selected value for later
     player.dataset.selectedValue = selected.value;
   
+    // Hide the card and show the spinner
+    card.style.display = "none";
+    if (spinner) {
+      spinner.style.display = "flex";
+    }
+
+    // Set up handlers for when the image finishes loading
+    card.onload = () => {
+      // Hide the spinner and show the new card
+      if (spinner) {
+        spinner.style.display = "none";
+      }
+      card.style.display = "block";
+    };
+
+    card.onerror = () => {
+      // Handle case where image fails to load (optional)
+      if (spinner) {
+        spinner.style.display = "none";
+      }
+      console.error(`Failed to load card image for ${selected.value}`);
+    };
+  
+    // Change the image source, which triggers the fetch
     const imgSrc = `/card_image?season=${selected.dataset.season}&position=${selected.dataset.position}&player=${selected.value}${selected.dataset.team ? `&team=${selected.dataset.team}` : ''}`;
-    card.src = imgSrc;
-    card.style.display = "block";
+    card.src = imgSrc + "&t=" + Date.now();
   
     const cardLink = document.getElementById(`card-link-${suffix}`);
     if (cardLink) cardLink.href = imgSrc;
-  }  
+  }
 
   // Event listeners
   season.addEventListener("change", filterPlayers);
