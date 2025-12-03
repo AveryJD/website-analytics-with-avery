@@ -542,23 +542,33 @@ main h3 {
 }
 
 .player-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  min-height: 20rem;
+  display: block;
   margin: 2rem auto;
-  padding: 1rem;
   max-width: 40rem;
-  background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 5 / 6;
+  overflow: hidden;
+}
+
+.player-card a,
+.card-loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  padding: 1rem;
 }
 
 .player-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .player-card:hover {
@@ -567,22 +577,24 @@ main h3 {
 }
 
 .card-loading-spinner {
-  display: none;
   position: absolute;
-  align-items: center;
-  justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
+  border-radius: 16px;
 }
 
-.card-loading-spinner img,
-.card-loading-spinner svg {
-  width: 25rem;
-  height: 25rem;
+.card-loading-spinner .loadingio-spinner-spinner-2by998twmg9 {
+  width: 20%;
+  height: 20%;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .button-background {
