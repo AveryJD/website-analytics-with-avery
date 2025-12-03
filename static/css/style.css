@@ -579,7 +579,8 @@ main h3 {
   z-index: 10;
 }
 
-.card-loading-spinner object {
+.card-loading-spinner img,
+.card-loading-spinner svg {
   width: 25rem;
   height: 25rem;
 }
