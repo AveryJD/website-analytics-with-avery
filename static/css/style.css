@@ -12,6 +12,7 @@
   --secondary-red: rgb(255, 120, 120);
   --tertiary-red: rgb(255, 200, 200);
   --background-gray: rgb(240, 240, 240);
+  --main-radius: 0.8rem;
   --font-main: "REM", sans-serif;
   --font-nav-title: "Train One", system-ui;
   --font-nav-sub: "Momo Trust Display", system-ui;
@@ -105,7 +106,7 @@ main h3 {
   padding: 0.5rem 1rem;
   color: white;
   background-color: var(--secondary-red);
-  border-radius: 0.5rem;
+  border-radius: var(--main-radius);
   text-decoration: none;
   margin: 0.5rem;
 }
@@ -133,7 +134,7 @@ main h3 {
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 
@@ -145,7 +146,7 @@ main h3 {
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .socials-container {
@@ -188,7 +189,7 @@ main h3 {
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .education-section h1 {
@@ -251,7 +252,7 @@ main h3 {
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .experience-section ul {
@@ -275,7 +276,7 @@ main h3 {
   padding-right: 10%;
   align-items: center;
   text-align: center;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .resume-section p {
@@ -303,7 +304,7 @@ main h3 {
   padding: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .blog-section h1 {
@@ -417,7 +418,7 @@ main h3 {
   padding-right: 10%;
   text-align: center;
   justify-content: center;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
 }
 
 .card-section h1 {
@@ -446,7 +447,7 @@ main h3 {
   width: 35vw;
   max-width: 300px;
   min-width: 160px;
-  border-radius: 12px;
+  padding: 1rem;
 }
 
 .card-preview img:nth-child(1) { transform: translateX(-21vw) translateY(1vw) rotate(-8deg); z-index: 1; }
@@ -470,7 +471,7 @@ main h3 {
 
 #filter-form-0 {
   background: #ffffff;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
   padding: 1.5rem;
   max-width: 100%;
   align-items: center;
@@ -478,7 +479,7 @@ main h3 {
 
 #filter-form-1 {
   background: #ffffff;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
   padding: 1.5rem;
   padding-bottom: 0rem;
   max-width: 100%;
@@ -487,7 +488,7 @@ main h3 {
 
 #filter-form-2 {
   background: #ffffff;
-  border-radius: 0.8rem;
+  border-radius: var(--main-radius);
   padding: 1.5rem;
   padding-bottom: 0rem;
   max-width: 100%;
@@ -515,7 +516,7 @@ main h3 {
 .filters-row select {
   font-family: var(--font-main);
   padding: 0.5rem 0.8rem;
-  border-radius: 0.4rem;
+  border-radius: var(--main-radius);
   border: 1px solid #ccc;
   width: 20rem;
   text-align: center;
@@ -544,13 +545,15 @@ main h3 {
 .player-card {
   position: relative;
   display: block;
+  align-content: center;
   margin: 2rem auto;
   max-width: 40rem;
+  overflow: hidden;
   border-radius: 16px;
+  background: white;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   aspect-ratio: 5 / 6;
-  overflow: hidden;
 }
 
 .player-card a,
@@ -560,15 +563,15 @@ main h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 16px;
-  padding: 1rem;
+  border-radius: var(--main-radius);
 }
 
 .player-card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--main-radius);
+  padding: 1rem;
 }
 
 .player-card:hover {
@@ -587,7 +590,7 @@ main h3 {
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
-  border-radius: 16px;
+  border-radius: var(--main-radius);
 }
 
 .card-loading-spinner .loadingio-spinner-spinner-2by998twmg9 {
@@ -598,8 +601,8 @@ main h3 {
 }
 
 .button-background {
-  background-color: #ffffff;
-  border-radius: 0.75rem;
+  background-color: white;
+  border-radius: var(--main-radius);
   padding: 2rem;
   margin: 1rem 0rem;
   max-width: 100%;
@@ -612,7 +615,7 @@ main h3 {
 }
 
 .project-button {
-  background-color: rgb(50, 50, 50);
+  background-color: var(--secondary-red);
   color: white;
   font-size: 1.2rem;
   text-align: center;
@@ -621,7 +624,7 @@ main h3 {
   width: 100%;
   padding: 0.5rem;
   margin: 0.5rem;
-  border-radius: 3rem;
+  border-radius: var(--main-radius);
   border-style: none;
   flex: 1;
 }
@@ -641,7 +644,7 @@ main h3 {
 }
 
 .generate-button {
-  background-color: rgb(50, 50, 50);
+  background-color: var(--secondary-red);
   color: white;
   font-size: 1.2rem;
   text-align: center;
@@ -650,7 +653,7 @@ main h3 {
   padding: 0.5rem;
   width: 20rem;
   margin: 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: var(--main-radius);
   border-style: none;
 }
 
@@ -670,7 +673,7 @@ main h3 {
 
 .card-explanation {
   background-color: #ffffff;
-  border-radius: 0.75rem;
+  border-radius: var(--main-radius);
   padding: 2rem;
   margin-bottom: 1rem;
   max-width: 100%;
@@ -698,7 +701,7 @@ main h3 {
   background: rgb(245, 245, 245);
   margin-bottom: 0.5rem;
   padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--main-radius);
   font-size: 1rem;
   line-height: 1.4;
   transition: background 0.2s ease;
@@ -1052,12 +1055,6 @@ main h3 {
   .horizontal-buttons {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .project-button {
-    display: block;
-    margin: 0.5rem auto;
-    width: 90%;
   }
 
   .card-preview {
