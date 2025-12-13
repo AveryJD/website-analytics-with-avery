@@ -111,6 +111,7 @@ def cards():
             "season": request.form["season"],
             "position": request.form["position"],
             "team": request.form["team"],
+            "mode": request.form.get("mode", "light")
         }
 
     return render_template(
@@ -148,11 +149,12 @@ def card_image():
     player_name = request.args.get("player")
     season = request.args.get("season")
     position = request.args.get("position")
+    mode = request.args.get("mode", "light")
 
     if not (player_name and season and position):
         return "Missing parameters", 400
 
-    img = make_player_card(player_name, season, position, save=False)
+    img = make_player_card(player_name, season, position, save=False, mode=mode)
 
     buf = io.BytesIO()
     img.save(buf, format="PNG")

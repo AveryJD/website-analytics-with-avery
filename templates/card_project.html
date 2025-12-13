@@ -39,6 +39,13 @@
           <h2>Choose a Player:</h2>
 
           <div class="filters-row">
+
+            <label for="mode-0">Card Mode:</label>
+            <select name="mode" id="mode-0">
+              <option value="light" {% if selected_card and selected_card.mode == 'light' %}selected{% endif %}>Light</option>
+              <option value="dark" {% if selected_card and selected_card.mode == 'dark' %}selected{% endif %}>Dark</option>
+            </select>
+
             <label for="season-0">Season:</label>
             <select name="season" id="season-0">
               {% for s in seasons %}
@@ -97,6 +104,7 @@
               </option>
               {% endfor %}
             </select>
+
           </div>
 
           <button type="button" class="generate-button">Generate Card</button>
@@ -129,6 +137,7 @@
           <p>To qualify for rankings, a skater must have played at least 30% of the total games in the season (25 games in an 82 game season),
              a goalie must have played 15% of the total games in the season (13 games in an 82 game season).
           </p>
+          <h4>Data includes all games played up to and including December 12, 2025.</h4>
 
           <h3>Skater Rankings:</h3>
           <ul>

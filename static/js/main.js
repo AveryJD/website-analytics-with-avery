@@ -22,7 +22,6 @@ window.addEventListener("resize", () => {
   }
 });
 
-// Setup player filter and card generation for each player
 function setupPlayerFilter(suffix) {
   const season = document.getElementById(`season-${suffix}`);
   const team = document.getElementById(`team-${suffix}`);
@@ -32,9 +31,15 @@ function setupPlayerFilter(suffix) {
   const card = document.getElementById(`card-img-${suffix}`);
   const spinner = document.getElementById(`loading-spinner-${suffix}`);
   const generateBtn = form.querySelector(".generate-button");
+  const modeSelect = document.getElementById(`mode-${suffix}`); // <-- define here
 
   const preload = PRELOAD_CARDS[suffix];
   let firstInit = true;
+
+  // Apply preload mode immediately if defined
+  if (modeSelect && preload && preload.mode) {
+    modeSelect.value = preload.mode;
+  }
 
   const allPlayers = Array.from(player.options).map(opt => ({
     name: opt.value,
@@ -85,40 +90,38 @@ function setupPlayerFilter(suffix) {
   function updateCardImage() {
     const selected = player.selectedOptions[0];
     if (!selected || selected.disabled) return;
-  
+
+    // Get the selected mode from a <select> with id="mode-{suffix}"
+    const modeSelect = document.getElementById(`mode-${suffix}`);
+    const mode = modeSelect ? modeSelect.value : "light";  // default to light
+
     // Store selected value for later
     player.dataset.selectedValue = selected.value;
-  
+
     // Hide the card and show the spinner
     card.style.display = "none";
     if (spinner) {
-      spinner.style.display = "flex";
+        spinner.style.display = "flex";
     }
 
-    // Set up handlers for when the image finishes loading
     card.onload = () => {
-      // Hide the spinner and show the new card
-      if (spinner) {
-        spinner.style.display = "none";
-      }
-      card.style.display = "block";
+        if (spinner) spinner.style.display = "none";
+        card.style.display = "block";
     };
 
     card.onerror = () => {
-      // Handle case where image fails to load (optional)
-      if (spinner) {
-        spinner.style.display = "none";
-      }
-      console.error(`Failed to load card image for ${selected.value}`);
+        if (spinner) spinner.style.display = "none";
+        console.error(`Failed to load card image for ${selected.value}`);
     };
-  
-    // Change the image source, which triggers the fetch
-    const imgSrc = `/card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${selected.value}`;
+
+    // Include mode in the image URL
+    const imgSrc = `/card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${selected.value}&mode=${mode}`;
     card.src = imgSrc + "&t=" + Date.now();
-  
+
     const cardLink = document.getElementById(`card-link-${suffix}`);
     if (cardLink) cardLink.href = imgSrc;
   }
+
 
   // Event listeners
   season.addEventListener("change", filterPlayers);
@@ -153,9 +156,9 @@ function setupPlayerFilter(suffix) {
 }
 
 const PRELOAD_CARDS = {
-  0: { season: "2024-2025", position: "F", team: "EDM", player: "Connor McDavid" },
-  1: { season: "2024-2025", position: "D", team: "COL", player: "Cale Makar" },
-  2: { season: "2024-2025", position: "D", team: "VAN", player: "Quinn Hughes" }
+  0: { season: "2024-2025", position: "F", team: "EDM", player: "Connor McDavid", mode: "light" },
+  1: { season: "2024-2025", position: "D", team: "COL", player: "Cale Makar", mode: "light" },
+  2: { season: "2024-2025", position: "D", team: "VAN", player: "Quinn Hughes", mode: "light" }
 };
 
 // Initialize filters for all forms that exist
