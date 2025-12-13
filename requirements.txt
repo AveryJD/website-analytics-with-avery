@@ -11,6 +11,7 @@ cycler==0.12.1
 defusedxml==0.7.1
 Flask==3.1.2
 fonttools==4.61.1
+gunicorn==23.0.0
 idna==3.11
 inflect==7.5.0
 itsdangerous==2.2.0
@@ -20,7 +21,7 @@ Markdown==3.10
 MarkupSafe==3.0.3
 matplotlib==3.10.8
 more-itertools==10.8.0
-nhl-player-stat-cards @ git+https://github.com/AveryJD/project-nhl-player-cards.git@main
+nhl-player-stat-cards @ git+https://github.com/AveryJD/project-nhl-player-cards.git@1b1edb4b98bdd14aaaa24103a24d200cbb8ff8d7
 numpy==2.3.5
 packaging==25.0
 pandas==2.3.3
