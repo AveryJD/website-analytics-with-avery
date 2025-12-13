@@ -559,6 +559,7 @@ main h3 {
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   aspect-ratio: 5 / 6;
+  background-color: var(--background-gray);
 }
 
 .player-card a,
@@ -596,6 +597,7 @@ main h3 {
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
   border-radius: var(--main-radius);
+  background-color: var(--background-gray);
 }
 
 .card-loading-spinner .loadingio-spinner-spinner-2by998twmg9 {
