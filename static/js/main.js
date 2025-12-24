@@ -41,6 +41,16 @@ function setupPlayerFilter(suffix) {
     modeSelect.value = preload.mode;
   }
 
+  function applyCardMode(mode) {
+    const cardContainer = form.querySelector(".player-card");
+    if (!cardContainer) return;
+  
+    cardContainer.style.setProperty(
+      "--player-card-background",
+      mode === "dark" ? "rgb(39, 39, 39)" : "#ffffff"
+    );
+  }
+
   const allPlayers = Array.from(player.options).map(opt => ({
     name: opt.value,
     text: opt.textContent,
@@ -93,7 +103,9 @@ function setupPlayerFilter(suffix) {
 
     // Get the selected mode from a <select> with id="mode-{suffix}"
     const modeSelect = document.getElementById(`mode-${suffix}`);
-    const mode = modeSelect ? modeSelect.value : "light";  // default to light
+    const mode = modeSelect ? modeSelect.value : "light";
+
+    applyCardMode(mode);
 
     // Store selected value for later
     player.dataset.selectedValue = selected.value;
@@ -139,6 +151,11 @@ function setupPlayerFilter(suffix) {
     team.value = preload.team;
     filterPlayers();
 
+    if (modeSelect && preload && preload.mode) {
+      modeSelect.value = preload.mode;
+      applyCardMode(preload.mode);
+    }
+
     const preloadOption = Array.from(player.options).find(
       opt => opt.value === preload.player &&
              opt.dataset.season === preload.season &&
@@ -156,9 +173,9 @@ function setupPlayerFilter(suffix) {
 }
 
 const PRELOAD_CARDS = {
-  0: { season: "2024-2025", position: "F", team: "EDM", player: "Connor McDavid", mode: "light" },
-  1: { season: "2024-2025", position: "D", team: "COL", player: "Cale Makar", mode: "light" },
-  2: { season: "2024-2025", position: "D", team: "VAN", player: "Quinn Hughes", mode: "light" }
+  0: { season: "2025-2026", position: "F", team: "EDM", player: "Connor McDavid", mode: "dark" },
+  1: { season: "2025-2026", position: "D", team: "COL", player: "Cale Makar", mode: "dark" },
+  2: { season: "2025-2026", position: "D", team: "MIN", player: "Quinn Hughes", mode: "dark" }
 };
 
 // Initialize filters for all forms that exist

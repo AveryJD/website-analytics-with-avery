@@ -12,6 +12,9 @@
   --secondary-red: rgb(255, 120, 120);
   --tertiary-red: rgb(255, 200, 200);
   --background-gray: rgb(240, 240, 240);
+  --card-background-light: rgb(255, 255, 255);
+  --card-background-dark: rgb(39, 39, 39);
+  --player-card-background: var(--card-background-light);
   --main-radius: 0.8rem;
   --font-main: "REM", sans-serif;
   --font-nav-title: "Train One", system-ui;
@@ -559,7 +562,7 @@ main h3 {
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   aspect-ratio: 5 / 6;
-  background-color: var(--background-gray);
+  background-color: var(--player-card-background);
 }
 
 .player-card a,
