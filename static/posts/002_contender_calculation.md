@@ -3,14 +3,14 @@ July 4, 2025
 Can a team's overall regular season lineup performance help predict playoff success more than the standings? In this post, I introduce a contender scoring system I built from 17 seasons of NHL data to evaluate which teams had the strongest lineup entering the playoffs. The results show that by looking beyond just the standings, we can uncover stronger indicators of postseason performance and identify teams that are truly built for a Cup run.
 
 
-### Introduction
+# Introduction
 
 With the 2024–2025 season wrapped up and the Stanley Cup being awarded to the Florida Panthers, I thought it would be good to look back on past Cup winners and try to uncover what truly makes a team worthy of hoisting hockey’s greatest prize. Every year, we see teams dominate the regular season only to fall short when the playoffs arrive. For example, the 2022–2023 Boston Bruins finished first overall with the most points in NHL history with a record of 65-12-5 (.823 pts%) but failed to win a single playoff round. We also see some teams barely scrape into the postseason before going on Cinderella runs like the 2020-2021 Montreal Canadiens, who finished 18th overall (0.527 pts%) but managed to go all the way to the final that year. So with all this in mind, is there something we can look at that predicts playoff success more accurately than the regular season standings?
 
 My goal was to devise a system that could score teams based on the overall quality of their entire roster and on-ice performance throughout the regular season to quantify how much of a “true contender” each team really was before the playoffs even began. It should come as no surprise that for a team to survive four intense playoff rounds and capture the Stanley Cup, they need to be strong throughout their entire lineup or at least excel in some areas to make up for deficiencies in others. My aim was to create a formula for a contender score that factors in a team's entire lineup.
 
 
-### Methodology
+# Methodology
 
 For this analysis, I gathered player, goalie, and team data from the past 17 NHL seasons from [Money Puck](https://moneypuck.com/data.htm) and collected the regular season standings data from [Hockey Reference](https://www.hockey-reference.com/leagues/NHL_2025_standings.html). Since my focus was on analyzing playoff contenders, I narrowed the dataset to only include teams that made the playoffs, giving me a total of 272 teams. 
 
@@ -45,7 +45,7 @@ To determine the appropriate weight for each group, I used an iterative optimiza
 Now that my contender score calculation is laid out, let's see what factor weights gave the best results, and how well those results were able to rank contenders and compare to the regular season standings.
 
 
-### Results
+# Results
 
 Below are the optimal factor weights I arrived at for each positional group:
 
@@ -95,7 +95,7 @@ Some more interesting observations:
 These examples serve as reminders that while data can provide valuable insights, hockey remains an unpredictable sport where luck, injuries, and hot goaltending can change everything in an instant.
 
 
-### Conclusion
+# Conclusion
 
 Like any model, this methodology comes with its limitations. The biggest challenge is that regular season results don’t always translate cleanly to postseason outcomes. Some players elevate their game when it matters most, while others struggle under the pressure. Playoff teams can look dramatically different from their regular season selves due to factors like injuries, experience, chemistry, and sheer randomness and luck.
 

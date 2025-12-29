@@ -46,8 +46,8 @@
         <h1 class="main-heading">The Analytics With Avery Blog</h1>
 
         <div class="blog-post">
-          <h2>{{ post['title'] }}</h2>
-          <h3>By Avery Doiron | {{ post['date'] }}</h3>
+          <h1>{{ post['title'] }}</h1>
+          <h5>By Avery Doiron | {{ post['date'] }}</h5>
           <div class="blog-text post-{{ post['id'] }}">
             {{ post['content'] | safe }}
           </div>        
