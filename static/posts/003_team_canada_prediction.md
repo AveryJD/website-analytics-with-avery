@@ -139,66 +139,66 @@ With all that said, here is my final Team Canada roster (these cards were last u
 ## Forwards:
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_SJS_F_Macklin_Celebrini_dark.png" alt="Macklin Celebrini">
-  <img src="/static/post_images/2025-2026_EDM_F_Connor_McDavid_dark.png" alt="Connor McDavid">
-  <img src="/static/post_images/2025-2026_FLA_F_Sam_Reinhart_dark.png" alt="Sam Reinhart">
+  <img src="/static/post_images/003/2025-2026_SJS_F_Macklin_Celebrini_dark.png" alt="Macklin Celebrini">
+  <img src="/static/post_images/003/2025-2026_EDM_F_Connor_McDavid_dark.png" alt="Connor McDavid">
+  <img src="/static/post_images/003/2025-2026_FLA_F_Sam_Reinhart_dark.png" alt="Sam Reinhart">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_COL_F_Nathan_MacKinnon_dark.png" alt="Nathan MacKinnon">
-  <img src="/static/post_images/2025-2026_PIT_F_Sidney_Crosby_dark.png" alt="Sidney Crosby">
-  <img src="/static/post_images/2025-2026_VGK_F_Mark_Stone_dark.png" alt="Mark Stone">
+  <img src="/static/post_images/003/2025-2026_COL_F_Nathan_MacKinnon_dark.png" alt="Nathan MacKinnon">
+  <img src="/static/post_images/003/2025-2026_PIT_F_Sidney_Crosby_dark.png" alt="Sidney Crosby">
+  <img src="/static/post_images/003/2025-2026_VGK_F_Mark_Stone_dark.png" alt="Mark Stone">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_TBL_F_Brandon_Hagel_dark.png" alt="Brandon Hagel">
-  <img src="/static/post_images/2025-2026_MTL_F_Nick_Suzuki_dark.png" alt="Nick Suzuki">
-  <img src="/static/post_images/2025-2026_VGK_F_Mitch_Marner_dark.png" alt="Mitch Marner">
+  <img src="/static/post_images/003/2025-2026_TBL_F_Brandon_Hagel_dark.png" alt="Brandon Hagel">
+  <img src="/static/post_images/003/2025-2026_MTL_F_Nick_Suzuki_dark.png" alt="Nick Suzuki">
+  <img src="/static/post_images/003/2025-2026_VGK_F_Mitch_Marner_dark.png" alt="Mitch Marner">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_FLA_F_Sam_Bennett_dark.png" alt="Sam Bennett">
-  <img src="/static/post_images/2025-2026_NYI_F_Bo_Horvat_dark.png" alt="Bo Horvat">
-  <img src="/static/post_images/2025-2026_WSH_F_Tom_Wilson_dark.png" alt="Tom Wilson">
+  <img src="/static/post_images/003/2025-2026_FLA_F_Sam_Bennett_dark.png" alt="Sam Bennett">
+  <img src="/static/post_images/003/2025-2026_NYI_F_Bo_Horvat_dark.png" alt="Bo Horvat">
+  <img src="/static/post_images/003/2025-2026_WSH_F_Tom_Wilson_dark.png" alt="Tom Wilson">
 </div>
 
 ## Defensemen:
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_COL_D_Devon_Toews_dark.png" alt="Devon Toews">
-  <img src="/static/post_images/2025-2026_COL_D_Cale_Makar_dark.png" alt="Cale Makar">
+  <img src="/static/post_images/003/2025-2026_COL_D_Devon_Toews_dark.png" alt="Devon Toews">
+  <img src="/static/post_images/003/2025-2026_COL_D_Cale_Makar_dark.png" alt="Cale Makar">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_WPG_D_Josh_Morrissey_dark.png" alt="Josh Morrissey">
-  <img src="/static/post_images/2025-2026_VGK_D_Shea_Theodore_dark.png" alt="Shea Theodore">
+  <img src="/static/post_images/003/2025-2026_WPG_D_Josh_Morrissey_dark.png" alt="Josh Morrissey">
+  <img src="/static/post_images/003/2025-2026_VGK_D_Shea_Theodore_dark.png" alt="Shea Theodore">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_WSH_D_Jakob_Chychrun_dark.png" alt="Jakob Chychrun">
-  <img src="/static/post_images/2025-2026_STL_D_Colton_Parayko_dark.png" alt="Colton Parayko">
+  <img src="/static/post_images/003/2025-2026_WSH_D_Jakob_Chychrun_dark.png" alt="Jakob Chychrun">
+  <img src="/static/post_images/003/2025-2026_STL_D_Colton_Parayko_dark.png" alt="Colton Parayko">
 </div>
 
 ## Goalies:
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_WSH_G_Logan_Thompson_dark.png" alt="Logan Thompson">
+  <img src="/static/post_images/003/2025-2026_WSH_G_Logan_Thompson_dark.png" alt="Logan Thompson">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/2025-2026_STL_G_Jordan_Binnington_dark.png" alt="Jordan Binnington">
+  <img src="/static/post_images/003/2025-2026_STL_G_Jordan_Binnington_dark.png" alt="Jordan Binnington">
 </div>
 
 ## Extras:
 
 <div class="extras-line">
-  <img src="/static/post_images/2025-2026_TBL_F_Brayden_Point_dark.png" alt="Brayden Point">
-  <img src="/static/post_images/2025-2026_FLA_F_Brad_Marchand_dark.png" alt="Brad Marchand">
+  <img src="/static/post_images/003/2025-2026_TBL_F_Brayden_Point_dark.png" alt="Brayden Point">
+  <img src="/static/post_images/003/2025-2026_FLA_F_Brad_Marchand_dark.png" alt="Brad Marchand">
 
-  <img src="/static/post_images/2025-2026_EDM_D_Evan_Bouchard_dark.png" alt="Evan Bouchard">
-  <img src="/static/post_images/2025-2026_NYI_D_Adam_Pelech_dark.png" alt="Adam Pelech">
+  <img src="/static/post_images/003/2025-2026_EDM_D_Evan_Bouchard_dark.png" alt="Evan Bouchard">
+  <img src="/static/post_images/003/2025-2026_NYI_D_Adam_Pelech_dark.png" alt="Adam Pelech">
 
-  <img src="/static/post_images/2025-2026_LAK_G_Darcy_Kuemper_dark.png" alt="Darcy Kuemper">
+  <img src="/static/post_images/003/2025-2026_LAK_G_Darcy_Kuemper_dark.png" alt="Darcy Kuemper">
 </div>
 
 ## Summary
