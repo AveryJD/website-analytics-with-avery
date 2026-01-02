@@ -53,6 +53,10 @@ main p {
   margin-bottom: 1.25rem;
 }
 
+main li {
+  font-size: 1.25rem;
+}
+
 .main-heading {
   font-weight: bolder;
   text-align: center;
@@ -231,10 +235,6 @@ main h3 {
   padding-right: 3rem;
 }
 
-.education-list li {
-  font-size: 1rem;
-}
-
 .awards-list {
   margin: 0rem;
 }
@@ -243,10 +243,6 @@ main h3 {
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
-}
-
-.awards-list li {
-  font-size: 1rem;
 }
 
 
@@ -266,10 +262,6 @@ main h3 {
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
-}
-
-.experience-section li {
-  font-size: 1rem;
 }
 
 
