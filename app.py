@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, send_file
-from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
-from database.card_database import get_card_db, delete_card_tables, create_card_tables, import_card_data
+from flask import Flask, render_template, request, send_file, Response, url_for
+from datetime import date, datetime
 import markdown
 import io
+import logging
+from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
+from database.card_database import get_card_db, delete_card_tables, create_card_tables, import_card_data
 from utils.card_functions import make_player_card
+
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 
 TEAM_NAMES = {
@@ -38,6 +43,59 @@ def home():
 
     most_recent_post = dict(post) if post else None
     return render_template("index.html", post=most_recent_post)
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    pages = [
+        "home",
+        "portfolio_about",
+        "contact",
+        "education",
+        "experience",
+        "resume",
+        "content_about",
+        "socials",
+        "projects",
+        "blog",
+        "cards",
+        "compare_cards",
+    ]
+
+    urls = []
+
+    # Static pages
+    for page in pages:
+        urls.append({
+            "loc": url_for(page, _external=True),
+            "lastmod": date.today()
+        })
+
+    # Blog posts
+    with get_blog_db() as conn:
+        posts = conn.execute("SELECT id, url, date FROM blog_posts").fetchall()
+
+    for post in posts:
+        lastmod = lastmod = datetime.strptime(post["date"], "%B %d, %Y").date().isoformat()
+        urls.append({
+            "loc": url_for("blog_post", post_url=post["url"], _external=True),
+            "lastmod": lastmod
+        })
+
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+
+    for url in urls:
+        xml.append(f"""
+        <url>
+          <loc>{url["loc"]}</loc>
+          <lastmod>{url["lastmod"]}</lastmod>
+        </url>
+        """)
+
+    xml.append("</urlset>")
+    return Response("".join(xml), mimetype="application/xml")
+
 
 @app.route("/portfolio_about")
 def portfolio_about():
@@ -85,13 +143,18 @@ def blog():
     return render_template("content_blog.html", posts=converted_posts)
 
 
-@app.route("/blog/<int:post_id>")
-def blog_post(post_id):
+@app.route("/blog/<string:post_url>")
+def blog_post(post_url):
     with get_blog_db() as conn:
-        post = conn.execute('SELECT * FROM blog_posts WHERE id = ?', (post_id,)).fetchone()
+        post = conn.execute('SELECT * FROM blog_posts WHERE url = ?', (post_url,)).fetchone()
+
+    if not post:
+        return "Post not found", 404
 
     converted_post = dict(post)
     converted_post['content'] = markdown.markdown(post['content'], extensions=['tables'])
+
+    logging.info(f"========== Blog post opened: {converted_post['title']} ==========")
 
     return render_template("blog_post.html", post=converted_post)
 
