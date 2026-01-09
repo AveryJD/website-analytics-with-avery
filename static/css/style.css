@@ -412,28 +412,22 @@ main h3 {
   border: 1px solid black;
 }
 
-/* Custom table styling for tanking effectiveness blog posts
-.post-3 table th:nth-child(1),
-.post-3 table td:nth-child(1),
-.post-4 table th:nth-child(1),
-.post-4 table td:nth-child(1) { width: 8%; }
-.post-3 table th:nth-child(2),
-.post-3 table td:nth-child(2),
-.post-4 table th:nth-child(2),
-.post-4 table td:nth-child(2) { width: 20%; }
-.post-3 table th:nth-child(3),
-.post-3 table td:nth-child(3),
-.post-4 table th:nth-child(3),
-.post-4 table td:nth-child(3) { width: 15%; }
-.post-3 table th:nth-child(4),
-.post-3 table td:nth-child(4),
-.post-4 table th:nth-child(4),
-.post-4 table td:nth-child(4) { width: 20%; }
-.post-3 table th:nth-child(5),
-.post-3 table td:nth-child(5),
-.post-4 table th:nth-child(5),
-.post-4 table td:nth-child(5) { width: 37%; }
-*/
+.single-player-card {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.single-player-card img {
+  flex: 0 0 auto; 
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
 
 .players-line {
   display: flex;
