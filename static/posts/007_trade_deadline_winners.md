@@ -41,8 +41,8 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Toronto Maple Leafs | | |
 | Utah Mammoth | MacKenzie Weegar | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | 2nd, 4th | Tyler Myers (50% retained) |
-| Vegas Golden Knights | Cole Smith | Christoffer Sedoff (P), 3rd |
-| Washington Capitals | | |
+| Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
+| Washington Capitals | Jesper Vikman (P), 2nd, 3rd | Nic Dowd |
 | Winnipeg Jets | | |
 
 
@@ -51,10 +51,6 @@ Below are each team's trade deadline moves, including what they traded for and w
 * Buffalo Sabres acquire Colton Parayko
 
 * St. Louis Blues acquired Radim Mrtka and a 1st
-
-* Vegas Golden Knights acquire Nic Dowd
-
-* Washington Capitals acquire TBD
 
 
 # Deadline Winners
