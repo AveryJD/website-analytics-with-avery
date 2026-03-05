@@ -24,14 +24,14 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Detroit Red Wings | | |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | 7th | Jeff Petry |
-| Los Angeles Kings | | Warren Foegele |
+| Los Angeles Kings | 2nd, 3rd | Warren Foegele |
 | Minnesota Wild | Michael McCarron, Jeff Petry | 2nd, 7th |
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
 | New York Rangers | | |
-| Ottawa Senators | Warren Foegele | |
+| Ottawa Senators | Warren Foegele, 3rd | 2nd, 3rd |
 | Philadelphia Flyers | | |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
@@ -47,10 +47,6 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 
 ## Pending Trades / Awaiting Trade Protection Waivers
-
-* Ottawa Senators acquire Warren Foegele
-
-* Los Angeles Kings acquire ?
 
 
 
