@@ -27,7 +27,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Los Angeles Kings | | |
 | Minnesota Wild | Michael McCarron | 2nd |
 | Montreal Canadiens | | |
-| Nashville Predators | Christoffer Sedoff (), 2nd, 3rd, 5th | Michael McCarron, Cole Smith, Nick Blankenburg |
+| Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 5th | Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
 | New York Rangers | | |
