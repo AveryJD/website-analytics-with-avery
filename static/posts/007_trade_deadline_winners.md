@@ -20,18 +20,18 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Chicago Blackhawks | Andrew Mangiapane, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Colton Dach |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | | |
-| Dallas Stars | Tyler Myers (50% retained) | 2nd, 4th |
+| Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
 | Detroit Red Wings | | |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | 7th | Jeff Petry |
-| Los Angeles Kings | | |
+| Los Angeles Kings | | Warren Foegele |
 | Minnesota Wild | Michael McCarron, Jeff Petry | 2nd, 7th |
 | Montreal Canadiens | | |
-| Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 5th | Michael McCarron, Cole Smith, Nick Blankenburg |
+| Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
 | New York Rangers | | |
-| Ottawa Senators | | |
+| Ottawa Senators | Warren Foegele | |
 | Philadelphia Flyers | | |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
@@ -48,9 +48,10 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 ## Pending Trades / Awaiting Trade Protection Waivers
 
-* Buffalo Sabres acquire Colton Parayko
+* Ottawa Senators acquire Warren Foegele
 
-* St. Louis Blues acquired Radim Mrtka and a 1st
+* Los Angeles Kings acquire ?
+
 
 
 # Deadline Winners
