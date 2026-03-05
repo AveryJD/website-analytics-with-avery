@@ -1,4 +1,4 @@
-2026 Trade Deadline Recap and Winners
+2026 Trade Deadline Recap and Winners (Live)
 March 5, 2026
 This live blog tracks all trades made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
 
@@ -34,13 +34,13 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Ottawa Senators | | |
 | Philadelphia Flyers | | |
 | Pittsburgh Penguins | | |
-| San Jose Sharks | | |
+| San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
 | Seattle Kraken | | |
 | St. Louis Blues | | |
 | Tampa Bay Lightning | | |
 | Toronto Maple Leafs | 1st, 5th | Nic Roy |
 | Utah Mammoth | MacKenzie Weegar | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd |
-| Vancouver Canucks | 2nd, 4th | Tyler Myers (50% retained) |
+| Vancouver Canucks | Jack Thompson (P), 2nd, 4th | Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
 | Washington Capitals | Jesper Vikman (P), 2nd, 3rd | Nic Dowd |
 | Winnipeg Jets | | |
