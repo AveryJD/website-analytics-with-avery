@@ -23,9 +23,9 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
 | Detroit Red Wings | David Perron | 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
-| Florida Panthers | 7th | Jeff Petry |
+| Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
 | Los Angeles Kings | 2nd, 2nd, 3rd | Warren Foegele, Corey Perry |
-| Minnesota Wild | Bobby Brink, Michael McCarron, Nick Foligno, Jeff Petry | David Jiricek, 2nd, 7th |
+| Minnesota Wild | Bobby Brink, Michael McCarron, Nick Foligno, Jeff Petry, Vinnie Hinostroza | David Jiricek, 2nd, 7th |
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
