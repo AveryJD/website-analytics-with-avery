@@ -15,7 +15,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Anaheim Ducks | John Carlson, 7th | Ryan Strome, 1st, 3rd |
 | Boston Bruins | Lukas Reichel, Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P), 6th |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Tanner Pearson, Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th, 7th |
-| Calgary Flames | Olli Maatta, Ryan Strome, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, 7th |
+| Calgary Flames | Olli Maatta, Ryan Strome, Brennan Othmann, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, Jacob Battaglia (P), 7th |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
 | Chicago Blackhawks | Andrew Mangiapane, Derrick Pouliot, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach, Aidan Thompson (P) |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
@@ -30,7 +30,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | Brayden Schenn | Jonathan Drouin, Marcus Gidlof (P), 1st, 3rd|
-| New York Rangers | Aidan Thompson (P), 3rd, 6th | Sam Carrick, Derrick Pouliot |
+| New York Rangers | Jacob Battaglia (P), Aidan Thompson (P), 3rd, 6th | Sam Carrick, Brennan Othmann, Derrick Pouliot |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | Elmer Soderblom | 3rd |
@@ -49,7 +49,9 @@ Below are each team's trade deadline moves, including what they traded for and w
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-None currently
+* The Colorado Avalanche acquire Nazem Kadri.
+
+* The Calgary Flames acquire ?
 
 
 ## Signings & Waiver Claims
