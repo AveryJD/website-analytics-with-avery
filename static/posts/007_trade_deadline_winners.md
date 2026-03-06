@@ -48,6 +48,10 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 ## Pending Trades / Awaiting Trade Protection Waivers
 
+* Buffalo Sabres acquire Sam Carrick
+
+* New York Rangers acquire ?
+
 * Buffalo Sabres acquire Logan Stanley (and Luke Schenn?)
 
 * Winnipeg Jets acquire ?
