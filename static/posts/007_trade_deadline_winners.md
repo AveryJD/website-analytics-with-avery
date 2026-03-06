@@ -12,7 +12,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 | Team | Traded For | Traded Away |
 |---|---|---|
-| Anaheim Ducks | | |
+| Anaheim Ducks | John Carlson | 1st, 3rd |
 | Boston Bruins | | |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
 | Calgary Flames | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
@@ -42,7 +42,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Utah Mammoth | MacKenzie Weegar | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
-| Washington Capitals | Jesper Vikman (P), 2nd, 3rd | Nic Dowd |
+| Washington Capitals | Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd |
 | Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th | Logan Stanley, Luke Schenn (50% retained) |
 
 
