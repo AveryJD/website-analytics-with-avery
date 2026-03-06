@@ -14,7 +14,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 |---|---|---|
 | Anaheim Ducks | | |
 | Boston Bruins | | |
-| Buffalo Sabres | | |
+| Buffalo Sabres | Logan Stanley, Luke Schenn, Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 6th |
 | Calgary Flames | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
 | Carolina Hurricanes | | |
 | Chicago Blackhawks | Andrew Mangiapane, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Colton Dach |
@@ -30,7 +30,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
-| New York Rangers | | |
+| New York Rangers | 3rd, 6th | Sam Carrick |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | | |
 | Pittsburgh Penguins | | |
@@ -43,18 +43,10 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
 | Washington Capitals | Jesper Vikman (P), 2nd, 3rd | Nic Dowd |
-| Winnipeg Jets | | |
+| Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd | Logan Stanley, Luke Schenn |
 
 
 ## Pending Trades / Awaiting Trade Protection Waivers
-
-* Buffalo Sabres acquire Sam Carrick
-
-* New York Rangers acquire ?
-
-* Buffalo Sabres acquire Logan Stanley (and Luke Schenn?)
-
-* Winnipeg Jets acquire ?
 
 
 # Deadline Winners
