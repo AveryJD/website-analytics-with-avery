@@ -54,6 +54,8 @@ None currently.
 ## Signings
 Below are any signings/extensions made by teams within the week of the trade deadline.
 
+* The Seattle Kraken have extended Jordan Eberle on a 2x$5.5M deal.
+
 * The San Jose Sharks have extended Alex Nedeljkovic on a 2x$3.0M deal.
 
 * The Anaheim Ducks have extended Ryan Poehling on a 4x$3.75M deal.
