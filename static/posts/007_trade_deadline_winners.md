@@ -15,8 +15,8 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Anaheim Ducks | John Carlson | 1st, 3rd |
 | Boston Bruins | Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P) |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
-| Calgary Flames | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
-| Carolina Hurricanes | | |
+| Calgary Flames | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
+| Carolina Hurricanes | Nicolas Deslauriers | 7th |
 | Chicago Blackhawks | Andrew Mangiapane, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
@@ -24,7 +24,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Detroit Red Wings | David Perron | 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
-| Los Angeles Kings | 2nd, 2nd, 3rd | Warren Foegele, Corey Perry |
+| Los Angeles Kings | 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained) |
 | Minnesota Wild | Bobby Brink, Michael McCarron, Nick Foligno, Jeff Petry, Vinnie Hinostroza | David Jiricek, 2nd, 7th |
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
@@ -32,14 +32,14 @@ Below are each team's trade deadline moves, including what they traded for and w
 | New York Islanders | | |
 | New York Rangers | 3rd, 6th | Sam Carrick |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
-| Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P) | Bobby Brink, Massimo Rizzo (P), Alexis Gendron (P) |
+| Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
 | Seattle Kraken | | |
 | St. Louis Blues | | |
-| Tampa Bay Lightning | Corey Perry | 2nd |
+| Tampa Bay Lightning | Corey Perry (50% retained) | 2nd |
 | Toronto Maple Leafs | 1st, 5th | Nic Roy |
-| Utah Mammoth | MacKenzie Weegar | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd |
+| Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
 | Washington Capitals | Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd |
