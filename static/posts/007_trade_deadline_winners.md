@@ -49,7 +49,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-* None currently.
+None currently.
 
 ## Signings
 Below are any signings/extensions made by teams within the week of the trade deadline.
