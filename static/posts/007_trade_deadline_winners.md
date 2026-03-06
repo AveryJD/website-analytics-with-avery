@@ -14,7 +14,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 |---|---|---|
 | Anaheim Ducks | John Carlson, 7th | Ryan Strome, 1st, 3rd |
 | Boston Bruins | Lukas Reichel, Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P), 6th |
-| Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
+| Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Tanner Pearson, Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th, 7th |
 | Calgary Flames | Olli Maatta, Ryan Strome, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, 7th |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
 | Chicago Blackhawks | Andrew Mangiapane, Derrick Pouliot, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach, Aidan Thompson (P) |
@@ -43,7 +43,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th, 6th, 6th | Conor Garland, Tyler Myers (50% retained), David Kampf, Lukas Reichel, Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
 | Washington Capitals | Timothy Liljegren, David Kampf, Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, 4th, 6th |
-| Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th | Logan Stanley, Luke Schenn (50% retained) |
+| Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th, 7th | Logan Stanley, Luke Schenn (50% retained), Tanner Pearson |
 
 
 ## Pending Trades / Awaiting Trade Protection Waivers
