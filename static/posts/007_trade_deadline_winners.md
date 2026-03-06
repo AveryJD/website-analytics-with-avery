@@ -21,7 +21,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
-| Detroit Red Wings | Justin Faulk, David Perron | Justin Holl, 1st, 3rd, 4th |
+| Detroit Red Wings | Justin Faulk, David Perron | Justin Holl, Dmitiri Buchelnikov (P), 1st, 3rd, 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
 | Los Angeles Kings | Scott Laughton, 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained), 3rd |
@@ -36,7 +36,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
 | Seattle Kraken | Bobby McMann | 2nd, 4th |
-| St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
+| St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P) Dmitiri Buchelnikov (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
 | Tampa Bay Lightning | Corey Perry (50% retained) | 2nd |
 | Toronto Maple Leafs | 1st, 2nd, 3rd, 4th, 5th | Nic Roy, Bobby McMann, Scott Laughton |
 | Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
