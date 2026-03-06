@@ -21,7 +21,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
-| Detroit Red Wings | Justin Faulk, David Perron | Justin Holl, Dmitiri Buchelnikov (P), 1st, 3rd, 4th |
+| Detroit Red Wings | Justin Faulk, David Perron, 3rd | Justin Holl, Elmer Soderblom, Dmitiri Buchelnikov (P), 1st, 3rd, 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
 | Los Angeles Kings | Scott Laughton, 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained), 3rd |
@@ -33,7 +33,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | New York Rangers | Aidan Thompson (P), 3rd, 6th | Sam Carrick, Derrick Pouliot |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
-| Pittsburgh Penguins | | |
+| Pittsburgh Penguins | Elmer Soderblom | 3rd |
 | San Jose Sharks | Jet Woo (P), 4th | Timothy Liljegren, Jack Thompson (P) |
 | Seattle Kraken | Bobby McMann | 2nd, 4th |
 | St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P) Dmitiri Buchelnikov (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
