@@ -25,14 +25,14 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | 7th | Jeff Petry |
 | Los Angeles Kings | 2nd, 3rd | Warren Foegele |
-| Minnesota Wild | Michael McCarron, Jeff Petry | 2nd, 7th |
+| Minnesota Wild | Bobby Brink, Michael McCarron, Jeff Petry | David Jiricek, 2nd, 7th |
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
 | New York Rangers | 3rd, 6th | Sam Carrick |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
-| Philadelphia Flyers | | |
+| Philadelphia Flyers | David Jiricek | Bobby Brink |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
 | Seattle Kraken | | |
