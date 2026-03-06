@@ -12,16 +12,16 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 | Team | Traded For | Traded Away |
 |---|---|---|
-| Anaheim Ducks | John Carlson | 1st, 3rd |
+| Anaheim Ducks | John Carlson, 7th | Ryan Strome, 1st, 3rd |
 | Boston Bruins | Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P) |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
-| Calgary Flames | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
+| Calgary Flames | Olli Maatta, Ryan Strome, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, 7th |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
 | Chicago Blackhawks | Andrew Mangiapane, Derrick Pouliot, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach, Aidan Thompson (P) |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
-| Detroit Red Wings | David Perron | 4th |
+| Detroit Red Wings | Justin Faulk, David Perron | Justin Holl, 1st, 3rd, 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
 | Los Angeles Kings | 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained) |
@@ -29,16 +29,16 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
-| New York Islanders | | |
+| New York Islanders | Brayden Schenn | Jonathan Drouin, Marcus Gidlof (P), 1st, 3rd|
 | New York Rangers | Aidan Thompson (P), 3rd, 6th | Sam Carrick, Derrick Pouliot |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
-| Seattle Kraken | | |
-| St. Louis Blues | | |
+| Seattle Kraken | Bobby McMann | 2nd, 4th |
+| St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
 | Tampa Bay Lightning | Corey Perry (50% retained) | 2nd |
-| Toronto Maple Leafs | 1st, 5th | Nic Roy |
+| Toronto Maple Leafs | 1st, 2nd, 4th, 5th | Nic Roy, Bobby McMann |
 | Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
@@ -49,13 +49,13 @@ Below are each team's trade deadline moves, including what they traded for and w
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-The Washington Capitals have acquired Timothy Liljegren from the San Jose Sharks.
+The Washington Capitals have acquired Timothy Liljegren.
 
 The San Jose Sharks have acquired ?
 
-The New York Islanders have acquired Brayden Schenn.
+The Los Angeles Kings have acquired Scott Laughton.
 
-The St. Louis Blues have acquired a 1st, a 3rd, and a prospect.
+The Toronto Maple Leafs have acquired ?
 
 
 ## Signings & Waiver Claims
