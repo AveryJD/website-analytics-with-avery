@@ -1,16 +1,14 @@
 2026 Trade Deadline Recap and Winners (Live)
 March 5, 2026
-This live blog tracks all trades made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
+This live blog tracks all trades and signings made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
 
 # Introduction
-This live blog tracks all trades made during the week of the NHL trade deadline (March 1–March 6, 2026). Deals are organized by team to show what each organization added and what they moved out before the deadline. There is also a section for trades that have not yet been made official or are pending a player waiving trade protection.
-
-Draft picks are displayed by round (for example, a first-round pick is shown as 1st). Players with retained salary are labeled accordingly, and prospects are listed with (P) beside their name.
+This live blog tracks all the moves made during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization added and what they moved out in total before the deadline. There is also a section for trades that have not yet been made official or are pending a player waiving trade protection as well as well as any signings made in this timeframe.
 
 # The Moves
 
 ## Trades
-Below are each team's trade deadline moves, including what they traded for and who they traded away.
+Below are each team's trade deadline moves, including what they traded for and who they traded away. Draft picks are displayed by round (for example, a first-round pick is shown as 1st). Players with retained salary are labeled accordingly, and any prospects are listed with (P) beside their name.
 
 | Team | Traded For | Traded Away |
 |---|---|---|
@@ -51,10 +49,10 @@ Below are each team's trade deadline moves, including what they traded for and w
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-None currently
+* None currently.
 
-## Signings & Extensions
-Below are any signings or extensions made by teams within the week of the trade deadline.
+## Signings
+Below are any signings/extensions made by teams within the week of the trade deadline.
 
 * The San Jose Sharks have extended Alex Nedeljkovic on a 2x$3.0M deal.
 
@@ -79,20 +77,17 @@ Below are any signings or extensions made by teams within the week of the trade 
 * The Vegas Golden Knights have signed Alex Weiermair on a 3x$0.975M deal.
 
 
-
-
-
 # Deadline Winners
 
-## Winner #1 – (Team)
+## Winner #1
 
 Analysis coming soon.
 
-## Winner #2 – (Team)
+## Winner #2
 
 Analysis coming soon.
 
-## Winner #3 – (Team)
+## Winner #3
 
 Analysis coming soon.
 
