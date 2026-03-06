@@ -21,7 +21,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | | |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
-| Detroit Red Wings | | |
+| Detroit Red Wings | David Perorn | 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | 7th | Jeff Petry |
 | Los Angeles Kings | 2nd, 3rd | Warren Foegele |
@@ -31,7 +31,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | New Jersey Devils | | |
 | New York Islanders | | |
 | New York Rangers | | |
-| Ottawa Senators | Warren Foegele, 3rd | 2nd, 3rd |
+| Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | | |
 | Pittsburgh Penguins | | |
 | San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
@@ -48,6 +48,9 @@ Below are each team's trade deadline moves, including what they traded for and w
 
 ## Pending Trades / Awaiting Trade Protection Waivers
 
+* Buffalo Sabres acquire Logan Stanley (and Luke Schenn?)
+
+* Winnipeg Jets acquire ?
 
 
 # Deadline Winners
