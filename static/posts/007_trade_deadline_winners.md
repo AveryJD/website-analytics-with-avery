@@ -1,9 +1,9 @@
 2026 Trade Deadline Recap and Winners (Live)
 March 5, 2026
-This live blog tracks all trades and signings made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
+This live blog tracks all roster moves made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
 
 # Introduction
-This live blog tracks all the moves made during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization added and what they moved out in total before the deadline. There is also a section for trades that have not yet been made official or are pending a player waiving trade protection as well as well as any signings made in this timeframe.
+This live blog tracks all the moves made during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization added and what they moved out in total before the deadline. There is also a section for trades that have not yet been made official or are pending a player waiving trade protection as well as well as any signings or waiver claims made in this timeframe.
 
 # The Moves
 
@@ -17,7 +17,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
 | Calgary Flames | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
-| Chicago Blackhawks | Andrew Mangiapane, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach |
+| Chicago Blackhawks | Andrew Mangiapane, Derrick Pouliot, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach, Aidan Thompson (P) |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
@@ -30,7 +30,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
 | New Jersey Devils | | |
 | New York Islanders | | |
-| New York Rangers | 3rd, 6th | Sam Carrick |
+| New York Rangers | Aidan Thompson (P), 3rd, 6th | Sam Carrick, Derrick Pouliot |
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | | |
@@ -49,10 +49,19 @@ Below are each team's trade deadline moves, including what they traded for and w
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-None currently.
+The Washington Capitals have acquired Timothy Liljegren from the San Jose Sharks.
 
-## Signings
+The San Jose Sharks have acquired ?
+
+The New York Islanders have acquired Brayden Schenn.
+
+The St. Louis Blues have acquired a 1st, a 3rd, and a prospect.
+
+
+## Signings & Waiver Claims
 Below are any signings/extensions made by teams within the week of the trade deadline.
+
+* The Los Angeles Kings have signed Mathieu Joseph on a 1x$0.8M deal.
 
 * The Seattle Kraken have extended Jordan Eberle on a 2x$5.5M deal.
 
@@ -77,6 +86,16 @@ Below are any signings/extensions made by teams within the week of the trade dea
 * The Seattle Kraken have signed Ryden Evers on a 3x$1.075M deal.
 
 * The Vegas Golden Knights have signed Alex Weiermair on a 3x$0.975M deal.
+
+Below are any waiver pickups made by teams within the week of the trade deadline.
+
+* The Philadelphia Flyers have claimed Luke Glendening from the New Jersey Devils.
+
+* The Florida Panthers have claimed Cole Reinhardt from the Vegas Golden Knights.
+
+* The Vancouver Canucks have claimed Curtis Douglas from the Tampa Bay Lightning.
+
+* The Minnesota Wild have claimed Robby Fabbri from the St. Louis Blues.
 
 
 # Deadline Winners
