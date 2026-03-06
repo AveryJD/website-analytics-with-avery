@@ -34,7 +34,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | | |
-| San Jose Sharks | Jet Woo (P) | Jack Thompson (P) |
+| San Jose Sharks | Jet Woo (P), 4th | Timothy Liljegren, Jack Thompson (P) |
 | Seattle Kraken | Bobby McMann | 2nd, 4th |
 | St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P) Dmitiri Buchelnikov (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
 | Tampa Bay Lightning | Corey Perry (50% retained) | 2nd |
@@ -42,16 +42,14 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th, 6th, 6th | Conor Garland, Tyler Myers (50% retained), David Kampf, Lukas Reichel, Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
-| Washington Capitals | David Kampf, Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, 6th |
+| Washington Capitals | Timothy Liljegren, David Kampf, Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, 4th, 6th |
 | Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th | Logan Stanley, Luke Schenn (50% retained) |
 
 
 ## Pending Trades / Awaiting Trade Protection Waivers
 Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
-The Washington Capitals have acquired Timothy Liljegren.
-
-The San Jose Sharks have acquired ?
+None currently
 
 
 ## Signings & Waiver Claims
