@@ -19,7 +19,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Carolina Hurricanes | | |
 | Chicago Blackhawks | Andrew Mangiapane, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Colton Dach |
 | Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
-| Columbus Blue Jackets | | |
+| Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
 | Detroit Red Wings | David Perorn | 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
@@ -40,7 +40,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Tampa Bay Lightning | | |
 | Toronto Maple Leafs | 1st, 5th | Nic Roy |
 | Utah Mammoth | MacKenzie Weegar | Olli Maata, Jonathan Castagna (P), 2nd, 2nd, 2nd |
-| Vancouver Canucks | Jack Thompson (P), 2nd, 4th | Tyler Myers (50% retained), Jet Woo (P) |
+| Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
 | Washington Capitals | Jesper Vikman (P), 2nd, 3rd | Nic Dowd |
 | Winnipeg Jets | | |
