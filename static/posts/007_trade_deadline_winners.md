@@ -13,7 +13,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Team | Traded For | Traded Away |
 |---|---|---|
 | Anaheim Ducks | John Carlson, 7th | Ryan Strome, 1st, 3rd |
-| Boston Bruins | Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P) |
+| Boston Bruins | Lukas Reichel, Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P), 6th |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th |
 | Calgary Flames | Olli Maatta, Ryan Strome, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, 7th |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
@@ -24,7 +24,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Detroit Red Wings | Justin Faulk, David Perron | Justin Holl, 1st, 3rd, 4th |
 | Edmonton Oilers | Connor Murphy, Jason Dickinson (50% retained), Colton Dach | Andrew Mangiapane, 1st, 2nd |
 | Florida Panthers | Vinnie Hinostroza, 7th | Jeff Petry |
-| Los Angeles Kings | 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained) |
+| Los Angeles Kings | Scott Laughton, 2nd, 2nd, 3rd | Warren Foegele, Corey Perry (50% retained), 3rd |
 | Minnesota Wild | Bobby Brink, Michael McCarron, Nick Foligno, Jeff Petry, Vinnie Hinostroza | David Jiricek, 2nd, 7th |
 | Montreal Canadiens | | |
 | Nashville Predators | Christoffer Sedoff (P), 2nd, 3rd, 3rd, 5th | Michael Bunting, Michael McCarron, Cole Smith, Nick Blankenburg |
@@ -38,11 +38,11 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Seattle Kraken | Bobby McMann | 2nd, 4th |
 | St. Louis Blues | Justin Holl, Jonathan Drouin, Marcus Gidlof (P), 1st, 1st, 3rd, 3rd | Justin Faulk, Brayden Schenn |
 | Tampa Bay Lightning | Corey Perry (50% retained) | 2nd |
-| Toronto Maple Leafs | 1st, 2nd, 4th, 5th | Nic Roy, Bobby McMann |
+| Toronto Maple Leafs | 1st, 2nd, 3rd, 4th, 5th | Nic Roy, Bobby McMann, Scott Laughton |
 | Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
-| Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th | Conor Garland, Tyler Myers (50% retained), Jet Woo (P) |
+| Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th, 6th, 6th | Conor Garland, Tyler Myers (50% retained), David Kampf, Lukas Reichel, Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
-| Washington Capitals | Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd |
+| Washington Capitals | David Kampf, Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, 6th |
 | Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th | Logan Stanley, Luke Schenn (50% retained) |
 
 
@@ -53,13 +53,11 @@ The Washington Capitals have acquired Timothy Liljegren.
 
 The San Jose Sharks have acquired ?
 
-The Los Angeles Kings have acquired Scott Laughton.
-
-The Toronto Maple Leafs have acquired ?
-
 
 ## Signings & Waiver Claims
 Below are any signings/extensions made by teams within the week of the trade deadline.
+
+* The New York Islanders have signed Jean-Gabriel Pageau on a 3x$4.85M deal.
 
 * The Los Angeles Kings have signed Mathieu Joseph on a 1x$0.8M deal.
 
