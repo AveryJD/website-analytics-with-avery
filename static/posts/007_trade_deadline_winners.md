@@ -15,10 +15,10 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Anaheim Ducks | John Carlson, 7th | Ryan Strome, 1st, 3rd |
 | Boston Bruins | Lukas Reichel, Massimo Rizzo (P), Alexis Gendron (P) | Brett Harrison (P), Jackson Edward (P), 6th |
 | Buffalo Sabres | Logan Stanley, Luke Schenn (50% retained), Tanner Pearson, Sam Carrick | Jacob Bryson, Isak Rosen (P), 2nd, 3rd, 4th, 6th, 7th |
-| Calgary Flames | Olli Maatta, Ryan Strome, Brennan Othmann, Jonathan Castagna (P), 2nd, 2nd, 2nd | MacKenzie Weegar, Jacob Battaglia (P), 7th |
+| Calgary Flames | Victor Olofsson, Olli Maatta, Ryan Strome, Brennan Othmann, Jonathan Castagna (P), Max Curran (P), 1st, 2nd, 2nd, 2nd, 2nd | Nazem Kadri (20% retained), MacKenzie Weegar, Jacob Battaglia (P), 4th, 7th |
 | Carolina Hurricanes | Nicolas Deslauriers | 7th |
 | Chicago Blackhawks | Andrew Mangiapane, Derrick Pouliot, 1st, 2nd | Connor Murphy, Jason Dickinson (50% retained), Nick Foligno, Colton Dach, Aidan Thompson (P) |
-| Colorado Avalanche | Nic Roy, Nick Blankenburg | 1st, 5th, 5th |
+| Colorado Avalanche | Nazem Kadri (20% retained), Nic Roy, Nick Blankenburg, 4th | Victor Olofsson, Max Curran (P), 1st, 1st, 2nd, 5th, 5th |
 | Columbus Blue Jackets | Conor Garland | 2nd, 3rd |
 | Dallas Stars | Tyler Myers (50% retained), Michael Bunting | 2nd, 4th, 3rd |
 | Detroit Red Wings | Justin Faulk, David Perron, 3rd | Justin Holl, Elmer Soderblom, Dmitiri Buchelnikov (P), 1st, 3rd, 4th |
