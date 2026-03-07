@@ -3,7 +3,7 @@ March 5, 2026
 This live blog tracks all roster moves made during the week of the 2026 NHL trade deadline. As deals occur, they will be added to the post, and once the deadline has passed, the three biggest winners of the deadline, in my opinion, will be highlighted and analyzed.
 
 # Introduction
-This live blog tracks all the moves made during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization added and what they moved out in total before the deadline. There is also a section for trades that have not yet been made official or are pending a player waiving trade protection as well as well as any signings or waiver claims made in this timeframe.
+This live blog tracks all the moves made during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization added and what they moved out in total before the deadline. There is also a section for any signings or waiver claims made in this timeframe.
 
 # The Moves
 
@@ -31,7 +31,7 @@ Below are each team's trade deadline moves, including what they traded for and w
 | New Jersey Devils | | |
 | New York Islanders | Brayden Schenn | Jonathan Drouin, Marcus Gidlof (P), 1st, 3rd|
 | New York Rangers | Jacob Battaglia (P), Aidan Thompson (P), 3rd, 6th | Sam Carrick, Brennan Othmann, Derrick Pouliot |
-| Ottawa Senators | Warren Foegele, 3rd, 4th | David Perron, 2nd, 3rd |
+| Ottawa Senators | Warren Foegele, Graeme Clarke (P), 3rd, 4th | David Perron, Wyatt Bongiovanni (P), 2nd, 3rd |
 | Philadelphia Flyers | David Jiricek, Brett Harrison (P), Jackson Edward (P), 7th | Bobby Brink, Nicolas Deslauriers, Massimo Rizzo (P), Alexis Gendron (P) |
 | Pittsburgh Penguins | Elmer Soderblom | 3rd |
 | San Jose Sharks | Jet Woo (P), 4th | Timothy Liljegren, Jack Thompson (P) |
@@ -42,12 +42,8 @@ Below are each team's trade deadline moves, including what they traded for and w
 | Utah Mammoth | MacKenzie Weegar | Olli Maatta, Jonathan Castagna (P), 2nd, 2nd, 2nd |
 | Vancouver Canucks | Jack Thompson (P), 2nd, 2nd, 3rd, 4th, 6th, 6th | Conor Garland, Tyler Myers (50% retained), David Kampf, Lukas Reichel, Jet Woo (P) |
 | Vegas Golden Knights | Cole Smith, Nic Dowd | Christoffer Sedoff (P), Jesper Vikman (P), 2nd, 3rd, 3rd |
-| Washington Capitals | Timothy Liljegren, David Kampf, Jesper Vikman (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, 4th, 6th |
+| Washington Capitals | Timothy Liljegren, David Kampf, Jesper Vikman (P), Wyatt Bongiovanni (P), 1st, 2nd, 3rd, 3rd | John Carlson, Nic Dowd, Graeme Clarke (P), 4th, 6th |
 | Winnipeg Jets | Jacob Bryson, Isak Rosen (P), 2nd, 4th, 7th | Logan Stanley, Luke Schenn (50% retained), Tanner Pearson |
-
-
-## Pending Trades / Awaiting Trade Protection Waivers
-Below are any unofficial deals, trades where all details have not yet been announced, or deals waiting on trade protection waivers.
 
 
 ## Signings & Waiver Claims
