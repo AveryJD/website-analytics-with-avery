@@ -658,7 +658,7 @@ main h3 {
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
   border-radius: var(--main-radius);
-  background-color: var(--background-gray);
+  background-color: var(--player-card-background);
 }
 
 .card-loading-spinner .loadingio-spinner-spinner-2by998twmg9 {
