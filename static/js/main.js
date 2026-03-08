@@ -127,7 +127,7 @@ function setupPlayerFilter(suffix) {
     };
 
     // Include mode in the image URL
-    const imgSrc = `/card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${selected.value}&mode=${mode}`;
+    const imgSrc = `/player_card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${selected.value}&mode=${mode}`;
     card.src = imgSrc + "&t=" + Date.now();
 
     const cardLink = document.getElementById(`card-link-${suffix}`);

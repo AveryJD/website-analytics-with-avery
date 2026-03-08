@@ -58,8 +58,8 @@ def sitemap():
         "socials",
         "projects",
         "blog",
-        "cards",
-        "compare_cards",
+        "player_cards",
+        "compare_player_cards",
     ]
 
     urls = []
@@ -178,7 +178,7 @@ def cards():
         }
 
     return render_template(
-        "card_project.html",
+        "player_cards.html",
         players_list=players,
         seasons=seasons,
         positions=positions,
@@ -197,7 +197,7 @@ def compare_cards():
         teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM data_card ORDER BY team ASC")]
 
     return render_template(
-        "compare_cards.html",
+        "compare_player_cards.html",
         players_list=players,
         seasons=seasons,
         positions=positions,
@@ -207,8 +207,8 @@ def compare_cards():
     )
 
 
-@app.route("/card_image")
-def card_image():
+@app.route("/player_card_image")
+def player_card_image():
     player_name = request.args.get("player")
     season = request.args.get("season")
     position = request.args.get("position")
