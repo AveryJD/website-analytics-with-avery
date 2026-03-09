@@ -4,8 +4,9 @@ import markdown
 import io
 import logging
 from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
-from database.card_database import get_card_db, delete_card_tables, create_card_tables, import_card_data
+from database.player_card_database import get_card_db, delete_card_tables, create_card_tables, import_player_card_data
 from utils.card_functions import make_player_card
+
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -60,6 +61,8 @@ def sitemap():
         "blog",
         "player_cards",
         "compare_player_cards",
+        "team_cards",
+        "compare_player_cards"
     ]
 
     urls = []
@@ -162,10 +165,10 @@ def blog_post(post_url):
 @app.route("/player_cards", methods=["GET", "POST"])
 def cards():
     with get_card_db() as conn:
-        players = conn.execute("SELECT player, season, position, team FROM data_card").fetchall()
-        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM data_card ORDER BY season DESC")]
-        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM data_card")]
-        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM data_card ORDER BY team ASC")]
+        players = conn.execute("SELECT player, season, position, team FROM player_card_data").fetchall()
+        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM player_card_data ORDER BY season DESC")]
+        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM player_card_data")]
+        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM player_card_data ORDER BY team ASC")]
 
     selected_card = None
     if request.method == "POST":
@@ -191,10 +194,10 @@ def cards():
 @app.route("/compare_player_cards", methods=["GET", "POST"])
 def compare_cards():
     with get_card_db() as conn:
-        players = conn.execute("SELECT player, season, position, team FROM data_card").fetchall()
-        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM data_card ORDER BY season DESC")]
-        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM data_card")]
-        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM data_card ORDER BY team ASC")]
+        players = conn.execute("SELECT player, season, position, team FROM player_card_data").fetchall()
+        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM player_card_data ORDER BY season DESC")]
+        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM player_card_data")]
+        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM player_card_data ORDER BY team ASC")]
 
     return render_template(
         "compare_player_cards.html",
@@ -231,9 +234,8 @@ import_blog_posts()
 
 delete_card_tables()
 create_card_tables()
-import_card_data()
+import_player_card_data()
 
     
 if __name__ == '__main__':
-
     app.run(host="localhost", port=8000, debug=True)
