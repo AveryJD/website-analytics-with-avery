@@ -13,19 +13,24 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(me
 
 
 TEAM_NAMES = {
-    'ANA': 'Anaheim Ducks',         'ARI': 'Arizona Coyotes',       'BOS': 'Boston Bruins',
-    'BUF': 'Buffalo Sabres',        'CGY': 'Calgary Flames',        'CAR': 'Carolina Hurricanes',
-    'CHI': 'Chicago Blackhawks',    'COL': 'Colorado Avalanche',    'CBJ': 'Columbus Blue Jackets',
-    'DAL': 'Dallas Stars',          'DET': 'Detroit Red Wings',     'EDM': 'Edmonton Oilers',
-    'FLA': 'Florida Panthers',      'LAK': 'Los Angeles Kings',     'MIN': 'Minnesota Wild',
-    'MTL': 'Montreal Canadiens',    'NSH': 'Nashville Predators',   'NJD': 'New Jersey Devils',
-    'NYI': 'New York Islanders',    'NYR': 'New York Rangers',      'OTT': 'Ottawa Senators',
-    'PHI': 'Philadelphia Flyers',   'PIT': 'Pittsburgh Penguins',   'SJS': 'San Jose Sharks',
-    'SEA': 'Seattle Kraken',        'STL': 'St. Louis Blues',       'TBL': 'Tampa Bay Lightning',
-    'TOR': 'Toronto Maple Leafs',   'VAN': 'Vancouver Canucks',     'UTA': 'Utah Mammoth',
-    'VGK': 'Vegas Golden Knights',  'WSH': 'Washington Capitals',   'WPG': 'Winnipeg Jets',
-    'ATL': 'Atlanta Thrashers',     'PHX': 'Phoenix Coyotes',
+    'ANA': 'Anaheim Ducks',         'BOS': 'Boston Bruins',         'BUF': 'Buffalo Sabres',        'CGY': 'Calgary Flames',
+    'CAR': 'Carolina Hurricanes',   'CHI': 'Chicago Blackhawks',    'COL': 'Colorado Avalanche',    'CBJ': 'Columbus Blue Jackets',
+    'DAL': 'Dallas Stars',          'DET': 'Detroit Red Wings',     'EDM': 'Edmonton Oilers',       'FLA': 'Florida Panthers',
+    'LAK': 'Los Angeles Kings',     'MIN': 'Minnesota Wild',        'MTL': 'Montreal Canadiens',    'NSH': 'Nashville Predators',
+    'NJD': 'New Jersey Devils',     'NYI': 'New York Islanders',    'NYR': 'New York Rangers',      'OTT': 'Ottawa Senators',
+    'PHI': 'Philadelphia Flyers',   'PIT': 'Pittsburgh Penguins',   'SJS': 'San Jose Sharks',       'SEA': 'Seattle Kraken',
+    'STL': 'St. Louis Blues',       'TBL': 'Tampa Bay Lightning',   'TOR': 'Toronto Maple Leafs',   'VAN': 'Vancouver Canucks',
+    'UTA': 'Utah Mammoth',          'VGK': 'Vegas Golden Knights',  'WSH': 'Washington Capitals',   'WPG': 'Winnipeg Jets',
+    'ARI': 'Arizona Coyotes',       'PHX': 'Phoenix Coyotes',       'ATL': 'Atlanta Thrashers',    
 }
+
+TEAM_ORDER = [
+    'ANA', 'BOS', 'BUF', 'CGY', 'CAR', 'CHI', 'COL', 'CBJ', 
+    'DAL', 'DET', 'EDM', 'FLA', 'LAK', 'MIN', 'MTL', 'NSH', 
+    'NJD', 'NYI', 'NYR', 'OTT', 'PHI', 'PIT', 'SJS', 'SEA',
+    'STL', 'TBL', 'TOR', 'UTA', 'VAN', 'VGK', 'WSH', 'WPG',
+    'ARI', 'PHX', 'ATL'
+]
 
 POSITION_NAMES = {
     'F': 'Forward',
@@ -165,10 +170,12 @@ def blog_post(post_url):
 @app.route("/player_cards", methods=["GET", "POST"])
 def cards():
     with get_card_db() as conn:
-        players = conn.execute("SELECT player, season, position, team FROM player_card_data").fetchall()
-        seasons = [row["season"] for row in conn.execute("SELECT DISTINCT season FROM player_card_data ORDER BY season DESC")]
-        positions = [row["position"] for row in conn.execute("SELECT DISTINCT position FROM player_card_data")]
-        teams = [row["team"] for row in conn.execute("SELECT DISTINCT team FROM player_card_data ORDER BY team ASC")]
+        players = conn.execute('SELECT player, season, position, team FROM player_card_data').fetchall()
+        seasons = [row['season'] for row in conn.execute('SELECT DISTINCT season FROM player_card_data ORDER BY season DESC')]
+        positions = [row['position'] for row in conn.execute('SELECT DISTINCT position FROM player_card_data')]
+        teams = [row['team'] for row in conn.execute('SELECT DISTINCT team FROM player_card_data')]
+
+        teams = sorted(teams, key=lambda t: TEAM_ORDER.index(t))
 
     selected_card = None
     if request.method == "POST":
