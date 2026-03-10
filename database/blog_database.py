@@ -61,4 +61,4 @@ def import_blog_posts():
             content = ''.join(lines[3:]).strip()    # Everything after = content
 
             create_blog_post(id, url, filename, title, date, preview, content)
-            print(f"Imported: {title}")
+            print(f'Imported: {title}')

@@ -51,10 +51,10 @@ def import_player_card_data(csv_folder='data/player_card_data/card_data'):
                         INSERT OR IGNORE INTO player_card_data (player_id, season, player, position, team)
                         VALUES (?, ?, ?, ?, ?)
                     ''', (
-                        row.get("Player ID"),
-                        row.get("Season"),
-                        row.get("Player"),
-                        row.get("Position"),
-                        row.get("Team")
+                        row.get('Player ID'),
+                        row.get('Season'),
+                        row.get('Player'),
+                        row.get('Position'),
+                        row.get('Team')
                     ))
 
