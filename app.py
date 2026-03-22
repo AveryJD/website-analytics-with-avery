@@ -229,7 +229,7 @@ def player_card_image():
     if not (player_name and season and position):
         return 'Missing parameters', 400
 
-    img = make_player_card(player_name, season, position, save=False, mode=mode)
+    img = make_player_card(player_name, season, position, mode=mode, save=False)
 
     buf = io.BytesIO()
     img.save(buf, format='PNG')
