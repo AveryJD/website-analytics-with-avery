@@ -55,7 +55,7 @@ def home():
 def sitemap():
     pages = [
         'home',
-        'portfolio_about',
+        'profile_about',
         'contact',
         'education',
         'experience',
@@ -105,25 +105,25 @@ def sitemap():
     return Response(''.join(xml), mimetype='application/xml')
 
 
-@app.route('/portfolio_about')
-def portfolio_about():
-    return render_template('portfolio_about.html')
+@app.route('/profile_about')
+def profile_about():
+    return render_template('profile_about.html')
 
 @app.route('/education')
 def education():
-    return render_template('portfolio_education.html')
+    return render_template('profile_education.html')
 
 @app.route('/experience')
 def experience():
-    return render_template('portfolio_experience.html')
+    return render_template('profile_experience.html')
 
 @app.route('/cv')
 def resume():
-    return render_template('portfolio_cv.html')
+    return render_template('profile_cv.html')
 
 @app.route('/contact')
 def contact():
-    return render_template('portfolio_contact.html')
+    return render_template('profile_contact.html')
 
 @app.route('/socials')
 def socials():

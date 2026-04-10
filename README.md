@@ -1,6 +1,6 @@
 # analyticswithavery.com (Avery Doiron's Personal Website)
 
-This is my personal website that I created to showcase my portfolio and content I create.
+This is my personal website that I created to showcase my profile and content I create.
 
 You can find the website at [analyticswithavery.com](https://analyticswithavery.com)
 

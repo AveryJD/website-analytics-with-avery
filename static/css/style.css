@@ -788,7 +788,7 @@ main h3 {
   background-color: var(--primary-red);
 }
 
-.portfolio-nav-top {
+.profile-nav-top {
   background-color: var(--primary-blue);
 }
 
@@ -806,7 +806,7 @@ main h3 {
   background: linear-gradient(to bottom, var(--primary-red), var(--secondary-red));
 }
 
-.portfolio-links {
+.profile-links {
   background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
 }
 
@@ -824,7 +824,7 @@ main h3 {
   transform: scale(1.1);
 }
 
-.portfolio-links a:hover {
+.profile-links a:hover {
   color: var(--tertiary-blue);
 }
 
@@ -854,7 +854,7 @@ main h3 {
   list-style: none;
 }
 
-.portfolio-menu {
+.profile-menu {
   background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
   flex: 1;
   list-style: none;
@@ -899,7 +899,7 @@ main h3 {
   transform: scale(1.2);
 }
 
-.portfolio-menu a:hover {
+.profile-menu a:hover {
   color: var(--tertiary-blue);
 }
 
