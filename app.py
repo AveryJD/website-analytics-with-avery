@@ -59,7 +59,7 @@ def sitemap():
         'contact',
         'education',
         'experience',
-        'resume',
+        'cv',
         'content_about',
         'socials',
         'projects',
@@ -117,9 +117,9 @@ def education():
 def experience():
     return render_template('portfolio_experience.html')
 
-@app.route('/resume')
+@app.route('/cv')
 def resume():
-    return render_template('portfolio_resume.html')
+    return render_template('portfolio_cv.html')
 
 @app.route('/contact')
 def contact():
