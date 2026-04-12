@@ -412,6 +412,11 @@ main h3 {
   border: 1px solid black;
 }
 
+.blog-image {
+  max-width: 100%;
+  height: auto;
+}
+
 .single-player-card {
   display: flex;
   justify-content: center;

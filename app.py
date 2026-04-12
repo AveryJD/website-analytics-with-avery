@@ -3,6 +3,7 @@ from datetime import date, datetime
 import markdown
 import io
 import logging
+from bs4 import BeautifulSoup
 from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
 from database.player_card_database import get_card_db, delete_card_tables, create_card_tables, import_player_card_data
 from utils.card_functions import make_player_card
@@ -40,6 +41,21 @@ POSITION_NAMES = {
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+
+
+def optimize_post_images(html):
+    soup = BeautifulSoup(html, "html.parser")
+
+    for img in soup.find_all("img"):
+        img["loading"] = "lazy"
+        img["decoding"] = "async"
+
+        existing_class = img.get("class", [])
+        if "blog-image" not in existing_class:
+            existing_class.append("blog-image")
+        img["class"] = existing_class
+
+    return str(soup)
 
 
 @app.route('/')
@@ -160,7 +176,9 @@ def blog_post(post_url):
         return 'Post not found', 404
 
     converted_post = dict(post)
-    converted_post['content'] = markdown.markdown(post['content'], extensions=['tables'])
+
+    html_content = markdown.markdown(post['content'], extensions=['tables'])
+    converted_post['content'] = optimize_post_images(html_content)
 
     logging.info(f"========== Blog post opened: {converted_post['title']} ==========")
 
