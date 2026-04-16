@@ -5,7 +5,7 @@ from contextlib import contextmanager
 
 DATABASE_NAME = 'database/player_card_data.db'
 
-def create_card_tables():
+def create_player_card_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('''
             CREATE TABLE IF NOT EXISTS player_card_data (
@@ -20,13 +20,13 @@ def create_card_tables():
         ''')
 
 
-def delete_card_tables():
+def delete_player_card_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
         conn.execute('DROP TABLE IF EXISTS player_card_data')
 
 
 @contextmanager
-def get_card_db():
+def get_player_card_db():
     conn = sqlite3.connect(DATABASE_NAME)
     conn.row_factory = sqlite3.Row 
     try:
@@ -37,7 +37,7 @@ def get_card_db():
 
 
 def import_player_card_data(csv_folder='data/player_card_data/card_data'):
-    with get_card_db() as conn:
+    with get_player_card_db() as conn:
         for folder in ['forwards', 'defensemen', 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
 
