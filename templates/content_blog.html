@@ -1,55 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Blog{% endblock %}
+{% block meta_description %}Read the Analytics With Avery blog by Avery Doiron. Discover insights on NHL analytics, player cards, sports data science, and hockey projects.{% endblock %}
+{% block meta_keywords %}Analytics With Avery blog, hockey analytics, NHL player cards, sports analytics blog, data science, hockey projects{% endblock %}
 
-  <title>Analytics With Avery | Blog </title>
-  <meta name="description" content="Read the Analytics With Avery blog by Avery Doiron. Discover insights on NHL analytics, player cards, sports data science, and hockey projects.">
-  <meta name="keywords" content="Analytics With Avery blog, hockey analytics, NHL player cards, sports analytics blog, data science, hockey projects">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Hockey Analytics Blog{% endblock %}
+{% block og_description %}Explore Avery Doiron's hockey analytics blog, including player cards, data-driven insights, and sports analytics projects.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/blog{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Hockey Analytics Blog">
-  <meta property="og:description" content="Explore Avery Doiron's hockey analytics blog, including player cards, data-driven insights, and sports analytics projects.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/blog">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Hockey Analytics Blog{% endblock %}
+{% block twitter_description %}Discover NHL analytics, player cards, and sports analytics projects on Avery Doiron's blog.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Hockey Analytics Blog">
-  <meta name="twitter:description" content="Discover NHL analytics, player cards, and sports analytics projects on Avery Doiron's blog.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
+{% block content %}
+  <h1>Blog</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
-
-
-<body>
-
-  <div class="page-content">
-    <div id="navbar"></div>
-
-    <main>
-
-      <h1 class="main-heading">The Analytics With Avery Blog</h1>
-
-      {% for post in posts %}
-      <div class="blog-section">
-        <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
-        <h4>{{ post['date'] }}</h4>
-        <p>{{ post['preview'] }}</p>
-      </div>
-    {% endfor %}
-    
-    </main>
-
-  </div>
-
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
-
-</body>
-
-</html>
+  {% for post in posts %}
+    <div class="blog-section">
+      <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
+      <h4>{{ post['date'] }}</h4>
+      <p>{{ post['preview'] }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
