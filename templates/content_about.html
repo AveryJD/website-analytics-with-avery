@@ -1,66 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | About Analytics With Avery{% endblock %}
+{% block meta_description %}Learn about Analytics With Avery, a personal site showcasing hockey analytics projects, blogs, and data-driven insights into the sport.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, hockey analytics, sports analytics, NHL projects, player cards, data science, blog{% endblock %}
 
-  <title>Analytics With Avery | About Analytics With Avery</title>
-  <meta name="description" content="Learn about Analytics With Avery, a personal site showcasing hockey analytics projects, blogs, and data-driven insights into the sport.">
-  <meta name="keywords" content="Analytics With Avery, hockey analytics, sports analytics, NHL projects, player cards, data science, blog">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | About Analytics With Avery{% endblock %}
+{% block og_description %}Discover hockey analytics projects, blogs, and data-driven insights by Avery Doiron.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/content_about{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | About My Content">
-  <meta property="og:description" content="Discover hockey analytics projects, blogs, and data-driven insights by Avery Doiron.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/about-content">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | About Analytics With Avery{% endblock %}
+{% block twitter_description %}Explore Avery Doiron's hockey analytics projects, blogs, and data-driven insights on Analytics With Avery.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | About My Content">
-  <meta name="twitter:description" content="Explore Avery Doiron's hockey analytics projects, blogs, and data-driven insights on Analytics With Avery.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
+{% block content %}
+  <h1>About Analytics With Avery</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
-
-
-<body>
-  <div class="page-content">
-    
-    <div id="navbar"></div>
-
-    <main>
-      
-      <h1 class="main-heading">About Analytics With Avery</h1>
-        
-      <div class="about-section">
-        <img class="main-image-round" src="static/assets/analyticswithavery_logo.png" alt="Analytics by Avery Profile Picture"/>
-        <div class="text-beside-image">
-          <p>
-            Analytics With Avery is my personal online space where I showcase my work in sports analytics, with a special focus on hockey. 
-            It's a place where I combine my technical skills, statistical insights, and love for the game to share projects, visualizations, 
-            and analysis that explore the numbers behind hockey.
-          </p>
-          <p>
-            Here, you can find my blog covering research, trends, and statistical insights in sports, designed to make analytics approachable 
-            for fans, fellow analysts, and aspiring data scientists. You can also explore my hockey analytics projects, including my NHL player 
-            card project, where I evaluate and rank players based on various attributes.
-          </p>
-          <p>
-            Whether you're here to browse my latest hockey data projects or blog posts, or to follow my journey in the world of sports analytics, 
-            I hope you find something interesting, informative, or just fun to dive into.
-          </p>
-        </div>
-      </div>
-
-    </main>
+  <div class="about-section">
+    <img
+      class="main-image-round"
+      src="{{ url_for('static', filename='assets/analytics_with_avery_logos/analyticswithavery_logo.png') }}"
+      alt="Analytics With Avery logo"
+    >
+    <div class="text-beside-image">
+      <h2>What is Analytics With Avery?</h2>
+      <p>
+        Analytics With Avery is my personal online space where I showcase my work in sports analytics, with a special focus on hockey.
+        It's a place where I combine my technical skills, statistical insights, and love for the game to share projects, visualizations,
+        and analysis that explore the numbers behind hockey.
+      </p>
+      <p>
+        Here, you can find my blog covering research, trends, and statistical insights in sports, designed to make analytics approachable
+        for fans, fellow analysts, and aspiring data scientists. You can also explore my hockey analytics projects, including my NHL player
+        card project, where I evaluate and rank players based on various attributes.
+      </p>
+      <p>
+        Whether you're here to browse my latest hockey data projects or blog posts, or to follow my journey in the world of sports analytics,
+        I hope you find something interesting, informative, or just fun to dive into.
+      </p>
+    </div>
   </div>
-
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
-  
-</body>
-
-</html>
+{% endblock %}
