@@ -4,9 +4,13 @@ import markdown
 import io
 import logging
 from bs4 import BeautifulSoup
+
 from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
-from database.player_card_database import get_card_db, delete_card_tables, create_card_tables, import_player_card_data
-from utils.card_functions import make_player_card
+from database.player_card_database import get_player_card_db, delete_player_card_tables, create_player_card_tables, import_player_card_data
+from database.team_card_database import get_team_card_db, delete_team_card_tables, create_team_card_tables, import_team_card_data
+
+from player_card_project.utils.card_functions import make_player_card
+from team_card_project.utils.card_functions import make_team_card
 
 
 
@@ -24,14 +28,6 @@ TEAM_NAMES = {
     'UTA': 'Utah Mammoth',          'VGK': 'Vegas Golden Knights',  'WSH': 'Washington Capitals',   'WPG': 'Winnipeg Jets',
     'ARI': 'Arizona Coyotes',       'PHX': 'Phoenix Coyotes',       'ATL': 'Atlanta Thrashers',    
 }
-
-TEAM_ORDER = [
-    'ANA', 'BOS', 'BUF', 'CGY', 'CAR', 'CHI', 'COL', 'CBJ', 
-    'DAL', 'DET', 'EDM', 'FLA', 'LAK', 'MIN', 'MTL', 'NSH', 
-    'NJD', 'NYI', 'NYR', 'OTT', 'PHI', 'PIT', 'SJS', 'SEA',
-    'STL', 'TBL', 'TOR', 'UTA', 'VAN', 'VGK', 'WSH', 'WPG',
-    'ARI', 'PHX', 'ATL'
-]
 
 POSITION_NAMES = {
     'F': 'Forward',
@@ -83,7 +79,7 @@ def sitemap():
         'player_cards',
         'compare_player_cards',
         'team_cards',
-        'compare_player_cards'
+        'compare_team_cards'
     ]
 
     urls = []
@@ -134,7 +130,7 @@ def experience():
     return render_template('profile_experience.html')
 
 @app.route('/cv')
-def resume():
+def cv():
     return render_template('profile_cv.html')
 
 @app.route('/contact')
@@ -154,6 +150,7 @@ def projects():
     return render_template('content_projects.html')
 
 
+
 @app.route('/blog')
 def blog():
     with get_blog_db() as conn:
@@ -165,7 +162,6 @@ def blog():
         converted_posts.append(converted_post)
 
     return render_template('content_blog.html', posts=converted_posts)
-
 
 @app.route('/blog/<string:post_url>')
 def blog_post(post_url):
@@ -185,15 +181,27 @@ def blog_post(post_url):
     return render_template('blog_post.html', post=converted_post)
 
 
+
 @app.route('/player_cards', methods=['GET', 'POST'])
 def cards():
-    with get_card_db() as conn:
-        players = conn.execute('SELECT player, season, position, team FROM player_card_data').fetchall()
-        seasons = [row['season'] for row in conn.execute('SELECT DISTINCT season FROM player_card_data ORDER BY season DESC')]
-        positions = [row['position'] for row in conn.execute('SELECT DISTINCT position FROM player_card_data')]
-        teams = [row['team'] for row in conn.execute('SELECT DISTINCT team FROM player_card_data')]
+    with get_player_card_db() as conn:
+        players = conn.execute(
+            'SELECT player, season, position, team FROM player_card_data'
+        ).fetchall()
 
-        teams = sorted(teams, key=lambda t: TEAM_ORDER.index(t))
+        player_teams_data = conn.execute(
+            'SELECT DISTINCT season, team FROM player_card_data'
+        ).fetchall()
+
+        seasons = [row['season'] for row in conn.execute(
+            'SELECT DISTINCT season FROM player_card_data ORDER BY season DESC'
+        )]
+        positions = [row['position'] for row in conn.execute(
+            'SELECT DISTINCT position FROM player_card_data'
+        )]
+        teams = [row['team'] for row in conn.execute(
+            'SELECT DISTINCT team FROM player_card_data'
+        )]
 
     selected_card = None
     if request.method == 'POST':
@@ -208,6 +216,7 @@ def cards():
     return render_template(
         'player_cards.html',
         players_list=players,
+        player_teams_data=player_teams_data,
         seasons=seasons,
         positions=positions,
         position_names=POSITION_NAMES,
@@ -218,24 +227,35 @@ def cards():
 
 @app.route('/compare_player_cards', methods=['GET', 'POST'])
 def compare_cards():
-    with get_card_db() as conn:
-        players = conn.execute('SELECT player, season, position, team FROM player_card_data').fetchall()
-        seasons = [row['season'] for row in conn.execute('SELECT DISTINCT season FROM player_card_data ORDER BY season DESC')]
-        positions = [row['position'] for row in conn.execute('SELECT DISTINCT position FROM player_card_data')]
-        teams = [row['team'] for row in conn.execute('SELECT DISTINCT team FROM player_card_data')]
+    with get_player_card_db() as conn:
+        players = conn.execute(
+            'SELECT player, season, position, team FROM player_card_data'
+        ).fetchall()
 
-        teams = sorted(teams, key=lambda t: TEAM_ORDER.index(t))
+        player_teams_data = conn.execute(
+            'SELECT DISTINCT season, team FROM player_card_data'
+        ).fetchall()
+
+        seasons = [row['season'] for row in conn.execute(
+            'SELECT DISTINCT season FROM player_card_data ORDER BY season DESC'
+        )]
+        positions = [row['position'] for row in conn.execute(
+            'SELECT DISTINCT position FROM player_card_data'
+        )]
+        teams = [row['team'] for row in conn.execute(
+            'SELECT DISTINCT team FROM player_card_data'
+        )]
 
     return render_template(
         'compare_player_cards.html',
         players_list=players,
+        player_teams_data=player_teams_data,
         seasons=seasons,
         positions=positions,
         position_names=POSITION_NAMES,
         teams=teams,
         team_names=TEAM_NAMES
     )
-
 
 @app.route('/player_card_image')
 def player_card_image():
@@ -244,8 +264,6 @@ def player_card_image():
     position = request.args.get('position')
     mode = request.args.get('mode', 'light')
 
-    if not (player_name and season and position):
-        return 'Missing parameters', 400
 
     img = make_player_card(player_name, season, position, mode=mode, save=False)
 
@@ -255,14 +273,87 @@ def player_card_image():
     return send_file(buf, mimetype='image/png')
 
 
+
+@app.route('/team_cards', methods=['GET', 'POST'])
+def team_cards():
+    with get_team_card_db() as conn:
+        team_cards_data = conn.execute(
+            'SELECT team, season FROM team_card_data'
+        ).fetchall()
+
+        teams = [row['team'] for row in conn.execute(
+            'SELECT DISTINCT team FROM team_card_data'
+        )]
+        seasons = [row['season'] for row in conn.execute(
+            'SELECT DISTINCT season FROM team_card_data ORDER BY season DESC'
+        )]
+
+    selected_card = None
+    if request.method == 'POST':
+        selected_card = {
+            'team': request.form['team'],
+            'season': request.form['season'],
+            'mode': request.form.get('mode', 'light')
+        }
+
+    return render_template(
+        'team_cards.html',
+        teams=teams,
+        team_cards_data=team_cards_data,
+        team_names=TEAM_NAMES,
+        seasons=seasons,
+        selected_card=selected_card
+    )
+
+@app.route('/compare_team_cards', methods=['GET', 'POST'])
+def compare_team_cards():
+    with get_team_card_db() as conn:
+        team_cards_data = conn.execute(
+            'SELECT team, season FROM team_card_data'
+        ).fetchall()
+
+        teams = [row['team'] for row in conn.execute(
+            'SELECT DISTINCT team FROM team_card_data'
+        )]
+        seasons = [row['season'] for row in conn.execute(
+            'SELECT DISTINCT season FROM team_card_data ORDER BY season DESC'
+        )]
+
+    return render_template(
+        'compare_team_cards.html',
+        teams=teams,
+        team_cards_data=team_cards_data,
+        team_names=TEAM_NAMES,
+        seasons=seasons
+    )
+
+@app.route('/team_card_image')
+def team_card_image():
+    team = request.args.get('team')
+    season = request.args.get('season')
+    mode = request.args.get('mode', 'light')
+
+    img = make_team_card(team, season, mode=mode, save=False)
+
+    buf = io.BytesIO()
+    img.save(buf, format='PNG')
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
+
+
 delete_blog_tables()
 create_blog_tables()
 import_blog_posts()
 
-delete_card_tables()
-create_card_tables()
+delete_player_card_tables()
+create_player_card_tables()
 import_player_card_data()
 
-    
+delete_team_card_tables()
+create_team_card_tables()
+import_team_card_data()
+
+
 if __name__ == '__main__':
     app.run(host='localhost', port=8000, debug=True)
