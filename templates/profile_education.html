@@ -1,135 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Education{% endblock %}
+{% block meta_description %}Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.{% endblock %}
+{% block meta_keywords %}Avery Doiron, Analytics With Avery, StFX, Computer Science, Mathematics, Education, Honours Thesis, Graduate Studies, Sports Analytics, Data Science{% endblock %}
 
-  <title>Analytics With Avery | Education</title>
-  <meta name="description" content="Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.">
-  <meta name="keywords" content="Avery Doiron, Analytics With Avery, StFX, Computer Science, Mathematics, Education, Honours Thesis, Graduate Studies, Sports Analytics, Data Science">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Education{% endblock %}
+{% block og_description %}Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/education{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Education">
-  <meta property="og:description" content="Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/education">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Education{% endblock %}
+{% block twitter_description %}Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/logos/stfx.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Education">
-  <meta name="twitter:description" content="Explore Avery Doiron's education in Computer Science and Mathematics at St. FX University, current courses, honours thesis, and future graduate studies plans.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/stfx.png">
+{% block content %}
+  <h1>Education</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="education-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
 
+    <div class="text-beside-image">
+      <h2>Undergraduate Degree</h2>
+      <p>
+        I am currently completing a <b>Bachelor of Science (Honours) in Computer Science with a Minor in Mathematics</b>
+        at <a href="https://www.stfx.ca">St. Francis Xavier University</a>.
+        <br>Start Date: September 2023
+        <br>Expected Graduation: April 2027
+      </p>
 
-<body>
+      <h3>Relevant Courses</h3>
+      <div class="courses-section">
+        <div class="education-list">
+          <ul>
+            <li>Data Science</li>
+            <li>Database Management Systems</li>
+            <li>Artificial Intelligence</li>
+            <li>Evolutionary Computation</li>
+            <li>Natural Language Processing</li>
+            <li>Algorithm Design and Analysis</li>
+            <li>Advanced Data Structures</li>
+            <li>Programming and Data Structures</li>
+            <li>Introduction to Programming</li>
+            <li>Computer Organization</li>
+            <li>Data Communications</li>
+          </ul>
+        </div>
 
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-
-      <h1 class="main-heading">My Education</h1>
-
-      <div class="education-section">
-        <a href="https://www.stfx.ca" target="_blank">
-          <img class="main-image" src="static/assets/stfx.png" alt="StFX Logo"/>
-        </a>
-        
-        <div class="text-beside-image">
-          <h1>Undergraduate Degree</h1>
-          <p>
-            I am currently completing a <b>Bachelor of Science (Honours) in Computer Science with a Minor in Mathematics</b> 
-            at St. Francis Xavier University.
-            <br>Expected Graduation: April 2027.
-            <br>Cumulative GPA: 3.9/4.0  |  Major GPA: 4.0/4.0
-          </p>
-
-          <h2>Relevant Courses</h2>
-          <div class="courses-section">
-            <div class="education-list">
-              <h3>Computer Science</h3>
-              <ul>
-                <li>Data Science</li>
-                <li>Database Management Systems</li>
-                <li>Artificial Intelligence</li>
-                <li>Evolutionary Computation</li>
-                <li>Natural Language Processing</li>
-                <li>Algorithm Design and Analysis</li>
-                <li>Advanced Data Structures</li>
-                <li>Programming and Data Structures</li>
-                <li>Introduction to Programming</li>
-                <li>Computer Organization</li>
-                <li>Data Communications</li>
-              </ul>
-            </div>
-            <div class="education-list">
-              <h3>Mathematics & Statistics</h3>
-              <ul>
-                <li>Sports Analytics</li>
-                <li>Statistics for Sciences</li>
-                <li>Statistical Methods</li>
-                <li>Calculus I</li>
-                <li>Calculus II</li>
-                <li>Linear Algebra</li>
-                <li>Discrete Mathematics</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h2>Honours Thesis</h2>
-            <p>
-              In my fourth year, I will be completing an Honours Thesis under the supervision of 
-              <a href="https://people.stfx.ca/mking/milton.html" target="_blank">Dr. Milton King</a>, 
-              whose research focuses on natural language processing (NLP). My thesis will explore natural language processing (NLP) 
-              and data science techniques to extract insights from sports-related text and performance data.
-
-            </p>
-          </div>
-
-          <div>
-            <h2>Awards and Scholarships</h2>
-            <div class="awards-list">
-              <ul>
-                <li>Dean's List (2025)</li>
-                <li>StFX In-Course Scholarship - $1,000 CAD (2024 & 2025)</li>
-                <li>Alley Heaps Undergraduate Research Internship Award - $9,250 CAD (2026)</li>
-              </ul>
-            </div>
-          </div>
+        <div class="education-list">
+          <ul>
+            <li>Sports Analytics</li>
+            <li>Statistics for Sciences</li>
+            <li>Statistical Methods</li>
+            <li>Calculus I</li>
+            <li>Calculus II</li>
+            <li>Linear Algebra</li>
+            <li>Discrete Mathematics</li>
+          </ul>
         </div>
       </div>
 
-      <div class="education-section">
-        <img class="main-image" src="static/assets/masters.png" alt="Graduate Studies Icon"/>
-        
-        <div class="text-beside-image">
-          <h1 class="sub-heading">Future Graduate Studies</h1>
-          <p>
-            I have strong interests in pursuing a Master of Science in Computer Science, Statistics, or a closely related discipline, 
-            following the completion of my undergraduate degree. My graduate research interests will focus on data science, 
-            machine learning, and sports analytics, with the goal of applying advanced analytical methods to real-world problems in 
-            professional hockey and other sports.
-          </p>
-          <p>
-            I am also open to gaining industry experience before pursuing graduate studies, particularly 
-            in roles that strengthen my technical, statistical, and analytical skill set within the field of sports data.
-          </p>
+      <div>
+        <h3>Honours Thesis</h3>
+        <p>
+          In my fourth year, I will be completing an Honours Thesis under the supervision of
+          <a href="https://people.stfx.ca/mking/milton.html" target="_blank">Dr. Milton King</a>,
+          whose research focuses on natural language processing (NLP). My thesis will explore natural language processing (NLP)
+          and data science techniques to extract insights from sports-related text and performance data.
+        </p>
+      </div>
+
+      <div>
+        <h3>Awards and Scholarships</h3>
+        <div class="awards-list">
+          <ul>
+            <li>Dean's List (2025)</li>
+            <li>StFX In-Course Scholarship - $1,000 CAD (2024 & 2025)</li>
+            <li>Ally Heaps Undergraduate Research Award - $9,250 CAD (2026)</li>
+          </ul>
         </div>
-      </div>      
-
-    </main>
-
+      </div>
+    </div>
   </div>
 
-  <div id="footer"></div>
+  <div class="education-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/icons/masters.png') }}" alt="Graduate Studies Icon">
 
-  <script src="/static/js/main.js"></script>
-  
-</body>
-</html>
+    <div class="text-beside-image">
+      <h2>Future Graduate Studies</h2>
+      <p>
+        I am interested in pursuing a Master of Science in Computer Science, Statistics, or a closely related discipline,
+        after the completion of my undergraduate degree. My graduate research interests will focus on data science,
+        machine learning, and sports analytics, with the goal of applying advanced analytical methods to real-world problems in
+        professional hockey and other sports.
+      </p>
+      <p>
+        I am also open to gaining industry experience before pursuing graduate studies, particularly
+        in roles that strengthen my technical, statistical, and analytical skill set within the field of sports data.
+      </p>
+    </div>
+  </div>
+{% endblock %}

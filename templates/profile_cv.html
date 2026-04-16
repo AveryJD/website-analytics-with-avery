@@ -1,65 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | CV{% endblock %}
+{% block meta_description %}View and download Avery Doiron's CV, showcasing technical experience, professional roles, and accomplishments in data analytics and sports analytics projects.{% endblock %}
+{% block meta_keywords %}Avery Doiron, Analytics With Avery, CV, sports analytics, data analytics, work experience, projects{% endblock %}
 
-  <title>Analytics With Avery | CV</title>
-  <meta name="description" content="View and download Avery Doiron's CV, showcasing technical experience, professional roles, and accomplishments in data analytics and sports analytics projects.">
-  <meta name="keywords" content="Avery Doiron, Analytics With Avery, CV, sports analytics, data analytics, work experience, projects">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Avery Doiron's CV{% endblock %}
+{% block og_description %}Explore Avery Doiron's professional CV, highlighting experience, technical skills, and analytics projects.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/documents/avery_doiron_cv.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/cv{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Avery Doiron's CV">
-  <meta property="og:description" content="Explore Avery Doiron's professional CV, highlighting experience, technical skills, and analytics projects.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/avery_doiron_cv.png">
-  <meta property="og:url" content="https://analyticswithavery.com/cv">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Avery Doiron's CV{% endblock %}
+{% block twitter_description %}View and download Avery Doiron's CV, showcasing experience, technical skills, and sports analytics projects.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/documents/cv.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Avery Doiron's CV">
-  <meta name="twitter:description" content="View and download Avery Doiron's CV, showcasing experience, technical skills, and sports analytics projects.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/cv.png">
+{% block content %}
+  <h1>CV</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="cv-section">
+    <h2>Learn About My Professional History</h2>
+    <p>
+      Here you can view my current CV. Click the icon to download a copy.
+    </p>
 
+    <a href="{{ url_for('static', filename='assets/documents/avery_doiron_cv.pdf') }}" download>
+      <img class="download-image" src="{{ url_for('static', filename='assets/icons/download.png') }}" alt="Download CV">
+    </a>
 
-<body>
-
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-      
-      <h1 class="main-heading">My CV</h1>
-
-      <div class="cv-section">
-        <div class="main-text">
-          <p>
-            Here you can view my current CV. Click the icon to download a copy.
-          </p>
-          <a href="/static/assets/avery_doiron_cv.pdf" download>
-            <img class="download-image" src="/static/assets/download.png" alt="Download CV">
-          </a>
-        </div>
-        <img 
-          class="cv-image" 
-          src="/static/assets/avery_doiron_cv.png" 
-          alt="CV" 
-        />
-      </div>
-
-    </main>
-
+    <img
+      class="cv-image"
+      src="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.png') }}"
+      data-light="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.png') }}"
+      data-dark="{{ url_for('static', filename='assets/documents/avery_doiron_cv_dark.png') }}"
+      alt="Avery Doiron's CV"
+    >
   </div>
-
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
-
-</body>
-
-</html>
-
+{% endblock %}

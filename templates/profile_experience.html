@@ -1,130 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Experience{% endblock %}
+{% block meta_description %}Discover Avery Doiron's professional and technical experience, including roles in data analytics, software development, and leadership positions.{% endblock %}
+{% block meta_keywords %}Avery Doiron, Analytics With Avery, sports analytics, work experience, technical experience, data analytics, SEASI{% endblock %}
 
-  <title>Analytics With Avery | Experience</title>
-  <meta name="description" content="Discover Avery Doiron's professional and technical experience, including roles in data analytics, software development, and leadership positions.">
-  <meta name="keywords" content="Avery Doiron, Analytics With Avery, sports analytics, work experience, technical experience, data analytics, SEASI">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Experience{% endblock %}
+{% block og_description %}Explore Avery Doiron's professional experience, technical projects, and leadership roles across multiple industries.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/experience{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Experience & Work History">
-  <meta property="og:description" content="Explore Avery Doiron's professional experience, technical projects, and leadership roles across multiple industries.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/experience">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Experience & Work History{% endblock %}
+{% block twitter_description %}Learn about Avery Doiron's technical, professional, and leadership experience across various roles.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/profile_picture.jpg{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Experience & Work History">
-  <meta name="twitter:description" content="Learn about Avery Doiron's technical, professional, and leadership experience across various roles.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/profile_picture.jpg">
+{% block content %}
+  <h1>Technical Experience</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="experience-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
 
-
-<body>
-
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-
-      <h1 class="main-heading">My Experience</h1>
-
-      <h1 class="sub-heading">Technical Experience</h1>
-
-      <div class="experience-section">
-        <a href="https://www.stfx.ca/research" target="_blank">
-          <img class="main-image" src="static/assets/stfx.png" alt="StFX Logo"/>
-        </a>
-        
-        <div class="text-beside-image">
-          <h2>Undergraduate Research Internship - StFX (Upcoming)</h2>
-          <p>
-            I have been selected for the Ally Heaps Undergraduate Research Internship at St. Francis Xavier University for the summer of 2026, 
-            working under the co-supervision of 
-            <a href="https://people.stfx.ca/mking/milton.html" target="_blank">Dr. Milton King</a> and 
-            <a href="https://cupidok.github.io" target="_blank">Dr. Kyran Cupido</a>. This experience provides four months of full-time 
-            research experience and $9,250 in funding to support my work.
-          </p>
-          <p>
-            My research will focus on applying natural language processing and statistical learning methods to sports-related data, 
-            particularly on analyzing player and coaches interview transcripts to explore relationships between language and player/team 
-            performance.
-          </p>
-        </div>
-      </div>  
-
-      <div class="experience-section">
-        <a href="https://seasi.com" target="_blank">
-          <img class="main-image" src="static/assets/seasi.png" alt="SEASI Logo"/>
-        </a>
-
-        <div class="text-beside-image">
-          <h2>Junior Technology Analyst - SEASI</h2>
-          <p>
-            I worked with SEASI during May–June in 2024, and May–August in 2025 (6 months total).
-            SEASI is a data and analytics company that provides advisory and consulting services focused on digital transformation, business 
-            intelligence, advanced analytics, machine learning, and artificial intelligence.
-          </p>
-          <p>
-            At SEASI, I worked on both technical and client-facing projects. I contributed to the backend of SEASI's website and AI chatbot, and 
-            supported the design of the company's Azure-based database infrastructure (earning my AZ-900 certification in the process). I also 
-            created dashboards and configured over 100 profiles in SEASI's Microsoft Dynamics CRM, tailored consultant resumes for government contracts, 
-            and supported the rollout of cloud-based tools. This role gave me hands-on experience with cloud technologies, databases, and data 
-            visualization, while also improving my communication and teamwork skills.
-          </p>
-        </div>
-      </div>
-
-      <h1 class="sub-heading">Other Experience</h1>
-
-      <div class="experience-section">
-        <img class="main-image" src="static/assets/modg.png" alt="Municipality of the District of Guysborough Logo"/>
-        <div class="text-beside-image">
-          <h2>Lifeguard - Municipality of the District of Guysborough</h2>
-          <p>
-            I worked as a pool lifeguard each summer during the months of June to August from 2020 to 2024 (1 year total). For the first two 
-            summers, I served as a junior lifeguard, earning certifications in First Aid, Bronze Medallion, and Bronze Cross. In my third 
-            summer, I became a national lifeguard and swim instructor, earning my National Lifeguard and Swim Instructor 
-            certifications. In my final summer I took on the responsibility of co-headguard, and continued teaching as a swim instructor.
-          </p>
-          <p>
-            As a lifeguard, I ensured the safety of all pool users and responded to emergencies. As a swim instructor, I taught children from ages
-            3 to 15 water safety and swimming techniques, and helped prepare young teens for future lifeguard certifications. This job strengthened 
-            my leadership, teamwork, and decision-making skills while emphasizing responsibility and clear communication.
-          </p>
-        </div>
-      </div>
-
-      <div class="experience-section">
-        <img class="main-image" src="static/assets/independent.png" alt="Your Independent Grocer Logo"/>
-        <div class="text-beside-image">
-          <h2>Retail Associate - Your Independent Grocer</h2>
-          <p>
-            I worked as a retail associate from August 2019 to May 2023 (3 years, 4 months total), taking some time off occasionally for school 
-            and summer employment as a lifeguard. My responsibilities included operating as a cashier, stocking shelves, unloading shipments, 
-            managing the produce section, and assisting with store closing procedures.
-          </p>
-          <p>
-            This role enhanced my customer service and communication abilities, taught me how to multitask in a busy environment, and sharpened 
-            my attention to detail by ensuring accurate inventory and product presentation.
-          </p>
-        </div>
-      </div>
-
-    </main>
-
+    <div class="text-beside-image">
+      <h2>Undergraduate Research Internship - StFX (Upcoming)</h2>
+      <p>
+        I have been selected for the Ally Heaps Undergraduate Research Internship at <a href="https://www.stfx.ca/research">St. Francis Xavier University</a> 
+        for the summer of 2026, working under the supervision of
+        <a href="https://people.stfx.ca/mking/milton.html" target="_blank">Dr. Milton King</a> and
+        <a href="https://cupidok.github.io" target="_blank">Dr. Kyran Cupido</a>. This experience provides four months of full-time
+        research experience and $9,250 in funding to support my work.
+      </p>
+      <p>
+        My research will focus on applying natural language processing and statistical learning methods to sports-related data,
+        particularly on analyzing player and coaches interview transcripts to explore relationships between language and player/team
+        performance.
+      </p>
+    </div>
   </div>
 
-  <div id="footer"></div>
+  <div class="experience-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/logos/seasi.png') }}" alt="SEASI Logo">
 
-  <script src="/static/js/main.js"></script>
+    <div class="text-beside-image">
+      <h2>Junior Technology Analyst - SEASI</h2>
+      <p>
+        I worked with <a href="https://seasi.com">SEASI</a> during May–June in 2024, and May–August in 2025 (6 months).
+        SEASI is a data and analytics company that provides advisory and consulting services focused on digital transformation, business
+        intelligence, advanced analytics, machine learning, and artificial intelligence.
+      </p>
+      <p>
+        At SEASI, I worked on both technical and client-facing projects. I contributed to the backend of SEASI's website and AI chatbot, and
+        supported the design of the company's Azure-based database infrastructure (earning my AZ-900 certification in the process). I also
+        created dashboards and configured over 100 profiles in SEASI's Microsoft Dynamics CRM, tailored consultant resumes for government contracts,
+        and supported the rollout of cloud-based tools. This role gave me hands-on experience with cloud technologies, databases, and data
+        visualization, while also improving my communication and teamwork skills.
+      </p>
+    </div>
+  </div>
 
-</body>
+  <h2>Other Experience</h2>
 
-</html>
+  <div class="experience-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/logos/modg.png') }}" alt="Municipality of the District of Guysborough Logo">
+    <div class="text-beside-image">
+      <h2>Lifeguard - Municipality of the District of Guysborough</h2>
+      <p>
+        I worked as a pool lifeguard each summer during June-August from 2021 to 2024 (12 months). For the first two
+        summers, I served as a junior lifeguard, earning certifications in First Aid, Bronze Medallion, and Bronze Cross. In my third
+        summer, I became a national lifeguard and swim instructor, earning my National Lifeguard and Swim Instructor
+        certifications. In my final summer I took on the responsibility of co-headguard, and continued teaching as a swim instructor.
+      </p>
+      <p>
+        As a lifeguard, I ensured the safety of all pool users and responded to emergencies. As a swim instructor, I taught children from ages
+        3 to 15 water safety and swimming techniques, and helped prepare young teens for future lifeguard certifications. This job strengthened
+        my leadership, teamwork, and decision-making skills while emphasizing responsibility and clear communication.
+      </p>
+    </div>
+  </div>
+
+  <div class="experience-section">
+    <img class="main-image" src="{{ url_for('static', filename='assets/logos/independent.png') }}" alt="Your Independent Grocer Logo">
+    <div class="text-beside-image">
+      <h2>Retail Associate - Your Independent Grocer</h2>
+      <p>
+        I worked as a retail associate from August 2019 to May 2023 (about 40 months), taking some time off occasionally for school
+        and summer employment as a lifeguard. My responsibilities included operating as a cashier, stocking shelves, unloading shipments,
+        managing the produce section, and assisting with store closing procedures.
+      </p>
+      <p>
+        This role enhanced my customer service and communication abilities, taught me how to multitask in a busy environment, and sharpened
+        my attention to detail by ensuring accurate inventory and product presentation.
+      </p>
+    </div>
+  </div>
+{% endblock %}
