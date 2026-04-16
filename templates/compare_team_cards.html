@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics With Avery | Compare NHL Team Cards{% endblock %}
+{% block meta_description %}Compare NHL team cards created by Avery Doiron, featuring team stats, rankings, and analytics across multiple seasons.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, compare NHL team cards, NHL team cards, hockey analytics, team rankings, sports analytics{% endblock %}
+
+{% block og_title %}Analytics With Avery | Compare NHL Team Cards{% endblock %}
+{% block og_description %}Compare NHL team cards, rankings, and stats created by Avery Doiron for hockey fans and analysts.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_team_card_0.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/compare_team_cards{% endblock %}
+
+{% block twitter_title %}Analytics With Avery | Compare NHL Team Cards{% endblock %}
+{% block twitter_description %}Compare NHL team cards with detailed stats and analytics from Avery Doiron's project.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_team_card_0.png{% endblock %}
+
+{% block content %}
+  <h1>Compare NHL Team Cards</h1>
+
+  <div class="card-section">
+    <div class="compare-section">
+      <form method="POST" class="filter-form compare-card" id="team-filter-form-1">
+        <h2>Choose Team 1</h2>
+
+        <div class="filters-row">
+          <label for="team-season-1">Season</label>
+          <select id="team-season-1" name="season">
+            {% for s in seasons %}
+              <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+          </select>
+
+          <label for="team-select-1">Team</label>
+          <select id="team-select-1" name="team">
+            {% for row in team_cards_data %}
+              <option value="{{ row.team }}" data-season="{{ row.season }}">{{ row.team }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <button type="button" class="generate-button">Generate Card</button>
+
+        <div class="player-card">
+          <div id="team-loading-spinner-1" class="card-loading-spinner">
+            <img src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}" class="spinner-icon" alt="">
+          </div>
+
+          <a id="team-card-link-1" href="" target="_blank">
+            <img id="team-card-img-1" alt="Team 1 card">
+          </a>
+        </div>
+      </form>
+
+      <form method="POST" class="filter-form compare-card" id="team-filter-form-2">
+        <h2>Choose Team 2</h2>
+
+        <div class="filters-row">
+          <label for="team-season-2">Season</label>
+          <select id="team-season-2" name="season">
+            {% for s in seasons %}
+              <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+          </select>
+
+          <label for="team-select-2">Team</label>
+          <select id="team-select-2" name="team">
+            {% for row in team_cards_data %}
+              <option value="{{ row.team }}" data-season="{{ row.season }}">{{ row.team }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <button type="button" class="generate-button">Generate Card</button>
+
+        <div class="player-card">
+          <div id="team-loading-spinner-2" class="card-loading-spinner">
+            <img src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}" class="spinner-icon" alt="">
+          </div>
+
+          <a id="team-card-link-2" href="" target="_blank">
+            <img id="team-card-img-2" alt="Team 2 card">
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <div class="button-background">
+      <h2>Explore Other Card Views</h2>
+      <div class="content-button">
+        <a href="/team_cards">View Team Cards</a>
+      </div>
+      <div class="content-button">
+        <a href="/player_cards">View Player Cards</a>
+      </div>
+      <div class="content-button">
+        <a href="/compare_player_cards">Compare Player Cards</a>
+      </div>
+    </div>
+
+    <div class="card-explanation">
+      <h2>Card Explanation</h2>
+      <p>These team cards summarize team performance using standings data, team statistics, and analytical metrics.</p>
+      <p>Each card is designed to provide a quick snapshot of a team's overall performance, strengths, and underlying results for the selected season.</p>
+      <h4>Data includes all games currently included in the selected season's team card dataset.</h4>
+
+      <h3>Included Information</h3>
+      <ul>
+        <li><b>Standings Results</b> - Team record, points, point percentage, and other standings-related information.</li>
+        <li><b>Team Statistics</b> - Key offensive, defensive, and special teams statistics for the selected season.</li>
+        <li><b>Analytical Metrics</b> - Measures such as Elo, SRS, expected performance, or other team-level metrics included in your model.</li>
+        <li><b>Rankings</b> - League-wide ranking positions for selected team categories.</li>
+        <li><b>Profile Information</b> - Team identity details such as conference, division, and season context where applicable.</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics With Avery | NHL Team Cards{% endblock %}
+{% block meta_description %}Explore Avery Doiron's NHL Team Cards, featuring team analytics, rankings, and visual stat cards.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, NHL team cards, hockey analytics, NHL team analytics, sports analytics{% endblock %}
+
+{% block og_title %}Analytics With Avery | NHL Team Cards{% endblock %}
+{% block og_description %}View NHL Team Cards created by Avery Doiron, featuring custom rankings, stats, and analytics.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_team_card_0.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/team_cards{% endblock %}
+
+{% block twitter_title %}Analytics With Avery | NHL Team Cards{% endblock %}
+{% block twitter_description %}Explore Avery Doiron's NHL Team Cards with rankings, stats, and analytics.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_team_card_0.png{% endblock %}
+
+{% block content %}
+  <h1>NHL Team Cards</h1>
+
+  <div class="card-section">
+    <form method="POST" class="filter-form" id="team-filter-form-0">
+      <h2>Choose a Team</h2>
+
+      <div class="filters-row">
+        <label for="team-season-0">Season</label>
+        <select name="season" id="team-season-0">
+          {% for s in seasons %}
+            <option value="{{ s }}">{{ s }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="team-select-0">Team</label>
+        <select name="team" id="team-select-0">
+          {% for row in team_cards_data %}
+            <option value="{{ row.team }}" data-season="{{ row.season }}">
+              {{ row.team }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="button" class="generate-button">Generate Card</button>
+
+      <div class="player-card">
+        <div id="team-loading-spinner-0" class="card-loading-spinner">
+          <img src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}" class="spinner-icon" alt="">
+        </div>
+
+        <a id="team-card-link-0" href="" target="_blank">
+          <img id="team-card-img-0" alt="Selected team card">
+        </a>
+      </div>
+    </form>
+
+    <div class="button-background">
+      <h2>Explore Other Card Views</h2>
+      <div class="content-button">
+        <a href="/compare_team_cards">Compare Team Cards</a>
+      </div>
+      <div class="content-button">
+        <a href="/player_cards">View Player Cards</a>
+      </div>
+      <div class="content-button">
+        <a href="/compare_player_cards">Compare Player Cards</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
