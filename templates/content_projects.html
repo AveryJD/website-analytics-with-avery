@@ -1,103 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Projects{% endblock %}
+{% block meta_description %}Explore Avery Doiron's hockey analytics projects, including custom NHL player stat cards that visualize performance using advanced data models.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, NHL analytics projects, NHL player cards, hockey player cards, hockey projects, sports analytics{% endblock %}
 
-  <title>Analytics With Avery | Projects</title>
-  <meta name="description" content="Explore Avery Doiron's hockey analytics projects, including custom NHL player stat cards that visualize performance using advanced data models.">
-  <meta name="keywords" content="Analytics With Avery, NHL analytics projects, NHL player cards, hockey player cards, hockey projects, sports analytics">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Projects{% endblock %}
+{% block og_description %}Discover NHL player cards built using advanced hockey analytics and clean visuals.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_card_0.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/projects{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | My Projects">
-  <meta property="og:description" content="Discover NHL player cards built using advanced hockey analytics and clean visuals.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/preview_card_0.png">
-  <meta property="og:url" content="https://analyticswithavery.com/projects">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | NHL Player Card Projects{% endblock %}
+{% block twitter_description %}Explore Avery Doiron's hockey analytics projects and custom NHL player cards.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/preview_cards/preview_card_0.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | NHL Player Card Projects">
-  <meta name="twitter:description" content="Explore Avery Doiron's hockey analytics projects and custom NHL player cards.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/preview_card_0.png">
+{% block content %}
+  <h1>Projects</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="card-section">
+    <h2>NHL Player Cards</h2>
 
+    <p>
+      I've created NHL player stat cards that combine advanced analytics, custom models, and clean visuals to highlight player performance.
+      You can explore over 14,800 individual cards of forwards, defensemen, and goalies from the past 19 seasons! Data for this project
+      was obtained from <a href="https://www.naturalstattrick.com">Natural Stat Trick</a>. The project is mostly complete, but I continue 
+      to make occasional improvements to the rankings and visuals.
+    </p>
 
-<body>
+    <p>
+      You can also explore the code and behind-the-scenes development of this project and follow its development on my
+      <a href="https://github.com/AveryJD/project-nhl-player-cards" target="_blank">GitHub</a>.
+    </p>
 
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-      
-      <h1 class="main-heading">Check Out My Projects</h1>
-        
-      <div class="card-section">
-
-        <h1>NHL Player Cards</h1>
-
-        <p>
-          I've created NHL player stat cards that combine advanced analytics, custom models, and clean visuals to highlight player performance.
-          You can view over 13,000 individual cards of forwards, defenseman, and goalies from 17 seasons!
-          This is still a work in progress, so the rankings and visuals are constantly evolving as I continue improving these cards.
-        </p>
-
-        <p>
-          If you have any feedback or find any bugs/errors, I'd love to hear about it (check out my <a href="/socials">socials</a> to easily contact me).
-          You can also explore the code and the behind the scenes of this project and follow its development on my 
-          <a href="https://github.com/AveryJD/hockey-player-attribute-rankings-cards" target="_blank">GitHub</a>.
-        </p>
-
-        <div class="horizontal-buttons">
-          <div class="content-button">
-            <h2><a href="/player_cards">View Single Player Cards</a></h2>
-          </div>
-  
-          <div class="content-button">
-            <h2><a href="/compare_player_cards">Compare Two Player Cards</a></h2>
-          </div>
-        </div>
-
-        <div class="player-card">
-          <img src="static/assets/preview_card_0.png" alt="Preview Card">
-        </div>
+    <div class="horizontal-buttons">
+      <div class="content-button">
+        <a href="/player_cards">View Single Player Cards</a>
       </div>
 
-
-      <div class="card-section">
-        <h1>NHL Schedule Genetic Algorithm</h1>
-      
-        <p>
-          This started as my final project for an Evolutionary Computation course and I have since continued to work on it outside the classroom. 
-          The goal was to design a genetic algorithm capable of generating optimized NHL schedules under a variety of real-world constraints. 
-          The project concluded with a 40 minute formal presentation.
-        </p>
-      
-        <p>
-          I plan to add more features and visualizations from this project to the website soon, but for now the full source code and documentation is available on
-          my <a href="https://github.com/AveryJD/project-nhl-schedule-genetic-algorithm" target="_blank">GitHub</a>.
-        </p>
-      
-        <p>
-          You can also view the <a href="/static/assets/nhl_schedule_ga_slideshow.pptx" target="_blank">presentation slides</a>.
-          These slides were used as a visual aid during the talk and do not represent a complete transcript of the presentation.
-        </p>
-      </div>      
-        
+      <div class="content-button">
+        <a href="/compare_player_cards">Compare Two Player Cards</a>
       </div>
+    </div>
 
-    </main>
-
+    <div class="player-card">
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_dark.png') }}"
+        alt="NHL player card preview"
+        class="preview-theme-card"
+      >
+    </div>
   </div>
 
-  <div id="footer"></div>
+  <div class="card-section">
+    <h2>NHL Team Cards</h2>
 
-  <script src="/static/js/main.js"></script>
+    <p>
+      I've created NHL team stat cards that combine advanced analytics, custom ratings, and clean visuals to highlight team performance.
+      You can explore over 500 team cards from the past 19 seasons! Data for this project
+      was obtained from <a href="https://www.naturalstattrick.com">Natural Stat Trick</a>. The project is mostly complete, but I continue 
+      to make occasional improvements to the rankings and visuals.
+    </p>
 
-</body>
+    <p>
+      You can also explore the code and behind-the-scenes development of this project and follow its development on my
+      <a href="https://github.com/AveryJD/project-nhl-team-cards" target="_blank">GitHub</a>.
+    </p>
 
-</html>
+    <div class="horizontal-buttons">
+      <div class="content-button">
+        <a href="/team_cards">View Single Team Cards</a>
+      </div>
 
+      <div class="content-button">
+        <a href="/compare_team_cards">Compare Two Team Cards</a>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_0_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_0_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_0_dark.png') }}"
+        alt="NHL team card preview"
+        class="preview-theme-card"
+      >
+    </div>
+  </div>
+
+  <div class="card-section">
+    <h2>NHL Schedule Genetic Algorithm</h2>
+
+    <p>
+      This started as my final project for an Evolutionary Computation course and I have since continued to work on it outside the classroom.
+      The goal was to design a genetic algorithm capable of generating optimized NHL schedules under a variety of real-world constraints.
+      The project concluded with a 40 minute formal presentation.
+    </p>
+
+    <p>
+      I plan to add more features and visualizations from this project to the website soon, but for now the full source code and documentation is available on
+      my <a href="https://github.com/AveryJD/project-nhl-schedule-genetic-algorithm" target="_blank">GitHub</a>.
+    </p>
+
+    <p>
+      You can also view the
+      <a href="{{ url_for('static', filename='assets/documents/nhl_schedule_ga_slideshow.pptx') }}" target="_blank">presentation slides</a>.
+      These slides were used as a visual aid during the talk and do not represent a complete transcript of the presentation.
+    </p>
+  </div>
+{% endblock %}
