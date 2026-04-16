@@ -1,81 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Home Page{% endblock %}
+{% block meta_description %}Explore hockey analytics projects, data-driven insights, and blogs from computer science student and sports analytics enthusiast Avery Doiron.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, Avery Doiron, NHL analytics, hockey data science, NHL player cards, hockey blog, sports analytics{% endblock %}
 
-  <title>Analytics With Avery | Home Page</title>
-  <meta name="description" content="Explore hockey analytics projects, data-driven insights, and blogs from computer science student and sports analytics enthusiast Avery Doiron.">
-  <meta name="keywords" content="Analytics With Avery, Avery Doiron, NHL analytics, hockey data science, NHL player cards, hockey blog, sports analytics">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Hockey Data Science & Insights{% endblock %}
+{% block og_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Hockey Data Science & Insights">
-  <meta property="og:description" content="Explore NHL analytics, player cards, and hockey data science projects.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Hockey Data Science & Insights{% endblock %}
+{% block twitter_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Hockey Data Science & Insights">
-  <meta name="twitter:description" content="Explore NHL analytics, player cards, and hockey data science projects.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
+{% block content %}
+  <h1>Analytics With Avery</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css"> 
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/icons/icon-180x180.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/static/assets/icons/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/icons/icon-120x120.png">
+  <div class="card-section">
+    <h2>Featured Projects</h2>
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/static/assets/icons/icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/static/assets/icons/icon-512x512.png">
+    <div class="content-button">
+      <h2><a href="/player_cards">NHL Player Cards</a></h2>
+    </div>
+    <div class="card-preview">
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_dark.png') }}"
+        alt="Player preview card 1"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_dark.png') }}"
+        alt="Player preview card 2"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_dark.png') }}"
+        alt="Player preview card 3"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_dark.png') }}"
+        alt="Player preview card 4"
+        class="player-card preview-theme-card"
+      >
+    </div>
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Analytics With Avery">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-</head>
-
-
-<body>
-
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-
-      <h1 class="main-heading">Welcome to the Analytics With Avery Website</h1>
-
-      <div class="card-section">
-        <h1>Featured Project:</h1>
-        <div class="content-button">
-          <h2><a href="/player_cards">NHL Player Cards</a></h2>
-        </div>
-        <div class="card-preview">
-          <img src="static/assets/preview_card_1.png" alt="Preview Card" class="player-card">
-          <img src="static/assets/preview_card_2.png" alt="Preview Card" class="player-card">
-          <img src="static/assets/preview_card_3.png" alt="Preview Card" class="player-card">
-          <img src="static/assets/preview_card_4.png" alt="Preview Card" class="player-card">
-        </div>
-      </div>
-
-      <div class="blog-section">
-        <h1>Newest Blog Post:</h1>
-        <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
-        <h4>{{ post['date'] }}</h4>
-        <p>{{ post['preview'] }}</p>
-      </div>
-
-    </main>
-  
+    <div class="content-button">
+      <h2><a href="/team_cards">NHL Team Cards</a></h2>
+    </div>
+    <div class="card-preview">
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_dark.png') }}"
+        alt="Team preview card 1"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_dark.png') }}"
+        alt="Team preview card 2"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_dark.png') }}"
+        alt="Team preview card 3"
+        class="player-card preview-theme-card"
+      >
+      <img
+        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.png') }}"
+        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.png') }}"
+        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_dark.png') }}"
+        alt="Team preview card 4"
+        class="player-card preview-theme-card"
+      >
+    </div>
   </div>
 
-  <div id="footer"></div>
-
-
-  <script src="/static/js/main.js"></script>
-  
-</body>
-
-</html>
-
+  <div class="blog-section">
+    <h2>Newest Blog Post</h2>
+    <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
+    <h4>{{ post['date'] }}</h4>
+    <p>{{ post['preview'] }}</p>
+  </div>
+{% endblock %}
