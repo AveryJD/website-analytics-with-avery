@@ -1,78 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Contact{% endblock %}
+{% block meta_description %}Get in touch with Avery Doiron to discuss hockey analytics projects, collaborations, or networking opportunities. Connect via email, LinkedIn, Instagram, GitHub, or TeamWork Online.{% endblock %}
+{% block meta_keywords %}Avery Doiron, Analytics With Avery, hockey analytics, contact, email, LinkedIn, Instagram, GitHub, TeamWork Online{% endblock %}
 
-  <title>Analytics With Avery | Contact</title>
-  <meta name="description" content="Get in touch with Avery Doiron to discuss hockey analytics projects, collaborations, or networking opportunities. Connect via email, LinkedIn, Instagram, GitHub, or TeamWork Online.">
-  <meta name="keywords" content="Avery Doiron, Analytics With Avery, hockey analytics, contact, email, LinkedIn, Instagram, GitHub, TeamWork Online">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Contact{% endblock %}
+{% block og_description %}Connect with Avery Doiron for hockey analytics projects, networking, and collaborations.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/contact{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Contact Avery Doiron">
-  <meta property="og:description" content="Connect with Avery Doiron for hockey analytics projects, networking, and collaborations.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/contact">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Contact Avery Doiron{% endblock %}
+{% block twitter_description %}Reach out to Avery Doiron for hockey analytics projects, collaborations, or networking.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Contact Avery Doiron">
-  <meta name="twitter:description" content="Reach out to Avery Doiron for hockey analytics projects, collaborations, or networking.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
+{% block content %}
+  <h1>Contact</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="socials-section">
+    <h2>Connect with Me</h2>
+    <p>
+      If you're interested in my projects or blog posts, want to chat about my experiences, or just want to connect, feel free to reach out.
+      I'm always open to new opportunities, collaborations, or networking with like-minded people. You can email me directly, find me on
+      LinkedIn or Instagram, or check out my GitHub using the icons below. You can also view my TeamWork Online business card (you
+      have to be signed in as an employer to see my full TeamWork Online profile).
+    </p>
 
-
-<body>
-
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-
-      <h1 class="main-heading">Connect With Me</h1>
-
-      <div class="socials-section">
-        <div class="main-text">
-          <p>
-            If you're interested in my blogs or projects, want to chat about my experiences, or just want to connect, feel free to reach out! 
-            I'm always open to new opportunities, collaborations, or networking with like-minded people. You can email me directly, find me on 
-            LinkedIn or Instagram, or check out my GitHub using the icons below. You can also view my TeamWork Online business card (you
-            have to be signed in as an employer to see my full TeamWork Online profile).
-          </p>
-        </div>
-
-
-        <div class="socials-container">
-          <a href="mailto:averyjdoiron@icloud.com" class="social-link">
-            <img src="static/assets/email.png" alt="Email Avery" class="socials-icon">
-          </a>
-          <a href="https://www.linkedin.com/in/averydoiron/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/linkedin.png" alt="LinkedIn Profile" class="socials-icon">
-          </a>
-          <a href="https://www.instagram.com/averyjdoiron/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/instagram.png" alt="Instagram Profile" class="socials-icon">
-          </a>
-          <a href="https://github.com/AveryJD" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/github.png" alt="GitHub Profile" class="socials-icon">
-          </a>
-          <a href="https://www.teamworkonline.com/business_cards/45e1b20c5ee12e26" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/teamworkonline.png" alt="TeamWorkOnline Business Card" class="socials-icon">
-          </a>
-        </div>
-      </div>
-
-    </main>
-
+    <div class="socials-container">
+      <a href="mailto:averyjdoiron@icloud.com" class="social-link">
+        <img src="{{ url_for('static', filename='assets/icons/email.png') }}" alt="Email Avery" class="socials-icon">
+      </a>
+      <a href="https://www.linkedin.com/in/averydoiron/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/linkedin.png') }}" alt="LinkedIn Profile" class="socials-icon">
+      </a>
+      <a href="https://www.instagram.com/averyjdoiron/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/instagram.png') }}" alt="Instagram Profile" class="socials-icon">
+      </a>
+      <a href="https://github.com/AveryJD" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/github.png') }}" alt="GitHub Profile" class="socials-icon">
+      </a>
+      <a href="https://www.teamworkonline.com/business_cards/45e1b20c5ee12e26" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/teamworkonline.png') }}" alt="TeamWorkOnline Business Card" class="socials-icon">
+      </a>
+    </div>
   </div>
-
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
-
-</body>
-
-</html>
+{% endblock %}

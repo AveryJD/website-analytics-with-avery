@@ -1,83 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
+{% block title %}Analytics With Avery | Socials{% endblock %}
+{% block meta_description %}Connect with Analytics With Avery across social media platforms. Follow Avery Doiron for hockey analytics updates, projects, and blog posts.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, hockey analytics, social media, contact, Twitter, Instagram, YouTube, Reddit{% endblock %}
 
-  <title>Analytics With Avery | Socials </title>
-  <meta name="description" content="Connect with Analytics With Avery across social media platforms. Follow Avery Doiron for hockey analytics updates, projects, and blog posts.">
-  <meta name="keywords" content="Analytics With Avery, hockey analytics, social media, contact, Twitter, Instagram, YouTube, Reddit">
-  <meta name="author" content="Avery Doiron">
+{% block og_title %}Analytics With Avery | Social Media{% endblock %}
+{% block og_description %}Follow Analytics With Avery on X, Instagram, YouTube, TikTok, and more for the latest in hockey analytics.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/socials{% endblock %}
 
-  <meta property="og:title" content="Analytics With Avery | Social Media & Contact">
-  <meta property="og:description" content="Follow Analytics With Avery on X, Instagram, YouTube, TikTok, and more for the latest in hockey analytics.">
-  <meta property="og:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
-  <meta property="og:url" content="https://analyticswithavery.com/socials">
-  <meta property="og:type" content="website">
+{% block twitter_title %}Analytics With Avery | Socials{% endblock %}
+{% block twitter_description %}Connect with Avery Doiron across social platforms for hockey analytics projects and insights.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analytics With Avery | Social Media & Contact">
-  <meta name="twitter:description" content="Connect with Avery Doiron across social platforms for hockey analytics projects and insights.">
-  <meta name="twitter:image" content="https://analyticswithavery.com/static/assets/analyticswithavery_logo.png">
+{% block content %}
+  <h1>Socials</h1>
 
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="icon" href="/static/assets/favicon.png" type="image/png">
-</head>
+  <div class="socials-section">
+    <div>
+      <h2>Follow Analytics With Avery</h2>
+      <p>
+        Follow Analytics With Avery on the platforms below to stay updated on new projects, blog posts, and other content.
+        X is currently my main platform for posting content, with more content on Instagram and other platforms planned in the future.
+        You can also reach out by email with questions, feedback, or ideas.
+      </p>
+    </div>
 
-
-<body>
-
-  <div class="page-content">
-
-    <div id="navbar"></div>
-
-    <main>
-      
-      <h1 class="main-heading">Analytics With Avery Social Media</h1>
-
-      <div class="socials-section">
-        <div>
-          <p> 
-            If you want to support me and get updated whenever I release new content, you can follow the Analytics With Avery social media accounts
-            with the icons below. I use X (formerly Twitter) as my main platforms for sharing content, but plan to post to Instagram and other platforms
-            in the future. Additionally, you can reach out via my Analytics With Avery email for any questions, feedback, ideas, or anything 
-            else related to my content.
-          </p> 
-        </div>
-      
-        <div class="socials-container">
-          <a href="https://x.com/analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/twitter.png" alt="X/Twitter Profile" class="socials-icon">
-          </a>
-          <a href="https://www.instagram.com/analyticswavery/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/instagram.png" alt="Instagram Profile" class="socials-icon">
-          </a>
-          <a href="https://www.youtube.com/@analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/youtube.png" alt="YouTube Profile" class="socials-icon">
-          </a>
-          <a href="https://www.tiktok.com/@analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/tiktok.png" alt="TikTok Profile" class="socials-icon">
-          </a>
-          <a href="https://www.reddit.com/user/analyticswavery/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <img src="static/assets/reddit.png" alt="Reddit Profile" class="socials-icon">
-          </a>
-          <a href="mailto:analyticswithavery@gmail.com" class="social-link">
-            <img src="static/assets/email.png" alt="Email Analytics With Avery" class="socials-icon">
-          </a>
-        </div>        
-      </div>
-
-    </main>
-
+    <div class="socials-container">
+      <a href="https://x.com/analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/twitter.png') }}" alt="X/Twitter Profile" class="socials-icon">
+      </a>
+      <a href="https://www.instagram.com/analyticswavery/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/instagram.png') }}" alt="Instagram Profile" class="socials-icon">
+      </a>
+      <a href="https://www.youtube.com/@analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/youtube.png') }}" alt="YouTube Profile" class="socials-icon">
+      </a>
+      <a href="https://www.tiktok.com/@analyticswavery" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/tiktok.png') }}" alt="TikTok Profile" class="socials-icon">
+      </a>
+      <a href="https://www.reddit.com/user/analyticswavery/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <img src="{{ url_for('static', filename='assets/logos/reddit.png') }}" alt="Reddit Profile" class="socials-icon">
+      </a>
+      <a href="mailto:analyticswithavery@gmail.com" class="social-link">
+        <img src="{{ url_for('static', filename='assets/icons/email.png') }}" alt="Email Analytics With Avery" class="socials-icon">
+      </a>
+    </div>
   </div>
-
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
-  
-</body>
-
-</html>
-
-
-
+{% endblock %}
