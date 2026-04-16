@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      const theme = savedTheme ? savedTheme : "dark";
+      document.documentElement.classList.toggle("dark-mode", theme === "dark");
+    })();
+  </script>
+
+  <title>{% block title %}Analytics With Avery{% endblock %}</title>
+
+  <meta name="description" content="{% block meta_description %}Analytics With Avery{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}Analytics With Avery{% endblock %}">
+  <meta name="author" content="Avery Doiron">
+
+  <meta property="og:title" content="{% block og_title %}Analytics With Avery{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Analytics With Avery{% endblock %}">
+  <meta property="og:image" content="{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}">
+  <meta property="og:url" content="{% block og_url %}https://analyticswithavery.com/{% endblock %}">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}Analytics With Avery{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Analytics With Avery{% endblock %}">
+  <meta name="twitter:image" content="{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/favicon.png') }}" type="image/png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-180x180.png') }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-152x152.png') }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-120x120.png') }}">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-192x192.png') }}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-512x512.png') }}">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Analytics With Avery">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+  <div class="page-content">
+    <div id="navbar"></div>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
