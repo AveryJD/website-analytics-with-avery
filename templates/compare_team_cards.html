@@ -41,7 +41,12 @@
 
         <div class="player-card">
           <div id="team-loading-spinner-1" class="card-loading-spinner">
-            <img src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}" class="spinner-icon" alt="">
+            <object
+              type="image/svg+xml"
+              data="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}"
+              class="spinner-icon"
+              aria-hidden="true">
+            </object>
           </div>
 
           <a id="team-card-link-1" href="" target="_blank">
@@ -73,7 +78,12 @@
 
         <div class="player-card">
           <div id="team-loading-spinner-2" class="card-loading-spinner">
-            <img src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}" class="spinner-icon" alt="">
+            <object
+              type="image/svg+xml"
+              data="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}"
+              class="spinner-icon"
+              aria-hidden="true">
+            </object>
           </div>
 
           <a id="team-card-link-2" href="" target="_blank">
