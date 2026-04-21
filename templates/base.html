@@ -47,16 +47,16 @@
 </head>
 
 <body>
-  <div class="page-content">
+  {% include "components/nav.html" %}
 
+  <div class="page-content">
     <main>
-      {% include "components/nav.html" %}
       {% block content %}{% endblock %}
-      {% include "components/footer.html" %}
     </main>
   </div>
 
+  {% include "components/footer.html" %}
+
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  {% block extra_scripts %}{% endblock %}
 </body>
 </html>
