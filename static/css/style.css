@@ -1,7 +1,5 @@
 
 /* ==================== FONTS ==================== */
-@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
   font-family: "Nav Header";
@@ -14,6 +12,34 @@
   font-family: "Nav Sub Header";
   src: url("/static/assets/fonts/nav-sub-header.ttf") format("truetype");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("/static/assets/fonts/main.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("/static/assets/fonts/main-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blog";
+  src: url("/static/assets/fonts/blog.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blog";
+  src: url("/static/assets/fonts/blog-bold.ttf") format("truetype");
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -40,10 +66,10 @@
   --link-visited: purple;
 
   --main-radius: 0.8rem;
-  --font-main: "REM", sans-serif;
+  --font-main: "Main", sans-serif;
   --font-nav-title: "Nav Header", system-ui;
   --font-nav-sub: "Nav Sub Header", system-ui;
-  --font-blog: "Space Mono", monospace;
+  --font-blog: "Blog", monospace;
 
   --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
   --box-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.34);
