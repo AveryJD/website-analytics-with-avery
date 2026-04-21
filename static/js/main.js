@@ -1,9 +1,3 @@
-// Load the footer
-fetch("/static/components/footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
 
 // Open the hamburger menu
 function openMenu() {
@@ -333,47 +327,42 @@ const teamFilters = [];
   }
 });
 
-// Load the navbar last so the toggle can refresh cards after theme changes
-fetch("/static/components/nav.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("theme-toggle");
 
-    const toggleBtn = document.getElementById("theme-toggle");
-    if (!toggleBtn) return;
+  function refreshVisibleCards() {
+    playerFilters.forEach(filter => {
+      filter.applyCardMode();
+      filter.updateCardImage();
+    });
 
-    function refreshVisibleCards() {
-      playerFilters.forEach(filter => {
-        filter.applyCardMode();
-        filter.updateCardImage();
-      });
+    teamFilters.forEach(filter => {
+      filter.applyCardMode();
+      filter.updateTeamCardImage();
+    });
+  }
 
-      teamFilters.forEach(filter => {
-        filter.applyCardMode();
-        filter.updateTeamCardImage();
-      });
-    }
+  function setTheme(theme) {
+    document.documentElement.classList.toggle("dark-mode", theme === "dark");
+    localStorage.setItem("theme", theme);
 
-    function setTheme(theme) {
-      document.documentElement.classList.toggle("dark-mode", theme === "dark");
-      localStorage.setItem("theme", theme);
+    if (toggleBtn) {
       toggleBtn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
-      updatePreviewThemeCards();
     }
 
-    const savedTheme = localStorage.getItem("theme");
+    updatePreviewThemeCards();
+  }
 
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme("dark");
-    }
+  const savedTheme = localStorage.getItem("theme");
+  setTheme(savedTheme ? savedTheme : "dark");
 
-    refreshVisibleCards();
+  refreshVisibleCards();
 
+  if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
       const isDark = document.documentElement.classList.contains("dark-mode");
       setTheme(isDark ? "light" : "dark");
       refreshVisibleCards();
     });
-  });
+  }
+});
