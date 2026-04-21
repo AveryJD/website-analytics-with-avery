@@ -48,14 +48,13 @@
 
 <body>
   <div class="page-content">
-    <div id="navbar"></div>
 
     <main>
+      {% include "components/nav.html" %}
       {% block content %}{% endblock %}
+      {% include "components/footer.html" %}
     </main>
   </div>
-
-  <div id="footer"></div>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block extra_scripts %}{% endblock %}
