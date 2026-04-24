@@ -1160,6 +1160,47 @@ main a:hover {
     right: 1rem;
   }
 
+  .about-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .education-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .experience-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .socials-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .cv-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .card-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .blog-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+
+  .compare-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   .experience-section h2 {
     text-align: center;
   }
@@ -1273,6 +1314,10 @@ main a:hover {
 
   .player-card img {
     padding: 0.4rem;
+  }
+
+  .card-explanation li {
+    font-size: 0.5rem;
   }
 
   .card-preview img:nth-child(1) { transform: translateX(-9vw) translateY(0.3vw) rotate(-5deg); }
