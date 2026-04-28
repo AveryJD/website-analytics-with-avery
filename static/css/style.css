@@ -581,12 +581,10 @@ main a:hover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
 }
 
 .award-runner-up img {
-  width: 20%;
-  min-width: 130px;
+  width: 25%;
   height: auto;
   display: block;
   border-radius: 5px;
@@ -1238,7 +1236,6 @@ main a:hover {
     padding-right: 5%;
   }
 
-
   .compare-section {
     padding-left: 5%;
     padding-right: 5%;
@@ -1267,7 +1264,6 @@ main a:hover {
   .footer h6 {
     font-size: 0.5rem;
     padding: 0.1rem;
-
   }
   
   .footer p {
@@ -1328,6 +1324,34 @@ main a:hover {
     justify-content: space-evenly; 
   }
 
+  .award-podium {
+    gap: 0.5rem;
+  }
+
+  .award-card img {
+    border-radius: 2px;
+  }
+  
+  .first-place img {
+    width: 100%;
+    border: 2px solid rgb(212, 175, 55);
+  }
+  
+  .second-place img {
+    width: 95%;
+    border: 2px solid rgb(202, 208, 207);
+  }
+  
+  .third-place img {
+    width: 90%;
+    border: 2px solid rgb(205, 127, 50);
+  }
+  
+  .award-runner-up img {
+    border-radius: 2px;
+    border: 2px solid rgb(117, 124, 136);
+  }
+    
   .content-button a {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
