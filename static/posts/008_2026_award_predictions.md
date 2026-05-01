@@ -341,7 +341,7 @@ Marco Sturm helped coach the Boston Bruins to a strong bounce-back season after 
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_MIN_dark.png" alt="Minnesota Wild">
+    <img src="/static/post_images/008/2025-2026_CAR_dark.png" alt="Carolina Hurricanes">
   </div>
 
   <div class="award-card first-place">
@@ -349,12 +349,12 @@ Marco Sturm helped coach the Boston Bruins to a strong bounce-back season after 
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_CAR_dark.png" alt="Carolina Hurricanes">
+    <img src="/static/post_images/008/2025-2026_PIT_dark.png" alt="Pittsburgh Penguins">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_PIT_dark.png" alt="Pittsburgh Penguins">
+  <img src="/static/post_images/008/2025-2026_MIN_dark.png" alt="Minnesota Wild">
   <img src="/static/post_images/008/2025-2026_ANA_dark.png" alt="Anaheim Ducks">
 </div>
 
