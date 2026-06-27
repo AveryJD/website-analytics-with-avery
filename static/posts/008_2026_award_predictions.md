@@ -397,7 +397,7 @@ Hired Dan Muse to be the head coach.<br>
 Traded Zeev Buium, Marco Rossi, Liam Ohgren, and a first-round pick for Quinn Hughes.<br>
 Traded future considerations for Vladimir Tarasenko.<br>
 Traded a second-round pick for Michael McCarron.<br>
-Traded David Jirichek for Bobby Brink.<br>
+Traded David Jiricek for Bobby Brink.<br>
 Traded Frederick Gaudreau for a fourth-round pick.<br>
 Signed Kirill Kaprizov to an 8x$17.0M extension.<br>
 Signed Filip Gustavsson to a 5x$6.0M extension.<br>
