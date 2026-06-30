@@ -1,8 +1,12 @@
-
 <div class="card-explanation">
 
     <h2>Player Card Explanation</h2>
 
+    <p>
+        5v5 Offense, 5v5 Defense, Power Play, and Penalty Kill are calculated using a Wins Above Replacement (WAR) model:
+        a regression that isolates each skater's own on-ice impact net of every teammate and opponent who shared the ice with them,
+        converted to a wins-denominated scale. A larger write up on my model and methodology will be writen soon.
+    </p>
     <p>
         All attributes are weighted based on the past 3 seasons, with the most recent season weighted the most.
         This gives a better overview of a player's overall skill instead of only single-season performance.
@@ -35,52 +39,30 @@
         <li><b>Country</b> - The player's country of origin.</li>
     </ul>
 
-    <h3>Skater Stats</h3>
-    <ul>
-        <li><b>Games</b> - The skater's number of games played.</li>
-        <li><b>Goals</b> - The skater's number of goals in all situations.</li>
-        <li><b>Assists</b> - The skater's number of assists in all situations.</li>
-        <li><b>Points</b> - The skater's number of points (goals and assists) in all situations.</li>
-        <li><b>xGoals</b> - The skater's expected goals in all situations.</li>
-        <li><b>5v5 GF %</b> - The skater's 5-on-5 goals share (the percentage of goals the player's team scores versus concedes while the player is on the ice).</li>
-        <li><b>5v5 xGF %</b> - The skater's 5-on-5 expected goals share (the percentage of expected goals the player's team scores versus concedes while the player is on the ice).</li>
-    </ul>
-
     <h3>Skater Rankings</h3>
     <ul>
-        <li><b>5v5 Offense</b> - The skater's offensive performance at 5-on-5 (even strength), adjusted to a per 60 minute rate.</li>
-        <li><b>5v5 Defense</b> - The skater's defensive performance at 5-on-5 (even strength), adjusted to a per 60 minute rate.</li>
-        <li><b>5v4 Offense</b> - The skater's offensive performance at 5-on-4 (the power play), adjusted to a per 60 minute rate. Requires averaging over 45 seconds of 5v4 ice time per game.</li>
-        <li><b>4v5 Defense</b> - The skater's defensive performance at 4-on-5 (the penalty kill), adjusted to a per 60 minute rate. Requires averaging over 45 seconds of 4v5 ice time per game.</li>
-        <li><b>On-Ice Offense</b> - The offensive performance of the skater's team at 5-on-5 while the skater is on the ice, adjusted to a per 60 minute rate.</li>
-        <li><b>On-Ice Defense</b> - The defensive performance of the skater's team at 5-on-5 while the skater is on the ice, adjusted to a per 60 minute rate.</li>
-        <li><b>Shooting</b> - The skater's shooting performance at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Scoring</b> - The skater's scoring performance at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Playmaking</b> - The skater's playmaking performance at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Penalties</b> - The skater's performance at drawing penalties versus take penalties at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Physicality</b> - The skater's hit-delevering performance at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Faceoffs</b> - The skater's faceoff performance at 5-on-5, adjusted to a per 60 minute rate. Requires averaging at least 3 faceoffs per game.</li>
-        <li><b>O-Zone Starts</b> - The frequency of a skater's shifts starting in the offensive zone at 5-on-5, adjusted to a per 60 minute rate.</li>
-        <li><b>Fantasy</b> - The skater's fantasy points production in a typical fantasy league, adjusted to a per game rate.</li>
+        <li><b>Overall</b> - The skater's total Wins Above Replacement (WAR), a statistic that estimates how many wins a player contributes compared to a replacement-level player.</li>
+        <li><b>5v5 Offense</b> - The skater's 5-on-5 (even-strength) offensive WAR, a statistic that estimates how many wins a player contributes offensively compared to a replacement-level player.</li>
+        <li><b>5v5 Defense</b> - The skater's 5-on-5 defensive WAR, a statistic that estimates how many wins a player contributes defensively compared to a replacement-level player.</li>
+        <li><b>Power Play</b> - The skater's 5-on-4 (power play) offensive Wins Above Replacement (WAR). Requires averaging over 45 seconds of 5v4 ice time per game.</li>
+        <li><b>Penalty Kill</b> - The skater's 4-on-5 (penalty kill) defensive Wins Above Replacement (WAR). Requires averaging over 45 seconds of 4v5 ice time per game.</li>
+        <li><b>Finishing</b> - The skater's 5-on-5 finishing, their goals scored above their own expected goals on the shots they took, adjusted to a per 60 minute rate.</li>
+        <li><b>Goals</b> - The skater's goal-scoring rate at 5-on-5, adjusted to a per 60 minute rate.</li>
+        <li><b>xGoals</b> - The skater's individual expected goals rate at 5-on-5, adjusted to a per 60 minute rate.</li>
+        <li><b>Assists</b> - The skater's assist rate at 5-on-5 (weighted toward primary assists), adjusted to a per 60 minute rate.</li>
+        <li><b>Penalties</b> - The skater's performance at drawing penalties versus taking penalties at 5-on-5, adjusted to a per 60 minute rate.</li>
+        <li><b>Physicality</b> - The skater's hitting and physical play at 5-on-5 (hits delivered, plus hits taken at half weight), adjusted to a per 60 minute rate.</li>
+        <li><b>PDO (Luck)</b> - The skater's on-ice shooting percentage plus on-ice save percentage at 5-on-5 (luck/sustainability context, not a skill rating).</li>
+        <li><b>O-Zone Starts</b> - The frequency of a skater's shifts starting in the offensive zone at 5-on-5, adjusted to a per 60 minute rate (deployment context, not a skill rating).</li>
+        <li><b>Teammates</b> - How good the skater's teammates were on average at 5-on-5, weighted by shared 5-on-5 ice time (deployment context, not a skill rating).</li>
+        <li><b>Competition</b> - How good the skater's opponents were on average at 5-on-5, weighted by shared 5-on-5 ice time (deployment context, not a skill rating).</li>
     </ul>
 
     <h3>Skater Graph</h3>
     <ul>
-        <li><b>Red Line</b> - The skater's yearly 5v5 offense percentile over the past 5 seasons.</li>
-        <li><b>Blue Line</b> - The skater's yearly 5v5 defense percentile over the past 5 seasons.</li>
-        <li><b>Dashed Light Red Line</b> - The skater's yearly 5v4 offense percentile over the past 5 seasons.</li>
-        <li><b>Dashed Light Blue Line</b> - The skater's yearly 4v5 defense percentile over the past 5 seasons.</li>
-    </ul>
-
-    <h3>Goalie Stats</h3>
-    <ul>
-        <li><b>Games</b> - The goalie's number of games played.</li>
-        <li><b>Record</b> - The goalie's record (wins-losses-overtime/shootout losses).</li>
-        <li><b>Shutouts</b> - The goalie's number of shutouts.</li>
-        <li><b>Save %</b> - The goalie's save percentage in all situations.</li>
-        <li><b>GAA</b> - The goalie's goals against average.</li>
-        <li><b>GSAx</b> - The goalie's goals saved above expected.</li>
-        <li><b>GSAx/60</b> - The goalie's goals saved above expected, adjusted to a per 60 minute rate.</li>
+        <li><b>Green Line</b> - The skater's yearly Overall percentile over the past 5 seasons.</li>
+        <li><b>Red Line</b> - The skater's yearly 5v5 Offense percentile over the past 5 seasons.</li>
+        <li><b>Blue Line</b> - The skater's yearly 5v5 Defense percentile over the past 5 seasons.</li>
     </ul>
 
     <h3>Goalie Rankings</h3>
@@ -102,9 +84,9 @@
 
     <h3>Goalie Graph</h3>
     <ul>
-        <li><b>Red Line</b> - The goalie's yearly overall percentile over the past 5 seasons.</li>
-        <li><b>Dashed Light Red Line</b> - The goalie's yearly even-strength (5v5) percentile over the past 5 seasons.</li>
-        <li><b>Dashed Light Blue Line</b> - The goalie's yearly penalty kill (4v5) percentile over the past 5 seasons.</li>
+        <li><b>Green Line</b> - The goalie's yearly overall percentile over the past 5 seasons.</li>
+        <li><b>Red Line</b> - The goalie's yearly Even Strength percentile over the past 5 seasons.</li>
+        <li><b>Blue Line</b> - The goalie's yearly Penalty Kill percentile over the past 5 seasons.</li>
     </ul>
 
 </div>
