@@ -3,9 +3,10 @@
     <h2>Player Card Explanation</h2>
 
     <p>
-        5v5 Offense, 5v5 Defense, Power Play, and Penalty Kill are calculated using a Wins Above Replacement (WAR) model:
+        Skater's Overall, 5v5 Offense, 5v5 Defense, Power Play, and Penalty Kill are calculated using a Wins Above Replacement (WAR) model:
         a regression that isolates each skater's own on-ice impact net of every teammate and opponent who shared the ice with them,
-        converted to a wins-denominated scale. A larger write up on my model and methodology will be writen soon.
+        converted to a wins-denominated scale. A larger write-up on my model and methodology will be written soon. 
+        Note that my goalie cards do not yet use a WAR model, but will be implemented soon.
     </p>
     <p>
         All attributes are weighted based on the past 3 seasons, with the most recent season weighted the most.
@@ -28,15 +29,16 @@
     <p>Data used is from <a href="https://www.naturalstattrick.com">Natural Stat Trick.</a></p>
     <p>NHL team logos and player images are the property of the NHL and its teams.</p>
 
-    <h3>Profile Information</h3>
+    <h3>Skater Information</h3>
     <ul>
-        <li><b>Position</b> - The player's position (forward, defense, or goalie).</li>
-        <li><b>Role</b> - The player's role on his team based on time on ice for skaters and games played for goalies.</li>
-        <li><b>Age</b> - The player's age as of September 1 of the first year of the selected season.</li>
-        <li><b>Height</b> - The player's height (in feet and inches).</li>
-        <li><b>Weight</b> - The player's weight (in pounds).</li>
-        <li><b>Drafted</b> - The player's overall draft position, the round they were drafted in, and the year they were drafted.</li>
-        <li><b>Country</b> - The player's country of origin.</li>
+        <li><b>Position</b> - The skater's position (center, left wing, right wing, or defense).</li>
+        <li><b>Role</b> - The skater's role on his team based on time on ice.</li>
+        <li><b>Age</b> - The skater's age as of September 1 of the first year of the selected season.</li>
+        <li><b>Size</b> - The skater's height (in feet and inches) and weight (in pounds).</li>
+        <li><b>Games</b> - The skater's number of games played.</li>
+        <li><b>G-A-P</b> - The skater's goals, assists, and points in all situations.</li>
+        <li><b>xG</b> - The skater's expected goals in all situations.</li>
+        <li><b>xGF %</b> - The skater's 5-on-5 expected goals share (the percentage of expected goals the player's team scores versus concedes while the player is on the ice).</li>
     </ul>
 
     <h3>Skater Rankings</h3>
@@ -60,9 +62,21 @@
 
     <h3>Skater Graph</h3>
     <ul>
-        <li><b>Green Line</b> - The skater's yearly Overall percentile over the past 5 seasons.</li>
+        <li><b>Purple Line</b> - The skater's yearly Overall percentile over the past 5 seasons.</li>
         <li><b>Red Line</b> - The skater's yearly 5v5 Offense percentile over the past 5 seasons.</li>
         <li><b>Blue Line</b> - The skater's yearly 5v5 Defense percentile over the past 5 seasons.</li>
+    </ul>
+
+    <h3>Goalie Information</h3>
+    <ul>
+        <li><b>Position</b> - The goalie's position (goalie).</li>
+        <li><b>Role</b> - The goalie's role on his team based on games played.</li>
+        <li><b>Age</b> - The goalie's age as of September 1 of the first year of the selected season.</li>
+        <li><b>Size</b> - The goalie's height (in feet and inches) and weight (in pounds).</li>
+        <li><b>Games</b> - The goalie's number of games played.</li>
+        <li><b>W-L-OTL</b> - The goalie's wins, losses, and overtime losses.</li>
+        <li><b>Save %</b> - The goalie's save percentage (the percentage of shots on goal that they save).</li>
+        <li><b>GSAx</b> - The goalie's goals saved above expected (how many more goals they prevented compared to an average goalie facing the same shots).</li>
     </ul>
 
     <h3>Goalie Rankings</h3>
@@ -84,7 +98,7 @@
 
     <h3>Goalie Graph</h3>
     <ul>
-        <li><b>Green Line</b> - The goalie's yearly overall percentile over the past 5 seasons.</li>
+        <li><b>Purple Line</b> - The goalie's yearly Overall percentile over the past 5 seasons.</li>
         <li><b>Red Line</b> - The goalie's yearly Even Strength percentile over the past 5 seasons.</li>
         <li><b>Blue Line</b> - The goalie's yearly Penalty Kill percentile over the past 5 seasons.</li>
     </ul>
