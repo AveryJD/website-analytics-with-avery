@@ -3,6 +3,9 @@ from datetime import date, datetime
 import markdown
 import io
 import logging
+import os
+import subprocess
+from functools import lru_cache
 from bs4 import BeautifulSoup
 
 from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
@@ -39,6 +42,26 @@ POSITION_NAMES = {
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+@lru_cache(maxsize=None)
+def get_last_modified(template_path):
+    """Return the ISO date of the last git commit that touched a file,
+    falling back to today's date if git history isn't available."""
+    try:
+        result = subprocess.run(
+            ['git', 'log', '-1', '--format=%ad', '--date=short', '--', template_path],
+            capture_output=True, text=True, cwd=BASE_DIR, timeout=5
+        )
+        date_str = result.stdout.strip()
+        if date_str:
+            return date_str
+    except Exception:
+        pass
+    return date.today().isoformat()
+
+
 def optimize_post_images(html):
     soup = BeautifulSoup(html, "html.parser")
 
@@ -65,30 +88,30 @@ def home():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    pages = [
-        'home',
-        'profile_about',
-        'contact',
-        'education',
-        'experience',
-        'cv',
-        'content_about',
-        'socials',
-        'projects',
-        'blog',
-        'player_cards',
-        'compare_player_cards',
-        'team_cards',
-        'compare_team_cards'
-    ]
+    pages = {
+        'home': 'templates/index.html',
+        'profile_about': 'templates/profile_about.html',
+        'contact': 'templates/profile_contact.html',
+        'education': 'templates/profile_education.html',
+        'experience': 'templates/profile_experience.html',
+        'cv': 'templates/profile_cv.html',
+        'content_about': 'templates/content_about.html',
+        'socials': 'templates/content_socials.html',
+        'projects': 'templates/content_projects.html',
+        'blog': 'templates/content_blog.html',
+        'player_cards': 'templates/player_cards.html',
+        'compare_player_cards': 'templates/compare_player_cards.html',
+        'team_cards': 'templates/team_cards.html',
+        'compare_team_cards': 'templates/compare_team_cards.html',
+    }
 
     urls = []
 
     # Static pages
-    for page in pages:
+    for page, template_path in pages.items():
         urls.append({
             'loc': url_for(page, _external=True),
-            'lastmod': date.today()
+            'lastmod': get_last_modified(template_path)
         })
 
     # Blog posts
@@ -96,7 +119,7 @@ def sitemap():
         posts = conn.execute('SELECT id, url, date FROM blog_posts').fetchall()
 
     for post in posts:
-        lastmod = lastmod = datetime.strptime(post['date'], '%B %d, %Y').date().isoformat()
+        lastmod = datetime.strptime(post['date'], '%B %d, %Y').date().isoformat()
         urls.append({
             'loc': url_for('blog_post', post_url=post['url'], _external=True),
             'lastmod': lastmod
@@ -175,6 +198,7 @@ def blog_post(post_url):
 
     html_content = markdown.markdown(post['content'], extensions=['tables'])
     converted_post['content'] = optimize_post_images(html_content)
+    converted_post['iso_date'] = datetime.strptime(post['date'], '%B %d, %Y').date().isoformat()
 
     logging.info(f"========== Blog post opened: {converted_post['title']} ==========")
 
@@ -356,4 +380,5 @@ import_team_card_data()
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8000, debug=True)
+    debug_mode = os.environ.get('FLASK_DEBUG', '0') == '1'
+    app.run(host='0.0.0.0', port=8000, debug=debug_mode)
