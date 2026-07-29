@@ -29,6 +29,53 @@
   <meta name="twitter:description" content="{% block twitter_description %}Analytics With Avery{% endblock %}">
   <meta name="twitter:image" content="{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}">
 
+  <link rel="canonical" href="{{ request.base_url }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Avery Doiron",
+        "alternateName": "Analytics With Avery",
+        "url": "https://analyticswithavery.com/",
+        "image": "https://analyticswithavery.com/static/assets/analytics_with_avery_logos/profile_picture.jpg",
+        "email": "mailto:averyjdoiron@icloud.com",
+        "jobTitle": "Computer Science Student & Sports Analytics Researcher",
+        "description": "Computer science student at St. Francis Xavier University specializing in data science and sports analytics, and creator of Analytics With Avery.",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "St. Francis Xavier University",
+          "url": "https://www.stfx.ca"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/averydoiron/",
+          "https://github.com/AveryJD",
+          "https://x.com/analyticswavery",
+          "https://www.instagram.com/analyticswavery/",
+          "https://www.instagram.com/averyjdoiron/",
+          "https://www.youtube.com/@analyticswavery",
+          "https://www.tiktok.com/@analyticswavery",
+          "https://www.reddit.com/user/analyticswavery/",
+          "https://www.teamworkonline.com/business_cards/45e1b20c5ee12e26"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Analytics With Avery",
+        "url": "https://analyticswithavery.com/",
+        "author": {
+          "@type": "Person",
+          "name": "Avery Doiron"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="analyticswithavery.com" src="https://plausible.io/js/script.js"></script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/favicon.png') }}" type="image/png">
 
