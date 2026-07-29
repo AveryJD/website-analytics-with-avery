@@ -74,7 +74,12 @@
   }
   </script>
 
-  <script defer data-domain="analyticswithavery.com" src="https://plausible.io/js/script.js"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-xxPCK6Au878YurMoYotCg.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/favicon.png') }}" type="image/png">
