@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, Response, url_for
+from flask import Flask, render_template, request, send_file, Response, url_for, abort
 from datetime import date, datetime
 import markdown
 import io
@@ -40,6 +40,11 @@ POSITION_NAMES = {
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -192,7 +197,7 @@ def blog_post(post_url):
         post = conn.execute('SELECT * FROM blog_posts WHERE url = ?', (post_url,)).fetchone()
 
     if not post:
-        return 'Post not found', 404
+        abort(404)
 
     converted_post = dict(post)
 

@@ -389,6 +389,20 @@ main a:hover {
 
 
 
+/* ==================== 404 ==================== */
+
+.not-found-section {
+  background-color: var(--bg-section);
+  margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+  border-radius: var(--main-radius);
+}
+
+
+
 /* ==================== BLOG ==================== */
 
 .blog-section {
