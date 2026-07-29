@@ -13,6 +13,14 @@
 {% block twitter_description %}{{ post['preview'] }}{% endblock %}
 {% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
 
+{% block og_type %}article{% endblock %}
+{% block article_meta %}
+  <meta property="article:published_time" content="{{ post['iso_date'] }}">
+  <meta property="article:modified_time" content="{{ post['iso_date'] }}">
+  <meta property="article:author" content="https://analyticswithavery.com/profile_about">
+  <meta property="article:section" content="Hockey Analytics">
+{% endblock %}
+
 {% block extra_head %}
   <script type="application/ld+json">
   {
