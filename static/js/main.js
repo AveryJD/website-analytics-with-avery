@@ -26,6 +26,31 @@ function updatePreviewThemeCards() {
   });
 }
 
+function whenTwitterWidgetsReady(callback, attemptsLeft = 50) {
+  if (window.twttr && window.twttr.widgets) {
+    callback();
+    return;
+  }
+
+  if (attemptsLeft <= 0) return;
+
+  setTimeout(() => whenTwitterWidgetsReady(callback, attemptsLeft - 1), 100);
+}
+
+// Re-render the embedded X/Twitter post using the site's current light/dark theme.
+function renderTweetEmbed(theme) {
+  const container = document.getElementById("x-tweet-embed");
+  if (!container) return;
+
+  const tweetId = container.dataset.tweetId;
+  if (!tweetId) return;
+
+  whenTwitterWidgetsReady(() => {
+    container.innerHTML = "";
+    twttr.widgets.createTweet(tweetId, container, { theme, dnt: true });
+  });
+}
+
 function setupPlayerFilter(suffix) {
   const season = document.getElementById(`season-${suffix}`);
   const team = document.getElementById(`team-${suffix}`);
@@ -351,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updatePreviewThemeCards();
+    renderTweetEmbed(theme);
   }
 
   const savedTheme = localStorage.getItem("theme");

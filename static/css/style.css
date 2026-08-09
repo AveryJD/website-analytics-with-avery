@@ -275,6 +275,62 @@ main a:hover {
   align-items: center;
 }
 
+.socials-posts-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.social-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 540px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.social-post iframe {
+  max-width: 100%;
+}
+
+.x-tweet-embed {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.instagram-embed-blockquote {
+  background: #FFF;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+  margin: 1px;
+  max-width: 540px;
+  min-width: 326px;
+  padding: 0;
+  width: calc(100% - 2px);
+}
+
+.instagram-embed-inner {
+  padding: 16px;
+}
+
+.instagram-embed-link {
+  background: #FFFFFF;
+  line-height: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+
 
 /* ==================== EDUCATION ==================== */
 
@@ -1264,6 +1320,12 @@ main a:hover {
   .x-section {
     padding-left: 5%;
     padding-right: 5%;
+  }
+
+  .socials-posts-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
   }
 
   .compare-section {
