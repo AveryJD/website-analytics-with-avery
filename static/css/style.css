@@ -1724,11 +1724,6 @@ html.dark-mode .theme-icon--moon {
     gap: 2.5rem;
   }
 
-  .compare-section {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
   .courses-section {
     flex-direction: column;
   }
