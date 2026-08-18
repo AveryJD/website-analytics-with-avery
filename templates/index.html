@@ -122,9 +122,12 @@
 
   <div class="blog-section">
     <h2>Newest Blog Post</h2>
-    <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
-    <h4>{{ post['date'] }}</h4>
-    <p>{{ post['preview'] }}</p>
+
+    <div class="newest-post">
+      <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
+      <h4>{{ post['date'] }}</h4>
+      <p>{{ post['preview'] }}</p>
+    </div>
 
     <div class="content-button">
       <a href="/blog">View All Posts</a>
