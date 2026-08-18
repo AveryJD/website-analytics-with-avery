@@ -43,8 +43,6 @@
   font-style: normal;
 }
 
-
-
 /* ==================== VARIABLES ==================== */
 :root {
   --primary-blue: rgb(70, 70, 255);
@@ -98,8 +96,6 @@ html.dark-mode {
   --box-shadow: 0 3px 6px rgba(200, 200, 200, 0.24);
   --box-shadow-hover: 0 3px 6px rgba(200, 200, 200, 0.34);
 }
-
-
 
 /* ==================== GENERAL ==================== */
 * {
@@ -182,8 +178,6 @@ main h2 {
   margin: 0;
 }
 
-/* Consistent gap between a section title and the paragraph directly under it,
-   site-wide (e.g. "What's on This Page" style intros). */
 main h2 + p {
   margin-top: 0.6rem;
 }
@@ -237,8 +231,6 @@ main a:hover {
   margin-top: 0.6rem;
 }
 
-
-
 /* ==================== SECTION PANELS (shared) ==================== */
 
 .about-section,
@@ -259,14 +251,11 @@ main a:hover {
   box-shadow: var(--box-shadow);
 }
 
-
-
 /* ==================== ABOUT ==================== */
 
 .about-section {
   display: flow-root;
 }
-
 
 /* ==================== CONTACT AND SOCIALS ==================== */
 
@@ -369,8 +358,6 @@ main a:hover {
   display: block;
 }
 
-
-
 /* ==================== EDUCATION ==================== */
 
 .education-section {
@@ -415,8 +402,6 @@ main a:hover {
   padding-right: 3rem;
 }
 
-/* The first column has no column to its left, so drop its left padding to
-   line up flush with the rest of the page's left-aligned text. */
 .education-list:first-child h4 {
   padding-left: 0;
 }
@@ -434,8 +419,6 @@ main a:hover {
   padding: 1.25rem;
   padding-top: 0.3rem;
 }
-
-
 
 /* ==================== EXPERIENCE ==================== */
 
@@ -457,8 +440,6 @@ main a:hover {
 .experience-entry h3 {
   text-align: left;
 }
-
-
 
 /* ==================== CV ==================== */
 
@@ -493,15 +474,11 @@ main a:hover {
   border: var(--border);
 }
 
-
-
 /* ==================== 404 ==================== */
 
 .not-found-section {
   text-align: center;
 }
-
-
 
 /* ==================== BLOG ==================== */
 
@@ -719,7 +696,6 @@ main a:hover {
   border: 5px solid rgb(117, 124, 136);
 }
 
-
 /* ==================== CARD PROJECTS ==================== */
 
 .card-section {
@@ -830,9 +806,6 @@ main a:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  /* Top margin matches the space below (view-toggle's 1.5rem bottom margin
-     plus .filter-form's 1.5rem top padding), so the gap above and below the
-     buttons is visually equal. */
   margin: 3rem 0 1.5rem;
 }
 
@@ -861,8 +834,6 @@ main a:hover {
   box-shadow: var(--box-shadow);
 }
 
-
-
 /* ==================== MODELS / GLOSSARY ==================== */
 
 .glossary-category {
@@ -873,10 +844,6 @@ main a:hover {
   margin-top: 0;
 }
 
-/* Goalie Information's glossary-category is a first-child of #goalie-explanation,
-   so its own margin-top gets zeroed out above. Push the whole block down instead
-   so there's still a clear gap under the skater explanation when both show at once
-   (comparing a skater against a goalie). */
 #goalie-explanation {
   margin-top: 2.5rem;
 }
@@ -926,8 +893,6 @@ main a:hover {
   text-align: center;
 }
 
-/* Elo's result-value table sits tighter to the paragraph introducing it, but keeps
-   more breathing room before the paragraph that follows, unlike the xG AUC table. */
 .results-value-table {
   margin: 0.5rem 0 1.5rem;
 }
@@ -952,8 +917,6 @@ main a:hover {
   font-size: 0.9rem;
   text-align: left;
 }
-
-
 
 /* ==================== CARD PROJECT ==================== */
 
@@ -981,9 +944,6 @@ main a:hover {
   gap: 0.1rem;
 }
 
-/* Compare view forms always stack their filters in one column, even on
-   wide screens, since two side-by-side compare-card forms already split
-   the available width. */
 .compare-card .filters-row {
   grid-template-columns: minmax(0, 20rem);
 }
@@ -1042,9 +1002,6 @@ main a:hover {
   display: block;
   align-content: center;
   margin: 2rem auto;
-  /* Cap the card's width so, factoring in the 5:6 aspect ratio, its height never
-     exceeds the viewport space left below the sticky nav bar (minus this card's
-     own top/bottom margin) – the whole card stays visible without inner scrolling. */
   max-width: min(40rem, calc((100vh - var(--nav-height) - 4rem) * 5 / 6));
   overflow: hidden;
   border-radius: var(--main-radius);
@@ -1077,9 +1034,6 @@ main a:hover {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Landscape-formatted preview images (e.g. the schedule GA project) don't fit the
-   portrait 5:6 .player-card box, so they're shown as a plain bordered image
-   instead, the same treatment as .cv-image. */
 .schedule-preview {
   display: block;
   width: 100%;
@@ -1226,8 +1180,6 @@ main a:hover {
   cursor: pointer;
 }
 
-/* Compare view's filters are always a single 20rem column, so the button
-   should cap at that width there instead of the two-column max. */
 .compare-card .generate-button {
   max-width: 20rem;
 }
@@ -1246,8 +1198,6 @@ main a:hover {
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
-
-
 
 /* ==================== NAVIGATION BAR ==================== */
 
@@ -1573,8 +1523,6 @@ html.dark-mode .theme-icon--moon {
   display: none;
 }
 
-
-
 /* ==================== FOOTER ==================== */
 
 .footer {
@@ -1594,8 +1542,6 @@ html.dark-mode .theme-icon--moon {
   padding: 0.5rem;
   margin: 0;
 }
-
-
 
 /* ==================== MEDIA QUERIES ==================== */
 
@@ -1630,7 +1576,6 @@ html.dark-mode .theme-icon--moon {
 
 }
 
-
 @media (max-width: 1024px) {
 
   .nav-links {
@@ -1642,7 +1587,6 @@ html.dark-mode .theme-icon--moon {
   }
 
 }
-
 
 @media (max-width: 768px) {
   .main-image {
@@ -1793,7 +1737,6 @@ html.dark-mode .theme-icon--moon {
     width: 100%;
   }
 
-  /* Stacked single-column layout, so both lists sit flush left. */
   .education-list h4 {
     padding-left: 0;
   }
@@ -1916,9 +1859,6 @@ html.dark-mode .theme-icon--moon {
     font-size: 0.8rem;
   }
 
-  /* On mobile, compare cards stack full-width like single cards, so their
-     filters and button should match the single-card sizing instead of
-     staying capped at the narrower side-by-side compare width. */
   .compare-card .filters-row {
     grid-template-columns: 1fr;
   }
