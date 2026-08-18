@@ -17,58 +17,143 @@
   <h1>NHL Team Cards</h1>
 
   <div class="card-section">
-    <form method="POST" class="filter-form" id="team-filter-form-0">
-      <h2>Choose a Team</h2>
+    <h2>NHL Team Cards</h2>
+    <p>Here you can view my custom NHL team cards built from my own analytics models, combining standings information, 5v5 stats,
+      and Elo and SRS ratings into one visual card for any team.</p>
 
-      <div class="filters-row">
-        <label for="team-season-0">Season</label>
-        <select name="season" id="team-season-0">
-          {% for s in seasons %}
-            <option value="{{ s }}">{{ s }}</option>
-          {% endfor %}
-        </select>
-
-        <label for="team-select-0">Team</label>
-        <select name="team" id="team-select-0">
-          {% for row in team_cards_data %}
-            <option value="{{ row.team }}" data-season="{{ row.season }}">
-              {{ row.team }}
-            </option>
-          {% endfor %}
-        </select>
-      </div>
-
-      <button type="button" class="generate-button">Generate Card</button>
-
-      <div class="player-card">
-        <div id="team-loading-spinner-0" class="card-loading-spinner">
-          <img
-            src="{{ url_for('static', filename='assets/icons/loading_icon.svg') }}"
-            class="spinner-icon"
-            alt=""
-            aria-hidden="true">
-        </div>
-
-        <a id="team-card-link-0" href="" target="_blank">
-          <img id="team-card-img-0" alt="Selected team card">
-        </a>
-      </div>
-    </form>
-
-    <div class="button-background">
-      <h2>Explore Other Card Views</h2>
-      <div class="content-button">
-        <a href="/compare_team_cards">Compare Team Cards</a>
-      </div>
-      <div class="content-button">
-        <a href="/player_cards">View Player Cards</a>
-      </div>
-      <div class="content-button">
-        <a href="/compare_player_cards">Compare Player Cards</a>
-      </div>
+    <div class="view-toggle" id="team-view-toggle">
+      <button type="button" class="active" data-view="single">Single Card</button>
+      <button type="button" data-view="compare">Compare Cards</button>
     </div>
 
+    <div id="team-single-view">
+      <form method="POST" class="filter-form" id="team-filter-form-0">
+        <h2>Choose a Team</h2>
+
+        <div class="filters-row">
+          <div>
+            <label for="team-season-0">Season</label>
+            <select name="season" id="team-season-0">
+              {% for s in seasons %}
+                <option value="{{ s }}">{{ s }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div>
+            <label for="team-select-0">Team</label>
+            <select name="team" id="team-select-0">
+              {% for row in team_cards_data %}
+                <option value="{{ row.team }}" data-season="{{ row.season }}">
+                  {{ row.team }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="generate-button">Generate Card</button>
+
+        <div class="player-card">
+          <div id="team-loading-spinner-0" class="card-loading-spinner">
+            <div class="spinner-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <a id="team-card-link-0" href="" target="_blank">
+            <img id="team-card-img-0" alt="Selected team card">
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <div class="compare-section" id="team-compare-view" style="display:none;">
+      <form method="POST" class="filter-form compare-card" id="team-filter-form-1">
+        <h2>Choose Team 1</h2>
+
+        <div class="filters-row">
+          <div>
+            <label for="team-season-1">Season</label>
+            <select id="team-season-1" name="season">
+              {% for s in seasons %}
+                <option value="{{ s }}">{{ s }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div>
+            <label for="team-select-1">Team</label>
+            <select id="team-select-1" name="team">
+              {% for row in team_cards_data %}
+                <option value="{{ row.team }}" data-season="{{ row.season }}">{{ row.team }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="generate-button">Generate Card</button>
+
+        <div class="player-card">
+          <div id="team-loading-spinner-1" class="card-loading-spinner">
+            <div class="spinner-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <a id="team-card-link-1" href="" target="_blank">
+            <img id="team-card-img-1" alt="Team 1 card">
+          </a>
+        </div>
+      </form>
+
+      <form method="POST" class="filter-form compare-card" id="team-filter-form-2">
+        <h2>Choose Team 2</h2>
+
+        <div class="filters-row">
+          <div>
+            <label for="team-season-2">Season</label>
+            <select id="team-season-2" name="season">
+              {% for s in seasons %}
+                <option value="{{ s }}">{{ s }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div>
+            <label for="team-select-2">Team</label>
+            <select id="team-select-2" name="team">
+              {% for row in team_cards_data %}
+                <option value="{{ row.team }}" data-season="{{ row.season }}">{{ row.team }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="generate-button">Generate Card</button>
+
+        <div class="player-card">
+          <div id="team-loading-spinner-2" class="card-loading-spinner">
+            <div class="spinner-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <a id="team-card-link-2" href="" target="_blank">
+            <img id="team-card-img-2" alt="Team 2 card">
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card-section">
     {% include "components/team_card_explanation.html" %}
-    
   </div>
 {% endblock %}
