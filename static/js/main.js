@@ -1,15 +1,57 @@
 
-// Open the hamburger menu
-function openMenu() {
-  const menu = document.getElementById("hamburgerNav");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+// Close a single Content/Profile nav dropdown
+function closeNavGroup(group) {
+  const panel = document.getElementById(`${group}Dropdown`);
+  const toggle = document.querySelector(`.nav-group-toggle--${group}`);
+
+  if (panel) panel.classList.remove("open");
+  if (toggle) toggle.setAttribute("aria-expanded", "false");
 }
 
-// Close hamburger menu when resizing to large screens
+// Toggle the Content or Profile nav dropdown (left/right half of the nav bar)
+function toggleNavGroup(group) {
+  const panel = document.getElementById(`${group}Dropdown`);
+  const toggle = document.querySelector(`.nav-group-toggle--${group}`);
+  if (!panel) return;
+
+  const willOpen = !panel.classList.contains("open");
+
+  // only one nav dropdown open at a time
+  ["content", "profile"].forEach(closeNavGroup);
+
+  if (willOpen) {
+    panel.classList.add("open");
+    if (toggle) toggle.setAttribute("aria-expanded", "true");
+  }
+}
+
+// Close nav dropdowns when resizing to a large screen where the full nav shows
 window.addEventListener("resize", () => {
-  const menu = document.getElementById("hamburgerNav");
-  if (window.innerWidth > 768 && menu.style.display === "flex") {
-    menu.style.display = "none";
+  if (window.innerWidth > 1024) {
+    ["content", "profile"].forEach(closeNavGroup);
+  }
+});
+
+// Close an open nav dropdown when clicking outside of it or its toggle button
+document.addEventListener("click", (event) => {
+  ["content", "profile"].forEach(group => {
+    const panel = document.getElementById(`${group}Dropdown`);
+    const toggle = document.querySelector(`.nav-group-toggle--${group}`);
+    if (!panel || !panel.classList.contains("open")) return;
+
+    const clickedInsidePanel = panel.contains(event.target);
+    const clickedToggle = toggle && toggle.contains(event.target);
+
+    if (!clickedInsidePanel && !clickedToggle) {
+      closeNavGroup(group);
+    }
+  });
+});
+
+// Close any open nav dropdown on Escape
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    ["content", "profile"].forEach(closeNavGroup);
   }
 });
 
@@ -338,12 +380,75 @@ const PRELOAD_TEAM_CARDS = {
   2: { season: "2025-2026", team: "Montreal Canadiens" }
 };
 
+// Show the skater explanation section when a Forward/Defense is selected,
+// and the goalie explanation section when a Goalie is selected. Supports
+// pages with more than one position select (e.g. compare cards) by showing
+// each section if any of the *visible* selected positions call for it.
+// Hidden selects (e.g. the compare view's forms while the single view is
+// active) are ignored, otherwise their default value would force a section
+// to stay visible regardless of what's actually selected on screen.
+// Returns the updateVisibility function so callers can re-run it after
+// something else (like switching views) changes which selects are visible.
+function setupPositionExplanationToggle() {
+  const skaterSection = document.getElementById("skater-explanation");
+  const goalieSection = document.getElementById("goalie-explanation");
+  if (!skaterSection && !goalieSection) return null;
+
+  const positionSelects = Array.from(document.querySelectorAll('select[name="position"]'));
+  if (positionSelects.length === 0) return null;
+
+  function updateVisibility() {
+    const visibleSelects = positionSelects.filter(sel => sel.offsetParent !== null);
+    const values = visibleSelects.map(sel => sel.value);
+    const hasSkater = values.some(v => v === "F" || v === "D");
+    const hasGoalie = values.some(v => v === "G");
+
+    if (skaterSection) skaterSection.style.display = hasSkater ? "" : "none";
+    if (goalieSection) goalieSection.style.display = hasGoalie ? "" : "none";
+  }
+
+  positionSelects.forEach(sel => sel.addEventListener("change", updateVisibility));
+  updateVisibility();
+
+  return updateVisibility;
+}
+
+// Toggle between the single-card view and the compare-cards view on a
+// card page using a pair of buttons marked with data-view="single"/"compare".
+// onChange, if given, runs after every switch (used to refresh the
+// skater/goalie explanation visibility once hidden selects change).
+function setupViewToggle(toggleId, singleId, compareId, onChange) {
+  const toggle = document.getElementById(toggleId);
+  const singleView = document.getElementById(singleId);
+  const compareView = document.getElementById(compareId);
+  if (!toggle || !singleView || !compareView) return;
+
+  const buttons = Array.from(toggle.querySelectorAll("button"));
+
+  function setView(view) {
+    singleView.style.display = view === "single" ? "" : "none";
+    compareView.style.display = view === "compare" ? "" : "none";
+    buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.view === view));
+    if (typeof onChange === "function") onChange();
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => setView(btn.dataset.view));
+  });
+
+  setView("single");
+}
+
 const playerFilters = [];
 ["0", "1", "2"].forEach(suffix => {
   if (document.getElementById(`filter-form-${suffix}`)) {
     playerFilters.push(setupPlayerFilter(suffix));
   }
 });
+
+const refreshExplanationVisibility = setupPositionExplanationToggle();
+setupViewToggle("player-view-toggle", "player-single-view", "player-compare-view", refreshExplanationVisibility);
+setupViewToggle("team-view-toggle", "team-single-view", "team-compare-view", refreshExplanationVisibility);
 
 const teamFilters = [];
 ["0", "1", "2"].forEach(suffix => {
@@ -372,7 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", theme);
 
     if (toggleBtn) {
-      toggleBtn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+      toggleBtn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
     }
 
     updatePreviewThemeCards();
