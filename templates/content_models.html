@@ -1,0 +1,556 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics With Avery | Models{% endblock %}
+{% block meta_description %}How Avery Doiron's NHL analytics models work, including the expected goals (xG) model, Regularized Adjusted Plus-Minus (RAPM), Wins Above Replacement (WAR), Elo ratings, and Simple Rating System (SRS), plus a hockey analytics glossary.{% endblock %}
+{% block meta_keywords %}Analytics With Avery, hockey analytics models, expected goals, xG model, RAPM, Regularized Adjusted Plus-Minus, WAR, Wins Above Replacement, Elo ratings, Simple Rating System, SRS, hockey analytics glossary{% endblock %}
+
+{% block og_title %}Analytics With Avery | Models{% endblock %}
+{% block og_description %}A walkthrough of the xG, RAPM, WAR, Elo, and SRS models behind the NHL player and team cards, plus a glossary of hockey analytics terms.{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_url %}https://analyticswithavery.com/models{% endblock %}
+
+{% block twitter_title %}Analytics With Avery | Models{% endblock %}
+{% block twitter_description %}A walkthrough of the xG, RAPM, WAR, Elo, and SRS models behind the NHL player and team cards, plus a glossary of hockey analytics terms.{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+        crossorigin="anonymous">
+
+  <script defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+          integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+          crossorigin="anonymous"></script>
+
+  <script defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+          integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+          crossorigin="anonymous"
+          onload="renderMathInElement(document.body);"></script>
+{% endblock %}
+
+{% block content %}
+  <h1>Models</h1>
+
+  <div class="card-section">
+    <h2>What's on This Page</h2>
+    <p>
+      This page walks through the models behind my player and team cards, including my xG, RAPM, WAR, Elo, and SRS models, plus a
+      glossary of common hockey analytics terms.
+    </p>
+
+    <div class="horizontal-buttons">
+      <div class="content-button"><a href="#xg-model">xG</a></div>
+      <div class="content-button"><a href="#rapm-model">RAPM</a></div>
+      <div class="content-button"><a href="#war-model">WAR</a></div>
+      <div class="content-button"><a href="#elo-model">Elo</a></div>
+      <div class="content-button"><a href="#srs-model">SRS</a></div>
+      <div class="content-button"><a href="#glossary">Glossary</a></div>
+    </div>
+  </div>
+
+  <div id="xg-model" class="card-section">
+    <h2>Expected Goals (xG)</h2>
+    <p>
+      Expected goals (xG) is a probability estimate of how likely any given shot is to become a goal, used because it captures shot quality, 
+      treating a breakaway and a point shot as the different values they actually are, instead of counting both as the same single shot.
+    </p>
+    <p>
+      The xG model estimates the probability that a given shot becomes a goal. It's trained entirely on shot-event data that I scrape myself, rather than
+      relying on a third-party model. Every shot is broken down into a set of engineered features: distance and angle to the net, whether the shot came
+      from behind the net, shot speed, whether it was a rebound or off the rush, whether it crossed the royal road, lateral movement, score state,
+      shooter/goalie handedness (including whether the shot came from the shooter's off wing), shot type, the period it occurred in, and context from the
+      prior event (its type, how much time had passed since it, how far the puck had traveled, and whether it came from the same team).
+    </p>
+    <p>
+      Rather than training one blended model across every strength state, I train a separate gradient-boosted classifier for each strength state that has
+      enough shot volume to support its own model. 5v5, 5v4, and 4v5 get a deeper hyperparameter search since they have the most data, while lower-volume strength
+      states use a smaller grid. Hyperparameters are selected using grouped cross-validation, grouped by season, so the model is never validated on shots
+      from a season it partially trained on. The winning candidate is picked by AUC, then refit on the full training set.
+    </p>
+    <p>
+      The result is a set of per-strength-state models that score every shot in the dataset with a predicted goal probability. That predicted xG is the
+      foundation everything downstream is built on. It's the response variable that RAPM regresses on, and it's what gets compared against actual goals to
+      measure a player's finishing ability.
+    </p>
+
+    <h3>Model Performance</h3>
+    <p>
+      The full training set includes 1,730,154 shots. Of the 25 strength-state combinations shots have occurred in, only 9 had enough volume (a minimum
+      of 500 shots) to support their own model. The rest are rare situations (double-minor and matching-penalty combinations, empty-net situations with 
+      additional penalties, and so on) ranging from 1 to 279 shots each, and are scored using whichever trained strength-state model is
+      the closest match, rather than getting a dedicated model of their own. 3-on-3 shots from before the 2015-2016 season (when 3-on-3 overtime was introduced) 
+      are tagged separately from the modern 3v3 model, since pre-2015 3-on-3 was a rare, different context rather than the 3-on-3 overtimes we see today. 
+      They don't have enough volume for their own model, though, so they still end up scored by the modern 3v3 model as the closest match.
+    </p>
+
+    <div class="table-scroll">
+      <table class="model-stats-table">
+        <thead>
+          <tr>
+            <th>Strength State</th>
+            <th>Shots Modeled</th>
+            <th>AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5v5</td>
+            <td>1,342,496</td>
+            <td>0.779</td>
+          </tr>
+          <tr>
+            <td>5v4</td>
+            <td>241,061</td>
+            <td>0.705</td>
+          </tr>
+          <tr>
+            <td>4v5</td>
+            <td>40,708</td>
+            <td>0.794</td>
+          </tr>
+          <tr>
+            <td>EN Against</td>
+            <td>34,697</td>
+            <td>0.725</td>
+          </tr>
+          <tr>
+            <td>4v4</td>
+            <td>29,278</td>
+            <td>0.747</td>
+          </tr>
+          <tr>
+            <td>3v3</td>
+            <td>13,343</td>
+            <td>0.677</td>
+          </tr>
+          <tr>
+            <td>EN For</td>
+            <td>11,583</td>
+            <td>0.771</td>
+          </tr>
+          <tr>
+            <td>5v3</td>
+            <td>8,706</td>
+            <td>0.642</td>
+          </tr>
+          <tr>
+            <td>4v3</td>
+            <td>4,892</td>
+            <td>0.613</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="model-stats-note">
+      AUC (area under the ROC curve) measures how well the model separates goals from non-goals on held-out validation folds, where 0.5 is no better than
+      random and 1.0 is perfect separation. Performance varies a lot by strength state with 4v5 and 5v5 scoring the highest, likely because they have the most
+      consistent structure and by far the most data, while lower-volume special-teams states like 4v3 and 5v3 are noisier and harder to separate with
+      fewer examples to learn from.
+    </p>
+  </div>
+
+  <div id="rapm-model" class="card-section">
+    <h2>Regularized Adjusted Plus-Minus (RAPM)</h2>
+    <p>
+      Raw plus-minus has an obvious problem: it credits and blames players for everything that happens while they're on the ice, regardless of who else is
+      out there. RAPM isolates each player's individual contribution using ridge regression across every shift (stint) in a season.
+    </p>
+    <p>
+      Every stint is reconstructed from the shift charts, with the predicted xG from every shot that occurred during it attached. Each stint becomes a
+      regression row from both teams' perspective, one-hot encoded with a column per offensive player on the ice and a column per defensive player, with 
+      the response variable being the xG rate generated during that stint (falling back to goal rate where xG isn't available), capped at a maximum implied 
+      rate so a handful of very short, high-scoring stints can't dominate the fit. A handful of dense context covariates (score state, zone starts, 
+      back-to-backs, power-play expiry windows, home ice, and a few interaction terms) are fed in alongside the sparse player columns, using a column-scaling 
+      trick that effectively lets the context covariates and player indicators use two different ridge penalties in the same fit. The ridge penalty for the player 
+      columns is chosen using grouped cross-validation, grouped by game so no game leaks across a fold.
+    </p>
+    <p>
+      Even strength and special teams are fit as two separate regressions, each with their own alpha search, since power-play and penalty-kill units behave very 
+      differently from 5v5 play. The even-strength fit pools 5v5, 4v4, and 3v3 shifts together rather than modeling 5v5 in isolation, with a pair of context flags 
+      telling the model which strength state each stint was played at. This lets 4v4 and 3v3 shifts, which are individually too sparse to support their own 
+      regression, still contribute signal. New or low-minute players get a TOI-weighted prior pulled from their own prior-season RAPM scores, so a rookie's first 
+      few shifts aren't taken completely at face value. The output is a rate stat per player, per situation (5v5 offense, 5v5 defense, 5v4 offense/power play, 
+      4v5 defense/penalty kill) that represents their estimated on-ice impact independent of who they're playing with or against.
+    </p>
+  </div>
+
+  <div id="war-model" class="card-section">
+    <h2>Wins Above Replacement (WAR)</h2>
+    <p>
+      RAPM gives a rate. WAR turns that rate into something with a fixed, interpretable scale, which is a player's wins added over a season 
+      relative to a replacement-level player (your typical 13th forward or 7th defenseman).
+    </p>
+    <p>
+      For each of the four RAPM-derived components (5v5 offense, 5v5 defense, power play, penalty kill), I compute a replacement-level rate per position
+      from the lowest-TOI players on each team's own roster below a rank threshold, so replacement level reflects a player who's realistically available on
+      a roster rather than some fixed league-wide percentile. A player's WAR for that component is the difference between their own RAPM rate and
+      replacement level, scaled by their ice time and converted from goals to wins using a Pythagorean-exponent-derived conversion factor (a sabermetrics
+      method that relates goals scored and allowed to win percentage, used here in reverse to translate a goal swing into a win swing) computed from
+      that season's actual league scoring environment. In practice that's worked out to somewhere between 5.0 to 6.0 goals per win depending on the season,
+      with earlier seasons showing a goals per win close to 5.0 and more recent seasons showing a goals per win closer to 6.0.
+    </p>
+    <p>
+      Two more components get added on top. The first is a finishing-impact component (actual goals minus predicted xG on a player's own shots).
+      Finishing uses the same idea as batting average regression: credibility crosses 50% at 100 shots, so a full-time forward
+      clears that within a couple months of a season while a short call-up stays mostly unshrunk toward 0.
+      The second component is a penalty-drawing/taking component (net penalty minutes drawn versus taken, valued by the xG a power play is worth per minute).
+      Credibility here crosses 50% at just 10 combined drawn-and-taken penalty events, a much lower bar than finishing's, since penalty events are
+      far rarer than shots. A penalty taken at 5v5 works out to about 0.096 xG against per minute, while a penalty taken while already shorthanded is valued around 0.246 xG per minute,
+      since it pushes the game further into a lopsided state. The single penalty value comes from (average power-play xG/60 minus average penalty-kill xG/60) &divide; 60.
+      The double-penalty value swaps in the 5-on-3 rate: (average 5-on-3 xG/60 minus average power-play xG/60, plus penalty-kill xG/60) &divide; 60.
+    </p>
+    <p>
+      Goalies skip RAPM entirely and get their own WAR built from Goals Saved Above Expected (GSAx) at even strength and on the penalty kill, measured against 
+      the same team-rank replacement level as skaters. GSAx follows the same credibility-shrinkage idea, based on shots against instead of shots taken or
+      penalty events, crossing 50% at 300 shots against. A player with only a handful of shots, penalty events, or shots against won't show the full unshrunk
+      swing in either direction. That swing only shows up once there's enough of a sample to trust it.
+    </p>
+  </div>
+
+  <div id="elo-model" class="card-section">
+    <h2>Elo Ratings</h2>
+    <p>
+      A team's win-loss record alone doesn't capture the strength of the opponents it played or how close those games actually were. Elo addresses that
+      by giving every team a single rating that updates after each game based on how the actual result compared to what was expected, so a win over a
+      strong team moves the rating more than a win over a weak one.
+    </p>
+    <p>
+      Team Elo ratings update after every game of a season, starting every team at a rating of 1500. Before a game, each team's expected result is
+      calculated from the ratings gap between the two teams using the standard logistic Elo expectation formula, where <span>\( R_A \)</span> and
+      <span>\( R_B \)</span> are the two teams' ratings, <span>\( H = 30 \)</span> is a fixed home-ice advantage added to the home team's rating, and
+      <span>\( S = 400 \)</span> is the Elo scale factor that controls how quickly the expected score approaches 0 or 1 as the ratings gap grows:
+    </p>
+    <p>$$ E_A = \dfrac{1}{1 + 10^{\frac{R_B - (R_A + H)}{S}}} $$</p>
+    <p>
+      After the game, both ratings shift based on the difference between the actual result <span>\( S_A \)</span> and the expected result
+      <span>\( E_A \)</span>, scaled by a K-factor of 20 and a margin-of-victory multiplier <span>\( M \)</span>:
+    </p>
+    <p>$$ R_A' = R_A + K (S_A - E_A) \times M $$</p>
+    <p>
+      Results aren't scored as a simple win/loss. Each result type is assigned a fixed value for <span>\( S_A \)</span>, so a regulation win is worth
+      full credit while overtime and shootout results are worth partial credit in both directions, and the rating system reflects how close a game
+      actually was, not just who won:
+    </p>
+
+    <div class="table-scroll">
+      <table class="model-stats-table results-value-table">
+        <thead>
+          <tr>
+            <th>Result</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Regulation Win</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td>Overtime Win</td>
+            <td>0.9</td>
+          </tr>
+          <tr>
+            <td>Shootout Win</td>
+            <td>0.7</td>
+          </tr>
+          <tr>
+            <td>Shootout Loss</td>
+            <td>0.3</td>
+          </tr>
+          <tr>
+            <td>Overtime Loss</td>
+            <td>0.1</td>
+          </tr>
+          <tr>
+            <td>Regulation Loss</td>
+            <td>0.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The margin-of-victory multiplier scales the rating shift by how lopsided the final score was, log-scaled and dampened as the gap between the two
+      teams' ratings widens, so a blowout win over a weaker opponent doesn't inflate a team's rating as much as the raw goal differential alone would
+      suggest, where <span>\( R_w \)</span> and <span>\( R_l \)</span> are the winning and losing team's ratings. Shootout results always use a flat 
+      multiplier of 1.0 instead, since the shootout goal differential isn't a meaningful measure of game control. This multiplier is adapted from
+      <a href="https://neilpaine.substack.com/p/how-my-nhl-elo-ratings-and-forecast" target="_blank">Neil Paine's NHL Elo methodology</a>:
+    </p>
+    <p>$$ M = \dfrac{(0.6686 \ln(\text{margin}) + 0.8048) \times 2.05}{(R_w - R_l) \times 0.001 + 2.05} $$</p>
+    <p>
+      Because ratings update sequentially after every result, Elo reflects a team's current form and trajectory over the course of a season, rather than a
+      single fixed-in-time snapshot.
+    </p>
+  </div>
+
+  <div id="srs-model" class="card-section">
+    <h2>Simple Rating System (SRS)</h2>
+    <p>
+      Elo reacts game by game, so a team's rating at any point reflects the particular order those results happened to fall in, not just its overall
+      performance. SRS solves for a whole season's worth of results all at once instead of updating sequentially, so the fit isn't sensitive to which
+      order the games were played in.
+    </p>
+    <p>
+      It estimates a single rating for every team, plus one shared home-ice advantage value <span>\( H \)</span>, by minimizing the sum of squared
+      residuals between each team's predicted and actual goal margins across every game in a season. A (home) team's predicted margin
+      <span>\( \hat{m}_h \)</span> against an away team in any given game is simply the difference between the two teams' ratings, adjusted for home ice:
+    </p>
+    <p>$$ \hat{m}_h = (R_h - R_a) + H $$</p>
+    <p>
+      The optimization then solves for the full set of team ratings and <span>\( H \)</span> that minimizes the total squared error between every
+      predicted margin <span>\( \hat{m}_g \)</span> and the actual margin <span>\( m_g \)</span> across all <span>\( n \)</span> games in the season,
+      with the constraint that the league-wide average rating <span>\( \bar{R} \)</span> is zero:
+    </p>
+    <p>$$ \text{minimize} \sum_{g=1}^{n} (m_g - \hat{m}_g)^2 \quad \text{by changing each team's } R \text{ and the overall } H \text{, while keeping } \bar{R} = 0 $$</p>
+    <p>
+      The final output is a single rating per team. Taking the difference between any two teams' ratings and adding the home-ice advantage gives the
+      model's predicted goal margin if those two teams played each other, with <span>\( R_h \)</span> as the home team and <span>\( R_a \)</span> as
+      the away team.
+    </p>
+    <p>
+      Because SRS looks at the whole season at once instead of reacting game-by-game, it tends to be a more stable end-of-season snapshot of team strength,
+      while Elo is better suited to tracking how a team has trended over the course of the year.
+    </p>
+  </div>
+
+  <div id="glossary" class="card-section">
+    <h2>Glossary</h2>
+    <p>
+      A reference for common hockey analytics, statistics, and data science terms, whether you're reading through this site or hockey analytics content elsewhere.
+    </p>
+
+    <div class="glossary-category">
+      <h3>Basic Hockey Terms</h3>
+      <div class="glossary-grid">
+        <div class="glossary-term">
+          <h4>Time on Ice (TOI)</h4>
+          <p>The amount of game time a player spends on the ice, reported in either total minutes or as a per-game average.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Shift/Stint</h4>
+          <p>A continuous stretch of ice time between stoppages or line changes. RAPM treats each stint as a single row of data to regress on.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Strength State</h4>
+          <p>The number of skaters each team has on the ice, (5v5, 5v4, 4v5, etc.).</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Even Strength (ES)</h4>
+          <p>Play with both teams skating the same number of skaters, most commonly 5v5. Used to isolate performance from the extra offense or defense created by a power play or penalty kill.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Special Teams</h4>
+          <p>Play with the two teams skating a different number of skaters, covering both the power play and penalty kill.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Score State</h4>
+          <p>The goal differential at a given point in a game (tied, up one, down two, etc.), which strongly influences how teams play.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Score Effects</h4>
+          <p>The tendency for teams to change their style of play based on score state (trailing teams tend to attack more, leading teams tend to play more defensively).</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Home-Ice Advantage</h4>
+          <p>The statistical edge a team gets from playing in its own arena.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Shooting Percentage (SH%)</h4>
+          <p>The percentage of shots on goal that result in a goal.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Save Percentage (SV%)</h4>
+          <p>The percentage of shots on goal a goalie stops.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Faceoff Win Percentage (FO%)</h4>
+          <p>The percentage of faceoffs a player or team wins.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Primary Points</h4>
+          <p>A player's goals plus primary (first) assists, excluding secondary assists. Often used as a cleaner measure of individual offensive contribution, since secondary assists are noisier and less repeatable.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Plus-Minus</h4>
+          <p>A raw count of a player's goals for minus goals against while they're on the ice at even strength. Simple, but credits and blames a player for every goal regardless of who else was on the ice, which is the exact problem <a href="#rapm-model">RAPM</a> is built to solve.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Off-Wing (Off Wing)</h4>
+          <p>A shot taken from the side of the ice opposite a player's shooting hand (like. a left shot playing the right wing), which tends to open up a better shooting angle toward the net.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Zone Entry / Zone Exit</h4>
+          <p>A player carrying, passing, or dumping the puck into the offensive zone (entry) or out of the defensive zone (exit). A "controlled" entry/exit keeps possession of the puck, while a dump-in/dump-out gives it up in exchange for territory.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Zone Start Percentage (OZS% or DZS%)</h4>
+          <p>The percentage of a player's non-neutral-zone and non-on-the-fly shifts that begin with an offensive-zone or defensive-zone faceoff.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glossary-category">
+      <h3>Advanced Hockey Terms</h3>
+      <div class="glossary-grid">
+        <div class="glossary-term">
+          <h4>Corsi (CF%)</h4>
+          <p>The share of all shot attempts (shots on goal, missed shots, and blocked shots) a team or player accounts for while on the ice. A common proxy for puck possession.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Fenwick (FF%)</h4>
+          <p>The share of unblocked shot attempts (shots on goal and missed shots) a team or player accounts for while on the ice. (Corsi, but without blocked shots).</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>On-Ice Shooting %/Save % (oiSH%/oiSV%)</h4>
+          <p>A team or player's shooting and save percentages while they're on the ice, as opposed to just their own individual shots or saves. The two components that make up PDO.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>PDO</h4>
+          <p>The sum of a team or player's on-ice shooting percentage and save percentage. A PDO far from 100 often signals unsustainable puck luck rather than true talent.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>High-Danger Chance (HDC)</h4>
+          <p>A shot attempt taken from an area of the ice with a high historical likelihood of becoming a goal, typically close to the net or in the slot.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Medium-Danger Chance (MDC)</h4>
+          <p>A shot attempt taken from an area of the ice with a moderate historical likelihood of becoming a goal, typically between the high-danger slot area and the outer perimeter.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Low-Danger Chance (LDC)</h4>
+          <p>A shot attempt taken from an area of the ice with a low historical likelihood of becoming a goal, typically from the perimeter or a sharp angle.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Royal Road</h4>
+          <p>An imaginary line running the length of the ice through the center of both nets. A shot or pass that crosses it tends to be more dangerous, since it forces the goalie to move laterally.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Quality of Competition (QoC)</h4>
+          <p>A measure of how strong the opposing players a skater faces are on average, relative to the rest of the league.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Quality of Teammates (QoT)</h4>
+          <p>A measure of how strong a player's own teammates are on average, relative to the rest of the league.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glossary-category">
+      <h3>Hockey Model Terms</h3>
+      <div class="glossary-grid">
+        <div class="glossary-term">
+          <h4>Expected Goals (xG)</h4>
+          <p>The probability that a given shot results in a goal, based on shot location, type, and situational context. See the <a href="#xg-model">xG model</a> above.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Expected Goals Against (xGA)</h4>
+          <p>The sum of expected goals value from shots taken against a team or while a player is on the ice.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Goals Saved Above Expected (GSAx)</h4>
+          <p>A goalie's actual goals allowed subtracted from the number of goals an average goalie would be expected to allow on the same shots, based on xG.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Regularized Adjusted Plus-Minus (RAPM)</h4>
+          <p>A ridge-regression-based method for isolating a player's on-ice impact from the effects of their teammates and competition. See the <a href="#rapm-model">RAPM model</a> above.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Replacement Level</h4>
+          <p>The performance baseline WAR is measured against. The production expected from a readily available fringe player.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Wins Above Replacement (WAR)</h4>
+          <p>A single number expressing how many wins a player added over a season compared to a replacement-level player. See the <a href="#war-model">WAR model</a> above.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Elo Rating</h4>
+          <p>A sequentially updating team-strength rating that shifts after every game based on the result and how expected it was. See <a href="#elo-model">Elo ratings</a> above.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Simple Rating System (SRS)</h4>
+          <p>A team-strength rating fit across an entire season at once by minimizing error between predicted and actual goal margins. See <a href="#srs-model">SRS</a> above.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glossary-category">
+      <h3>Data Science Terms</h3>
+      <div class="glossary-grid">
+        <div class="glossary-term">
+          <h4>Hyperparameter</h4>
+          <p>A setting chosen before training a model (like tree depth or regularization strength) rather than learned from the data itself, usually tuned by testing different values and picking the best-performing one.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Cross-Validation</h4>
+          <p>A technique for testing a model's performance by training on some data and validating on held-out data it hasn't seen, repeated across multiple splits to make sure results generalize rather than reflecting one lucky split.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>ROC Curve (Receiver Operating Characteristic)</h4>
+          <p>A plot of a classification model's true positive rate against its false positive rate across every possible decision threshold, used to visualize how well it separates two outcomes.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>AUC (Area Under the Curve)</h4>
+          <p>The area under the ROC curve, condensing it into a single number: a measure of how well a classification model separates positive and negative outcomes, where 0.5 is no better than random and 1.0 is perfect separation.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Gradient Boosting</h4>
+          <p>A machine learning technique that builds a strong model out of many small decision trees, each one trained to correct the errors of the trees before it.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Ridge Regression</h4>
+          <p>A regression technique that shrinks coefficient estimates toward zero to reduce overfitting, especially useful when predictors (like individual players) are numerous and collinear.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>One-Hot Encoding</h4>
+          <p>A way of turning a categorical value into numeric columns a model can use, with one column per possible category that's set to 1 for the matching category and 0 for every other.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h4>Shrinkage</h4>
+          <p>The general statistical practice of pulling an estimate toward a baseline value (like zero, league average, or a prior season) to reduce noise from small sample sizes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
