@@ -1,53 +1,77 @@
+{% macro navlink(href, label, extra=[]) %}
+{%- set is_active = request.path == href or (href != '/' and request.path.startswith(href + '/')) or request.path in extra -%}
+<a href="{{ href }}"{% if is_active %} class="active"{% endif %}>{{ label }}</a>
+{%- endmacro %}
+
 <nav class="nav-bar">
 
-  <div class="nav-bar-top">
-    <div class="content-nav-top"><h2>CONTENT</h2></div>
+  <div class="nav-row">
+    <div class="site-masthead">
+      <a href="/" class="site-logo-link">
+        <img src="/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png" alt="Analytics With Avery logo" class="site-logo">
+      </a>
+    </div>
 
-    <button onclick="openMenu()" class="hamburger-button">
-      <img src="/static/assets/icons/hamburger.png" alt="Menu" class="hamburger-icon">
-    </button>
+    <div class="nav-links">
+      <ul class="nav-link-group nav-link-group--content">
+        <li>{{ navlink('/projects', 'Projects', extra=['/player_cards', '/team_cards']) }}</li>
+        <li>{{ navlink('/models', 'Models') }}</li>
+        <li>{{ navlink('/blog', 'Blog') }}</li>
+        <li>{{ navlink('/socials', 'Socials') }}</li>
+        <li>{{ navlink('/content_about', 'About My Content') }}</li>
+      </ul>
 
-    <div class="profile-nav-top"><h2>PROFILE</h2></div>
+      <ul class="nav-link-group nav-link-group--profile">
+        <li>{{ navlink('/experience', 'Experience') }}</li>
+        <li>{{ navlink('/education', 'Education') }}</li>
+        <li>{{ navlink('/cv', 'CV') }}</li>
+        <li>{{ navlink('/contact', 'Contact') }}</li>
+        <li>{{ navlink('/profile_about', 'About Me') }}</li>
+      </ul>
+    </div>
+
+    <div class="nav-group-toggles">
+      <button type="button" class="nav-group-toggle nav-group-toggle--content" onclick="toggleNavGroup('content')" aria-expanded="false" aria-controls="contentDropdown">Content</button>
+      <button type="button" class="nav-group-toggle nav-group-toggle--profile" onclick="toggleNavGroup('profile')" aria-expanded="false" aria-controls="profileDropdown">Profile</button>
+    </div>
+
+    <div class="nav-controls">
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 
-
-  <div class="nav-bar-bottom">
-    <ul class="sub-links content-links">
-      <li><a href="/content_about">About My Content</a></li>
-      <li><a href="/socials">Socials</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/">Home</a></li>
-    </ul>
-
-    <ul class="sub-links profile-links">
-      <li><a href="/education">Education</a></li>
-      <li><a href="/experience">Experience</a></li>
-      <li><a href="/cv">CV</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/profile_about">About Me</a></li>
+  <div id="contentDropdown" class="nav-group-dropdown nav-group-dropdown--content">
+    <ul class="dropdown-links">
+      <li>{{ navlink('/projects', 'Projects', extra=['/player_cards', '/team_cards']) }}</li>
+      <li>{{ navlink('/models', 'Models') }}</li>
+      <li>{{ navlink('/blog', 'Blog') }}</li>
+      <li>{{ navlink('/socials', 'Socials') }}</li>
+      <li>{{ navlink('/content_about', 'About My Content') }}</li>
     </ul>
   </div>
 
-
-  <div id="hamburgerNav" class="hamburger-nav">
-    <div class="hamburger-menu">
-      <ul class="hamburger-links content-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/socials">Socials</a></li>
-        <li><a href="/content_about">About My Content</a></li>
-      </ul>
-      <ul class="hamburger-links profile-menu">
-        <li><a href="/education">Education</a></li>
-        <li><a href="/experience">Experience</a></li>
-        <li><a href="/cv">CV</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/profile_about">About Me</a></li>
-      </ul>
-      </div>
+  <div id="profileDropdown" class="nav-group-dropdown nav-group-dropdown--profile">
+    <ul class="dropdown-links">
+      <li>{{ navlink('/experience', 'Experience') }}</li>
+      <li>{{ navlink('/education', 'Education') }}</li>
+      <li>{{ navlink('/cv', 'CV') }}</li>
+      <li>{{ navlink('/contact', 'Contact') }}</li>
+      <li>{{ navlink('/profile_about', 'About Me') }}</li>
+    </ul>
   </div>
 </nav>
-
-<button id="theme-toggle" type="button">Dark mode</button>
