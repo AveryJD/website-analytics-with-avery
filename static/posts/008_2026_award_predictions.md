@@ -1,12 +1,14 @@
 2026 NHL Award Predictions
 April 27, 2026
-Who deserves the NHL’s top awards this season? This post goes over my thoughts on the top candidates for the major NHL awards, combining traditional stats with underlying metrics from the 2025–2026 regular season.
+Who deserves the NHL’s top awards this season? This post goes over my thoughts on the top candidates for the major NHL awards, combining traditional stats with underlying metrics from the 2025-2026 regular season.
 
 # Introduction
 
+*Note: This post was written using an earlier version of my player card model and design. The player cards shown below are from that older version and the project has since been updated with a new model and visuals.*
+
 With the regular season complete, the playoffs underway, and award finalists set to be announced in the coming days, it’s time to take a look at the NHL’s major awards and who has the strongest case to win them. In this post, I rank my top five candidates for each major individual award based solely on regular-season performance, with playoff results not considered. The awards covered include the Hart, Norris, Vezina, Selke, Calder, Jack Adams, and Jim Gregory. 
 
-Each trophy section begins with the [NHL’s official award description](https://www.nhl.com/history/nhl-awards-trophies). This is followed by visualizations from my player or team cards for the top five candidates, along with relevant statistics and my own thoughts explaining each ranking. Note that the rankings on my cards are based on weighted, multi-season metrics, while these awards are determined solely by this season’s performance. As a result, when comparing players in award sections, a player may rank higher on a card in some aspects but appear lower in the award rankings. All data used in this blog post was sourced from [Natural Stat Trick](https://www.naturalstattrick.com). These predictions are not necessarily how I expect the voting to unfold, but rather my selections for who I believe most deserves each award based on their performance and overall impact during the 2025–2026 NHL season.
+Each trophy section begins with the [NHL’s official award description](https://www.nhl.com/history/nhl-awards-trophies). This is followed by visualizations from my player or team cards for the top five candidates, along with relevant statistics and my own thoughts explaining each ranking. Note that the rankings on my cards are based on weighted, multi-season metrics, while these awards are determined solely by this season’s performance. As a result, when comparing players in award sections, a player may rank higher on a card in some aspects but appear lower in the award rankings. All data used in this blog post was sourced from [Natural Stat Trick](https://www.naturalstattrick.com). These predictions are not necessarily how I expect the voting to unfold, but rather my selections for who I believe most deserves each award based on their performance and overall impact during the 2025-2026 NHL season.
 
 
 # The Hart Memorial Trophy
@@ -62,7 +64,7 @@ Each trophy section begins with the [NHL’s official award description](https:/
 11 Penalties Drawn, 9 Penalties Taken
 
 ## Thoughts
-This was a very tight Hart race, with Connor McDavid, Nikita Kucherov, and Nathan MacKinnon all having legitimate cases. In the end, I gave the edge to McDavid. Along with leading the league in points, he drew the most penalties of any player, drawing 56 while taking just 22. McDavid’s supporting cast in Edmonton—especially after Draisaitl was injured—is also less impressive than the teams surrounding Kucherov and MacKinnon in Tampa and Colorado, respectively. Kucherov and MacKinnon both had outstanding seasons as well, particularly in terms of offensive output and team success.
+This was a very tight Hart race, with Connor McDavid, Nikita Kucherov, and Nathan MacKinnon all having legitimate cases. In the end, I gave the edge to McDavid. Along with leading the league in points, he drew the most penalties of any player, drawing 56 while taking just 22. McDavid’s supporting cast in Edmonton – especially after Draisaitl was injured – is also less impressive than the teams surrounding Kucherov and MacKinnon in Tampa and Colorado, respectively. Kucherov and MacKinnon both had outstanding seasons as well, particularly in terms of offensive output and team success.
 
 Celebrini had one of the most impressive seasons ever by a 19-year-old, recording 45 goals and 115 points. He is already one of the best players in the league and likely has at least one Hart Trophy in his future, but his season falls just short of the top three. As you’ll see in the next section, I believe Zach Werenski was the best defenseman this season and deserves recognition in the Hart conversation, but the four forwards ahead of him had stronger seasons relative to their positions.
 
@@ -222,7 +224,7 @@ Jeremy Swayman had an impressive bounce-back season and was a major reason for t
 47.71 5v5 GF%, 52.37 5v5 xGF%
 
 ## Thoughts
-The Selke is often a divisive award. Defensive impact is much harder to measure than offensive production, and the award has historically favoured star players, even though others lower in the lineup may have stronger defensive results. Because of this, I focused on identifying the top six forwards with the best overall defensive performance. I think Nick Suzuki is the most likely player to win the award, but my pick is Noah Cates. He was a defensive monster this season, posting an elite 1.67 GA/60 while also contributing on the penalty kill—something not all of these candidates can claim. Suzuki still deserves the recognition he’ll receive, as his defensive game is now strongly supported by the underlying numbers. 
+The Selke is often a divisive award. Defensive impact is much harder to measure than offensive production, and the award has historically favoured star players, even though others lower in the lineup may have stronger defensive results. Because of this, I focused on identifying the top six forwards with the best overall defensive performance. I think Nick Suzuki is the most likely player to win the award, but my pick is Noah Cates. He was a defensive monster this season, posting an elite 1.67 GA/60 while also contributing on the penalty kill – something not all of these candidates can claim. Suzuki still deserves the recognition he’ll receive, as his defensive game is now strongly supported by the underlying numbers. 
 
 Shane Pinto rounds out my top three with well-rounded defensive metrics and strong penalty-kill contributions on a top ten penalty kill in the league. Jordan Kyrou had an unexpectedly strong defensive season, limiting his expected GA/60 to 2.11, although St. Louis’ weaker goaltending prevented those results from fully translating. Anze Kopitar was also excellent defensively, posting an even lower 1.51 5v5 GA/60 than Cates, but his case is slightly limited by missing time, as he played only 67 games this season.
 
@@ -427,7 +429,7 @@ Bill Guerin didn't have the same overall value, but made the biggest move of the
 
 
 # Conclusion
-Overall, this season provided no shortage of standout performances across the league, making each of these races both competitive and, at times, difficult to separate. By focusing on a combination of traditional production and underlying metrics, these selections aim to highlight the players, coaches, and general managers who had the most meaningful impact during the 2025–2026 regular season.
+Overall, this season provided no shortage of standout performances across the league, making each of these races both competitive and, at times, difficult to separate. By focusing on a combination of traditional production and underlying metrics, these selections aim to highlight the players, coaches, and general managers who had the most meaningful impact during the 2025-2026 regular season.
 
 At the same time, NHL awards are not always voted on based solely on individual performance, whether intentional or not. Reputation, team success, recent narratives, and media visibility often play a significant role in shaping the final results, which can lead to deserving candidates being overlooked in favour of more recognizable names. While the official outcomes may differ, the goal of this analysis is to offer a perspective rooted in performance and context, and to share my opinion on who truly stood out this season.
 

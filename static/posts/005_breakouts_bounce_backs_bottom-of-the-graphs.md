@@ -1,10 +1,12 @@
 Breakouts, Bounce Backs, and Bottom-of-the-Graphs
 January 9, 2026
-At the midway point of the 2025–26 NHL season, player performance across the league has varied widely, from unexpected breakouts to strong bounce-back campaigns and disappointing downturns. This post highlights one forward, defenseman, and goaltender from each category to explore some of the biggest swings in player performance this season.
+At the midway point of the 2025-26 NHL season, player performance across the league has varied widely, from unexpected breakouts to strong bounce-back campaigns and disappointing downturns. This post highlights one forward, defenseman, and goaltender from each category to explore some of the biggest swings in player performance this season.
 
 # Introduction
 
-With the 2025–26 season at its halfway point, I wanted to take a closer look at several players having particularly interesting seasons. I focused on three categories: breakout seasons, where a player is performing significantly better than in previous years; bounce-back seasons, where a player is playing at a high level again after one or more down seasons; and, to keep the alliteration going, bottom-of-the-graph seasons, where a player is having possibly the worst season of their career, as illustrated by their metrics appearing at the bottom of the visualized graphs.
+*Note: This post was written using an earlier version of my player card model and design. The player cards shown below are from that older version and the project has since been updated with a new model and visuals.*
+
+With the 2025-26 season at its halfway point, I wanted to take a closer look at several players having particularly interesting seasons. I focused on three categories: breakout seasons, where a player is performing significantly better than in previous years; bounce-back seasons, where a player is playing at a high level again after one or more down seasons; and, to keep the alliteration going, bottom-of-the-graph seasons, where a player is having possibly the worst season of their career, as illustrated by their metrics appearing at the bottom of the visualized graphs.
 
 For each category, I selected one forward, one defenseman, and one goaltender. Some of these players have already received plenty of attention, while others have flown more under the radar than I think they should. These selections aren’t necessarily the most extreme examples of each category, but rather players I specifically wanted to take a deeper look at. All player sections are accompanied by my custom NHL player cards for each player, which have been updated to include all games up until January 8th.
 
@@ -39,7 +41,7 @@ While his production wasn't as high in previous seasons, his underlying numbers 
 
 This season, Dan Vladar has emerged as Philadelphia’s clear starting goaltender, playing a key role in the Flyers sitting in a playoff spot in the Metropolitan Division. In 26 appearances, Vladar has posted a save percentage above 0.910 in 18 games, and on the season he has a GSAx of 12.92. 
 
-After spending much of his career in a backup role, Vladar signed a two-year, $3.35 million contract with Philadelphia, a team that entered the season without an established starter. His consistent play has provided the Flyers with dependable goaltending on a night-to-night basis—something that was far from certain heading into the year.
+After spending much of his career in a backup role, Vladar signed a two-year, $3.35 million contract with Philadelphia, a team that entered the season without an established starter. His consistent play has provided the Flyers with dependable goaltending on a night-to-night basis – something that was far from certain heading into the year.
 
 
 # Bounce Backs

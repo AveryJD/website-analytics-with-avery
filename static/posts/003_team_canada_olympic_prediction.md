@@ -1,8 +1,10 @@
 Team Canada Olympic Roster Projection
 December 29, 2025
-With the 2026 Winter Olympics approaching and Team Canada’s roster set to be announced on December 31, this post outlines my projected Canadian Olympic roster—built with role fit, chemistry, and experience in mind, not just raw skill.
+With the 2026 Winter Olympics approaching and Team Canada’s roster set to be announced on December 31, this post outlines my projected Canadian Olympic roster – built with role fit, chemistry, and experience in mind, not just raw skill.
 
 # Introduction
+*Note: This post was written using an earlier version of my player card model and design. The player cards shown below are from that older version and the project has since been updated with a new model and visuals.*
+
 With the 2026 Winter Olympics taking place in less than two months and the Canadian roster set to be announced on Wednesday, December 31, I wanted to take a crack at constructing a roster of Canadian players that I believe gives Canada the best chance to win the gold medal.
 
 To choose these players, I started with a pool of about 100 players. These players included those who participated in the 4 Nations tournament last season, were selected for the Team Canada orientation over the summer, and players who have been having impressive performances this season. I then narrowed it down to this roster of 25 (14 forwards, 8 defensemen, and 3 goalies) by choosing the biggest standouts. This is not simply a list of the most skilled Canadian players. Instead, this roster considers the specific roles players would be asked to play, along with factors such as chemistry, versatility, and experience. It is also not meant to be a perfect prediction of who Team Canada management will select, but rather who I think should be selected.
@@ -14,15 +16,15 @@ For each player selected, I provided a brief explanation as to why I chose them.
 ## Previously Named:
 These forwards were named to the team by management back in June. These are all players that will be on the team, whether I wanted them or not (though most of these players are no-brainers). 
 
-**Connor McDavid** – McDavid is the best hockey player in the world. He consistently delivers in high-pressure situations and scored the 4 Nations gold medal-winning goal. There is no real argument against his inclusion.
+**Connor McDavid** - McDavid is the best hockey player in the world. He consistently delivers in high-pressure situations and scored the 4 Nations gold medal-winning goal. There is no real argument against his inclusion.
 
-**Nathan MacKinnon** – MacKinnon is the second-best player in the world and another proven big-game performer. He is currently leading the NHL in goals and is a strong Hart Trophy candidate while driving the Colorado Avalanche toward a potential Presidents’ Trophy.
+**Nathan MacKinnon** - MacKinnon is the second-best player in the world and another proven big-game performer. He is currently leading the NHL in goals and is a strong Hart Trophy candidate while driving the Colorado Avalanche toward a potential Presidents’ Trophy.
 
-**Sidney Crosby** – Crosby is Captain Canada. He has won at every level of the game, including two Olympic gold medals and three Stanley Cups. At 38 years old, he is still performing at an elite offensive level. His leadership and chemistry with fellow Nova Scotian Nathan MacKinnon are further reasons as to why he deserves his spot.
+**Sidney Crosby** - Crosby is Captain Canada. He has won at every level of the game, including two Olympic gold medals and three Stanley Cups. At 38 years old, he is still performing at an elite offensive level. His leadership and chemistry with fellow Nova Scotian Nathan MacKinnon are further reasons as to why he deserves his spot.
 
-**Sam Reinhart** – Reinhart is a back-to-back Stanley Cup champion, a point-per-game player, and a Selke-caliber forward. His scoring efficiency and defensive reliability make him an easy selection.
+**Sam Reinhart** - Reinhart is a back-to-back Stanley Cup champion, a point-per-game player, and a Selke-caliber forward. His scoring efficiency and defensive reliability make him an easy selection.
 
-**Brayden Point** – Point is currently not playing at the level typically expected of him, but his past performance was enough to secure his spot. He has produced elite seasons, consistently elevated his play in the playoffs, and has a strong relationship with head coach Jon Cooper. I have no problem having him on the team, but if his play continues to be poor during the tournament, I could see him in a limited role or even in the press box.
+**Brayden Point** - Point is currently not playing at the level typically expected of him, but his past performance was enough to secure his spot. He has produced elite seasons, consistently elevated his play in the playoffs, and has a strong relationship with head coach Jon Cooper. I have no problem having him on the team, but if his play continues to be poor during the tournament, I could see him in a limited role or even in the press box.
 
 ## Returning From the 4 Nations Roster:
 These are the forwards that played on Canada's 4 Nations team, who I think have performed well enough to return to represent their country.

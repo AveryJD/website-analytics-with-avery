@@ -1,9 +1,11 @@
 2026 Trade Deadline Recap and Winners
 March 5, 2026
-This post originally tracked all roster moves made during the week of the 2026 NHL trade deadline in a live format. Now that the deadline has passed, the post serves as a full recap of the week’s activity. All trades, signings, and waiver claims from March 1–6 are listed below, followed by my three biggest winners of the deadline.
+This post originally tracked all roster moves made during the week of the 2026 NHL trade deadline in a live format. Now that the deadline has passed, the post serves as a full recap of the week’s activity. All trades, signings, and waiver claims from March 1-6 are listed below, followed by my three biggest winners of the deadline.
 
 # Introduction
-This post originally tracked all moves made (live) during the week of the NHL trade deadline (March 1–March 6, 2026). Trades are organized by team to show what each organization acquired and what they moved out before the deadline. There are also sections for any signings and waiver claims made during this timeframe. At the end, I give my three biggest winners from this year's trade deadline.
+*Note: This post was written using an earlier version of my player card model and design. The player cards shown below are from that older version and the project has since been updated with a new model and visuals.*
+
+This post originally tracked all moves made (live) during the week of the NHL trade deadline (March 1-March 6, 2026). Trades are organized by team to show what each organization acquired and what they moved out before the deadline. There are also sections for any signings and waiver claims made during this timeframe. At the end, I give my three biggest winners from this year's trade deadline.
 
 # The Moves
 

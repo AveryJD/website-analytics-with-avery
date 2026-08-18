@@ -16,6 +16,12 @@
 {% block content %}
   <h1>Blog</h1>
 
+  <div class="blog-section">
+    <h2>What's on This Page</h2>
+    <p>Here you can find my blog posts, where I write about anything hockey-related, specifically analytical breakdowns, 
+      player and team predictions, and recaps of major hockey events.</p>
+  </div>
+
   {% for post in posts %}
     <div class="blog-section">
       <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>

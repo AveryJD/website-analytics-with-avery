@@ -5,7 +5,7 @@ Can a team's overall regular season lineup performance help predict playoff succ
 
 # Introduction
 
-With the 2024–2025 season wrapped up and the Stanley Cup being awarded to the Florida Panthers, I thought it would be good to look back on past Cup winners and try to uncover what truly makes a team worthy of hoisting hockey’s greatest prize. Every year, we see teams dominate the regular season only to fall short when the playoffs arrive. For example, the 2022–2023 Boston Bruins finished first overall with the most points in NHL history with a record of 65-12-5 (.823 pts%) but failed to win a single playoff round. We also see some teams barely scrape into the postseason before going on Cinderella runs like the 2020-2021 Montreal Canadiens, who finished 18th overall (0.527 pts%) but managed to go all the way to the final that year. So with all this in mind, is there something we can look at that predicts playoff success more accurately than the regular season standings?
+With the 2024-2025 season wrapped up and the Stanley Cup being awarded to the Florida Panthers, I thought it would be good to look back on past Cup winners and try to uncover what truly makes a team worthy of hoisting hockey’s greatest prize. Every year, we see teams dominate the regular season only to fall short when the playoffs arrive. For example, the 2022-2023 Boston Bruins finished first overall with the most points in NHL history with a record of 65-12-5 (.823 pts%) but failed to win a single playoff round. We also see some teams barely scrape into the postseason before going on Cinderella runs like the 2020-2021 Montreal Canadiens, who finished 18th overall (0.527 pts%) but managed to go all the way to the final that year. So with all this in mind, is there something we can look at that predicts playoff success more accurately than the regular season standings?
 
 My goal was to devise a system that could score teams based on the overall quality of their entire roster and on-ice performance throughout the regular season to quantify how much of a “true contender” each team really was before the playoffs even began. It should come as no surprise that for a team to survive four intense playoff rounds and capture the Stanley Cup, they need to be strong throughout their entire lineup or at least excel in some areas to make up for deficiencies in others. My aim was to create a formula for a contender score that factors in a team's entire lineup.
 
@@ -51,13 +51,13 @@ Below are the optimal factor weights I arrived at for each positional group:
 
 | Group                  | Weight |
 | ---------------------- | ------ |
-| 1–3 Forwards           | 4.65   |
-| 4–6 Forwards           | 0.05   |
-| 7–9 Forwards           | 0.00   |
-| 10–12 Forwards         | 4.50   |
-| 1–2 Defensemen         | 8.80   |
-| 3–4 Defensemen         | 2.00   |
-| 5–6 Defensemen         | 9.15   |
+| 1-3 Forwards           | 4.65   |
+| 4-6 Forwards           | 0.05   |
+| 7-9 Forwards           | 0.00   |
+| 10-12 Forwards         | 4.50   |
+| 1-2 Defensemen         | 8.80   |
+| 3-4 Defensemen         | 2.00   |
+| 5-6 Defensemen         | 9.15   |
 | Starting Goalie (GSAx) | 9.75   |
 
 What immediately stands out is how little weight the middle of the lineup (the second and third forward groups and the second defensive pair) carries compared to the top and especially the bottom of the roster. This suggests that the difference between a team that merely qualifies for the playoffs and one capable of making a deep run often lies in two key areas: elite talent at the top and the ability to avoid glaring weaknesses at the bottom. In other words, true contenders don’t just rely on their stars, they also get meaningful contributions from their depth forwards, third-pair defensemen, and consistent goaltending. A weak bottom end can quietly undermine a team’s chances of winning it all.
@@ -99,7 +99,7 @@ These examples serve as reminders that while data can provide valuable insights,
 
 Like any model, this methodology comes with its limitations. The biggest challenge is that regular season results don’t always translate cleanly to postseason outcomes. Some players elevate their game when it matters most, while others struggle under the pressure. Playoff teams can look dramatically different from their regular season selves due to factors like injuries, experience, chemistry, and sheer randomness and luck.
 
-For example, in the 2020–2021 season, Tampa Bay Lightning star Nikita Kucherov didn’t play a single regular season game due to injury. Yet he returned for the playoffs, led the postseason in scoring, and helped the Lightning capture their second consecutive Stanley Cup. Tampa still had a very impressive contender score that year, with the team ranking 3rd, but had Kucherov played during the regular season, Tampa's score would no doubt have been higher and possibly 1st. Similarly, in 2022–2023, Vegas captain Mark Stone missed significant regular season time but returned for the playoffs, where the Golden Knights won the Cup despite the team ranking last in contender score that year.
+For example, in the 2020-2021 season, Tampa Bay Lightning star Nikita Kucherov didn’t play a single regular season game due to injury. Yet he returned for the playoffs, led the postseason in scoring, and helped the Lightning capture their second consecutive Stanley Cup. Tampa still had a very impressive contender score that year, with the team ranking 3rd, but had Kucherov played during the regular season, Tampa's score would no doubt have been higher and possibly 1st. Similarly, in 2022-2023, Vegas captain Mark Stone missed significant regular season time but returned for the playoffs, where the Golden Knights won the Cup despite the team ranking last in contender score that year.
 
 Hockey is, by nature, a volatile sport. The playoffs are influenced not just by talent and structure, but by luck, health, momentum, and timely performances. That said, by accounting for both top-of-the-lineup star power and the strength (or weakness) of depth players, along with goaltending, we can more closely identify the teams that are truly built for a playoff run. While no model can perfectly predict the chaos of the NHL playoffs, I believe the contender score calculation provides a more complete and insightful view than standings alone. I’m looking forward to testing this model on future seasons and refining it as new data emerges.
 
