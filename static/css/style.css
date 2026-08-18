@@ -54,6 +54,9 @@
   --secondary-red: rgb(255, 120, 120);
   --tertiary-red: rgb(255, 200, 200);
 
+  --mid-purple: rgb(210, 110, 210);
+  --secondary-purple: rgb(225, 150, 225);
+
   --bg-page: rgb(254, 254, 254);
   --bg-section: rgb(234, 234, 234);
   --bg-opposite-page: rgb(24, 24, 24);
@@ -62,10 +65,14 @@
 
   --text-main: rgb(4, 4, 4);
   --border: 2px solid rgb(4, 4, 4);
-  --link: blue;
-  --link-visited: purple;
+  --link: var(--primary-blue);
+  --link-visited: rgb(120, 120, 255);
+  --icon-outline: rgb(4, 4, 4);
 
-  --main-radius: 0.8rem;
+  --main-radius: 0.4rem;
+  --button-radius: 999px;
+  --card-radius: 4px;
+  --nav-height: 4.5rem;
   --font-main: "Main", sans-serif;
   --font-nav-title: "Nav Header", system-ui;
   --font-nav-sub: "Nav Sub Header", system-ui;
@@ -87,8 +94,6 @@ html.dark-mode {
 
   --text-main: rgb(254, 254, 254);
   --border: 2px solid rgb(204, 204, 204);
-  --link: skyblue;
-  --link-visited: violet;
 
   --box-shadow: 0 3px 6px rgba(200, 200, 200, 0.24);
   --box-shadow-hover: 0 3px 6px rgba(200, 200, 200, 0.34);
@@ -138,21 +143,35 @@ main {
 
 main p {
   font-size: 1.25rem;
-  text-align: justify;
+  line-height: 1.65;
+  text-align: left;
   margin-top: 0rem;
   margin-bottom: 1.25rem;
 }
 
 main li {
   font-size: 1.25rem;
+  line-height: 1.65;
 }
 
-main h1 {
+main > h1 {
+  font-family: var(--font-nav-title);
   font-size: 4rem;
   font-weight: bold;
+  letter-spacing: 0.02em;
   text-align: center;
   padding: 0;
-  margin: 0;
+  margin: 2rem 0 1.5rem;
+}
+
+main > h1::after {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 4px;
+  margin: 0.85rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue));
 }
 
 main h2 {
@@ -163,8 +182,19 @@ main h2 {
   margin: 0;
 }
 
+/* Consistent gap between a section title and the paragraph directly under it,
+   site-wide (e.g. "What's on This Page" style intros). */
+main h2 + p {
+  margin-top: 0.6rem;
+}
+
 main h3 {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
+  margin: 0rem;
+}
+
+main h4 {
+  font-size: 1.15rem;
   margin: 0rem;
 }
 
@@ -187,6 +217,9 @@ main a:hover {
 .main-image {
   width: 17rem;
   height: 100%;
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 .main-image-round {
@@ -194,10 +227,36 @@ main a:hover {
   height: 100%;
   border-radius: 50%;
   border: var(--border);
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 .text-beside-image {
-  padding-left: 3rem;
+  overflow: visible;
+  margin-top: 0.6rem;
+}
+
+
+
+/* ==================== SECTION PANELS (shared) ==================== */
+
+.about-section,
+.socials-section,
+.x-section,
+.education-section,
+.experience-section,
+.cv-section,
+.not-found-section,
+.blog-section,
+.card-section {
+  margin: 1.25rem;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: var(--bg-section);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
 }
 
 
@@ -205,30 +264,11 @@ main a:hover {
 /* ==================== ABOUT ==================== */
 
 .about-section {
-  display: flex;
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  background-color: var(--bg-section);
-  border-radius: var(--main-radius);
-}
-
-.about-section h2 {
-  text-align: left;
+  display: flow-root;
 }
 
 
 /* ==================== CONTACT AND SOCIALS ==================== */
-
-.socials-section {
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  background-color: var(--bg-section);
-  border-radius: var(--main-radius);
-}
 
 .socials-container {
   display: flex;
@@ -249,12 +289,17 @@ main a:hover {
   opacity: 0.8;
 }
 
+.social-link:focus-visible {
+  outline: 3px solid var(--text-main);
+  outline-offset: 3px;
+}
+
 .socials-icon {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   background-color: white;
-  outline: 5px solid black;
+  outline: 5px solid var(--icon-outline);
   outline-offset: -2px;
 }
 
@@ -264,12 +309,6 @@ main a:hover {
 }
 
 .x-section {
-  background-color: var(--bg-section);
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-radius: var(--main-radius);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -335,17 +374,7 @@ main a:hover {
 /* ==================== EDUCATION ==================== */
 
 .education-section {
-  display: flex;
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  background-color: var(--bg-section);
-  border-radius: var(--main-radius);
-}
-
-.education-section h2 {
-  text-align: left;
+  display: flow-root;
 }
 
 .education-section h3 {
@@ -364,6 +393,7 @@ main a:hover {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  clear: both;
 }
 
 .education-list {
@@ -372,11 +402,27 @@ main a:hover {
   box-sizing: border-box;
 }
 
+.education-list h4 {
+  padding: 0 3rem 0 1.25rem;
+  font-size: 1.4rem;
+}
+
 .education-list ul {
+  list-style: none;
   margin: 0rem;
   padding: 1.25rem;
   padding-top: 0.3rem;
   padding-right: 3rem;
+}
+
+/* The first column has no column to its left, so drop its left padding to
+   line up flush with the rest of the page's left-aligned text. */
+.education-list:first-child h4 {
+  padding-left: 0;
+}
+
+.education-list:first-child ul {
+  padding-left: 0;
 }
 
 .awards-list {
@@ -394,13 +440,7 @@ main a:hover {
 /* ==================== EXPERIENCE ==================== */
 
 .experience-section {
-  display: flex;
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  background-color: var(--bg-section);
-  border-radius: var(--main-radius);
+  display: flow-root;
 }
 
 .experience-section ul {
@@ -409,7 +449,12 @@ main a:hover {
   padding-top: 0.3rem;
 }
 
-.experience-section h2 {
+.experience-entry {
+  display: flow-root;
+  margin-top: 1.5rem;
+}
+
+.experience-entry h3 {
   text-align: left;
 }
 
@@ -418,18 +463,21 @@ main a:hover {
 /* ==================== CV ==================== */
 
 .cv-section {
-  background-color: var(--bg-section);
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  align-items: center;
   text-align: center;
-  border-radius: var(--main-radius);
 }
 
 .cv-section p {
   text-align: left;
+}
+
+.download-link {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.download-link:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
 .download-image {
@@ -438,8 +486,10 @@ main a:hover {
 }
 
 .cv-image {
+  display: block;
   width: 100%;
-  height: 100%;
+  max-width: 45rem;
+  margin: 1rem auto 0;
   border: var(--border);
 }
 
@@ -448,27 +498,12 @@ main a:hover {
 /* ==================== 404 ==================== */
 
 .not-found-section {
-  background-color: var(--bg-section);
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
   text-align: center;
-  border-radius: var(--main-radius);
 }
 
 
 
 /* ==================== BLOG ==================== */
-
-.blog-section {
-  background-color: var(--bg-section);
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-radius: var(--main-radius);
-}
 
 .blog-section h4 {
   margin: 0rem;
@@ -477,11 +512,15 @@ main a:hover {
 
 .blog-section p {
   margin: 0rem;
-  padding-top: 0.75rem;
+  padding-top: 0.6rem;
 }
 
 .blog-section a {
   text-decoration: none;
+}
+
+.blog-section .content-button {
+  margin-top: 1.25rem;
 }
 
 .blog-post {
@@ -513,13 +552,14 @@ main a:hover {
 }
 
 .blog-text p {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .blog-text h1 {
   font-size: 2.25rem;
   text-align: center;
   padding-bottom: 0.3rem;
+  margin: 0;
 }
 
 .blog-text h2 {
@@ -676,18 +716,8 @@ main a:hover {
 /* ==================== CARD PROJECTS ==================== */
 
 .card-section {
-  background-color: var(--bg-section);
-  margin: 1.25rem;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
   text-align: center;
   justify-content: center;
-  border-radius: var(--main-radius);
-}
-
-.card-image {
-  width: 60%;
 }
 
 .card-preview {
@@ -695,7 +725,7 @@ main a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vw;
+  height: max(28rem, 30vw);
   flex-wrap: wrap;
   margin-bottom: 2rem
 }
@@ -703,15 +733,15 @@ main a:hover {
 .card-preview img {
   position: absolute;
   width: 35vw;
-  max-width: 300px;
+  max-width: 340px;
   min-width: 160px;
   padding: 1rem;
 }
 
-.card-preview img:nth-child(1) { transform: translateX(-21vw) translateY(1vw) rotate(-8deg); z-index: 1; }
-.card-preview img:nth-child(2) { transform: translateX(-7vw) rotate(-3deg); z-index: 2; }
-.card-preview img:nth-child(3) { transform: translateX(7vw) rotate(3deg); z-index: 3; }
-.card-preview img:nth-child(4) { transform: translateX(21vw) translateY(1vw) rotate(8deg); z-index: 4; }
+.card-preview img:nth-child(1) { transform: translateX(-24vw) translateY(1.1vw) rotate(-8deg); z-index: 1; }
+.card-preview img:nth-child(2) { transform: translateX(-8vw) rotate(-3deg); z-index: 2; }
+.card-preview img:nth-child(3) { transform: translateX(8vw) rotate(3deg); z-index: 3; }
+.card-preview img:nth-child(4) { transform: translateX(24vw) translateY(1.1vw) rotate(8deg); z-index: 4; }
 
 .card-preview img:hover {
   z-index: 10;
@@ -719,14 +749,18 @@ main a:hover {
   box-shadow: var(--box-shadow-hover);
 }
 
-.card-preview img:nth-child(1):hover { --x: -21vw; --y: 1vw; --r: -8deg; }
-.card-preview img:nth-child(2):hover { --x: -7vw; --r: -3deg; }
-.card-preview img:nth-child(3):hover { --x: 7vw; --r: 3deg; }
-.card-preview img:nth-child(4):hover { --x: 21vw; --y: 1vw; --r: 8deg; }
+.card-preview img:nth-child(1):hover { --x: -24vw; --y: 1.1vw; --r: -8deg; }
+.card-preview img:nth-child(2):hover { --x: -8vw; --r: -3deg; }
+.card-preview img:nth-child(3):hover { --x: 8vw; --r: 3deg; }
+.card-preview img:nth-child(4):hover { --x: 24vw; --y: 1.1vw; --r: 8deg; }
 
 .content-button {
   display: flex;
   justify-content: center;
+}
+
+.horizontal-buttons .content-button {
+  flex: 1 1 0;
 }
 
 .content-button a {
@@ -734,22 +768,28 @@ main a:hover {
   width: 100%;
   max-width: 30rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  display: inline-block;
-  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
   color: white;
-  background-color: var(--primary-red);
-  border-radius: var(--main-radius);
+  background-color: var(--mid-purple);
+  border: 2px solid transparent;
+  border-radius: var(--button-radius);
   margin: 0.5rem;
   cursor: pointer;
   box-shadow: var(--box-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .content-button a:hover {
   color: white;
   text-decoration: none;
+  background-color: var(--secondary-purple);
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
@@ -764,12 +804,146 @@ main a:hover {
   text-decoration: none;
 }
 
+.content-button a:focus-visible {
+  outline: 3px solid var(--text-main);
+  outline-offset: 3px;
+}
+
 .horizontal-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   width: 100%;
+}
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  /* Top margin matches the space below (view-toggle's 1.5rem bottom margin
+     plus .filter-form's 1.5rem top padding), so the gap above and below the
+     buttons is visually equal. */
+  margin: 3rem 0 1.5rem;
+}
+
+.view-toggle button {
+  font-family: var(--font-main);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--mid-purple);
+  background-color: transparent;
+  color: var(--mid-purple);
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-toggle button:hover {
+  transform: scale(1.05);
+}
+
+.view-toggle button.active {
+  background-color: var(--mid-purple);
+  color: white;
+  box-shadow: var(--box-shadow);
+}
+
+
+
+/* ==================== MODELS / GLOSSARY ==================== */
+
+.glossary-category {
+  margin-top: 2.5rem;
+}
+
+.glossary-category:first-child {
+  margin-top: 0;
+}
+
+/* Goalie Information's glossary-category is a first-child of #goalie-explanation,
+   so its own margin-top gets zeroed out above. Push the whole block down instead
+   so there's still a clear gap under the skater explanation when both show at once
+   (comparing a skater against a goalie). */
+#goalie-explanation {
+  margin-top: 2.5rem;
+}
+
+.glossary-category h3 {
+  text-align: left;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--mid-purple);
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.glossary-term {
+  background-color: var(--bg-card);
+  border: var(--border);
+  border-radius: var(--main-radius);
+  padding: 1rem 1.25rem;
+}
+
+.glossary-term h4 {
+  margin-bottom: 0.4rem;
+}
+
+.glossary-term p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.model-stats-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 36rem;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Elo's result-value table sits tighter to the paragraph introducing it, but keeps
+   more breathing room before the paragraph that follows, unlike the xG AUC table. */
+.results-value-table {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.model-stats-table td,
+.model-stats-table th {
+  padding: 0.5rem 0.75rem;
+  border: var(--border);
+  white-space: nowrap;
+}
+
+.model-stats-table td {
+  background-color: var(--bg-card);
+}
+
+.model-stats-table th {
+  font-weight: bold;
+  background-color: var(--bg-section);
+}
+
+.model-stats-note {
+  font-size: 0.9rem;
+  text-align: left;
 }
 
 
@@ -777,7 +951,6 @@ main a:hover {
 /* ==================== CARD PROJECT ==================== */
 
 .filter-form {
-  background-color: var(--bg-page);
   border-radius: var(--main-radius);
   padding: 1.5rem;
   max-width: 100%;
@@ -785,10 +958,11 @@ main a:hover {
 }
 
 .filters-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 20rem));
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem 0.35rem;
   font-size: 1.3rem;
   margin: 0.5rem 0;
 }
@@ -796,6 +970,15 @@ main a:hover {
 .filters-row > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+/* Compare view forms always stack their filters in one column, even on
+   wide screens, since two side-by-side compare-card forms already split
+   the available width. */
+.compare-card .filters-row {
+  grid-template-columns: minmax(0, 20rem);
 }
 
 .filters-row label {
@@ -815,6 +998,18 @@ main a:hover {
   background-color: var(--bg-page);
   color: var(--text-main);
   cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filters-row select:hover {
+  transform: scale(1.03);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.filters-row select:focus-visible {
+  outline: 3px solid var(--text-main);
+  outline-offset: 3px;
 }
 
 .compare-section {
@@ -840,9 +1035,12 @@ main a:hover {
   display: block;
   align-content: center;
   margin: 2rem auto;
-  max-width: 40rem;
+  /* Cap the card's width so, factoring in the 5:6 aspect ratio, its height never
+     exceeds the viewport space left below the sticky nav bar (minus this card's
+     own top/bottom margin) – the whole card stays visible without inner scrolling. */
+  max-width: min(40rem, calc((100vh - var(--nav-height) - 4rem) * 5 / 6));
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--main-radius);
   box-shadow: var(--box-shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   aspect-ratio: 5 / 6;
@@ -864,10 +1062,29 @@ main a:hover {
   height: 100%;
   object-fit: contain;
   border-radius: var(--main-radius);
-  padding: 1rem;
+  padding: 2%;
 }
 
 .player-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Landscape-formatted preview images (e.g. the schedule GA project) don't fit the
+   portrait 5:6 .player-card box, so they're shown as a plain bordered image
+   instead, the same treatment as .cv-image. */
+.schedule-preview {
+  display: block;
+  width: 100%;
+  max-width: 50rem;
+  margin: 2rem auto;
+  border: var(--border);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.schedule-preview:hover {
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
@@ -886,39 +1103,125 @@ main a:hover {
   background-color: var(--bg-card);
 }
 
-.card-loading-spinner .spinner-icon {
-  width: 20%;
-  height: 20%;
-  min-width: 100px;
-  min-height: 100px;
+.spinner-dots {
+  position: relative;
+  width: 25rem;
+  height: 25rem;
+  animation: spinner-rotate 1.6s linear infinite;
 }
 
-.button-background {
-  background-color: var(--bg-page);
-  border-radius: var(--main-radius);
-  padding: 2rem;
-  margin: 1rem 0rem;
-  max-width: 100%;
-  text-align: left;
+.spinner-dots span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+.spinner-dots span:nth-child(1) {
+  width: 3.33rem;
+  height: 3.33rem;
+  margin: -1.665rem;
+  background: rgb(255, 70, 70);
+  transform: rotate(0deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(2) {
+  width: 3.13rem;
+  height: 3.13rem;
+  margin: -1.565rem;
+  background: rgb(232, 70, 93);
+  transform: rotate(320deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(3) {
+  width: 2.92rem;
+  height: 2.92rem;
+  margin: -1.46rem;
+  background: rgb(209, 70, 116);
+  transform: rotate(280deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(4) {
+  width: 2.72rem;
+  height: 2.72rem;
+  margin: -1.36rem;
+  background: rgb(186, 70, 139);
+  transform: rotate(240deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(5) {
+  width: 2.52rem;
+  height: 2.52rem;
+  margin: -1.26rem;
+  background: rgb(163, 70, 163);
+  transform: rotate(200deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(6) {
+  width: 2.31rem;
+  height: 2.31rem;
+  margin: -1.155rem;
+  background: rgb(139, 70, 186);
+  transform: rotate(160deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(7) {
+  width: 2.11rem;
+  height: 2.11rem;
+  margin: -1.055rem;
+  background: rgb(116, 70, 209);
+  transform: rotate(120deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(8) {
+  width: 1.9rem;
+  height: 1.9rem;
+  margin: -0.95rem;
+  background: rgb(93, 70, 232);
+  transform: rotate(80deg) translateY(-7.33rem);
+}
+
+.spinner-dots span:nth-child(9) {
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: -0.85rem;
+  background: rgb(70, 70, 255);
+  transform: rotate(40deg) translateY(-7.33rem);
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .generate-button {
-  background-color: var(--primary-red);
+  background-color: var(--mid-purple);
   color: white;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   text-align: center;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1.25rem;
   width: 95%;
-  max-width: 20rem;
+  max-width: 40.35rem;
   margin: 0.5rem;
-  border-radius: var(--main-radius);
-  border-style: none;
+  border: 2px solid transparent;
+  border-radius: var(--button-radius);
   box-shadow: var(--box-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
+}
+
+/* Compare view's filters are always a single 20rem column, so the button
+   should cap at that width there instead of the two-column max. */
+.compare-card .generate-button {
+  max-width: 20rem;
 }
 
 .generate-button a {
@@ -931,37 +1234,9 @@ main a:hover {
 }
 
 .generate-button:hover {
+  background-color: var(--secondary-purple);
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
-}
-
-.card-explanation {
-  background-color: var(--bg-page);
-  border-radius: var(--main-radius);
-  padding: 2rem;
-  margin-bottom: 1rem;
-  max-width: 100%;
-  text-align: left;
-}
-
-.card-explanation h3 {
-  margin-bottom: 1rem;
-}
-
-.card-explanation ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-}
-
-.card-explanation li {
-  background-color: var(--bg-section);
-  margin-bottom: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--main-radius);
-  font-size: 1rem;
-  line-height: 1.4;
-  transition: background 0.2s ease;
 }
 
 
@@ -969,177 +1244,325 @@ main a:hover {
 /* ==================== NAVIGATION BAR ==================== */
 
 .nav-bar {
-  color: white;
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-page);
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue)) 1;
 }
 
-.nav-bar-top {
-  font-family: var(--font-nav-title);
-  display: flex;
-  width: 100%;
-  height: 3.2rem;
-  position: relative;
-}
-
-.nav-bar-bottom {
-  font-family: var(--font-nav-sub);
-  display: flex;
-  width: 100%;
-  height: 2.8rem;
-  position: relative;
-}
-
-.nav-bar-top div {
-  flex: 1;
-  font-weight: bold;
-  font-size: 2.2rem;
+.nav-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.65rem 1.5rem;
+  position: relative;
+  min-height: 3.25rem;
 }
 
-.content-nav-top {
-  background-color: var(--primary-red);
-}
-
-.profile-nav-top {
-  background-color: var(--primary-blue);
-}
-
-.sub-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.site-masthead {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex: 1;
+  gap: 0.75rem;
+  color: var(--text-main);
+  flex-shrink: 0;
 }
 
-.content-links {
-  background: linear-gradient(to bottom, var(--primary-red), var(--secondary-red));
-}
-
-.profile-links {
-  background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
-}
-
-.sub-links li a {
-  color: white;
+.site-logo-link {
+  display: inline-flex;
   text-decoration: none;
-  display: inline-block;
-  font-size: 2rem;
-  white-space: nowrap;
-  padding: 0 0.5rem;
-  transition: transform 0.2s ease
 }
 
-.sub-links li a:hover {
-  transform: scale(1.1);
-}
-
-.profile-links a:hover {
-  color: var(--tertiary-blue);
-}
-
-.content-links a:hover {
-  color: var(--tertiary-red);
-}
-
-#hamburgerNav {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  z-index: 9;
-}
-
-.hamburger-menu {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  font-family: var(--font-nav-sub);
-}
-
-.content-menu {
-  background: linear-gradient(to bottom, var(--primary-red), var(--secondary-red));
-  flex: 1;
-  list-style: none;
-}
-
-.profile-menu {
-  background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
-  flex: 1;
-  list-style: none;
-}
-
-.hamburger-links {
-  margin: 0rem;
-  padding: 0rem;
-}
-
-.hamburger-links li a {
-  color: white;
+.site-logo-link:hover {
   text-decoration: none;
-  font-size: 1.2rem;
-  display: inline-block;
-  padding: 0.2rem 0;
 }
 
-.hamburger-button {
-  display: none;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 10;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.hamburger-icon {
-  width: 2rem;
-  height: 1.8rem;
+.site-logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 2px solid var(--text-main);
+  outline-offset: -1px;
   transition: transform 0.2s ease;
 }
 
-.hamburger-icon:hover {
-  transform: scale(1.2);
+.site-logo-link:hover .site-logo {
+  transform: scale(1.08);
 }
 
-.hamburger-links a:hover {
-  transform: scale(1.2);
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  font-family: var(--font-nav-title);
+  flex-wrap: wrap;
 }
 
-.profile-menu a:hover {
-  color: var(--tertiary-blue);
+.nav-link-group {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  margin: 0;
+  padding: 0;
 }
 
-.content-menu a:hover {
-  color: var(--tertiary-red);
+.nav-link-group a {
+  position: relative;
+  display: inline-block;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 0.3rem 0.05rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link-group a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-link-group--content a::after {
+  background-color: var(--primary-red);
+}
+
+.nav-link-group--profile a::after {
+  background-color: var(--primary-blue);
+}
+
+.nav-link-group--content a:hover {
+  color: var(--primary-red);
+  transform: translateY(-1px);
+}
+
+.nav-link-group--profile a:hover {
+  color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.nav-link-group a:hover::after,
+.nav-link-group a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.nav-group-toggles {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-group-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-nav-title);
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  color: var(--text-main);
+  padding: 0.2rem 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.nav-group-toggle::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid currentColor;
+  transition: transform 0.25s ease;
+}
+
+.nav-group-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.nav-group-toggle--profile::after {
+  order: -1;
+}
+
+.nav-group-toggle--content:hover {
+  color: var(--primary-red);
+}
+
+.nav-group-toggle--profile:hover {
+  color: var(--primary-blue);
+}
+
+.nav-group-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  width: 50%;
+  background-color: var(--bg-page);
+  box-shadow: var(--box-shadow);
+  z-index: 9;
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+}
+
+.nav-group-dropdown.open {
+  max-height: 24rem;
+  opacity: 1;
+  pointer-events: auto;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.nav-group-dropdown--content {
+  left: 0;
+  align-items: flex-end;
+  border-style: solid;
+  border-width: 0 3px 3px 0;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom left, var(--mid-purple), var(--primary-red));
+}
+
+.nav-group-dropdown--profile {
+  right: 0;
+  align-items: flex-start;
+  border-style: solid;
+  border-width: 0 0 3px 3px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom right, var(--mid-purple), var(--primary-blue));
+}
+
+.dropdown-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-nav-title);
+}
+
+.nav-group-dropdown--content .dropdown-links {
+  text-align: right;
+}
+
+.nav-group-dropdown--profile .dropdown-links {
+  text-align: left;
+}
+
+.dropdown-links li a {
+  position: relative;
+  display: inline-block;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 0.4rem 0.1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15rem;
+  height: 3px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-group-dropdown--content a::after {
+  background-color: var(--primary-red);
+}
+
+.nav-group-dropdown--profile a::after {
+  background-color: var(--primary-blue);
+}
+
+.dropdown-links a:hover {
+  transform: translateY(-1px);
+}
+
+.dropdown-links a:hover::after,
+.dropdown-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-group-dropdown--content a:hover {
+  color: var(--primary-red);
+}
+
+.nav-group-dropdown--profile a:hover {
+  color: var(--primary-blue);
 }
 
 #theme-toggle {
-  display: block;
-  margin: 0.5rem 0.6rem 0 auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
   border: none;
-  border-radius: var(--main-radius);
-  padding: 0.35rem 0.7rem;
-  font-family: var(--font-main);
+  border-radius: 50%;
+  padding: 0;
   cursor: pointer;
   background-color: var(--bg-opposite-page);
   color: var(--bg-page);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
   box-shadow: var(--box-shadow);
 }
 
-#theme-toggle:hover{
-  transform: scale(1.2);
-  opacity: 0.8;
+#theme-toggle:hover {
+  transform: scale(1.08);
+  opacity: 0.85;
   box-shadow: var(--box-shadow-hover);
+}
+
+.theme-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.theme-icon--sun {
+  display: none;
+}
+
+html.dark-mode .theme-icon--sun {
+  display: block;
+}
+
+html.dark-mode .theme-icon--moon {
+  display: none;
 }
 
 
@@ -1159,7 +1582,7 @@ main a:hover {
 }
 
 .footer p {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   padding: 0.5rem;
   margin: 0;
 }
@@ -1168,51 +1591,17 @@ main a:hover {
 
 /* ==================== MEDIA QUERIES ==================== */
 
-@media (max-width: 1400px) {
-
-}
-
-
 @media (max-width: 1200px) {
 
-  .text-beside-image {
-    padding: 0rem;
-    padding-top: 3rem;
-    width: 100%;
-  }
-
-  .about-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .main-image {
-    width: 70%;
-  }
-
-  .main-image-round {
-    width: 80%;
-  }
-
-  .education-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .experience-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .card-preview {
-    height: 22rem;
+    height: 26rem;
     margin-bottom: 3rem
   }
 
-  .card-preview img:nth-child(1) { transform: translateX(-15vw) translateY(0.6vw) rotate(-7deg); }
-  .card-preview img:nth-child(2) { transform: translateX(-5vw) rotate(-2deg); }
-  .card-preview img:nth-child(3) { transform: translateX(5vw) rotate(2deg); }
-  .card-preview img:nth-child(4) { transform: translateX(15vw) translateY(0.6vw) rotate(7deg); }
+  .card-preview img:nth-child(1) { transform: translateX(-17vw) translateY(0.7vw) rotate(-7deg); }
+  .card-preview img:nth-child(2) { transform: translateX(-5.7vw) rotate(-2deg); }
+  .card-preview img:nth-child(3) { transform: translateX(5.7vw) rotate(2deg); }
+  .card-preview img:nth-child(4) { transform: translateX(17vw) translateY(0.7vw) rotate(7deg); }
 
   .card-preview img:hover {
     z-index: 10;
@@ -1220,10 +1609,10 @@ main a:hover {
     box-shadow: var(--box-shadow-hover);
   }
 
-  .card-preview img:nth-child(1):hover { --x: -15vw; --y: 0.6vw; --r: -7deg; }
-  .card-preview img:nth-child(2):hover { --x: -5vw; --r: -2deg; }
-  .card-preview img:nth-child(3):hover { --x: 5vw; --r: 2deg; }
-  .card-preview img:nth-child(4):hover { --x: 15vw; --y: 0.6vw; --r: 7deg; }
+  .card-preview img:nth-child(1):hover { --x: -17vw; --y: 0.7vw; --r: -7deg; }
+  .card-preview img:nth-child(2):hover { --x: -5.7vw; --r: -2deg; }
+  .card-preview img:nth-child(3):hover { --x: 5.7vw; --r: 2deg; }
+  .card-preview img:nth-child(4):hover { --x: 17vw; --y: 0.7vw; --r: 7deg; }
 
   .compare-card {
     flex: 0 0 100%;
@@ -1231,20 +1620,47 @@ main a:hover {
     margin-bottom: 1rem;
   }
 
-  .sub-links li a {
-    font-size: 1.5rem;
+}
+
+
+@media (max-width: 1024px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-group-toggles {
+    display: flex;
   }
 
 }
 
 
 @media (max-width: 768px) {
+  .main-image {
+    float: none;
+    display: block;
+    width: 70%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .main-image-round {
+    float: none;
+    display: block;
+    width: 80%;
+    margin: 0 auto 1.5rem;
+  }
+
   main {
     margin: 0.5rem;
   }
 
-  main h1 {
+  main > h1 {
     font-size: 2.3rem;
+  }
+
+  main > h1::after {
+    width: 4rem;
   }
 
   main h2 {
@@ -1252,7 +1668,7 @@ main a:hover {
   }
 
   main h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   main h4 {
@@ -1264,22 +1680,50 @@ main a:hover {
   }
 
   main li {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
-  .nav-bar-top div {
-    font-size: 1.7rem
-  }
-  
-  .nav-bar-bottom {
-    display: none;
+  :root {
+    --nav-height: 3.5rem;
   }
 
-  .hamburger-button {
-    display: block;
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
+  .nav-row {
+    padding: 0.5rem 1rem;
+  }
+
+  .site-logo {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  #theme-toggle {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .theme-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .nav-controls {
+    gap: 0.5rem;
+  }
+
+  .nav-group-toggles {
+    gap: 0.9rem;
+  }
+
+  .nav-group-toggle {
+    font-size: 1.05rem;
+  }
+
+  .nav-group-dropdown {
+    padding: 1rem;
+  }
+
+  .dropdown-links li a {
+    font-size: 1.2rem;
   }
 
   .about-section {
@@ -1333,18 +1777,6 @@ main a:hover {
     padding-right: 5%;
   }
 
-  .experience-section h2 {
-    text-align: center;
-  }
-
-  .education-section h2 {
-    text-align: center;
-  }
-
-  .about-section h2 {
-    text-align: center;
-  }
-
   .courses-section {
     flex-direction: column;
   }
@@ -1353,13 +1785,26 @@ main a:hover {
     width: 100%;
   }
 
+  /* Stacked single-column layout, so both lists sit flush left. */
+  .education-list h4 {
+    padding-left: 0;
+  }
+
+  .education-list ul {
+    padding-left: 0;
+  }
+
+  .education-list h4 {
+    font-size: 0.9rem;
+  }
+
   .footer h6 {
-    font-size: 0.5rem;
+    font-size: 0.85rem;
     padding: 0.1rem;
   }
-  
+
   .footer p {
-    font-size: 0.4rem;
+    font-size: 0.65rem;
     padding: 0.1rem;
   }
 
@@ -1374,28 +1819,32 @@ main a:hover {
   }
 
   .blog-post h5{
-    font-size: 0.7rem;
-  }
-
-  .blog-text p{
-    font-size: 0.5rem;
-  }
-
-  .blog-text h1{
-    font-size: 1.2rem;
-  }
-
-  .blog-text h2{
     font-size: 1rem;
   }
 
+  .blog-text p{
+    font-size: 0.85rem;
+  }
+
+  .blog-text h1{
+    font-size: 1.6rem;
+  }
+
+  .blog-text h2{
+    font-size: 1.3rem;
+  }
+
   .blog-text h3{
-    font-size: 0.8rem;
+    font-size: 0.95rem;
   }
 
   .blog-text table {
     width: 100%;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .model-stats-table {
+    font-size: 0.8rem;
   }
 
   .single-player-card img {
@@ -1445,11 +1894,13 @@ main a:hover {
   }
     
   .content-button a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 0.5rem 1rem;
   }
 
   .filters-row {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
     font-size: 1rem;
   }
 
@@ -1462,27 +1913,25 @@ main a:hover {
     gap: 0.5rem;
   }
 
+  .horizontal-buttons .content-button {
+    flex: 0 1 auto;
+  }
+
   .card-preview {
-    height: 20rem;
+    height: auto;
+    aspect-ratio: 8 / 5;
+    margin-top: 1rem;
   }
 
   .card-preview img {
-    width: 80%;
+    width: 45%;
     padding: 0.5rem;
   }
 
-  .player-card img {
-    padding: 0.4rem;
-  }
-
-  .card-explanation li {
-    font-size: 0.5rem;
-  }
-
-  .card-preview img:nth-child(1) { transform: translateX(-9vw) translateY(0.3vw) rotate(-5deg); }
-  .card-preview img:nth-child(2) { transform: translateX(-3vw) rotate(-2deg); }
-  .card-preview img:nth-child(3) { transform: translateX(3vw) rotate(2deg); }
-  .card-preview img:nth-child(4) { transform: translateX(9vw) translateY(0.3vw) rotate(5deg); }
+  .card-preview img:nth-child(1) { transform: translateX(-11vw) translateY(0.35vw) rotate(-5deg); }
+  .card-preview img:nth-child(2) { transform: translateX(-3.5vw) rotate(-2deg); }
+  .card-preview img:nth-child(3) { transform: translateX(3.5vw) rotate(2deg); }
+  .card-preview img:nth-child(4) { transform: translateX(11vw) translateY(0.35vw) rotate(5deg); }
 
   .card-preview img:hover {
     z-index: 10;
@@ -1490,9 +1939,9 @@ main a:hover {
     box-shadow: var(--box-shadow-hover);
   }
 
-  .card-preview img:nth-child(1):hover { --x: -9vw; --y: 0.3vw; --r: -5deg; }
-  .card-preview img:nth-child(2):hover { --x: -3vw; --r: -1deg; }
-  .card-preview img:nth-child(3):hover { --x: 3vw; --r: 1deg; }
-  .card-preview img:nth-child(4):hover { --x: 9vw; --y: 0.3vw; --r: 5deg; }
+  .card-preview img:nth-child(1):hover { --x: -11vw; --y: 0.35vw; --r: -5deg; }
+  .card-preview img:nth-child(2):hover { --x: -3.5vw; --r: -1deg; }
+  .card-preview img:nth-child(3):hover { --x: 3.5vw; --r: 1deg; }
+  .card-preview img:nth-child(4):hover { --x: 11vw; --y: 0.35vw; --r: 5deg; }
 
 }
