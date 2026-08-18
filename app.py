@@ -103,11 +103,10 @@ def sitemap():
         'content_about': 'templates/content_about.html',
         'socials': 'templates/content_socials.html',
         'projects': 'templates/content_projects.html',
+        'models': 'templates/content_models.html',
         'blog': 'templates/content_blog.html',
         'player_cards': 'templates/player_cards.html',
-        'compare_player_cards': 'templates/compare_player_cards.html',
         'team_cards': 'templates/team_cards.html',
-        'compare_team_cards': 'templates/compare_team_cards.html',
     }
 
     urls = []
@@ -177,6 +176,10 @@ def content_about():
 def projects():
     return render_template('content_projects.html')
 
+@app.route('/models')
+def models():
+    return render_template('content_models.html')
+
 
 
 @app.route('/blog')
@@ -212,7 +215,7 @@ def blog_post(post_url):
 
 
 @app.route('/player_cards', methods=['GET', 'POST'])
-def cards():
+def player_cards():
     with get_player_card_db() as conn:
         players = conn.execute(
             'SELECT player, season, position, team FROM player_card_data'
@@ -252,38 +255,6 @@ def cards():
         teams=teams,
         team_names=TEAM_NAMES,
         selected_card=selected_card,
-    )
-
-@app.route('/compare_player_cards', methods=['GET', 'POST'])
-def compare_cards():
-    with get_player_card_db() as conn:
-        players = conn.execute(
-            'SELECT player, season, position, team FROM player_card_data'
-        ).fetchall()
-
-        player_teams_data = conn.execute(
-            'SELECT DISTINCT season, team FROM player_card_data'
-        ).fetchall()
-
-        seasons = [row['season'] for row in conn.execute(
-            'SELECT DISTINCT season FROM player_card_data ORDER BY season DESC'
-        )]
-        positions = [row['position'] for row in conn.execute(
-            'SELECT DISTINCT position FROM player_card_data'
-        )]
-        teams = [row['team'] for row in conn.execute(
-            'SELECT DISTINCT team FROM player_card_data'
-        )]
-
-    return render_template(
-        'compare_player_cards.html',
-        players_list=players,
-        player_teams_data=player_teams_data,
-        seasons=seasons,
-        positions=positions,
-        position_names=POSITION_NAMES,
-        teams=teams,
-        team_names=TEAM_NAMES
     )
 
 @app.route('/player_card_image')
@@ -332,28 +303,6 @@ def team_cards():
         team_names=TEAM_NAMES,
         seasons=seasons,
         selected_card=selected_card
-    )
-
-@app.route('/compare_team_cards', methods=['GET', 'POST'])
-def compare_team_cards():
-    with get_team_card_db() as conn:
-        team_cards_data = conn.execute(
-            'SELECT team, season FROM team_card_data'
-        ).fetchall()
-
-        teams = [row['team'] for row in conn.execute(
-            'SELECT DISTINCT team FROM team_card_data'
-        )]
-        seasons = [row['season'] for row in conn.execute(
-            'SELECT DISTINCT season FROM team_card_data ORDER BY season DESC'
-        )]
-
-    return render_template(
-        'compare_team_cards.html',
-        teams=teams,
-        team_cards_data=team_cards_data,
-        team_names=TEAM_NAMES,
-        seasons=seasons
     )
 
 @app.route('/team_card_image')
