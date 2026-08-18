@@ -1916,6 +1916,17 @@ html.dark-mode .theme-icon--moon {
     font-size: 0.8rem;
   }
 
+  /* On mobile, compare cards stack full-width like single cards, so their
+     filters and button should match the single-card sizing instead of
+     staying capped at the narrower side-by-side compare width. */
+  .compare-card .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-card .generate-button {
+    max-width: 40.35rem;
+  }
+
   .horizontal-buttons {
     flex-direction: column;
     gap: 0.5rem;
