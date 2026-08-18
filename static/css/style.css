@@ -1114,6 +1114,7 @@ main a:hover {
   position: relative;
   width: 25rem;
   height: 25rem;
+  transform: scale(0.8);
   animation: spinner-rotate 1.6s linear infinite;
 }
 
@@ -1198,7 +1199,7 @@ main a:hover {
 
 @keyframes spinner-rotate {
   to {
-    transform: rotate(360deg);
+    transform: scale(0.8) rotate(360deg);
   }
 }
 
