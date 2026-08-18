@@ -1386,7 +1386,7 @@ main a:hover {
   border: none;
   cursor: pointer;
   font-family: var(--font-nav-title);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 0.03em;
   color: var(--text-main);
@@ -1482,7 +1482,7 @@ main a:hover {
   display: inline-block;
   color: var(--text-main);
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: bold;
   padding: 0.4rem 0.1rem;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -1715,7 +1715,7 @@ html.dark-mode .theme-icon--moon {
   }
 
   .nav-group-toggle {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 
   .nav-group-dropdown {
@@ -1723,7 +1723,7 @@ html.dark-mode .theme-icon--moon {
   }
 
   .dropdown-links li a {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .about-section {
