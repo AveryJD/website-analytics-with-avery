@@ -1,106 +1,268 @@
-<div class="card-explanation">
-
-    <h2>Player Card Explanation</h2>
+<h2>Player Card Explanation</h2>
 
     <p>
-        Skater's Overall, 5v5 Offense, 5v5 Defense, Power Play, and Penalty Kill are calculated using a Wins Above Replacement (WAR) model:
-        a regression that isolates each skater's own on-ice impact net of every teammate and opponent who shared the ice with them,
-        converted to a wins-denominated scale. A larger write-up on my model and methodology will be written soon. 
+        5v5 Offense, 5v5 Defense, 5v4 Offense (Power Play), and 4v5 Defense (Penalty Kill) are calculated with a 
+        <a href="/models#war-model">wins above replacement</a> (WAR) model, which converts each skater's on-ice impact, 
+        isolated using a ridge-regression model known as <a href="/models#rapm-model">regularized adjusted plus-minus</a> (RAPM), 
+        into a wins-denominated scale. Finishing and Penalties are also converted to a WAR scale. Finishing is goals scored above 
+        expected on a player's own shots, and Penalties is net penalty minutes drawn versus taken, valued by their
+        <a href="/models#xg-model">expected goals</a> worth, both shrunk toward zero to avoid inflated numbers when dealing with small 
+        samples. These six attributes are summed to give a player's Overall WAR.
     </p>
     <p>
-        All attributes are weighted based on the past 3 seasons, with the most recent season weighted the most for skaters, 
-        but goalies having equal weights over the past three seasons, due to higher variability at the position.
-        This gives a better overview of a player's overall skill instead of only single-season performance.
+        Each ranking shows the player's rank (large number, left), the qualifying player pool size (small number, bottom), and a
+        percentile bar showing how many players they rank above. Graphs plot yearly percentiles rather than the weighted average,
+        to highlight season-to-season change. To qualify, skaters need a pace of 300 minutes TOI over an 82 game season, 
+        and goalies need a pace of 13 games over an 82 game season (15% of games). Attributes shown on the cards are weighted over 
+        the past 3 seasons, with bigger weights going to the more recent seasons.
     </p>
     <p>
-        Each ranking section has the player's ranking for that attribute (the large number on the left),
-        out of the total number of players that qualify for that attribute (the small number on the bottom),
-        and a percentile bar showing the percentage of players that the selected player ranks above in that attribute (the bar on the right).
+        Data includes all games played up to and including July 1, 2026, and is sourced from the NHL API. NHL team logos and
+        player images used are the property of the NHL and its teams.
     </p>
-    <p>
-        Graphs show the yearly attribute percentiles, not the weighted percentiles.
-        This gives a clearer view of how player performance changes from season to season.
-    </p>
-    <p>
-        To qualify for rankings, skaters must have played at least 3.66 minutes per the total games in the season (300 minutes over an 82 game season),
-        goalies must have played 15% of the total games in the season (13 games in an 82 game season).
-    </p>
-    <p>Data includes all games played up to and including July 1, 2026.</p>
-    <p>All data used is sourced from the NHL API</p>
-    <p>NHL team logos and player images used are the property of the NHL and its teams.</p>
-
-    <h3>Skater Information</h3>
-    <ul>
-        <li><b>Position</b> - The skater's position as well as their handedness.</li>
-        <li><b>Role</b> - The skater's role on his team based on time on ice.</li>
-        <li><b>Age</b> - The skater's age as of September 1 of card's season and their date of birth.</li>
-        <li><b>Size</b> - The skater's height (in feet and inches) and weight (in pounds).</li>
-        <li><b>Games</b> - The skater's number of games played.</li>
-        <li><b>G-A-P</b> - The skater's goals, assists, and points in all situations.</li>
-        <li><b>xG</b> - The skater's expected goals in all situations.</li>
-        <li><b>5v5 xGF %</b> - The skater's 5-on-5 expected goals share (the percentage of expected goals the player's team scores versus concedes while the player is on the ice).</li>
-    </ul>
-
-    <h3>Skater Rankings</h3>
-    <ul>
-        <li><b>Overall War</b> - The skater's total Wins Above Replacement (WAR), a statistic that estimates how many wins a player contributes compared to a replacement-level player.</li>
-        <li><b>5v5 Offense</b> - The skater's 5-on-5 offensive WAR, a statistic that estimates how many wins a player contributes offensively compared to a replacement-level player.</li>
-        <li><b>5v5 Defense</b> - The skater's 5-on-5 defensive WAR, a statistic that estimates how many wins a player contributes defensively compared to a replacement-level player.</li>
-        <li><b>Power Play</b> - The skater's 5-on-4 (power play) offensive WAR. Requires averaging over 45 seconds of 5v4 ice time per game.</li>
-        <li><b>Penalty Kill</b> - The skater's 4-on-5 (penalty kill) defensive WAR. Requires averaging over 45 seconds of 4v5 ice time per game.</li>
-        <li><b>Finishing</b> - The skater's 5-on-5 finishing WAR, their goals scored above their own expected goals on the shots they took.</li>
-        <li><b>Penalties</b> - The skater's 5-on-5 penalty WAR, how good they are at drawing penalties versus taking penalties.</li>
-        <li><b>Goals</b> - The skater's 5-on-5 goal-scoring, adjusted to a per 60 minute rate.</li>
-        <li><b>xGoals</b> - The skater's 5-on-5  individual expected goals, adjusted to a per 60 minute rate.</li>
-        <li><b>Assists</b> - The skater's 5-on-5 assists (weighted toward primary assists), adjusted to a per 60 minute rate.</li>
-        <li><b>Physicality</b> - The skater's 5-on-5 physical play (hits delivered, plus hits taken at half weight), adjusted to a per 60 minute rate.</li>
-        <li><b>Teammates</b> - How good the skater's teammates were on average at 5-on-5, weighted by shared 5-on-5 ice time (deployment context, not a skill rating).</li>
-        <li><b>Competition</b> - How good the skater's opponents were on average at 5-on-5, weighted by shared 5-on-5 ice time (deployment context, not a skill rating).</li>
-        <li><b>O-Zone Starts</b> - The frequency of a skater's 5-on-5 shifts starting in the offensive zone (deployment context, not a skill rating).</li>
-        <li><b>PDO (Luck)</b> - The skater's on-ice shooting percentage plus on-ice save percentage at 5-on-5 (luck/sustainability context, not a skill rating).</li>
-    </ul>
-
-    <h3>Skater Graph</h3>
-    <ul>
-        <li><b>Purple Line</b> - The skater's yearly Overall percentile over the past 5 seasons.</li>
-        <li><b>Red Line</b> - The skater's yearly 5v5 Offense percentile over the past 5 seasons.</li>
-        <li><b>Blue Line</b> - The skater's yearly 5v5 Defense percentile over the past 5 seasons.</li>
-    </ul>
-
-    <h3>Goalie Information</h3>
-    <ul>
-        <li><b>Position</b> - The goalie's position and their handedness.</li>
-        <li><b>Role</b> - The goalie's role on his team based on games played.</li>
-        <li><b>Age</b> - The goalie's age as of September 1 of the selected season and their date of birth.</li>
-        <li><b>Size</b> - The goalie's height (in feet and inches) and weight (in pounds).</li>
-        <li><b>Games</b> - The goalie's number of games played.</li>
-        <li><b>W-L-OTL</b> - The goalie's wins, losses, and overtime losses.</li>
-        <li><b>Save %</b> - The goalie's save percentage (the percentage of shots on goal that they save).</li>
-        <li><b>GSAx</b> - The goalie's goals saved above expected (how many more goals they prevented compared to an average goalie facing the same shots).</li>
-    </ul>
-
-    <h3>Goalie Rankings</h3>
-    <ul>
-        <li><b>Overall War</b> - The goalie's total WAR.</li>
-        <li><b>Even Strength</b> - The goalie's 5-on-5 WAR.</li>
-        <li><b>Penalty Kill</b> - The goalie's 4-on-5 WAR.</li>
-        <li><b>Low Danger</b> - The goalie's performance at stopping low-danger shots, adjusted to a per 60 minute rate.</li>
-        <li><b>Medium Danger</b> - The goalie's performance at stopping medium-danger shots, adjusted to a per 60 minute rate.</li>
-        <li><b>High Danger</b> - The goalie's performance at stopping high-danger shots, adjusted to a per 60 minute rate.</li>
-        <li><b>Rebounds</b> - The goalie's performance at limiting rebound attempts, adjusted to a per 60 minute rate.</li>
-        <li><b>Team Defense</b> - Reflects the quality and quantity of shots a goalie faces. Higher rankings indicate stronger team defense, adjusted to a per 60 minute rate.</li>
-        <li><b>Great Starts</b> - The goalie's frequency of starts with a GSAx at or above +1.5, adjusted to a per game rate.</li>
-        <li><b>Quality Starts</b> - The goalie's frequency of starts with a GSAx at or above 0.0, adjusted to a per game rate.</li>
-        <li><b>Bad Starts</b> - The goalie's frequency of starts with a GSAx below 0.0, adjusted to a per game rate.</li>
-        <li><b>Awful Starts</b> - The goalie's frequency of starts with a GSAx at or below -1.5, adjusted to a per game rate.</li>
-        <li><b>Workload</b> - The goalie's games played plus total hours of time on ice (deployment context, not a skill rating).</li>
-    </ul>
-
-    <h3>Goalie Graph</h3>
-    <ul>
-        <li><b>Purple Line</b> - The goalie's yearly Overall WAR percentile over the past 5 seasons.</li>
-        <li><b>Red Line</b> - The goalie's yearly Even Strength percentile over the past 5 seasons.</li>
-        <li><b>Blue Line</b> - The goalie's yearly Penalty Kill percentile over the past 5 seasons.</li>
-    </ul>
-
-</div>
+    <p>The information below changes depending on the position filter: switching between a skater (Forward or Defense) and a Goalie swaps which explanation is shown.
+        Both explanations are shown if a skater and a goalie are selected when comparing cards.</p>
+ 
+    <div id="skater-explanation">
+ 
+    <div class="glossary-category">
+        <h3>Skater Information and Stats</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Position</h4>
+                <p>The skater's position as well as their handedness.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Role</h4>
+                <p>The skater's role on his team based on time on ice.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Age</h4>
+                <p>The skater's age as of September 1 of the selected season as well as their date of birth.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Size</h4>
+                <p>The skater's height (in feet and inches) and weight (in pounds).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Games</h4>
+                <p>The skater's number of games played.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>G-A-P</h4>
+                <p>The skater's goals, assists, and points in all situations.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>xG</h4>
+                <p>The skater's expected goals in all situations.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>5v5 xGF %</h4>
+                <p>The skater's 5v5 expected goals share (the percentage of expected goals the player's team scores versus concedes while the player is on the ice).</p>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="glossary-category">
+        <h3>Skater Rankings</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Overall WAR</h4>
+                <p>The skater's total Wins Above Replacement (WAR), a statistic that estimates how many wins a player contributes compared to a replacement-level player, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>5v5 Offense</h4>
+                <p>The skater's 5v5 offensive WAR, a statistic that estimates how many wins a player contributes offensively compared to a replacement-level player, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>5v5 Defense</h4>
+                <p>The skater's 5v5 defensive WAR, a statistic that estimates how many wins a player contributes defensively compared to a replacement-level player, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Power Play</h4>
+                <p>The skater's 5v4 (power play) offensive WAR, adjusted to a per game rate. Requires averaging over 45 seconds of 5v4 ice time per game.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Penalty Kill</h4>
+                <p>The skater's 4v5 (penalty kill) defensive WAR, adjusted to a per game rate. Requires averaging over 45 seconds of 4v5 ice time per game.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Finishing</h4>
+                <p>The skater's finishing WAR (across all strengths), their goals scored above their own expected goals on the shots they took, stabilized so a small sample of shots doesn't produce an inflated number, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Penalties</h4>
+                <p>The skater's penalty WAR (across all strengths), how good they are at drawing penalties versus taking penalties, stabilized so a handful of penalty events doesn't produce an inflated number, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Goals</h4>
+                <p>The skater's 5v5 goal-scoring, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>xGoals</h4>
+                <p>The skater's 5v5 individual expected goals, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Assists</h4>
+                <p>The skater's 5v5 assists (weighted toward primary assists), adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Physicality</h4>
+                <p>The skater's 5v5 physical play (hits delivered, plus hits taken at half weight), adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Teammates</h4>
+                <p>How good the skater's teammates were on average at 5v5, weighted by shared 5v5 ice time (deployment context, not a skill rating).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Competition</h4>
+                <p>How good the skater's opponents were on average at 5v5, weighted by shared 5v5 ice time (deployment context, not a skill rating).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>O-Zone Starts</h4>
+                <p>The frequency of a skater's 5v5 shifts starting in the offensive zone (deployment context, not a skill rating).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>PDO (Luck)</h4>
+                <p>The skater's on-ice shooting percentage plus on-ice save percentage at 5v5 (luck/sustainability context, not a skill rating).</p>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="glossary-category">
+        <h3>Skater Graph</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Purple Line</h4>
+                <p>The skater's yearly Overall WAR percentile over the past 5 seasons.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Red Line</h4>
+                <p>The skater's yearly 5v5 Offense WAR percentile over the past 5 seasons.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Blue Line</h4>
+                <p>The skater's yearly 5v5 Defense WAR percentile over the past 5 seasons.</p>
+            </div>
+        </div>
+    </div>
+ 
+    </div>
+ 
+    <div id="goalie-explanation">
+ 
+    <div class="glossary-category">
+        <h3>Goalie Information and Stats</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Position</h4>
+                <p>The goalie's position and their handedness.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Role</h4>
+                <p>The goalie's role on his team based on games played.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Age</h4>
+                <p>The goalie's age as of September 1 of the selected season and their date of birth.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Size</h4>
+                <p>The goalie's height (in feet and inches) and weight (in pounds).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Games</h4>
+                <p>The goalie's number of games played.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>W-L-OTL</h4>
+                <p>The goalie's wins, losses, and overtime losses.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Save %</h4>
+                <p>The goalie's save percentage (the percentage of shots on goal that they save).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>GSAx</h4>
+                <p>The goalie's goals saved above expected (how many more goals they prevented compared to an average goalie facing the same shots).</p>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="glossary-category">
+        <h3>Goalie Rankings</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Overall WAR</h4>
+                <p>The goalie's total WAR, built from GSAx that's stabilized against small-sample shots-against, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Even Strength</h4>
+                <p>The goalie's 5v5 WAR, built from GSAx that's stabilized against small-sample shots-against, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Penalty Kill</h4>
+                <p>The goalie's 4v5 WAR, built from GSAx that's stabilized against small-sample shots-against, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Low Danger</h4>
+                <p>The goalie's performance at stopping low-danger shots, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Medium Danger</h4>
+                <p>The goalie's performance at stopping medium-danger shots, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>High Danger</h4>
+                <p>The goalie's performance at stopping high-danger shots, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Rebounds</h4>
+                <p>The goalie's performance at limiting the danger (measured in xG) of rebound shots faced, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Team Defense</h4>
+                <p>The quality of shots (measured in xG) a goalie faces at 5v5 in front of their own team's defense, adjusted to a per game rate (deployment context, not a skill rating).</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Great Starts</h4>
+                <p>The goalie's frequency of starts with a GSAx at or above +1.5, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Quality Starts</h4>
+                <p>The goalie's frequency of starts with a GSAx at or above 0.0, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Bad Starts</h4>
+                <p>The goalie's frequency of starts with a GSAx below 0.0, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Awful Starts</h4>
+                <p>The goalie's frequency of starts with a GSAx at or below -1.5, adjusted to a per game rate.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Workload</h4>
+                <p>The goalie's games played plus total hours of time on ice (deployment context, not a skill rating).</p>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="glossary-category">
+        <h3>Goalie Graph</h3>
+        <div class="glossary-grid">
+            <div class="glossary-term">
+                <h4>Purple Line</h4>
+                <p>The goalie's yearly Overall WAR percentile over the past 5 seasons.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Red Line</h4>
+                <p>The goalie's yearly Even Strength WAR percentile over the past 5 seasons.</p>
+            </div>
+            <div class="glossary-term">
+                <h4>Blue Line</h4>
+                <p>The goalie's yearly Penalty Kill WAR percentile over the past 5 seasons.</p>
+            </div>
+        </div>
+    </div>
+ 
+    </div>
