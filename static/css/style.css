@@ -523,6 +523,13 @@ main a:hover {
   margin-top: 1.25rem;
 }
 
+.newest-post {
+  border: 2px solid var(--text-main);
+  border-radius: var(--main-radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
+
 .blog-post {
   font-family: var(--font-blog);
   background-color: var(--bg-section);
