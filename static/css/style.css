@@ -759,8 +759,10 @@ main a:hover {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1.25rem;
-  color: white;
-  background-color: var(--mid-purple);
+  color: var(--text-main);
+  background:
+    linear-gradient(var(--bg-page), var(--bg-page)) padding-box,
+    linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue)) border-box;
   border: 2px solid transparent;
   border-radius: var(--button-radius);
   margin: 0.5rem;
@@ -770,20 +772,22 @@ main a:hover {
 }
 
 .content-button a:hover {
-  color: white;
+  color: var(--text-main);
   text-decoration: none;
-  background-color: var(--secondary-purple);
+  background:
+    linear-gradient(var(--bg-section), var(--bg-section)) padding-box,
+    linear-gradient(90deg, var(--secondary-red), var(--secondary-purple), var(--secondary-blue)) border-box;
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
 
 .content-button a:link {
-  color: white;
+  color: var(--text-main);
   text-decoration: none;
 }
 
 .content-button a:visited {
-  color: white;
+  color: var(--text-main);
   text-decoration: none;
 }
 
@@ -816,12 +820,14 @@ main a:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 1.5rem;
-  border: 2px solid var(--mid-purple);
-  background-color: transparent;
-  color: var(--mid-purple);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg-page), var(--bg-page)) padding-box,
+    linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue)) border-box;
+  color: var(--text-main);
   border-radius: var(--button-radius);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .view-toggle button:hover {
@@ -829,9 +835,11 @@ main a:hover {
 }
 
 .view-toggle button.active {
-  background-color: var(--mid-purple);
-  color: white;
-  box-shadow: var(--box-shadow);
+  background:
+    linear-gradient(var(--bg-section), var(--bg-section)) padding-box,
+    linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue)) border-box;
+  color: var(--text-main);
+  box-shadow: none;
 }
 
 /* ==================== MODELS / GLOSSARY ==================== */
@@ -851,15 +859,14 @@ main a:hover {
 .glossary-category h3 {
   text-align: left;
   padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px solid var(--mid-purple);
+  margin-bottom: 0.25rem;
 }
 
 .glossary-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   text-align: left;
 }
 
@@ -1158,8 +1165,10 @@ main a:hover {
 }
 
 .generate-button {
-  background-color: var(--mid-purple);
-  color: white;
+  background:
+    linear-gradient(var(--bg-page), var(--bg-page)) padding-box,
+    linear-gradient(90deg, var(--primary-red), var(--mid-purple), var(--primary-blue)) border-box;
+  color: var(--text-main);
   font-weight: bold;
   font-size: 1.25rem;
   text-transform: uppercase;
@@ -1194,7 +1203,9 @@ main a:hover {
 }
 
 .generate-button:hover {
-  background-color: var(--secondary-purple);
+  background:
+    linear-gradient(var(--bg-section), var(--bg-section)) padding-box,
+    linear-gradient(90deg, var(--secondary-red), var(--secondary-purple), var(--secondary-blue)) border-box;
   transform: scale(1.05);
   box-shadow: var(--box-shadow-hover);
 }
@@ -1572,6 +1583,17 @@ html.dark-mode .theme-icon--moon {
     flex: 0 0 100%;
     max-width: 100%;
     margin-bottom: 1rem;
+  }
+
+  /* Once compare cards stack to full width, their filters and button
+     should match the single-card sizing instead of staying capped at
+     the narrower side-by-side compare width. */
+  .compare-card .filters-row {
+    grid-template-columns: repeat(2, minmax(0, 20rem));
+  }
+
+  .compare-card .generate-button {
+    max-width: 40.35rem;
   }
 
 }
