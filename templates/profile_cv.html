@@ -6,12 +6,12 @@
 
 {% block og_title %}Analytics With Avery | Avery Doiron's CV{% endblock %}
 {% block og_description %}Explore Avery Doiron's professional CV, highlighting experience, technical skills, and analytics projects.{% endblock %}
-{% block og_image %}https://analyticswithavery.com/static/assets/documents/avery_doiron_cv_light.png{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/documents/avery_doiron_cv_light_p1.png{% endblock %}
 {% block og_url %}https://analyticswithavery.com/cv{% endblock %}
 
 {% block twitter_title %}Analytics With Avery | Avery Doiron's CV{% endblock %}
 {% block twitter_description %}View and download Avery Doiron's CV, showcasing experience, technical skills, and sports analytics projects.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/documents/avery_doiron_cv_light.png{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/documents/avery_doiron_cv_light_p1.png{% endblock %}
 
 {% block content %}
   <h1>My CV</h1>
@@ -22,16 +22,24 @@
       Here you can view my current CV. Click the icon to download a copy.
     </p>
 
-    <a href="{{ url_for('static', filename='assets/documents/avery_doiron_cv.pdf') }}" class="download-link" download>
+    <a href="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.pdf') }}" class="download-link" download>
       <img class="download-image" src="{{ url_for('static', filename='assets/icons/download.png') }}" alt="Download CV">
     </a>
 
     <img
       class="cv-image"
-      src="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.png') }}"
-      data-light="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.png') }}"
-      data-dark="{{ url_for('static', filename='assets/documents/avery_doiron_cv_dark.png') }}"
-      alt="Avery Doiron's CV"
+      src="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light_p1.png') }}"
+      data-light="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light_p1.png') }}"
+      data-dark="{{ url_for('static', filename='assets/documents/avery_doiron_cv_dark_p1.png') }}"
+      alt="Avery Doiron's CV, page 1"
+    >
+
+    <img
+      class="cv-image"
+      src="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light_p2.png') }}"
+      data-light="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light_p2.png') }}"
+      data-dark="{{ url_for('static', filename='assets/documents/avery_doiron_cv_dark_p2.png') }}"
+      alt="Avery Doiron's CV, page 2"
     >
   </div>
 {% endblock %}
