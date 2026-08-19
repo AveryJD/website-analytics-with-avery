@@ -5,6 +5,8 @@ import io
 import logging
 import os
 import subprocess
+import threading
+from collections import OrderedDict
 from functools import lru_cache
 from bs4 import BeautifulSoup
 
@@ -65,6 +67,32 @@ def get_last_modified(template_path):
     except Exception:
         pass
     return date.today().isoformat()
+
+
+# In-memory cache for generated card PNGs, keyed by the exact inputs that determine
+# a card's output. Cards are deterministic for a given key, so once generated, repeat
+# requests (which happen constantly, since the "Generate Card" button re-requests the
+# same defaults on page load) are served instantly instead of re-rendering from scratch.
+# Bounded with simple LRU eviction so this can't grow without limit.
+CARD_IMAGE_CACHE_MAX = int(os.environ.get('CARD_IMAGE_CACHE_MAX', 100))
+_card_image_cache = OrderedDict()
+_card_image_cache_lock = threading.Lock()
+
+
+def get_cached_card_image(key):
+    with _card_image_cache_lock:
+        png_bytes = _card_image_cache.get(key)
+        if png_bytes is not None:
+            _card_image_cache.move_to_end(key)
+        return png_bytes
+
+
+def set_cached_card_image(key, png_bytes):
+    with _card_image_cache_lock:
+        _card_image_cache[key] = png_bytes
+        _card_image_cache.move_to_end(key)
+        while len(_card_image_cache) > CARD_IMAGE_CACHE_MAX:
+            _card_image_cache.popitem(last=False)
 
 
 def optimize_post_images(html):
@@ -264,13 +292,18 @@ def player_card_image():
     position = request.args.get('position')
     mode = request.args.get('mode', 'light')
 
+    cache_key = ('player', player_name, season, position, mode)
+    png_bytes = get_cached_card_image(cache_key)
 
-    img = make_player_card(player_name, season, position, mode=mode, save=False)
+    if png_bytes is None:
+        img = make_player_card(player_name, season, position, mode=mode, save=False)
 
-    buf = io.BytesIO()
-    img.save(buf, format='PNG')
-    buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+        buf = io.BytesIO()
+        img.save(buf, format='PNG')
+        png_bytes = buf.getvalue()
+        set_cached_card_image(cache_key, png_bytes)
+
+    return send_file(io.BytesIO(png_bytes), mimetype='image/png')
 
 
 
@@ -311,12 +344,18 @@ def team_card_image():
     season = request.args.get('season')
     mode = request.args.get('mode', 'light')
 
-    img = make_team_card(team, season, mode=mode, save=False)
+    cache_key = ('team', team, season, mode)
+    png_bytes = get_cached_card_image(cache_key)
 
-    buf = io.BytesIO()
-    img.save(buf, format='PNG')
-    buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    if png_bytes is None:
+        img = make_team_card(team, season, mode=mode, save=False)
+
+        buf = io.BytesIO()
+        img.save(buf, format='PNG')
+        png_bytes = buf.getvalue()
+        set_cached_card_image(cache_key, png_bytes)
+
+    return send_file(io.BytesIO(png_bytes), mimetype='image/png')
 
 
 
