@@ -205,6 +205,19 @@ function setupPlayerFilter(suffix) {
     const mode = getSiteMode();
     applyCardMode();
 
+    const imgSrc = `/player_card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${encodeURIComponent(selected.value)}&mode=${mode}`;
+
+    const cardLink = document.getElementById(`card-link-${suffix}`);
+    if (cardLink) cardLink.href = imgSrc;
+
+    // If this exact card is already showing, the browser won't fire a new
+    // load event for an unchanged src, so just make sure it's visible.
+    if (card.src === new URL(imgSrc, window.location.href).href) {
+      if (spinner) spinner.style.display = "none";
+      card.style.display = "block";
+      return;
+    }
+
     card.style.display = "none";
     if (spinner) spinner.style.display = "flex";
 
@@ -218,11 +231,7 @@ function setupPlayerFilter(suffix) {
       console.error(`Failed to load card image for ${selected.value}`);
     };
 
-    const imgSrc = `/player_card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${encodeURIComponent(selected.value)}&mode=${mode}`;
-    card.src = imgSrc + `&t=${Date.now()}`;
-
-    const cardLink = document.getElementById(`card-link-${suffix}`);
-    if (cardLink) cardLink.href = imgSrc;
+    card.src = imgSrc;
   }
 
   season.addEventListener("change", () => {
@@ -329,6 +338,19 @@ function setupTeamFilter(suffix) {
 
     applyCardMode();
 
+    const imgSrc = `/team_card_image?season=${selectedSeason}&team=${encodeURIComponent(selectedTeam)}&mode=${mode}`;
+
+    const cardLink = document.getElementById(`team-card-link-${suffix}`);
+    if (cardLink) cardLink.href = imgSrc;
+
+    // If this exact card is already showing, the browser won't fire a new
+    // load event for an unchanged src, so just make sure it's visible.
+    if (card.src === new URL(imgSrc, window.location.href).href) {
+      if (spinner) spinner.style.display = "none";
+      card.style.display = "block";
+      return;
+    }
+
     card.style.display = "none";
     if (spinner) spinner.style.display = "flex";
 
@@ -342,11 +364,7 @@ function setupTeamFilter(suffix) {
       console.error(`Failed to load team card image for ${selectedTeam}`);
     };
 
-    const imgSrc = `/team_card_image?season=${selectedSeason}&team=${encodeURIComponent(selectedTeam)}&mode=${mode}`;
-    card.src = imgSrc + `&t=${Date.now()}`;
-
-    const cardLink = document.getElementById(`team-card-link-${suffix}`);
-    if (cardLink) cardLink.href = imgSrc;
+    card.src = imgSrc;
   }
 
   season.addEventListener("change", filterTeams);
