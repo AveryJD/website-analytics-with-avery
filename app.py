@@ -95,16 +95,16 @@ def home():
 def sitemap():
     pages = {
         'home': 'templates/index.html',
-        'profile_about': 'templates/profile_about.html',
-        'contact': 'templates/profile_contact.html',
-        'education': 'templates/profile_education.html',
-        'experience': 'templates/profile_experience.html',
-        'cv': 'templates/profile_cv.html',
-        'content_about': 'templates/content_about.html',
-        'socials': 'templates/content_socials.html',
-        'projects': 'templates/content_projects.html',
-        'models': 'templates/content_models.html',
-        'blog': 'templates/content_blog.html',
+        'profile_about': 'templates/about_me.html',
+        'contact': 'templates/contact.html',
+        'education': 'templates/education.html',
+        'experience': 'templates/experience.html',
+        'cv': 'templates/cv.html',
+        'content_about': 'templates/about_content.html',
+        'socials': 'templates/socials.html',
+        'projects': 'templates/projects.html',
+        'models': 'templates/models.html',
+        'blog': 'templates/blog.html',
         'player_cards': 'templates/player_cards.html',
         'team_cards': 'templates/team_cards.html',
     }
@@ -146,39 +146,39 @@ def sitemap():
 
 @app.route('/profile_about')
 def profile_about():
-    return render_template('profile_about.html')
+    return render_template('about_me.html')
 
 @app.route('/education')
 def education():
-    return render_template('profile_education.html')
+    return render_template('education.html')
 
 @app.route('/experience')
 def experience():
-    return render_template('profile_experience.html')
+    return render_template('experience.html')
 
 @app.route('/cv')
 def cv():
-    return render_template('profile_cv.html')
+    return render_template('cv.html')
 
 @app.route('/contact')
 def contact():
-    return render_template('profile_contact.html')
+    return render_template('contact.html')
 
 @app.route('/socials')
 def socials():
-    return render_template('content_socials.html')
+    return render_template('socials.html')
 
 @app.route('/content_about')
 def content_about():
-    return render_template('content_about.html')
+    return render_template('about_content.html')
 
 @app.route('/projects')
 def projects():
-    return render_template('content_projects.html')
+    return render_template('projects.html')
 
 @app.route('/models')
 def models():
-    return render_template('content_models.html')
+    return render_template('models.html')
 
 
 
@@ -192,7 +192,7 @@ def blog():
         converted_post = dict(post)
         converted_posts.append(converted_post)
 
-    return render_template('content_blog.html', posts=converted_posts)
+    return render_template('blog.html', posts=converted_posts)
 
 @app.route('/blog/<string:post_url>')
 def blog_post(post_url):
