@@ -15,7 +15,7 @@ from database.player_card_database import get_player_card_db, delete_player_card
 from database.team_card_database import get_team_card_db, delete_team_card_tables, create_team_card_tables, import_team_card_data
 
 from player_card_project.generate_cards.card_generation import make_player_card
-from team_card_project.utils.card_functions import make_team_card
+from team_card_project.generate_cards.card_generation import make_team_card
 
 
 
