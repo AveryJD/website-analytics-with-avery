@@ -742,6 +742,10 @@ main a:hover {
   justify-content: center;
 }
 
+.back-link-button {
+  margin-bottom: 1.25rem;
+}
+
 .horizontal-buttons .content-button {
   flex: 1 1 0;
 }
@@ -1044,7 +1048,7 @@ main a:hover {
 .schedule-preview {
   display: block;
   width: 100%;
-  max-width: 50rem;
+  max-width: 90rem;
   margin: 2rem auto;
   border: var(--border);
   border-radius: var(--main-radius);
@@ -1919,5 +1923,75 @@ html.dark-mode .theme-icon--moon {
   .card-preview img:nth-child(2):hover { --x: -3.5vw; --r: -1deg; }
   .card-preview img:nth-child(3):hover { --x: 3.5vw; --r: 1deg; }
   .card-preview img:nth-child(4):hover { --x: 11vw; --y: 0.35vw; --r: 5deg; }
+
+}
+
+/* ==================== SCHEDULE GA PROJECT ==================== */
+
+.hyperparameter-plot-grid {
+  margin-bottom: 2.5rem;
+}
+
+.schedule-select-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0.5rem auto 0;
+  max-width: 20rem;
+  font-size: 1.3rem;
+}
+
+.schedule-select-row label {
+  font-weight: bold;
+}
+
+.schedule-select-row select {
+  font-family: var(--font-main);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--main-radius);
+  border: var(--border);
+  width: 95%;
+  max-width: 20rem;
+  text-align: center;
+  text-align-last: center;
+  font-size: 1.3rem;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.schedule-select-row select:hover {
+  transform: scale(1.03);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.schedule-select-row select:focus-visible {
+  outline: 3px solid var(--text-main);
+  outline-offset: 3px;
+}
+
+.plot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.plot-grid img {
+  display: block;
+  width: 100%;
+  border: var(--border);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 768px) {
+
+  .plot-grid {
+    grid-template-columns: 1fr;
+  }
 
 }
