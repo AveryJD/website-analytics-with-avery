@@ -41,6 +41,14 @@ POSITION_NAMES = {
 }
 
 
+SCHEDULE_GA_TEAMS = [
+    'ANA', 'BOS', 'BUF', 'CGY', 'CAR', 'CHI', 'COL', 'CBJ', 'DAL', 'DET',
+    'EDM', 'FLA', 'LAK', 'MIN', 'MTL', 'NSH', 'NJD', 'NYI', 'NYR', 'OTT',
+    'PHI', 'PIT', 'SJS', 'SEA', 'STL', 'TBL', 'TOR', 'VAN', 'UTA', 'VGK',
+    'WSH', 'WPG',
+]
+
+
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 
@@ -135,6 +143,7 @@ def sitemap():
         'blog': 'templates/blog.html',
         'player_cards': 'templates/player_cards.html',
         'team_cards': 'templates/team_cards.html',
+        'schedule_ga': 'templates/schedule_ga.html',
     }
 
     urls = []
@@ -207,6 +216,11 @@ def projects():
 @app.route('/models')
 def models():
     return render_template('models.html')
+
+@app.route('/schedule_ga')
+def schedule_ga():
+    teams = sorted(SCHEDULE_GA_TEAMS, key=lambda t: TEAM_NAMES[t])
+    return render_template('schedule_ga.html', teams=teams, team_names=TEAM_NAMES)
 
 
 
