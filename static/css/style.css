@@ -738,11 +738,9 @@ main a:hover {
 .content-button {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
 .content-button h2 {
-  width: 100%;
   margin: 0;
 }
 
@@ -750,14 +748,8 @@ main a:hover {
   margin-bottom: 1.25rem;
 }
 
-.horizontal-buttons .content-button {
-  flex: 1 1 0;
-}
-
 .content-button a {
   text-decoration: none;
-  width: 100%;
-  max-width: 30rem;
   text-align: center;
   font-size: 1.25rem;
   font-weight: bold;
@@ -1889,10 +1881,6 @@ html.dark-mode .theme-icon--moon {
   .horizontal-buttons {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .horizontal-buttons .content-button {
-    flex: 0 1 auto;
   }
 
   .card-preview {
