@@ -1179,18 +1179,12 @@ main a:hover {
   justify-content: center;
   text-decoration: none;
   padding: 0.5rem 1.25rem;
-  width: 95%;
-  max-width: 40.35rem;
   margin: 0.5rem;
   border: 2px solid transparent;
   border-radius: var(--button-radius);
   box-shadow: var(--box-shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
-}
-
-.compare-card .generate-button {
-  max-width: 20rem;
 }
 
 .generate-button a {
@@ -1592,10 +1586,6 @@ html.dark-mode .theme-icon--moon {
     grid-template-columns: repeat(2, minmax(0, 20rem));
   }
 
-  .compare-card .generate-button {
-    max-width: 40.35rem;
-  }
-
 }
 
 @media (max-width: 1024px) {
@@ -1872,10 +1862,6 @@ html.dark-mode .theme-icon--moon {
 
   .compare-card .filters-row {
     grid-template-columns: 1fr;
-  }
-
-  .compare-card .generate-button {
-    max-width: 40.35rem;
   }
 
   .horizontal-buttons {
