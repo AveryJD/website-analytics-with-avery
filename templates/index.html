@@ -40,95 +40,97 @@
   <div class="card-section">
     <h2>Featured Projects</h2>
 
-    <div class="content-button">
-      <h2><a href="/player_cards">NHL Player Cards</a></h2>
-    </div>
-    <div class="card-preview">
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_dark.webp') }}"
-        alt="Sample NHL player card for Moritz Seider showing WAR, 5v5 offense/defense, and season trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_dark.webp') }}"
-        alt="Sample NHL player card for David Pastrnak showing WAR, 5v5 offense/defense, and season trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_dark.webp') }}"
-        alt="Sample NHL player card for Miro Heiskanen showing WAR, 5v5 offense/defense, and season trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_dark.webp') }}"
-        alt="Sample NHL player card for Nikita Kucherov showing WAR, 5v5 offense/defense, and season trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-    </div>
-
-    <div class="content-button">
-      <h2><a href="/team_cards">NHL Team Cards</a></h2>
-    </div>
-    <div class="card-preview">
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_dark.webp') }}"
-        alt="Sample NHL team card for the Anaheim Ducks showing standings, 5v5 stats, and Elo rating trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_dark.webp') }}"
-        alt="Sample NHL team card for the Utah Mammoth showing standings, 5v5 stats, and Elo rating trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_dark.webp') }}"
-        alt="Sample NHL team card for the Florida Panthers showing standings, 5v5 stats, and Elo rating trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_dark.webp') }}"
-        alt="Sample NHL team card for the New York Rangers showing standings, 5v5 stats, and Elo rating trends"
-        class="player-card preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
+    <div class="featured-project">
+      <div class="content-button">
+        <h2><a href="/player_cards">NHL Player Cards</a></h2>
+      </div>
+      <div class="card-preview">
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_dark.webp') }}"
+          alt="Sample NHL player card for Moritz Seider showing WAR, 5v5 offense/defense, and season trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_dark.webp') }}"
+          alt="Sample NHL player card for David Pastrnak showing WAR, 5v5 offense/defense, and season trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_dark.webp') }}"
+          alt="Sample NHL player card for Miro Heiskanen showing WAR, 5v5 offense/defense, and season trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_dark.webp') }}"
+          alt="Sample NHL player card for Nikita Kucherov showing WAR, 5v5 offense/defense, and season trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
     </div>
 
-    <div class="content-button">
-      <a href="/projects">View All Projects</a>
+    <div class="featured-project">
+      <div class="content-button">
+        <h2><a href="/team_cards">NHL Team Cards</a></h2>
+      </div>
+      <div class="card-preview">
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_dark.webp') }}"
+          alt="Sample NHL team card for the Anaheim Ducks showing standings, 5v5 stats, and Elo rating trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_dark.webp') }}"
+          alt="Sample NHL team card for the Utah Mammoth showing standings, 5v5 stats, and Elo rating trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_dark.webp') }}"
+          alt="Sample NHL team card for the Florida Panthers showing standings, 5v5 stats, and Elo rating trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_dark.webp') }}"
+          alt="Sample NHL team card for the New York Rangers showing standings, 5v5 stats, and Elo rating trends"
+          class="player-card preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
     </div>
-    <div class="content-button">
-      <a href="/models">View the Models</a>
+
+    <div class="horizontal-buttons">
+      <div class="content-button"><a href="/projects">View All Projects</a></div>
+      <div class="content-button"><a href="/models">View the Models</a></div>
     </div>
   </div>
 
@@ -176,6 +178,20 @@
 
     <div class="content-button">
       <a href="/socials">My Socials</a>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <h2>Support My Work</h2>
+    <p>
+      I plan to keep all of my content completely free, but if you really enjoy any of my projects or blog posts, you can send me a donation. 
+      Donations are not necessary at all, and I will continue to work on my content regardless, as I genuinely enjoy doing this, but small 
+      donations can help me cover some of the costs that occur with running this website and some of my other work. 
+      Thank you to anyone who chooses to donate to me!
+    </p>
+
+    <div class="content-button">
+      <a href="https://www.buymeacoffee.com/analyticswithavery" target="_blank" rel="noopener noreferrer">Donate</a>
     </div>
   </div>
 {% endblock %}
