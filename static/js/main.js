@@ -61,7 +61,7 @@ function getSiteMode() {
 
 function updatePreviewThemeCards() {
   const isDark = document.documentElement.classList.contains("dark-mode");
-  const themedImages = document.querySelectorAll(".preview-theme-card, .cv-image");
+  const themedImages = document.querySelectorAll(".preview-theme-card, .cv-image, .download-image");
 
   themedImages.forEach(img => {
     img.src = isDark ? img.dataset.dark : img.dataset.light;

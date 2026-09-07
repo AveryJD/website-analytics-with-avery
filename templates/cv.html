@@ -17,13 +17,22 @@
   <h1>My CV</h1>
 
   <div class="cv-section">
-    <h2>Learn About My Professional History</h2>
+    <h2>View and Download My CV</h2>
     <p>
-      Here you can view my current CV. Click the icon to download a copy.
+      Here you can view my current CV, covering my contact, summary, education, professional experience, personal projects, and technical skills. 
+      Click the icon below to download a copy, or visit my <a href="/experience">Experience</a> and <a href="/education">Education</a>
+      pages for more detail on any of it.
     </p>
+    <p><em>Last updated: September 2026</em></p>
 
     <a href="{{ url_for('static', filename='assets/documents/avery_doiron_cv_light.pdf') }}" class="download-link" download>
-      <img class="download-image" src="{{ url_for('static', filename='assets/icons/download.png') }}" alt="Download CV">
+      <img
+        class="download-image"
+        src="{{ url_for('static', filename='assets/icons/download.png') }}"
+        data-light="{{ url_for('static', filename='assets/icons/download.png') }}"
+        data-dark="{{ url_for('static', filename='assets/icons/download_dark.png') }}"
+        alt="Download CV"
+      >
     </a>
 
     <img
