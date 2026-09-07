@@ -144,6 +144,7 @@ def sitemap():
         'player_cards': 'templates/player_cards.html',
         'team_cards': 'templates/team_cards.html',
         'schedule_ga': 'templates/schedule_ga.html',
+        'interview_analysis': 'templates/interview_analysis.html',
     }
 
     urls = []
@@ -221,6 +222,10 @@ def models():
 def schedule_ga():
     teams = sorted(SCHEDULE_GA_TEAMS, key=lambda t: TEAM_NAMES[t])
     return render_template('schedule_ga.html', teams=teams, team_names=TEAM_NAMES)
+
+@app.route('/interview_analysis')
+def interview_analysis():
+    return render_template('interview_analysis.html')
 
 
 
