@@ -51,4 +51,108 @@
       alt="Avery Doiron's CV, page 2"
     >
   </div>
+
+  <div class="cv-section">
+    <h2>My Timeline</h2>
+    <p>
+      A quick look at my experience and education side by side with my most recent roles shown first. See my <a href="/experience">Experience</a> and
+      <a href="/education">Education</a> pages for more details.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-spine-line"></div>
+      <div class="timeline-spine-arrow"></div>
+      <div class="timeline-end-dot"></div>
+
+      <div class="timeline-row">
+        <div class="timeline-item timeline-education">
+          <div class="timeline-content">
+            <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
+            <p class="timeline-role">Fourth Year BSc (Honours)</p>
+            <p class="timeline-date">September 2026 - Present</p>
+          </div>
+          <div class="timeline-connector">
+            <div class="timeline-dot"></div>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-experience">
+          <div class="timeline-connector">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/owen_sound_attack.png') }}" alt="Owen Sound Attack Logo">
+            <p class="timeline-role">Hockey Operations Analyst Volunteer</p>
+            <p class="timeline-date">September 2026 - Present</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-experience">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
+          <p class="timeline-role">Undergraduate Research Intern</p>
+          <p class="timeline-date">May 2026 - August 2026</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-education timeline-gap-above">
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
+          <p class="timeline-role">Third Year BSc (Honours)</p>
+          <p class="timeline-date">September 2025 - April 2026</p>
+        </div>
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-experience timeline-gap-tight">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/seasi_ai.png') }}" alt="SEASI AI Logo">
+          <p class="timeline-role">Junior Technical Analyst</p>
+          <p class="timeline-date">May 2025 - August 2025</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-education timeline-gap-tight">
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
+          <p class="timeline-role">Second Year BSc (Honours)</p>
+          <p class="timeline-date">September 2024 - April 2025</p>
+        </div>
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-experience timeline-gap-tight">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/seasi_ai.png') }}" alt="SEASI AI Logo">
+          <p class="timeline-role">Junior Technical Analyst</p>
+          <p class="timeline-date">May 2024 - June 2024</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-education timeline-gap-tight">
+        <div class="timeline-content">
+          <img class="timeline-logo" src="{{ url_for('static', filename='assets/logos/stfx.png') }}" alt="StFX Logo">
+          <p class="timeline-role">First Year BSc (Honours)</p>
+          <p class="timeline-date">September 2023 - April 2024</p>
+        </div>
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
