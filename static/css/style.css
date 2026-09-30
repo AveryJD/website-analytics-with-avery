@@ -850,6 +850,23 @@ main a:hover {
   border: 5px solid rgb(117, 124, 136);
 }
 
+.list-graphic {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.list-graphic img {
+  flex: 0 0 auto; 
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
+
 /* ==================== CARD PROJECTS ==================== */
 
 .card-section {
@@ -2073,6 +2090,10 @@ html.dark-mode .theme-icon--moon {
   .award-runner-up img {
     border-radius: 2px;
     border: 2px solid rgb(117, 124, 136);
+  }
+
+  .list-graphic img {
+    width: 100%;
   }
     
   .content-button a {
