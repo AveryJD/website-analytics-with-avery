@@ -1,16 +1,15 @@
 from flask import Flask, render_template, request, send_file, Response, url_for, abort
-from datetime import date, datetime
-import markdown
+import click
 import io
 import logging
 import os
 import subprocess
 import threading
 from collections import OrderedDict
+from datetime import date
 from functools import lru_cache
-from bs4 import BeautifulSoup
 
-from database.blog_database import get_blog_db, delete_blog_tables, create_blog_tables, import_blog_posts
+from blog import POSTS, POSTS_BY_URL
 from database.player_card_database import get_player_card_db, delete_player_card_tables, create_player_card_tables, import_player_card_data
 from database.team_card_database import get_team_card_db, delete_team_card_tables, create_team_card_tables, import_team_card_data
 
@@ -59,6 +58,24 @@ def page_not_found(e):
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# Static pages included in the sitemap: endpoint name -> template file.
+SITEMAP_PAGES = {
+    'home': 'templates/index.html',
+    'profile_about': 'templates/about_me.html',
+    'contact': 'templates/contact.html',
+    'education': 'templates/education.html',
+    'experience': 'templates/experience.html',
+    'cv': 'templates/cv.html',
+    'content_about': 'templates/about_content.html',
+    'socials': 'templates/socials.html',
+    'projects': 'templates/projects.html',
+    'models': 'templates/models.html',
+    'blog': 'templates/blog.html',
+    'player_cards': 'templates/player_cards.html',
+    'team_cards': 'templates/team_cards.html',
+    'schedule_ga': 'templates/schedule_ga.html',
+    'interview_analysis': 'templates/interview_analysis.html',
+}
 
 @lru_cache(maxsize=None)
 def get_last_modified(template_path):
@@ -103,68 +120,28 @@ def set_cached_card_image(key, png_bytes):
             _card_image_cache.popitem(last=False)
 
 
-def optimize_post_images(html):
-    soup = BeautifulSoup(html, "html.parser")
-
-    for img in soup.find_all("img"):
-        img["loading"] = "lazy"
-        img["decoding"] = "async"
-
-        existing_class = img.get("class", [])
-        if "blog-image" not in existing_class:
-            existing_class.append("blog-image")
-        img["class"] = existing_class
-
-    return str(soup)
-
-
 @app.route('/')
 def home():
-    with get_blog_db() as conn:
-        post = conn.execute('SELECT * FROM blog_posts ORDER BY id DESC LIMIT 1').fetchone()
-
-    most_recent_post = dict(post) if post else None
+    most_recent_post = POSTS[0] if POSTS else None
     return render_template('index.html', post=most_recent_post)
 
 
 @app.route('/sitemap.xml')
 def sitemap():
-    pages = {
-        'home': 'templates/index.html',
-        'profile_about': 'templates/about_me.html',
-        'contact': 'templates/contact.html',
-        'education': 'templates/education.html',
-        'experience': 'templates/experience.html',
-        'cv': 'templates/cv.html',
-        'content_about': 'templates/about_content.html',
-        'socials': 'templates/socials.html',
-        'projects': 'templates/projects.html',
-        'models': 'templates/models.html',
-        'blog': 'templates/blog.html',
-        'player_cards': 'templates/player_cards.html',
-        'team_cards': 'templates/team_cards.html',
-        'schedule_ga': 'templates/schedule_ga.html',
-        'interview_analysis': 'templates/interview_analysis.html',
-    }
-
     urls = []
 
     # Static pages
-    for page, template_path in pages.items():
+    for endpoint, template_path in SITEMAP_PAGES.items():
         urls.append({
-            'loc': url_for(page, _external=True),
+            'loc': url_for(endpoint, _external=True),
             'lastmod': get_last_modified(template_path)
         })
 
     # Blog posts
-    with get_blog_db() as conn:
-        posts = conn.execute('SELECT id, url, date FROM blog_posts').fetchall()
-
-    for post in posts:
-        lastmod = datetime.strptime(post['date'], '%B %d, %Y').date().isoformat()
+    for post in POSTS:
         urls.append({
             'loc': url_for('blog_post', post_url=post['url'], _external=True),
-            'lastmod': lastmod
+            'lastmod': post['modified_iso_date']
         })
 
     xml = ['<?xml version="1.0" encoding="UTF-8"?>']
@@ -231,33 +208,17 @@ def interview_analysis():
 
 @app.route('/blog')
 def blog():
-    with get_blog_db() as conn:
-        posts = conn.execute('SELECT * FROM blog_posts ORDER BY id DESC').fetchall()
-
-    converted_posts = []
-    for post in posts:
-        converted_post = dict(post)
-        converted_posts.append(converted_post)
-
-    return render_template('blog.html', posts=converted_posts)
+    return render_template('blog.html', posts=POSTS)
 
 @app.route('/blog/<string:post_url>')
 def blog_post(post_url):
-    with get_blog_db() as conn:
-        post = conn.execute('SELECT * FROM blog_posts WHERE url = ?', (post_url,)).fetchone()
-
+    post = POSTS_BY_URL.get(post_url)
     if not post:
         abort(404)
 
-    converted_post = dict(post)
+    logging.info(f"========== Blog post opened: {post['title']} ==========")
 
-    html_content = markdown.markdown(post['content'], extensions=['tables'])
-    converted_post['content'] = optimize_post_images(html_content)
-    converted_post['iso_date'] = datetime.strptime(post['date'], '%B %d, %Y').date().isoformat()
-
-    logging.info(f"========== Blog post opened: {converted_post['title']} ==========")
-
-    return render_template('blog_post.html', post=converted_post)
+    return render_template('blog_post.html', post=post)
 
 
 
@@ -378,17 +339,18 @@ def team_card_image():
 
 
 
-delete_blog_tables()
-create_blog_tables()
-import_blog_posts()
+@app.cli.command('init-db')
+def init_db():
+    """Build the player and team card databases from the CSV data."""
+    delete_player_card_tables()
+    create_player_card_tables()
+    import_player_card_data()
 
-delete_player_card_tables()
-create_player_card_tables()
-import_player_card_data()
+    delete_team_card_tables()
+    create_team_card_tables()
+    import_team_card_data()
 
-delete_team_card_tables()
-create_team_card_tables()
-import_team_card_data()
+    click.echo('Card databases built.')
 
 
 if __name__ == '__main__':
