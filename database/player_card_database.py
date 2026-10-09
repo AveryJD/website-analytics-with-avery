@@ -3,7 +3,8 @@ import pandas as pd
 import os
 from contextlib import contextmanager
 
-DATABASE_NAME = 'database/player_card_data.db'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASE_NAME = os.path.join(BASE_DIR, 'database', 'player_card_data.db')
 
 def create_player_card_tables():
     with sqlite3.connect(DATABASE_NAME) as conn:
@@ -27,6 +28,8 @@ def delete_player_card_tables():
 
 @contextmanager
 def get_player_card_db():
+    if not os.path.exists(DATABASE_NAME):
+        raise RuntimeError('Player card database not found. Run `flask --app app init-db` first.')
     conn = sqlite3.connect(DATABASE_NAME)
     conn.row_factory = sqlite3.Row 
     try:
@@ -36,7 +39,7 @@ def get_player_card_db():
         conn.close()
 
 
-def import_player_card_data(csv_folder='data/player_card_data/card_data'):
+def import_player_card_data(csv_folder=os.path.join(BASE_DIR, 'data', 'player_card_data', 'card_data')):
     with get_player_card_db() as conn:
         for folder in ['forwards', 'defensemen', 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
