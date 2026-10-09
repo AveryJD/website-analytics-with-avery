@@ -6,17 +6,17 @@
 
 {% block og_title %}Analytics With Avery | {{ post['title'] }}{% endblock %}
 {% block og_description %}{{ post['preview'] }}{% endblock %}
-{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_image %}{{ post['share_image'] }}{% endblock %}
 {% block og_url %}https://analyticswithavery.com/blog/{{ post['url'] }}{% endblock %}
 
 {% block twitter_title %}Analytics With Avery | {{ post['title'] }}{% endblock %}
 {% block twitter_description %}{{ post['preview'] }}{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block twitter_image %}{{ post['share_image'] }}{% endblock %}
 
 {% block og_type %}article{% endblock %}
 {% block article_meta %}
   <meta property="article:published_time" content="{{ post['iso_date'] }}">
-  <meta property="article:modified_time" content="{{ post['iso_date'] }}">
+  <meta property="article:modified_time" content="{{ post['modified_iso_date'] }}">
   <meta property="article:author" content="https://analyticswithavery.com/profile_about">
   <meta property="article:section" content="Hockey Analytics">
 {% endblock %}
@@ -29,7 +29,7 @@
     "headline": {{ post['title'] | tojson }},
     "description": {{ post['preview'] | tojson }},
     "datePublished": "{{ post['iso_date'] }}",
-    "dateModified": "{{ post['iso_date'] }}",
+    "dateModified": "{{ post['modified_iso_date'] }}",
     "url": "https://analyticswithavery.com/blog/{{ post['url'] }}",
     "mainEntityOfPage": "https://analyticswithavery.com/blog/{{ post['url'] }}",
     "author": {
@@ -41,7 +41,7 @@
       "@type": "Person",
       "name": "Avery Doiron"
     },
-    "image": "https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png"
+    "image": {{ post['share_image'] | tojson }}
   }
   </script>
 

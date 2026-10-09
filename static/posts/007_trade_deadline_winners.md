@@ -95,14 +95,14 @@ Below are any waiver pickups made by teams within the week of the trade deadline
 
 ## In:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_WSH_D_John_Carlson_dark.png" alt="John Carlson">
+  <img src="/static/post_images/007/2025-2026_WSH_D_John_Carlson_dark.webp" alt="John Carlson">
 </div>
 
 Seventh-Round Pick (Calgary Flames, 2027)
 
 ## Out:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_ANA_F_Ryan_Strome_dark.png" alt="Ryan Strome">
+  <img src="/static/post_images/007/2025-2026_ANA_F_Ryan_Strome_dark.webp" alt="Ryan Strome">
 </div>
 
 Conditional First-Round Pick (Anaheim Ducks, 2027), Third-Round Pick (Anaheim Ducks, 2026) 
@@ -119,8 +119,8 @@ The Ducks also moved off of forward Ryan Strome for a seventh-round pick. Strome
 
 ## In:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_NYI_F_Jonathan_Drouin_dark.png" alt="Jonathan Drouin">
-  <img src="/static/post_images/007/2024-2025_DET_D_Justin_Holl_dark.png" alt="Justin Holl">
+  <img src="/static/post_images/007/2025-2026_NYI_F_Jonathan_Drouin_dark.webp" alt="Jonathan Drouin">
+  <img src="/static/post_images/007/2024-2025_DET_D_Justin_Holl_dark.webp" alt="Justin Holl">
 </div>
 
 First-Round Pick (Detroit Red Wings, 2026), First-Round Pick (Colorado Avalanche, 2026), Third-Round Pick (New Jersey Devils, 2026),  Third-Round Pick (San Jose Sharks, 2026), Dmitri Buchelnikov (Forward Prospect), Marcus Gidlof (Goalie Prospect)
@@ -128,9 +128,9 @@ First-Round Pick (Detroit Red Wings, 2026), First-Round Pick (Colorado Avalanche
 
 ## Out:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_STL_F_Brayden_Schenn_dark.png" alt="Brayden Schenn">
-  <img src="/static/post_images/007/2025-2026_STL_D_Justin_Faulk_dark.png" alt="Justin Faulk">
-  <img src="/static/post_images/007/2024-2025_ANA_F_Robby_Fabbri_dark.png" alt="Robby Fabbri">
+  <img src="/static/post_images/007/2025-2026_STL_F_Brayden_Schenn_dark.webp" alt="Brayden Schenn">
+  <img src="/static/post_images/007/2025-2026_STL_D_Justin_Faulk_dark.webp" alt="Justin Faulk">
+  <img src="/static/post_images/007/2024-2025_ANA_F_Robby_Fabbri_dark.webp" alt="Robby Fabbri">
 </div>
 
 ## Summary
@@ -144,16 +144,16 @@ The biggest pieces were the draft picks. Two firsts (Colorado's and Detroit's) a
 
 ## In:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_CGY_F_Nazem_Kadri_dark.png" alt="Nazem Kadri">
-  <img src="/static/post_images/007/2025-2026_TOR_F_Nicolas_Roy_dark.png" alt="Nicolas Roy">
-  <img src="/static/post_images/007/2025-2026_NSH_D_Nick_Blankenburg_dark.png" alt="Nick Blankenburg">
+  <img src="/static/post_images/007/2025-2026_CGY_F_Nazem_Kadri_dark.webp" alt="Nazem Kadri">
+  <img src="/static/post_images/007/2025-2026_TOR_F_Nicolas_Roy_dark.webp" alt="Nicolas Roy">
+  <img src="/static/post_images/007/2025-2026_NSH_D_Nick_Blankenburg_dark.webp" alt="Nick Blankenburg">
 </div>
 
 20% Salary Retention on Nazem Kadri's Contract, Fourth-Round Pick (Calgary Flames, 2027)
 
 ## Out:
 <div class="players-line">
-  <img src="/static/post_images/007/2025-2026_COL_F_Victor_Olofsson_dark.png" alt="Victor Olofsson">
+  <img src="/static/post_images/007/2025-2026_COL_F_Victor_Olofsson_dark.webp" alt="Victor Olofsson">
 </div>
 
 Conditional First-Round Pick (Colorado Avalanche, 2027), Conditional First-Round Pick (Colorado Avalanche, 2028), Conditional Second-Round Pick (Colorado Avalanche, 2027), Conditional Fifth-Round Pick (Colorado Avalanche, 2026), Fifth-Round Pick (Colorado Avalanche, 2027), Max Curran (Forward Prospect)

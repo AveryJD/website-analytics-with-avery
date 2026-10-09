@@ -100,7 +100,7 @@ The Red Wings had an eventful offseason, but the big moves came to their managem
 ## Overall Atlantic Prediction
 
 <div class="list-graphic">
-  <img src="/static/post_images/009/atlantic.png" alt="2026-2027 Atlantic Division Prediction">
+  <img src="/static/post_images/009/atlantic.webp" alt="2026-2027 Atlantic Division Prediction">
 </div>
 
 # Metropolitan Division
@@ -190,7 +190,7 @@ In another one of my hot takes, I have the Penguins finishing last in the Metro.
 ## Overall Metropolitan Prediction
 
 <div class="list-graphic">
-  <img src="/static/post_images/009/metro.png" alt="2026-2027 Metro Division Prediction">
+  <img src="/static/post_images/009/metro.webp" alt="2026-2027 Metro Division Prediction">
 </div>
 
 # Central Division
@@ -280,7 +280,7 @@ I think Nashville needs to embrace a rebuild and start bringing in some younger 
 ## Overall Central Prediction
 
 <div class="list-graphic">
-  <img src="/static/post_images/009/central.png" alt="2026-2027 Central Division Prediction">
+  <img src="/static/post_images/009/central.webp" alt="2026-2027 Central Division Prediction">
 </div>
 
 # Pacific Division
@@ -370,7 +370,7 @@ The Canucks finished at the very bottom of the standings last season, and I don'
 ## Overall Pacific Prediction
 
 <div class="list-graphic">
-  <img src="/static/post_images/009/pacific.png" alt="2026-2027 Pacific Division Prediction">
+  <img src="/static/post_images/009/pacific.webp" alt="2026-2027 Pacific Division Prediction">
 </div>
 
 # Entire League Standings
@@ -378,16 +378,16 @@ The Canucks finished at the very bottom of the standings last season, and I don'
 Obviously, it's a lot harder to put together predictions for the entire league's standings than for a single division, but here's my best approximation of the overall standings for the 2026-2027 NHL season:
 
 <div class="list-graphic">
-  <img src="/static/post_images/009/1-8.png" alt="2026-2027 League Standings Prediction (1-8)">
+  <img src="/static/post_images/009/1-8.webp" alt="2026-2027 League Standings Prediction (1-8)">
 </div>
 <div class="list-graphic">
-  <img src="/static/post_images/009/9-16.png" alt="2026-2027 League Standings Prediction (9-16)">
+  <img src="/static/post_images/009/9-16.webp" alt="2026-2027 League Standings Prediction (9-16)">
 </div>
 <div class="list-graphic">
-  <img src="/static/post_images/009/17-24.png" alt="2026-2027 League Standings Prediction (17-24)">
+  <img src="/static/post_images/009/17-24.webp" alt="2026-2027 League Standings Prediction (17-24)">
 </div>
 <div class="list-graphic">
-  <img src="/static/post_images/009/25-32.png" alt="2026-2027 League Standings Prediction (25-32)">
+  <img src="/static/post_images/009/25-32.webp" alt="2026-2027 League Standings Prediction (25-32)">
 </div>
 
 # Conclusion

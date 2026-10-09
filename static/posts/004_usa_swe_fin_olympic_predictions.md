@@ -14,61 +14,61 @@ As with the Team Canada projection, these lineups are not rankings of the best p
 # United States
 ## Forwards:
 <div class="players-line"> 
-  <img src="/static/post_images/004/2025-2026_OTT_F_Brady_Tkachuk_dark.png" alt="Brady Tkachuk"> 
-  <img src="/static/post_images/004/2025-2026_VGK_F_Jack_Eichel_dark.png" alt="Jack Eichel"> 
-  <img src="/static/post_images/004/2025-2026_FLA_F_Matthew_Tkachuk_dark.png" alt="Matthew Tkachuk"> 
+  <img src="/static/post_images/004/2025-2026_OTT_F_Brady_Tkachuk_dark.webp" alt="Brady Tkachuk"> 
+  <img src="/static/post_images/004/2025-2026_VGK_F_Jack_Eichel_dark.webp" alt="Jack Eichel"> 
+  <img src="/static/post_images/004/2025-2026_FLA_F_Matthew_Tkachuk_dark.webp" alt="Matthew Tkachuk"> 
 </div> 
 
 <div class="players-line"> 
-  <img src="/static/post_images/004/2025-2026_DAL_F_Jason_Robertson_dark.png" alt="Jason Robertson"> 
-  <img src="/static/post_images/004/2025-2026_TOR_F_Auston_Matthews_dark.png" alt="Auston Matthews"> 
-  <img src="/static/post_images/004/2025-2026_NJD_F_Jack_Hughes_dark.png" alt="Jack Hughes"> 
+  <img src="/static/post_images/004/2025-2026_DAL_F_Jason_Robertson_dark.webp" alt="Jason Robertson"> 
+  <img src="/static/post_images/004/2025-2026_TOR_F_Auston_Matthews_dark.webp" alt="Auston Matthews"> 
+  <img src="/static/post_images/004/2025-2026_NJD_F_Jack_Hughes_dark.webp" alt="Jack Hughes"> 
 </div> 
 
 <div class="players-line"> 
-  <img src="/static/post_images/004/2025-2026_TBL_F_Jake_Guentzel_dark.png" alt="Jake Guentzel"> 
-  <img src="/static/post_images/004/2025-2026_DET_F_Dylan_Larkin_dark.png" alt="Dylan Larkin"> 
-  <img src="/static/post_images/004/2025-2026_MIN_F_Matt_Boldy_dark.png" alt="Matt Boldy">
+  <img src="/static/post_images/004/2025-2026_TBL_F_Jake_Guentzel_dark.webp" alt="Jake Guentzel"> 
+  <img src="/static/post_images/004/2025-2026_DET_F_Dylan_Larkin_dark.webp" alt="Dylan Larkin"> 
+  <img src="/static/post_images/004/2025-2026_MIN_F_Matt_Boldy_dark.webp" alt="Matt Boldy">
 </div> 
 
 <div class="players-line"> 
-  <img src="/static/post_images/004/2025-2026_BUF_F_Tage_Thompson_dark.png" alt="Tage Thompson"> 
-  <img src="/static/post_images/004/2025-2026_NYR_F_Vincent_Trocheck_dark.png" alt="Vincent Trocheck"> 
-  <img src="/static/post_images/004/2025-2026_BUF_F_Alex_Tuch_dark.png" alt="Alex Tuch"> 
+  <img src="/static/post_images/004/2025-2026_BUF_F_Tage_Thompson_dark.webp" alt="Tage Thompson"> 
+  <img src="/static/post_images/004/2025-2026_NYR_F_Vincent_Trocheck_dark.webp" alt="Vincent Trocheck"> 
+  <img src="/static/post_images/004/2025-2026_BUF_F_Alex_Tuch_dark.webp" alt="Alex Tuch"> 
 </div>
 
 ## Defensemen:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_CBJ_D_Zach_Werenski_dark.png" alt="Zach Werenski">
-  <img src="/static/post_images/004/2025-2026_BOS_D_Charlie_McAvoy_dark.png" alt="Charlie McAvoy">
+  <img src="/static/post_images/004/2025-2026_CBJ_D_Zach_Werenski_dark.webp" alt="Zach Werenski">
+  <img src="/static/post_images/004/2025-2026_BOS_D_Charlie_McAvoy_dark.webp" alt="Charlie McAvoy">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_MIN_D_Quinn_Hughes_dark.png" alt="Quinn Hughes">
-  <img src="/static/post_images/004/2025-2026_MIN_D_Brock_Faber_dark.png" alt="Brock Faber">
+  <img src="/static/post_images/004/2025-2026_MIN_D_Quinn_Hughes_dark.webp" alt="Quinn Hughes">
+  <img src="/static/post_images/004/2025-2026_MIN_D_Brock_Faber_dark.webp" alt="Brock Faber">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2024-2025_CAR_D_Jaccob_Slavin_dark.png" alt="Jaccob Slavin">
-  <img src="/static/post_images/004/2025-2026_NYR_D_Adam_Fox_dark.png" alt="Adam Fox">
+  <img src="/static/post_images/004/2024-2025_CAR_D_Jaccob_Slavin_dark.webp" alt="Jaccob Slavin">
+  <img src="/static/post_images/004/2025-2026_NYR_D_Adam_Fox_dark.webp" alt="Adam Fox">
 </div>
 
 ## Goalies:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_WPG_G_Connor_Hellebuyck_dark.png" alt="Connor Hellebuyck">
+  <img src="/static/post_images/004/2025-2026_WPG_G_Connor_Hellebuyck_dark.webp" alt="Connor Hellebuyck">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_DAL_G_Jake_Oettinger_dark.png" alt="Jake Oettinger">
+  <img src="/static/post_images/004/2025-2026_DAL_G_Jake_Oettinger_dark.webp" alt="Jake Oettinger">
 </div>
 
 ## Extras:
 <div class="extras-line">
-  <img src="/static/post_images/004/2025-2026_WPG_F_Kyle_Connor_dark.png" alt="Kyle Connor">
-  <img src="/static/post_images/004/2025-2026_COL_F_Brock_Nelson_dark.png" alt="Brock Nelson">
-  <img src="/static/post_images/004/2025-2026_VGK_D_Noah_Hanifin_dark.png" alt="Noah Hanifin">
-  <img src="/static/post_images/004/2025-2026_OTT_D_Jake_Sanderson_dark.png" alt="Jake Sanderson">
-  <img src="/static/post_images/004/2025-2026_CHI_G_Spencer_Knight_dark.png" alt="Spencer Knight">
+  <img src="/static/post_images/004/2025-2026_WPG_F_Kyle_Connor_dark.webp" alt="Kyle Connor">
+  <img src="/static/post_images/004/2025-2026_COL_F_Brock_Nelson_dark.webp" alt="Brock Nelson">
+  <img src="/static/post_images/004/2025-2026_VGK_D_Noah_Hanifin_dark.webp" alt="Noah Hanifin">
+  <img src="/static/post_images/004/2025-2026_OTT_D_Jake_Sanderson_dark.webp" alt="Jake Sanderson">
+  <img src="/static/post_images/004/2025-2026_CHI_G_Spencer_Knight_dark.webp" alt="Spencer Knight">
 </div>
 
 ## Summary
@@ -88,63 +88,63 @@ Goalies: Jeremy Swayman, Thatcher Demko, Joey Daccord.
 # Sweden
 ## Forwards:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_NSH_F_Filip_Forsberg_dark.png" alt="Filip Forsberg">
-  <img src="/static/post_images/004/2025-2026_VAN_F_Elias_Pettersson_dark.png" alt="Elias Pettersson">
-  <img src="/static/post_images/004/2025-2026_TOR_F_William_Nylander_dark.png" alt="William Nylander">
+  <img src="/static/post_images/004/2025-2026_NSH_F_Filip_Forsberg_dark.webp" alt="Filip Forsberg">
+  <img src="/static/post_images/004/2025-2026_VAN_F_Elias_Pettersson_dark.webp" alt="Elias Pettersson">
+  <img src="/static/post_images/004/2025-2026_TOR_F_William_Nylander_dark.webp" alt="William Nylander">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_LAK_F_Adrian_Kempe_dark.png" alt="Adrian Kempe">
-  <img src="/static/post_images/004/2025-2026_NYR_F_Mika_Zibanejad_dark.png" alt="Mika Zibanejad">
-  <img src="/static/post_images/004/2025-2026_DET_F_Lucas_Raymond_dark.png" alt="Lucas Raymond">
+  <img src="/static/post_images/004/2025-2026_LAK_F_Adrian_Kempe_dark.webp" alt="Adrian Kempe">
+  <img src="/static/post_images/004/2025-2026_NYR_F_Mika_Zibanejad_dark.webp" alt="Mika Zibanejad">
+  <img src="/static/post_images/004/2025-2026_DET_F_Lucas_Raymond_dark.webp" alt="Lucas Raymond">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_ANA_F_Leo_Carlsson_dark.png" alt="Leo Carlsson">
-  <img src="/static/post_images/004/2025-2026_MIN_F_Joel_Eriksson_Ek_dark.png" alt="Joel Eriksson Ek">
-  <img src="/static/post_images/004/2025-2026_NJD_F_Jesper_Bratt_dark.png" alt="Jesper Bratt">
+  <img src="/static/post_images/004/2025-2026_ANA_F_Leo_Carlsson_dark.webp" alt="Leo Carlsson">
+  <img src="/static/post_images/004/2025-2026_MIN_F_Joel_Eriksson_Ek_dark.webp" alt="Joel Eriksson Ek">
+  <img src="/static/post_images/004/2025-2026_NJD_F_Jesper_Bratt_dark.webp" alt="Jesper Bratt">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_COL_F_Gabriel_Landeskog_dark.png" alt="Gabriel Landeskog">
-  <img src="/static/post_images/004/2025-2026_BOS_F_Elias_Lindholm_dark.png" alt="Elias Lindholm">
-  <img src="/static/post_images/004/2025-2026_PIT_F_Rickard_Rakell_dark.png" alt="Rickard Rakell">
+  <img src="/static/post_images/004/2025-2026_COL_F_Gabriel_Landeskog_dark.webp" alt="Gabriel Landeskog">
+  <img src="/static/post_images/004/2025-2026_BOS_F_Elias_Lindholm_dark.webp" alt="Elias Lindholm">
+  <img src="/static/post_images/004/2025-2026_PIT_F_Rickard_Rakell_dark.webp" alt="Rickard Rakell">
 </div>
 
 ## Defensemen:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_BUF_D_Rasmus_Dahlin_dark.png" alt="Rasmus Dahlin">
-  <img src="/static/post_images/004/2025-2026_TBL_D_Victor_Hedman_dark.png" alt="Victor Hedman">
+  <img src="/static/post_images/004/2025-2026_BUF_D_Rasmus_Dahlin_dark.webp" alt="Rasmus Dahlin">
+  <img src="/static/post_images/004/2025-2026_TBL_D_Victor_Hedman_dark.webp" alt="Victor Hedman">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_FLA_D_Gustav_Forsling_dark.png" alt="Gustav Forsling">
-  <img src="/static/post_images/004/2025-2026_PIT_D_Erik_Karlsson_dark.png" alt="Erik Karlsson">
+  <img src="/static/post_images/004/2025-2026_FLA_D_Gustav_Forsling_dark.webp" alt="Gustav Forsling">
+  <img src="/static/post_images/004/2025-2026_PIT_D_Erik_Karlsson_dark.webp" alt="Erik Karlsson">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_EDM_D_Mattias_Ekholm_dark.png" alt="Mattias Ekholm">
-  <img src="/static/post_images/004/2025-2026_MIN_D_Jonas_Brodin_dark.png" alt="Jonas Brodin">
+  <img src="/static/post_images/004/2025-2026_EDM_D_Mattias_Ekholm_dark.webp" alt="Mattias Ekholm">
+  <img src="/static/post_images/004/2025-2026_MIN_D_Jonas_Brodin_dark.webp" alt="Jonas Brodin">
 </div>
 
 ## Goalies:
 <div class="players-line">
-<img src="/static/post_images/004/2025-2026_MIN_G_Filip_Gustavsson_dark.png" alt="Filip Gustavsson">
+<img src="/static/post_images/004/2025-2026_MIN_G_Filip_Gustavsson_dark.webp" alt="Filip Gustavsson">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_MIN_G_Jesper_Wallstedt_dark.png" alt="Jesper Wallstedt">
+  <img src="/static/post_images/004/2025-2026_MIN_G_Jesper_Wallstedt_dark.webp" alt="Jesper Wallstedt">
 </div>
 
 ## Extras:
 <div class="extras-line">
-  <img src="/static/post_images/004/2025-2026_SJS_F_Alexander_Wennberg_dark.png" alt="Alexander Wennberg">
-  <img src="/static/post_images/004/2025-2026_SJS_F_William_Eklund_dark.png" alt="William Eklund">
+  <img src="/static/post_images/004/2025-2026_SJS_F_Alexander_Wennberg_dark.webp" alt="Alexander Wennberg">
+  <img src="/static/post_images/004/2025-2026_SJS_F_William_Eklund_dark.webp" alt="William Eklund">
 
-  <img src="/static/post_images/004/2025-2026_CGY_D_Rasmus_Andersson_dark.png" alt="Rasmus Andersson">
-  <img src="/static/post_images/004/2025-2026_BOS_D_Hampus_Lindholm_dark.png" alt="Hampus Lindholm">
+  <img src="/static/post_images/004/2025-2026_CGY_D_Rasmus_Andersson_dark.webp" alt="Rasmus Andersson">
+  <img src="/static/post_images/004/2025-2026_BOS_D_Hampus_Lindholm_dark.webp" alt="Hampus Lindholm">
   
-  <img src="/static/post_images/004/2025-2026_OTT_G_Linus_Ullmark_dark.png" alt="Linus Ullmark">
+  <img src="/static/post_images/004/2025-2026_OTT_G_Linus_Ullmark_dark.webp" alt="Linus Ullmark">
 </div>
 
 ## Summary
@@ -164,63 +164,63 @@ Goalies: Jacob Markstrom, Samuel Ersson, and Dennis Hildeby.
 # Finland
 ## Forwards:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_COL_F_Artturi_Lehkonen_dark.png" alt="Artturi Lehkonen">
-  <img src="/static/post_images/004/2025-2026_DAL_F_Roope_Hintz_dark.png" alt="Roope Hintz">
-  <img src="/static/post_images/004/2025-2026_DAL_F_Mikko_Rantanen_dark.png" alt="Mikko Rantanen">
+  <img src="/static/post_images/004/2025-2026_COL_F_Artturi_Lehkonen_dark.webp" alt="Artturi Lehkonen">
+  <img src="/static/post_images/004/2025-2026_DAL_F_Roope_Hintz_dark.webp" alt="Roope Hintz">
+  <img src="/static/post_images/004/2025-2026_DAL_F_Mikko_Rantanen_dark.webp" alt="Mikko Rantanen">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_CHI_F_Teuvo_Teravainen_dark.png" alt="Teuvo Teravainen">
-  <img src="/static/post_images/004/2025-2026_CAR_F_Sebastian_Aho_dark.png" alt="Sebastian Aho">
-  <img src="/static/post_images/004/2025-2026_ANA_F_Mikael_Granlund_dark.png" alt="Mikael Granlund">
+  <img src="/static/post_images/004/2025-2026_CHI_F_Teuvo_Teravainen_dark.webp" alt="Teuvo Teravainen">
+  <img src="/static/post_images/004/2025-2026_CAR_F_Sebastian_Aho_dark.webp" alt="Sebastian Aho">
+  <img src="/static/post_images/004/2025-2026_ANA_F_Mikael_Granlund_dark.webp" alt="Mikael Granlund">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_FLA_F_Eetu_Luostarinen_dark.png" alt="Eetu Luostarinen">
-  <img src="/static/post_images/004/2025-2026_FLA_F_Anton_Lundell_dark.png" alt="Anton Lundell">
-  <img src="/static/post_images/004/2025-2026_SEA_F_Eeli_Tolvanen_dark.png" alt="Eeli Tolvanen">
+  <img src="/static/post_images/004/2025-2026_FLA_F_Eetu_Luostarinen_dark.webp" alt="Eetu Luostarinen">
+  <img src="/static/post_images/004/2025-2026_FLA_F_Anton_Lundell_dark.webp" alt="Anton Lundell">
+  <img src="/static/post_images/004/2025-2026_SEA_F_Eeli_Tolvanen_dark.webp" alt="Eeli Tolvanen">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_CAR_F_Jesperi_Kotkaniemi_dark.png" alt="Jesperi Kotkaniemi">
-  <img src="/static/post_images/004/2025-2026_NSH_F_Erik_Haula_dark.png" alt="Erik Haula">
-  <img src="/static/post_images/004/2025-2026_LAK_F_Joel_Armia_dark.png" alt="Joel Armia">
+  <img src="/static/post_images/004/2025-2026_CAR_F_Jesperi_Kotkaniemi_dark.webp" alt="Jesperi Kotkaniemi">
+  <img src="/static/post_images/004/2025-2026_NSH_F_Erik_Haula_dark.webp" alt="Erik Haula">
+  <img src="/static/post_images/004/2025-2026_LAK_F_Joel_Armia_dark.webp" alt="Joel Armia">
 </div>
 
 ## Defensemen:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_DAL_D_Esa_Lindell_dark.png" alt="Esa Lindell">
-  <img src="/static/post_images/004/2025-2026_DAL_D_Miro_Heiskanen_dark.png" alt="Miro Heiskanen">
+  <img src="/static/post_images/004/2025-2026_DAL_D_Esa_Lindell_dark.webp" alt="Esa Lindell">
+  <img src="/static/post_images/004/2025-2026_DAL_D_Miro_Heiskanen_dark.webp" alt="Miro Heiskanen">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_FLA_D_Niko_Mikkola_dark.png" alt="Niko Mikkola">
-  <img src="/static/post_images/004/2025-2026_UTA_D_Olli_Määttä_dark.png" alt="Olli Määttä">
+  <img src="/static/post_images/004/2025-2026_FLA_D_Niko_Mikkola_dark.webp" alt="Niko Mikkola">
+  <img src="/static/post_images/004/2025-2026_UTA_D_Olli_Määttä_dark.webp" alt="Olli Määttä">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_BOS_D_Henri_Jokiharju_dark.png" alt="Henri Jokiharju">
-  <img src="/static/post_images/004/2024-2025_PHI_D_Rasmus_Ristolainen_dark.png" alt="Rasmus Ristolainen">
+  <img src="/static/post_images/004/2025-2026_BOS_D_Henri_Jokiharju_dark.webp" alt="Henri Jokiharju">
+  <img src="/static/post_images/004/2024-2025_PHI_D_Rasmus_Ristolainen_dark.webp" alt="Rasmus Ristolainen">
 </div>
 
 ## Goalies:
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_NSH_G_Juuse_Saros_dark.png" alt="Juuse Saros">
+  <img src="/static/post_images/004/2025-2026_NSH_G_Juuse_Saros_dark.webp" alt="Juuse Saros">
 </div>
 
 <div class="players-line">
-  <img src="/static/post_images/004/2025-2026_VAN_G_Kevin_Lankinen_dark.png" alt="Kevin Lankinen">
+  <img src="/static/post_images/004/2025-2026_VAN_G_Kevin_Lankinen_dark.webp" alt="Kevin Lankinen">
 </div>
 
 ## Extras:
 <div class="extras-line">
-  <img src="/static/post_images/004/2025-2026_SEA_F_Kaapo_Kakko_dark.png" alt="Kaapo Kakko">
-  <img src="/static/post_images/004/2025-2026_COL_F_Joel_Kiviranta_dark.png" alt="Joel Kiviranta">
+  <img src="/static/post_images/004/2025-2026_SEA_F_Kaapo_Kakko_dark.webp" alt="Kaapo Kakko">
+  <img src="/static/post_images/004/2025-2026_COL_F_Joel_Kiviranta_dark.webp" alt="Joel Kiviranta">
 
-  <img src="/static/post_images/004/2025-2026_OTT_D_Nikolas_Matinpalo_dark.png" alt="Nikolas Matinpalo">
-  <img src="/static/post_images/004/2025-2026_NYR_D_Urho_Vaakanainen_dark.png" alt="Urho Vaakanainen">
+  <img src="/static/post_images/004/2025-2026_OTT_D_Nikolas_Matinpalo_dark.webp" alt="Nikolas Matinpalo">
+  <img src="/static/post_images/004/2025-2026_NYR_D_Urho_Vaakanainen_dark.webp" alt="Urho Vaakanainen">
 
-  <img src="/static/post_images/004/2025-2026_BUF_G_Ukko-Pekka_Luukkonen_dark.png" alt="Ukko-Pekka Luukkonen">
+  <img src="/static/post_images/004/2025-2026_BUF_G_Ukko-Pekka_Luukkonen_dark.webp" alt="Ukko-Pekka Luukkonen">
 </div>
 
 ## Summary

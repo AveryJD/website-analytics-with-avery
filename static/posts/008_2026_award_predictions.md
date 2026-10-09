@@ -16,21 +16,21 @@ Each trophy section begins with the [NHL’s official award description](https:/
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_TBL_F_Nikita_Kucherov_dark.png" alt="Nikita Kucherov">
+    <img src="/static/post_images/008/2025-2026_TBL_F_Nikita_Kucherov_dark.webp" alt="Nikita Kucherov">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_EDM_F_Connor_McDavid_dark.png" alt="Connor McDavid">
+    <img src="/static/post_images/008/2025-2026_EDM_F_Connor_McDavid_dark.webp" alt="Connor McDavid">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_COL_F_Nathan_MacKinnon_dark.png" alt="Nathan MacKinnon">
+    <img src="/static/post_images/008/2025-2026_COL_F_Nathan_MacKinnon_dark.webp" alt="Nathan MacKinnon">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_SJS_F_Macklin_Celebrini_dark.png" alt="Macklin Celebrini">
-  <img src="/static/post_images/008/2025-2026_CBJ_D_Zach_Werenski_dark.png" alt="Zach Werenski">
+  <img src="/static/post_images/008/2025-2026_SJS_F_Macklin_Celebrini_dark.webp" alt="Macklin Celebrini">
+  <img src="/static/post_images/008/2025-2026_CBJ_D_Zach_Werenski_dark.webp" alt="Zach Werenski">
 </div>
 
 ## 1. Connor McDavid
@@ -74,21 +74,21 @@ Celebrini had one of the most impressive seasons ever by a 19-year-old, recordin
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_COL_D_Cale_Makar_dark.png" alt="Cale Makar">
+    <img src="/static/post_images/008/2025-2026_COL_D_Cale_Makar_dark.webp" alt="Cale Makar">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_CBJ_D_Zach_Werenski_dark.png" alt="Zach Werenski">
+    <img src="/static/post_images/008/2025-2026_CBJ_D_Zach_Werenski_dark.webp" alt="Zach Werenski">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_EDM_D_Evan_Bouchard_dark.png" alt="Evan Bouchard">
+    <img src="/static/post_images/008/2025-2026_EDM_D_Evan_Bouchard_dark.webp" alt="Evan Bouchard">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_BUF_D_Rasmus_Dahlin_dark.png" alt="Rasmus Dahlin">
-  <img src="/static/post_images/008/2025-2026_MTL_D_Lane_Hutson_dark.png" alt="Lane Hutson">
+  <img src="/static/post_images/008/2025-2026_BUF_D_Rasmus_Dahlin_dark.webp" alt="Rasmus Dahlin">
+  <img src="/static/post_images/008/2025-2026_MTL_D_Lane_Hutson_dark.webp" alt="Lane Hutson">
 </div>
 
 ## 1 - Zach Werenski
@@ -132,21 +132,21 @@ Rasmus Dahlin captained the Sabres to a playoff berth for the first time in 14 y
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_NYI_G_Ilya_Sorokin_dark.png" alt="Ilya Sorokin">
+    <img src="/static/post_images/008/2025-2026_NYI_G_Ilya_Sorokin_dark.webp" alt="Ilya Sorokin">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_WSH_G_Logan_Thompson_dark.png" alt="Logan Thompson">
+    <img src="/static/post_images/008/2025-2026_WSH_G_Logan_Thompson_dark.webp" alt="Logan Thompson">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_TBL_G_Andrei_Vasilevskiy_dark.png" alt="Andrei Vasilevskiy">
+    <img src="/static/post_images/008/2025-2026_TBL_G_Andrei_Vasilevskiy_dark.webp" alt="Andrei Vasilevskiy">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_BOS_G_Jeremy_Swayman_dark.png" alt="Jeremy Swayman">
-  <img src="/static/post_images/008/2025-2026_NYR_G_Igor_Shesterkin_dark.png" alt="Igor Shesterkin">
+  <img src="/static/post_images/008/2025-2026_BOS_G_Jeremy_Swayman_dark.webp" alt="Jeremy Swayman">
+  <img src="/static/post_images/008/2025-2026_NYR_G_Igor_Shesterkin_dark.webp" alt="Igor Shesterkin">
 </div>
 
 ## 1 - Logan Thompson
@@ -181,21 +181,21 @@ Jeremy Swayman had an impressive bounce-back season and was a major reason for t
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_MTL_F_Nick_Suzuki_dark.png" alt="Nick Suzuki">
+    <img src="/static/post_images/008/2025-2026_MTL_F_Nick_Suzuki_dark.webp" alt="Nick Suzuki">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_PHI_F_Noah_Cates_dark.png" alt="Noah Cates">
+    <img src="/static/post_images/008/2025-2026_PHI_F_Noah_Cates_dark.webp" alt="Noah Cates">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_OTT_F_Shane_Pinto_dark.png" alt="Shane Pinto">
+    <img src="/static/post_images/008/2025-2026_OTT_F_Shane_Pinto_dark.webp" alt="Shane Pinto">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_STL_F_Jordan_Kyrou_dark.png" alt="Jordan Kyrou">
-  <img src="/static/post_images/008/2025-2026_LAK_F_Anze_Kopitar_dark.png" alt="Anze Kopitar">
+  <img src="/static/post_images/008/2025-2026_STL_F_Jordan_Kyrou_dark.webp" alt="Jordan Kyrou">
+  <img src="/static/post_images/008/2025-2026_LAK_F_Anze_Kopitar_dark.webp" alt="Anze Kopitar">
 </div>
 
 ## 1 - Noah Cates
@@ -234,21 +234,21 @@ Shane Pinto rounds out my top three with well-rounded defensive metrics and stro
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_MTL_F_Ivan_Demidov_dark.png" alt="Ivan Demidov">
+    <img src="/static/post_images/008/2025-2026_MTL_F_Ivan_Demidov_dark.webp" alt="Ivan Demidov">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_NYI_D_Matthew_Schaefer_dark.png" alt="Matthew Schaefer">
+    <img src="/static/post_images/008/2025-2026_NYI_D_Matthew_Schaefer_dark.webp" alt="Matthew Schaefer">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_ANA_F_Beckett_Sennecke_dark.png" alt="Beckett Sennecke">
+    <img src="/static/post_images/008/2025-2026_ANA_F_Beckett_Sennecke_dark.webp" alt="Beckett Sennecke">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_MTL_G_Jakub_Dobes_dark.png" alt="Jakub Dobes">
-  <img src="/static/post_images/008/2025-2026_MIN_G_Jesper_Wallstedt_dark.png" alt="Jesper Wallstedt">
+  <img src="/static/post_images/008/2025-2026_MTL_G_Jakub_Dobes_dark.webp" alt="Jakub Dobes">
+  <img src="/static/post_images/008/2025-2026_MIN_G_Jesper_Wallstedt_dark.webp" alt="Jesper Wallstedt">
 </div>
 
 ## 1 - Matthew Schaefer
@@ -288,21 +288,21 @@ To round out the top five, I have two goaltenders: Jakub Dobes and Jesper Wallst
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_PIT_dark.png" alt="Pittsburgh Penguins">
+    <img src="/static/post_images/008/2025-2026_PIT_dark.webp" alt="Pittsburgh Penguins">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_BUF_dark.png" alt="Buffalo Sabres">
+    <img src="/static/post_images/008/2025-2026_BUF_dark.webp" alt="Buffalo Sabres">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_MTL_dark.png" alt="Montreal Canadiens">
+    <img src="/static/post_images/008/2025-2026_MTL_dark.webp" alt="Montreal Canadiens">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_BOS_dark.png" alt="Boston Bruins">
-  <img src="/static/post_images/008/2025-2026_PHI_dark.png" alt="Philadelphia Flyers">
+  <img src="/static/post_images/008/2025-2026_BOS_dark.webp" alt="Boston Bruins">
+  <img src="/static/post_images/008/2025-2026_PHI_dark.webp" alt="Philadelphia Flyers">
 </div>
 
 ## 1 - Lindy Ruff, Buffalo Sabres
@@ -343,21 +343,21 @@ Marco Sturm helped coach the Boston Bruins to a strong bounce-back season after 
 
 <div class="award-podium">
   <div class="award-card second-place">
-    <img src="/static/post_images/008/2025-2026_CAR_dark.png" alt="Carolina Hurricanes">
+    <img src="/static/post_images/008/2025-2026_CAR_dark.webp" alt="Carolina Hurricanes">
   </div>
 
   <div class="award-card first-place">
-    <img src="/static/post_images/008/2025-2026_COL_dark.png" alt="Colorado Avalanche">
+    <img src="/static/post_images/008/2025-2026_COL_dark.webp" alt="Colorado Avalanche">
   </div>
 
   <div class="award-card third-place">
-    <img src="/static/post_images/008/2025-2026_PIT_dark.png" alt="Pittsburgh Penguins">
+    <img src="/static/post_images/008/2025-2026_PIT_dark.webp" alt="Pittsburgh Penguins">
   </div>
 </div>
 
 <div class="award-runner-up">
-  <img src="/static/post_images/008/2025-2026_MIN_dark.png" alt="Minnesota Wild">
-  <img src="/static/post_images/008/2025-2026_ANA_dark.png" alt="Anaheim Ducks">
+  <img src="/static/post_images/008/2025-2026_MIN_dark.webp" alt="Minnesota Wild">
+  <img src="/static/post_images/008/2025-2026_ANA_dark.webp" alt="Anaheim Ducks">
 </div>
 
 ## 1 - Chris McFarland, Colorado Avalanche
