@@ -22,7 +22,6 @@ gunicorn app:app
 ```
 On Render, use `pip install -r requirements.txt && flask --app app init-db` as the build command.
 
-To mark a blog post as updated, add an `Updated: Month DD, YYYY` line directly under its preview line.
 
 ## Acknowledgments
 * NHL data collection and modeling (the xG, RAPM, WAR, Elo, and SRS models behind the methodologies page) come from my [project-nhl-stats-collection](https://github.com/AveryJD/project-nhl-stats-collection) project.
