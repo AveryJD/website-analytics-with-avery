@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, send_file, Response, url_for, abort
+from flask import Flask, render_template, request, send_file, send_from_directory, Response, url_for, abort, jsonify
 import click
 import csv
+import hashlib
 import io
 import logging
 import os
@@ -9,6 +10,8 @@ import threading
 from collections import OrderedDict
 from datetime import date
 from functools import lru_cache
+
+from PIL import Image
 
 # The player card project reads its card data, fonts, and team logos from this site's data folder
 os.environ.setdefault('NHL_CARD_DATA_DIR', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data'))
@@ -52,6 +55,29 @@ SCHEDULE_GA_TEAMS = [
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+
+# Static files are cached by browsers for 30 days (not at all while debugging). Every url_for('static', ...) link gets a ?v=
+# version from the file's modified time, so a changed file is fetched again straight away.
+STATIC_MAX_AGE_SECONDS = 30 * 24 * 60 * 60
+app.get_send_file_max_age = lambda filename: 0 if app.debug else STATIC_MAX_AGE_SECONDS
+
+
+@lru_cache(maxsize=None)
+def _static_version_cached(filename):
+    try:
+        return str(int(os.path.getmtime(os.path.join(app.static_folder, filename))))
+    except OSError:
+        return None
+
+
+@app.url_defaults
+def add_static_version(endpoint, values):
+    if endpoint == 'static' and 'v' not in values:
+        filename = values.get('filename', '')
+        version = _static_version_cached.__wrapped__(filename) if app.debug else _static_version_cached(filename)
+        if version:
+            values['v'] = version
+
 
 
 # ----- Methodology tables: the xG project writes the numbers behind each table to a CSV (model_tables/ in that project); copy them into
@@ -181,6 +207,11 @@ def home():
     return render_template('index.html', posts=POSTS[:2])
 
 
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory(BASE_DIR, 'robots.txt', mimetype='text/plain', max_age=24 * 60 * 60)
+
+
 @app.route('/sitemap.xml')
 def sitemap():
     urls = []
@@ -281,22 +312,11 @@ def blog_post(post_url):
 @app.route('/player_cards', methods=['GET', 'POST'])
 def player_cards():
     with get_player_card_db() as conn:
-        players = conn.execute(
-            'SELECT player, season, position, team FROM player_card_data'
-        ).fetchall()
-
-        player_teams_data = conn.execute(
-            'SELECT DISTINCT season, team FROM player_card_data'
-        ).fetchall()
-
         seasons = [row['season'] for row in conn.execute(
             'SELECT DISTINCT season FROM player_card_data ORDER BY season DESC'
         )]
         positions = [row['position'] for row in conn.execute(
             'SELECT DISTINCT position FROM player_card_data'
-        )]
-        teams = [row['team'] for row in conn.execute(
-            'SELECT DISTINCT team FROM player_card_data'
         )]
 
     selected_card = None
@@ -311,15 +331,68 @@ def player_cards():
 
     return render_template(
         'cards/player_cards.html',
-        players_list=players,
-        player_teams_data=player_teams_data,
         seasons=seasons,
         positions=positions,
         position_names=POSITION_NAMES,
-        teams=teams,
-        team_names=TEAM_NAMES,
         selected_card=selected_card,
     )
+
+
+def cacheable_json(data):
+    """A JSON response that browsers and CDNs may keep for a day (the card data only changes when the site is redeployed)."""
+    response = jsonify(data)
+    response.headers['Cache-Control'] = 'public, max-age=86400'
+    return response
+
+
+@app.route('/api/card_players')
+def api_card_players():
+    """The teams and players of one season, which the player card pickers fetch instead of the page carrying every player."""
+    season = request.args.get('season', '')
+    with get_player_card_db() as conn:
+        rows = conn.execute(
+            'SELECT player, team, position FROM player_card_data WHERE season = ? ORDER BY player', (season,)
+        ).fetchall()
+    if not rows:
+        abort(404)
+
+    teams = sorted({row['team'] for row in rows})
+    return cacheable_json({
+        'teams': {team: TEAM_NAMES.get(team, team) for team in teams},
+        'players': [[row['player'], row['team'], row['position']] for row in rows],
+    })
+
+
+# Generated cards are shown as a 1200 px wide WebP (a few hundred KB smaller than the full PNG); "full=1" gives the original PNG
+CARD_PREVIEW_WIDTH = 1200
+CARD_IMAGE_MAX_AGE_SECONDS = 24 * 60 * 60
+
+
+def card_image_response(cache_key, make_card):
+    full_size = request.args.get('full') == '1'
+    cache_key = cache_key + ('full' if full_size else 'preview',)
+    image_bytes = get_cached_card_image(cache_key)
+
+    if image_bytes is None:
+        img = make_card()
+
+        buf = io.BytesIO()
+        if full_size:
+            img.save(buf, format='PNG')
+        else:
+            height = round(img.height * CARD_PREVIEW_WIDTH / img.width)
+            img.resize((CARD_PREVIEW_WIDTH, height), Image.LANCZOS).save(buf, format='WEBP', quality=88, method=4)
+        image_bytes = buf.getvalue()
+        set_cached_card_image(cache_key, image_bytes)
+
+    return send_file(
+        io.BytesIO(image_bytes),
+        mimetype='image/png' if full_size else 'image/webp',
+        max_age=CARD_IMAGE_MAX_AGE_SECONDS,
+        etag=hashlib.md5(image_bytes).hexdigest(),
+        conditional=True,
+    )
+
 
 @app.route('/player_card_image')
 def player_card_image():
@@ -328,31 +401,15 @@ def player_card_image():
     position = request.args.get('position')
     mode = request.args.get('mode', 'light')
 
-    cache_key = ('player', player_name, season, position, mode)
-    png_bytes = get_cached_card_image(cache_key)
-
-    if png_bytes is None:
-        img = make_player_card(player_name, season, position, mode=mode, save=False)
-
-        buf = io.BytesIO()
-        img.save(buf, format='PNG')
-        png_bytes = buf.getvalue()
-        set_cached_card_image(cache_key, png_bytes)
-
-    return send_file(io.BytesIO(png_bytes), mimetype='image/png')
-
+    return card_image_response(
+        ('player', player_name, season, position, mode),
+        lambda: make_player_card(player_name, season, position, mode=mode, save=False),
+    )
 
 
 @app.route('/team_cards', methods=['GET', 'POST'])
 def team_cards():
     with get_team_card_db() as conn:
-        team_cards_data = conn.execute(
-            'SELECT team, season FROM team_card_data'
-        ).fetchall()
-
-        teams = [row['team'] for row in conn.execute(
-            'SELECT DISTINCT team FROM team_card_data'
-        )]
         seasons = [row['season'] for row in conn.execute(
             'SELECT DISTINCT season FROM team_card_data ORDER BY season DESC'
         )]
@@ -367,12 +424,22 @@ def team_cards():
 
     return render_template(
         'cards/team_cards.html',
-        teams=teams,
-        team_cards_data=team_cards_data,
-        team_names=TEAM_NAMES,
         seasons=seasons,
         selected_card=selected_card
     )
+
+
+@app.route('/api/card_teams')
+def api_card_teams():
+    """The teams of one season, which the team card pickers fetch instead of the page carrying every team-season."""
+    season = request.args.get('season', '')
+    with get_team_card_db() as conn:
+        rows = conn.execute('SELECT team FROM team_card_data WHERE season = ? ORDER BY team', (season,)).fetchall()
+    if not rows:
+        abort(404)
+
+    return cacheable_json({'teams': [row['team'] for row in rows]})
+
 
 @app.route('/team_card_image')
 def team_card_image():
@@ -380,18 +447,10 @@ def team_card_image():
     season = request.args.get('season')
     mode = request.args.get('mode', 'light')
 
-    cache_key = ('team', team, season, mode)
-    png_bytes = get_cached_card_image(cache_key)
-
-    if png_bytes is None:
-        img = make_team_card(team, season, mode=mode, save=False)
-
-        buf = io.BytesIO()
-        img.save(buf, format='PNG')
-        png_bytes = buf.getvalue()
-        set_cached_card_image(cache_key, png_bytes)
-
-    return send_file(io.BytesIO(png_bytes), mimetype='image/png')
+    return card_image_response(
+        ('team', team, season, mode),
+        lambda: make_team_card(team, season, mode=mode, save=False),
+    )
 
 
 
