@@ -21,7 +21,7 @@
   <meta property="og:site_name" content="Analytics With Avery">
   <meta property="og:title" content="{% block og_title %}Analytics With Avery{% endblock %}">
   <meta property="og:description" content="{% block og_description %}Analytics With Avery{% endblock %}">
-  <meta property="og:image" content="{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}">
+  <meta property="og:image" content="{% block og_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}">
   <meta property="og:url" content="{% block og_url %}https://analyticswithavery.com/{% endblock %}">
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   {% block article_meta %}{% endblock %}
@@ -31,7 +31,7 @@
   <meta name="twitter:creator" content="@analyticswavery">
   <meta name="twitter:title" content="{% block twitter_title %}Analytics With Avery{% endblock %}">
   <meta name="twitter:description" content="{% block twitter_description %}Analytics With Avery{% endblock %}">
-  <meta name="twitter:image" content="{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}">
+  <meta name="twitter:image" content="{% block twitter_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}">
 
   <link rel="canonical" href="{{ request.base_url }}">
 
@@ -44,7 +44,7 @@
         "name": "Avery Doiron",
         "alternateName": "Analytics With Avery",
         "url": "https://analyticswithavery.com/",
-        "image": "https://analyticswithavery.com/static/assets/analytics_with_avery_logos/profile_picture.png",
+        "image": "https://analyticswithavery.com/static/assets/profile/profile_picture.png",
         "jobTitle": "Computer Science Student & Sports Analytics Researcher",
         "description": "Computer science student at St. Francis Xavier University specializing in data science and sports analytics, and creator of Analytics With Avery.",
         "alumniOf": {
@@ -83,15 +83,18 @@
     plausible.init()
   </script>
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/favicon.png') }}" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+  {% block css_early %}{% endblock %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  {% block css_late %}{% endblock %}
+  <link rel="icon" href="{{ url_for('static', filename='assets/brand/favicon.png') }}" type="image/png">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-180x180.png') }}">
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-152x152.png') }}">
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-120x120.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/brand/icon-180x180.png') }}">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-192x192.png') }}">
-  <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='assets/analytics_with_avery_logos/icon-512x512.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='assets/brand/icon-192x192.png') }}">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Analytics With Avery">
