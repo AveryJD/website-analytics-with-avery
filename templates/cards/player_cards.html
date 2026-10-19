@@ -55,13 +55,7 @@
 
           <div>
             <label for="team-0">Team</label>
-            <select name="team" id="team-0">
-              {% for row in player_teams_data %}
-                <option value="{{ row.team }}" data-season="{{ row.season }}">
-                  {{ team_names[row.team] }}
-                </option>
-              {% endfor %}
-            </select>
+            <select name="team" id="team-0"></select>
           </div>
 
           <div>
@@ -83,18 +77,7 @@
 
           <div>
             <label for="player-0">Player</label>
-            <select name="player" id="player-0" required data-selected="{{ selected_card.name if selected_card }}">
-              {% for p in players_list %}
-                <option value="{{ p.player }}"
-                  data-season="{{ p.season }}"
-                  data-position="{{ p.position }}"
-                  data-team="{{ p.team }}"
-                  {% if selected_card and selected_card.name == p.player %}selected{% endif %}
-                >
-                  {{ p.player }}
-                </option>
-              {% endfor %}
-            </select>
+            <select name="player" id="player-0" required data-selected="{{ selected_card.name if selected_card }}"></select>
           </div>
         </div>
 
@@ -128,13 +111,7 @@
 
           <div>
             <label>Team</label>
-            <select id="team-1" name="team">
-              {% for row in player_teams_data %}
-                <option value="{{ row.team }}" data-season="{{ row.season }}">
-                  {{ team_names[row.team] }}
-                </option>
-              {% endfor %}
-            </select>
+            <select id="team-1" name="team"></select>
           </div>
 
           <div>
@@ -148,13 +125,7 @@
 
           <div>
             <label>Player</label>
-            <select id="player-1" name="player" required>
-              {% for p in players_list %}
-                <option value="{{ p.player }}" data-season="{{ p.season }}" data-position="{{ p.position }}" data-team="{{ p.team }}">
-                  {{ p.player }}
-                </option>
-              {% endfor %}
-            </select>
+            <select id="player-1" name="player" required></select>
           </div>
         </div>
 
@@ -186,13 +157,7 @@
 
           <div>
             <label>Team</label>
-            <select id="team-2" name="team">
-              {% for row in player_teams_data %}
-                <option value="{{ row.team }}" data-season="{{ row.season }}">
-                  {{ team_names[row.team] }}
-                </option>
-              {% endfor %}
-            </select>
+            <select id="team-2" name="team"></select>
           </div>
 
           <div>
@@ -206,13 +171,7 @@
 
           <div>
             <label>Player</label>
-            <select id="player-2" name="player" required>
-              {% for p in players_list %}
-                <option value="{{ p.player }}" data-season="{{ p.season }}" data-position="{{ p.position }}" data-team="{{ p.team }}">
-                  {{ p.player }}
-                </option>
-              {% endfor %}
-            </select>
+            <select id="player-2" name="player" required></select>
           </div>
         </div>
 

@@ -30,7 +30,7 @@
     {% for post in posts %}
       <article class="post-list-item">
         <div class="post-list-thumb">
-          <img src="{{ post['image'] }}" alt="" loading="lazy" decoding="async">
+          <img src="{{ post['thumbnail'] }}" alt="" loading="lazy" decoding="async">
         </div>
         <div class="post-list-text">
           <h2><a href="/blog/{{ post['url'] }}" class="post-list-link">{{ post['title'] }}</a></h2>

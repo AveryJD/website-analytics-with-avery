@@ -1,4 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /player_card_image
+Disallow: /team_card_image
+Disallow: /api/
 
 Sitemap: https://analyticswithavery.com/sitemap.xml

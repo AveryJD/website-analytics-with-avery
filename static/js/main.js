@@ -92,6 +92,36 @@ function renderTweetEmbed(theme) {
   });
 }
 
+// ----- Card pickers: a season's teams and players are fetched once from the site (so the page itself stays small) and shared by every picker on the page -----
+const cardSeasonData = new Map();
+
+function loadCardSeason(kind, season) {
+  const key = `${kind}:${season}`;
+
+  if (!cardSeasonData.has(key)) {
+    const request = fetch(`/api/card_${kind}?season=${encodeURIComponent(season)}`)
+      .then(response => {
+        if (!response.ok) throw new Error(`No ${kind} found for ${season}`);
+        return response.json();
+      })
+      .catch(error => {
+        cardSeasonData.delete(key);
+        throw error;
+      });
+    cardSeasonData.set(key, request);
+  }
+
+  return cardSeasonData.get(key);
+}
+
+function addPlaceholderOption(select, text) {
+  const opt = document.createElement("option");
+  opt.text = text;
+  opt.disabled = true;
+  opt.selected = true;
+  select.add(opt);
+}
+
 function setupPlayerFilter(suffix) {
   const season = document.getElementById(`season-${suffix}`);
   const team = document.getElementById(`team-${suffix}`);
@@ -104,19 +134,8 @@ function setupPlayerFilter(suffix) {
 
   const preload = PRELOAD_CARDS[suffix];
 
-  const allPlayers = Array.from(player.options).map(opt => ({
-    name: opt.value,
-    text: opt.textContent,
-    season: opt.dataset.season,
-    team: opt.dataset.team,
-    position: opt.dataset.position
-  }));
-
-  const allTeams = Array.from(team.options).map(opt => ({
-    value: opt.value,
-    text: opt.textContent,
-    season: opt.dataset.season
-  }));
+  let seasonData = null; // { teams: {code: name}, players: [[name, team, position], ...] } for the selected season
+  let loadCount = 0;
 
   function applyCardMode() {
     const cardContainer = form.querySelector(".player-card");
@@ -129,75 +148,83 @@ function setupPlayerFilter(suffix) {
     );
   }
 
-  function filterPlayers() {
-    const s = season.value;
-    const t = team.value;
-    const p = position.value;
-
+  function fillPlayers() {
     const previousValue = player.value;
     player.innerHTML = "";
 
-    const filtered = allPlayers.filter(pl =>
-      (!s || pl.season === s) &&
-      (!t || pl.team === t) &&
-      (!p || pl.position === p)
-    );
+    const filtered = seasonData
+      ? seasonData.players.filter(([, t, p]) =>
+          (!team.value || t === team.value) && (!position.value || p === position.value))
+      : [];
 
     if (filtered.length === 0) {
-      const opt = document.createElement("option");
-      opt.text = "No Players Available";
-      opt.disabled = true;
-      opt.selected = true;
-      player.add(opt);
-    } else {
-      filtered.forEach(pl => {
-        const opt = document.createElement("option");
-        opt.value = pl.name;
-        opt.text = pl.text;
-        opt.dataset.season = pl.season;
-        opt.dataset.team = pl.team;
-        opt.dataset.position = pl.position;
-        player.add(opt);
-      });
+      addPlaceholderOption(player, "No Players Available");
+      return;
+    }
 
-      if (previousValue && Array.from(player.options).some(o => o.value === previousValue)) {
-        player.value = previousValue;
-      }
+    filtered.forEach(([name, t, p]) => {
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.text = name;
+      opt.dataset.season = season.value;
+      opt.dataset.team = t;
+      opt.dataset.position = p;
+      player.add(opt);
+    });
+
+    if (previousValue && Array.from(player.options).some(o => o.value === previousValue)) {
+      player.value = previousValue;
     }
   }
 
-  function filterPlayerTeams() {
-    const selectedSeason = season.value;
+  function fillTeams() {
     const previousValue = team.value;
-
     team.innerHTML = "";
 
-    const filteredTeams = allTeams
-      .filter(t => !selectedSeason || t.season === selectedSeason)
-      .sort((a, b) => a.text.localeCompare(b.text));
+    const teams = seasonData
+      ? Object.entries(seasonData.teams).sort((a, b) => a[1].localeCompare(b[1]))
+      : [];
 
-    if (filteredTeams.length === 0) {
-      const opt = document.createElement("option");
-      opt.text = "No Teams Available";
-      opt.disabled = true;
-      opt.selected = true;
-      team.add(opt);
-    } else {
-      filteredTeams.forEach(t => {
-        const opt = document.createElement("option");
-        opt.value = t.value;
-        opt.text = t.text;
-        opt.dataset.season = t.season;
-        team.add(opt);
-      });
-
-      if (previousValue && Array.from(team.options).some(o => o.value === previousValue)) {
-        team.value = previousValue;
-      }
+    if (teams.length === 0) {
+      addPlaceholderOption(team, "No Teams Available");
+      return;
     }
+
+    teams.forEach(([code, name]) => {
+      const opt = document.createElement("option");
+      opt.value = code;
+      opt.text = name;
+      team.add(opt);
+    });
+
+    if (previousValue && Array.from(team.options).some(o => o.value === previousValue)) {
+      team.value = previousValue;
+    }
+  }
+
+  // Fetch the selected season's teams and players, then fill both lists. Returns false if a newer season was chosen meanwhile.
+  async function loadSeason() {
+    const thisLoad = ++loadCount;
+
+    let data = null;
+    try {
+      data = await loadCardSeason("players", season.value);
+    } catch (error) {
+      console.error(error);
+    }
+
+    if (thisLoad !== loadCount) return false;
+
+    seasonData = data;
+    fillTeams();
+    fillPlayers();
+    return true;
   }
 
   function updateCardImage() {
+    // Hidden pickers (the compare view until it is opened) don't download a card
+    if (form.offsetParent === null) return;
+
     const selected = player.selectedOptions[0];
     if (!selected || selected.disabled) return;
 
@@ -206,8 +233,9 @@ function setupPlayerFilter(suffix) {
 
     const imgSrc = `/player_card_image?season=${selected.dataset.season}&team=${selected.dataset.team}&position=${selected.dataset.position}&player=${encodeURIComponent(selected.value)}&mode=${mode}`;
 
+    // The card shown is a smaller WebP; clicking it opens the full-size PNG
     const cardLink = document.getElementById(`card-link-${suffix}`);
-    if (cardLink) cardLink.href = imgSrc;
+    if (cardLink) cardLink.href = `${imgSrc}&full=1`;
 
     // If this exact card is already showing, the browser won't fire a new
     // load event for an unchanged src, so just make sure it's visible.
@@ -233,24 +261,23 @@ function setupPlayerFilter(suffix) {
     card.src = imgSrc;
   }
 
-  season.addEventListener("change", () => {
-    filterPlayerTeams();
-    filterPlayers();
-  });
-  position.addEventListener("change", filterPlayers);
-  team.addEventListener("change", filterPlayers);
+  season.addEventListener("change", loadSeason);
+  position.addEventListener("change", fillPlayers);
+  team.addEventListener("change", fillPlayers);
   generateBtn.addEventListener("click", updateCardImage);
 
-  filterPlayerTeams();
-  filterPlayers();
   applyCardMode();
 
-  if (preload) {
-    season.value = preload.season;
-    position.value = preload.position;
-    filterPlayerTeams();
+  (async () => {
+    if (preload) {
+      season.value = preload.season;
+      position.value = preload.position;
+    }
+
+    if (!(await loadSeason()) || !preload) return;
+
     team.value = preload.team;
-    filterPlayers();
+    fillPlayers();
 
     const preloadOption = Array.from(player.options).find(
       opt =>
@@ -264,7 +291,7 @@ function setupPlayerFilter(suffix) {
       player.value = preload.player;
       updateCardImage();
     }
-  }
+  })();
 
   return { updateCardImage, applyCardMode };
 }
@@ -279,11 +306,7 @@ function setupTeamFilter(suffix) {
 
   const preload = PRELOAD_TEAM_CARDS[suffix];
 
-  const allTeams = Array.from(team.options).map(opt => ({
-    value: opt.value,
-    text: opt.textContent,
-    season: opt.dataset.season
-  }));
+  let loadCount = 0;
 
   function applyCardMode() {
     const cardContainer = form.querySelector(".player-card");
@@ -296,38 +319,44 @@ function setupTeamFilter(suffix) {
     );
   }
 
-  function filterTeams() {
-    const selectedSeason = season.value;
+  // Fetch the selected season's teams and fill the list. Returns false if a newer season was chosen meanwhile.
+  async function loadTeams() {
+    const thisLoad = ++loadCount;
     const previousValue = team.value;
+
+    let teams = [];
+    try {
+      teams = (await loadCardSeason("teams", season.value)).teams;
+    } catch (error) {
+      console.error(error);
+    }
+
+    if (thisLoad !== loadCount) return false;
 
     team.innerHTML = "";
 
-    const filtered = allTeams
-      .filter(t => !selectedSeason || t.season === selectedSeason)
-      .sort((a, b) => a.text.localeCompare(b.text));
-
-    if (filtered.length === 0) {
-      const opt = document.createElement("option");
-      opt.text = "No Teams Available";
-      opt.disabled = true;
-      opt.selected = true;
-      team.add(opt);
-    } else {
-      filtered.forEach(t => {
-        const opt = document.createElement("option");
-        opt.value = t.value;
-        opt.text = t.text;
-        opt.dataset.season = t.season;
-        team.add(opt);
-      });
-
-      if (previousValue && Array.from(team.options).some(o => o.value === previousValue)) {
-        team.value = previousValue;
-      }
+    if (teams.length === 0) {
+      addPlaceholderOption(team, "No Teams Available");
+      return true;
     }
+
+    teams.forEach(name => {
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.text = name;
+      team.add(opt);
+    });
+
+    if (previousValue && teams.includes(previousValue)) {
+      team.value = previousValue;
+    }
+    return true;
   }
 
   function updateTeamCardImage() {
+    // Hidden pickers (the compare view until it is opened) don't download a card
+    if (form.offsetParent === null) return;
+
     const selectedTeam = team.value;
     const selectedSeason = season.value;
     const mode = getSiteMode();
@@ -339,8 +368,9 @@ function setupTeamFilter(suffix) {
 
     const imgSrc = `/team_card_image?season=${selectedSeason}&team=${encodeURIComponent(selectedTeam)}&mode=${mode}`;
 
+    // The card shown is a smaller WebP; clicking it opens the full-size PNG
     const cardLink = document.getElementById(`team-card-link-${suffix}`);
-    if (cardLink) cardLink.href = imgSrc;
+    if (cardLink) cardLink.href = `${imgSrc}&full=1`;
 
     // If this exact card is already showing, the browser won't fire a new
     // load event for an unchanged src, so just make sure it's visible.
@@ -366,21 +396,21 @@ function setupTeamFilter(suffix) {
     card.src = imgSrc;
   }
 
-  season.addEventListener("change", filterTeams);
+  season.addEventListener("change", loadTeams);
   generateBtn.addEventListener("click", updateTeamCardImage);
 
-  filterTeams();
   applyCardMode();
 
-  if (preload) {
-    season.value = preload.season;
-    filterTeams();
-    team.value = preload.team;
+  (async () => {
+    if (preload) season.value = preload.season;
+
+    if (!(await loadTeams()) || !preload) return;
 
     if (Array.from(team.options).some(o => o.value === preload.team)) {
+      team.value = preload.team;
       updateTeamCardImage();
     }
-  }
+  })();
 
   return { updateTeamCardImage, applyCardMode };
 }
@@ -451,15 +481,16 @@ const playerFilters = [];
   }
 });
 
-setupViewToggle("player-view-toggle", "player-single-view", "player-compare-view");
-setupViewToggle("team-view-toggle", "team-single-view", "team-compare-view");
-
 const teamFilters = [];
 ["0", "1", "2"].forEach(suffix => {
   if (document.getElementById(`team-filter-form-${suffix}`)) {
     teamFilters.push(setupTeamFilter(suffix));
   }
 });
+
+// Opening the compare view loads its cards (they are not downloaded while it is hidden)
+setupViewToggle("player-view-toggle", "player-single-view", "player-compare-view", () => playerFilters.forEach(filter => filter.updateCardImage()));
+setupViewToggle("team-view-toggle", "team-single-view", "team-compare-view", () => teamFilters.forEach(filter => filter.updateTeamCardImage()));
 
 setupScheduleFilter();
 

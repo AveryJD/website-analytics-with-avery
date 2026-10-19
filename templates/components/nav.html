@@ -8,7 +8,7 @@
 <nav class="nav-bar" aria-label="Main">
   <div class="nav-row">
     <a href="/" class="site-brand{% if request.path == '/' %} active{% endif %}"{% if request.path == '/' %} aria-current="page"{% endif %}>
-      <img src="/static/assets/brand/icon-192x192.png" alt="" class="site-logo">
+      <img src="{{ url_for('static', filename='assets/brand/icon-192x192.png') }}" alt="" class="site-logo">
       <span class="site-name">Analytics With Avery</span>
     </a>
 
