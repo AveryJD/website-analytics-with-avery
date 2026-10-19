@@ -38,13 +38,11 @@ def first_image(soup):
     return first['src']
 
 
-def thumbnail_for(image):
-    """Small WebP thumbnail for a post image (in static/post_images/thumbs/, same path), or the image itself if none exists."""
-    prefix = '/static/post_images/'
-    if image.startswith(prefix):
-        relative = os.path.splitext(image[len(prefix):])[0] + '.webp'
-        if os.path.exists(os.path.join(BASE_DIR, 'static', 'post_images', 'thumbs', relative)):
-            return prefix + 'thumbs/' + relative
+def thumbnail_for(post_id, image):
+    """The post's own blog list thumbnail, static/post_images/thumbs/<id>.webp (e.g. 001.webp), or its first image if it has none."""
+    thumb = f'{post_id:03d}.webp'
+    if os.path.exists(os.path.join(BASE_DIR, 'static', 'post_images', 'thumbs', thumb)):
+        return '/static/post_images/thumbs/' + thumb
     return image
 
 
@@ -102,7 +100,7 @@ def load_post(filename):
         'preview': preview,
         'content': str(soup),
         'image': image,
-        'thumbnail': thumbnail_for(image),
+        'thumbnail': thumbnail_for(post_id, image),
         'share_image': absolute_url(DEFAULT_SHARE_IMAGE if image == DEFAULT_IMAGE else image),
     }
 
