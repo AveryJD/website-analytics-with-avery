@@ -165,7 +165,7 @@
               <tr><th class="feature-group-col"><span class="visually-hidden">Group</span></th><th>Feature</th><th>What it is</th><th>Values</th></tr>
             </thead>
             <tbody>
-            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Where and how the shot was taken</span></th><td>Distance</td><td>The distance from the shot origin to the center of the goal</td><td>Numerical value in feet</td></tr>
+            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Where and How the Shot Was Taken</span></th><td>Distance</td><td>The distance from the shot origin to the center of the goal</td><td>Numerical value in feet</td></tr>
             <tr><td>Angle</td><td>The angle of the shot away from the line straight out from the center of the goal</td><td>Numerical value in degrees</td></tr>
             <tr><td>Behind Net</td><td>If the shot came from behind the goal line</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
             <tr><td>Crossed Royal Road</td><td>If the puck crossed the middle of the ice, side to side, between the previous event and the shot</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
@@ -174,7 +174,7 @@
             <tr><td>Shot Y Norm</td><td>How far to either side of the middle of the ice the shot was taken, normalized so the shooter is always attacking the same side</td><td>Numerical value in feet</td></tr>
             <tr><td>Shot Type</td><td>How the shot was taken</td><td>Wrist, snap, slap, backhand, tip-in, deflected, wrap-around, poke, bat, between-legs, cradle, or unknown (when the NHL didn't record a type)</td></tr>
             <tr><td>Shooter Shoots</td><td>The handedness of the shooter</td><td>Left or right, or unknown (when the NHL doesn't list it)</td></tr>
-            <tr><th class="feature-group-label" rowspan="14" scope="rowgroup"><span>What led to the shot</span></th><td>Prior Event Type</td><td>What the previous event was</td><td>Faceoff, shot on goal, hit, blocked shot, missed shot, giveaway, takeaway, goal, penalty, or none (no usable previous event)</td></tr>
+            <tr><th class="feature-group-label" rowspan="14" scope="rowgroup"><span>What Led to the Shot</span></th><td>Prior Event Type</td><td>What the previous event was</td><td>Faceoff, shot on goal, hit, blocked shot, missed shot, giveaway, takeaway, goal, penalty, or none (no usable previous event)</td></tr>
             <tr><td>Prior Miss Reason</td><td>If the previous event was a missed shot, how it missed</td><td>Wide left, wide right, wide of the net, high and wide left, high and wide right, above the crossbar, over the net, hit the crossbar, hit the left post, hit the right post, hit the goalpost, short, failed bank attempt, unknown, or none (the previous event wasn't a missed shot)</td></tr>
             <tr><td>Prior Event Elapsed</td><td>Time between the previous event and the shot</td><td>Numerical value in seconds</td></tr>
             <tr><td>Distance Change</td><td>How much closer to or farther from the goal the puck is compared with the previous event</td><td>Numerical value in feet (negative means the puck moved closer to the net)</td></tr>
@@ -188,7 +188,7 @@
             <tr><td>Rebound Chain Position</td><td>How many rebounds deep the shot is in a scramble, where each rebound is a follow-up shot by the same team within three seconds of its own shot on goal, with the count capped at 3</td><td>0 (not a rebound), 1, 2, or 3 (three or more)</td></tr>
             <tr><td>Time Since Chain Start</td><td>Time since the first shot of the rebound chain</td><td>Numerical value in seconds (blank for shots that aren't part of a rebound chain)</td></tr>
             <tr><td>Distance Since Chain Start</td><td>How far the shot is from the first shot of the rebound chain</td><td>Numerical value in feet (blank for shots that aren't part of a rebound chain)</td></tr>
-            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Game situation</span></th><td>Strength</td><td>The on-ice situation when the shot was taken, as the shooter's skaters against the opponent's (the empty net models use each team's skater counts instead)</td><td>The possible values differ per model: 5v5: not used (every shot is 5v5); Other Even Strength: 4v4, 3v3 (periods 1 to 3), 3v3ot (overtime); Power Play: 5v4, 5v3, 4v3, etc.; Penalty Kill: 4v5, 3v4, 3v5, etc.; Empty Net For: 6v5, 6v4, 5v5, 5v4, etc.; Empty Net Against: 5v6, 5v5, 4v6, 5v4, etc.</td></tr>
+            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Game Situation</span></th><td>Strength</td><td>The on-ice situation when the shot was taken, as the shooter's skaters against the opponent's (the empty net models use each team's skater counts instead)</td><td>The possible values differ per model: 5v5: not used (every shot is 5v5); Other Even Strength: 4v4, 3v3 (periods 1 to 3), 3v3ot (overtime); Power Play: 5v4, 5v3, 4v3, etc.; Penalty Kill: 4v5, 3v4, 3v5, etc.; Empty Net For: 6v5, 6v4, 5v5, 5v4, etc.; Empty Net Against: 5v6, 5v5, 4v6, 5v4, etc.</td></tr>
             <tr><td>Strength Elapsed</td><td>Time the current on-ice situation (skater counts and goalies in net) has been in effect, such as time into a power play</td><td>Numerical value in seconds</td></tr>
             <tr><td>Score State</td><td>The shooting team's goal lead at the time of the shot, capped at plus or minus 3</td><td>-3 to 3 (whole goals)</td></tr>
             <tr><td>Period Number</td><td>The period of the game</td><td>1, 2, 3, or 4 (overtime)</td></tr>
@@ -197,7 +197,7 @@
             <tr><td>Is B2B</td><td>If the shooting team is playing the second game of a back-to-back</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
             <tr><td>Time Since Last Offensive-Zone Faceoff Win</td><td>Time since the shooting team won an offensive-zone faceoff, if there has been no whistle since</td><td>Numerical value in seconds (blank if there was no such faceoff win)</td></tr>
             <tr><td>Shots Since Last Offensive-Zone Faceoff Win</td><td>Shots the team has taken since that faceoff win</td><td>Whole number of shots (blank if there was no such faceoff win)</td></tr>
-            <tr><th class="feature-group-label" rowspan="5" scope="rowgroup"><span>Players and fatigue</span></th><td>Shooter Shift Length</td><td>Time the shooter has been on their current shift</td><td>Numerical value in seconds</td></tr>
+            <tr><th class="feature-group-label" rowspan="5" scope="rowgroup"><span>Players and Fatigue</span></th><td>Shooter Shift Length</td><td>Time the shooter has been on their current shift</td><td>Numerical value in seconds</td></tr>
             <tr><td>Opponent Shift Length Min</td><td>The shortest current shift among the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
             <tr><td>Opponent Shift Length Avg</td><td>The average current shift of the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
             <tr><td>Opponent Shift Length Max</td><td>The longest current shift among the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
@@ -251,11 +251,11 @@
         >
       </figure>
       <p>
-        One thing to keep in mind is the area behind the goal line, which looks dangerous on this map but isn't. The NHL records a shot at the
-        spot where the shooter was when it happened, so a wrap-around shot, which starts behind the net and ends up on the goalie from close
-        range, is logged as a shot from behind the net, and the model rates those shots highly. Few shots are taken from back there, so a
-        handful of goals can also make a spot look better than it is. In reality these shots score far less often than the model expects:
-        across the out-of-sample seasons, 5v5 shots from behind the net scored about 430 goals against about 660 expected.
+        One thing to keep in mind is the area behind the goal line, which looks dangerous on this map but in realit isn't nearly that dangerous.
+        The NHL records a shot at the spot where the shooter was when it happened, so a wrap-around shot, which starts behind the net and ends 
+        up on the goalie from close range, is logged as a shot from behind the net, and the model rates those shots highly. Few shots are taken 
+        from back there, so a handful of goals can also make a spot look better than it is. In reality these shots score far less often than the 
+        model expects: across the out-of-sample seasons, 5v5 shots from behind the net scored about 430 goals against about 660 expected.
       </p>
 
       <h3 id="xg-results">Model Performance</h3>
