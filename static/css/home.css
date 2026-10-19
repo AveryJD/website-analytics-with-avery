@@ -39,6 +39,7 @@
   align-items: center;
 }
 
+/* Same resting shadow and hover shadow as the card previews (.player-card) */
 .other-project-preview img {
   display: block;
   width: 100%;
@@ -46,6 +47,11 @@
   border: var(--border);
   border-radius: var(--main-radius);
   box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.other-project-preview img:hover {
+  box-shadow: var(--box-shadow-hover);
 }
 
 .project-panel .player-card {
