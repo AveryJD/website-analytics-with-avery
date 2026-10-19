@@ -1,0 +1,152 @@
+  <div id="rapm-model" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Regularized Adjusted Plus-Minus (RAPM)</h2></summary>
+      <div class="model-body">
+      <h3>What Is RAPM?</h3>
+      <p>
+        Raw plus-minus has an obvious problem: it credits and blames players for everything that happens while they're on the ice, regardless
+        of who else is out there. RAPM isolates each player's individual contribution using ridge regression across every stint in a season.
+        Ridge regression estimates every player's effect at the same time, and the "ridge" part pulls each player toward average so linemates
+        don't absorb each other's credit. It covers the 2009-2010 through 2025-2026 regular seasons. It is built from the NHL's shift charts,
+        which record who is on the ice and when, and from the xG of every shot, with roughly 300,000 to 410,000 stints in a full season. The
+        ratings produced, measured in expected goals per hour, feed <a href="#war-model">WAR</a> below. For example, Connor McDavid's Even
+        Strength Offense rating in 2025-2026 is +0.48, which means their team is estimated to have generated about 0.48 more expected goals per
+        hour of even strength play with him on the ice than if they would have had an average player in his place, after adjusting for their
+        teammates and opponents.
+      </p>
+
+      <h3>The Ridge Regression</h3>
+      <h4>Building the Stints</h4>
+      <p>
+        Every stint, a stretch of play where no player changes, is reconstructed from the shift charts. Shift changes recorded within one
+        second of each other are treated as one line change, because the chart logs a change's outgoing and incoming players a second or two
+        apart, which otherwise creates a flurry of very short one to three second stints with an impossible lineup.
+      </p>
+      <h4>The Response</h4>
+      <p>
+        The predicted xG of every shot in the stint is attached, and each stint becomes a regression row from both teams' perspectives: one
+        column for every offensive player on the ice, one for every defensive player, and the response is the xG rate generated during the
+        stint, weighted by its length. So every player ends up with two numbers: an offense rating (how much they add to their team's xG rate)
+        and a defense rating (how much they cut the opponent's). I use xG as the response because that is the typical way to build an RAPM, and
+        real goals are far noisier.
+      </p>
+      <p>
+        The xG response is flurry-adjusted: every shot after the first in a same-team rebound chain is discounted by the chance the chain had
+        already scored, because raw xG would count one scramble's single scoring chance once per rebound and over-reward whoever was on the ice
+        for flurries. Each stint's implied rate is also capped at 50 per hour so a handful of very short, high-scoring stints can't dominate
+        the fit.
+      </p>
+      <h4>Context Covariates</h4>
+      <p>
+        A short list of context covariates sits alongside the player columns, so a player isn't credited or blamed for the situations they were
+        deployed in. Each stint becomes two rows, one from each team's side: the team whose players are in the offense columns is the offense
+        team and the other is the defense team, and every covariate below is from the offense team's side unless it says otherwise. Every
+        covariate is fed to the regression as 0s and 1s, one column per category.
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Covariate</th><th>What it is</th><th>Values</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Zone Start</td><td>The zone of any faceoff during the stint, from the offense team's side (offensive, defensive, or neutral). A stint with no faceoff has all three at 0</td><td>Offensive, defensive, or neutral (each fed in as 0 or 1)</td></tr>
+            <tr><td>Score State</td><td>The offense team's goal lead or deficit, capped at plus or minus 3. Tied is the baseline, so it has no column of its own</td><td>Up 1, up 2, up 3 or more, down 1, down 2, down 3 or more, or tied (each fed in as 0 or 1)</td></tr>
+            <tr><td>Special-Teams Expiry</td><td>An even-strength stint that starts within 10 seconds after a power play or penalty kill ends. One flag is for when the offense team was the one on the power play, the other for when it was the one shorthanded</td><td>0 or 1 for each flag (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Special-Teams Start on the Fly</td><td>A power-play or penalty-kill stint that began straight out of even strength with no faceoff at its start (play never stopped). The same flag for both teams</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Home Ice</td><td>If the offense team is the home team</td><td>0 or 1 (0 means it isn't, 1 means it is)</td></tr>
+            <tr><td>Back-to-Back</td><td>If the offense team, and separately the defense team, is playing the second game of a back-to-back</td><td>0 or 1 for each team (0 means it isn't, 1 means it is)</td></tr>
+            <tr><td>State Flags</td><td>Which situation the stint was played in, with 5v5, 5v4 and 4v5 as the baselines in their fits</td><td>4v4 or 3v3 in the even-strength fit, 5v3 or 4v3 in the power-play fit, 3v5 or 3v4 in the penalty-kill fit (each fed in as 0 or 1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>The Ridge Penalty</h4>
+      <p>
+        Ridge is needed because linemates play together, and without it the ratings are wildly unstable. The ridge penalty shrinks every
+        player's rating toward its prior (zero, or last season's rating, below). Its strength for the player columns is fixed for each fit:
+        20.0 for even strength and 10.0 for both the power-play and penalty-kill fits. The context covariates get one fixed, much lighter
+        penalty of 1.0 through a column-scaling trick, since there are only a handful of them and they're well observed.
+      </p>
+
+      <h4>Separate Fits and the Six Ratings</h4>
+      <p class="table-intro">
+        Even strength and special teams are fit as separate regressions, since power-play and penalty-kill units behave very differently from
+        5v5 play. The special teams are fit twice, once from the power-play side and once from the penalty-kill side, because who is attacking
+        and who is defending in the same stints are different questions. Both fits pool the rarer states in with the main one, with a pair of
+        flags telling the model which state each stint was played at. The even strength pools 5v5, 4v4, and 3v3, the power-play fit pools 5v4,
+        5v3, and 4v3, and the penalty-kill fit pools 4v5, 3v5, and 3v4. That lets those stints, individually too sparse to support their own
+        regression, still contribute signal. Each fit gives an offense and a defense rating, and the three fits together produce six ratings,
+        named by the situation the skater is playing in. All six are signed so a higher number is better, including on defense:
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Rating</th><th>What it is</th><th>Skater's States Pooled In</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Even Strength Offense</td><td>A skater's effect on their team's expected goal rate at even strength</td><td>5v5, 4v4, 3v3</td></tr>
+            <tr><td>Even Strength Defense</td><td>A skater's effect on the opponent's expected goal rate at even strength</td><td>5v5, 4v4, 3v3</td></tr>
+            <tr><td>Power Play Offense</td><td>A skater's effect on their team's expected goal rate on the power play</td><td>5v4, 5v3, 4v3</td></tr>
+            <tr><td>Power Play Defense</td><td>A skater's effect on the opponent's expected goal rate while on the power play</td><td>5v4, 5v3, 4v3</td></tr>
+            <tr><td>Penalty Kill Defense</td><td>A skater's effect on the opponent's expected goal rate while shorthanded</td><td>4v5, 3v5, 3v4</td></tr>
+            <tr><td>Penalty Kill Offense</td><td>A skater's effect on their own team's expected goal rate while shorthanded</td><td>4v5, 3v5, 3v4</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Last Season's Rating as a Starting Point</h4>
+      <p>Instead of shrinking everyone toward zero, a player's rating is shrunk toward a prior built from last season's saved rating:</p>
+      <p>$$ \text{prior}_{i,t} = a + b \times r_{i,t-1} $$</p>
+      <p class="table-intro">
+        where <span>\( r_{i,t-1} \)</span> is the player's rating last season, <span>\( a \)</span> is an intercept, and <span>\( b \)</span>
+        is a slope: how much of that component actually repeats from year to year. The slope is fit separately for forwards and defensemen, and
+        for each of the six components, on the five seasons before the one being rated, so a season's prior never uses its own data. These are
+        the slopes behind the 2025-2026 priors (fit on 2020-2021 through 2024-2025):
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Rating</th><th>Forwards</th><th>Defensemen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Even Strength Offense</td><td>0.65</td><td>0.45</td></tr>
+            <tr><td>Even Strength Defense</td><td>0.44</td><td>0.35</td></tr>
+            <tr><td>Power Play Offense</td><td>0.59</td><td>0.45</td></tr>
+            <tr><td>Power Play Defense</td><td>0.11</td><td>0.22</td></tr>
+            <tr><td>Penalty Kill Defense</td><td>0.24</td><td>0.30</td></tr>
+            <tr><td>Penalty Kill Offense</td><td>0.32</td><td>0.19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        A slope of 0.65 means a forward's Even Strength Offense rating carries about 65% of last year's rating forward, while the Penalty Kill
+        ratings and Power Play Defense carry only 11% to 32%, which is why they are the least stable. A full, slope-of-one prior would make
+        ratings too sticky, since a strong year would almost never be followed by a poor one. Because each season's prior is the previous
+        season's saved, already prior-informed rating, a player's history chains forward through the years. Using only last season keeps this
+        simple, since the chain already carries earlier seasons forward, though I may look at a longer lookback later. The first season in the
+        data has no earlier season, so it is fit with no prior.
+      </p>
+
+      <h4>What a Rating Means</h4>
+      <p>
+        The output is a rate stat per player per situation (even strength offense and defense, power play offense and defense, and penalty kill
+        offense and defense) that represents estimated on-ice impact independent of who they're playing with or against. A rating from a
+        prior-informed fit is best read as the best estimate of a player's current ability using last season as a starting point, not as a
+        purely descriptive account of that one season.
+      </p>
+
+      <h3>Limitations and Things to Keep in Mind</h3>
+      <ul class="model-list">
+        <li>RAPM inherits xG's blind spots. It can't see certain events such as passing or screens (see the <a href="#xg-model">xG limitations</a>).</li>
+        <li>Players who are almost always together are hard to separate. Linemates who are almost always on the ice together can't be fully told apart, even with ridge.</li>
+        <li>Ratings are rates, and low-minute players are uncertain. Players with little ice time have noisier ratings, and the ridge pulls them toward their prior.</li>
+        <li>Deployment is only partly captured. How a player was used is captured only through the covariates listed above, so anything else about their role isn't adjusted for.</li>
+        <li>Ratings lean on last season. They estimate current ability and are not a purely descriptive account of one season, and the 2009-2010 ratings, the first season in the data, have no prior at all, so they are noisier.</li>
+        <li>Eras aren't strictly comparable. Ratings spread out more after 2021, so compare seasons using ranks and percentiles more than raw ratings.</li>
+        <li>Empty-net and other very rare situations aren't included. Only 5v5, 4v4, 3v3, 5v4, 5v3, 4v3, 4v5, 3v5 and 3v4 are used, with both goalies in net, so play with a goalie pulled is left out (about 2% of ice time).</li>
+        <li>The first five seasons use in-sample xG. Treat those ratings as approximate (see the <a href="#xg-model">xG limitations</a>).</li>
+        <li>Three games in 2009-2010, one in 2010-2011 and one in 2013-2014 are missing some shift data (the 2009-2010 and 2013-2014 games have none, and the 2010-2011 game has about half), so they have no or partial stints and are left out of or only partly counted in those seasons' RAPM and WAR, though their shots and goals still count in individual stats.</li>
+      </ul>
+      </div>
+    </details>
+  </div>

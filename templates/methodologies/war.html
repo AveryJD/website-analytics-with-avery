@@ -1,0 +1,178 @@
+  <div id="war-model" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Wins Above Replacement (WAR)</h2></summary>
+      <div class="model-body">
+      <h3>What Is WAR?</h3>
+      <p>
+        WAR is built on top of <a href="#rapm-model">RAPM</a>. RAPM gives each player several ratings in expected goals per hour, which can be
+        hard to compare or add up. WAR turns them, along with finishing and penalties, into one easy-to-read number: how many wins a player
+        contributed over a season compared with a replacement-level player (at even strength, a typical 14th forward or 8th defenseman). WAR
+        reports what happened: a player's WAR is their actual goals above expected, luck included, so use it as a description of a season and
+        RAPM as the better guide going forward.
+      </p>
+      <h3>The Components</h3>
+      <p>
+        A skater's WAR is the sum of eight components, and a goalie's WAR has three:
+      </p>
+      <p>
+        $$ \text{WAR}_{\text{skater}} = \text{ES Off} + \text{ES Def} + \text{PP Off} + \text{PP Def} + \text{PK Off} + \text{PK Def} +
+        \text{Fin} + \text{Pen} $$
+      </p>
+      <p>$$ \text{WAR}_{\text{goalie}} = \text{ES} + \text{PK} + \text{PP} $$</p>
+      <p>
+        Finishing and penalties are each already the sum of their pieces across every strength (5v5, 5v4, 4v5, and the rarer states), so a
+        skater's total covers all of their ice time. Goalie WAR is built from separate goalie components and is not added to any skater
+        components.
+      </p>
+      <p class="table-title">Skater components</p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table war-components-table">
+          <thead>
+            <tr><th>Component</th><th>What it measures</th><th>Built from</th><th>Replacement level (ranked by team ice time)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Even Strength Offense</td><td>Goals added at even strength</td><td>Even Strength Offense rating and even-strength ice time</td><td>Forwards ranked 14th or lower, defensemen 8th or lower</td></tr>
+            <tr><td>Even Strength Defense</td><td>Goals prevented at even strength</td><td>Even Strength Defense rating and even-strength ice time</td><td>Forwards ranked 14th or lower, defensemen 8th or lower</td></tr>
+            <tr><td>Power Play Offense</td><td>Goals added on the power play</td><td>Power Play Offense rating and power-play ice time</td><td>Forwards ranked 10th or lower, defensemen 4th or lower</td></tr>
+            <tr><td>Power Play Defense</td><td>Goals prevented while on the power play</td><td>Power Play Defense rating and power-play ice time</td><td>Forwards ranked 10th or lower, defensemen 4th or lower</td></tr>
+            <tr><td>Penalty Kill Offense</td><td>Goals added while shorthanded</td><td>Penalty Kill Offense rating and penalty-kill ice time</td><td>Forwards ranked 8th or lower, defensemen 6th or lower</td></tr>
+            <tr><td>Penalty Kill Defense</td><td>Goals prevented on the penalty kill</td><td>Penalty Kill Defense rating and penalty-kill ice time</td><td>Forwards ranked 8th or lower, defensemen 6th or lower</td></tr>
+            <tr><td>Finishing</td><td>Goals scored beyond what the shot quality (xG) predicts</td><td>Actual goals minus the xG of their own shots, in every strength</td><td>The rate depth players actually shoot at</td></tr>
+            <tr><td>Penalties</td><td>Penalties drawn minus penalties taken</td><td>Net penalty minutes, valued at the xG a power play is worth per minute</td><td>The penalty rate of even-strength depth players</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-title">Goalie components</p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table war-components-table">
+          <thead>
+            <tr><th>Component</th><th>What it measures</th><th>Built from</th><th>Replacement level</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Even Strength</td><td>Goals saved beyond what the shots predict</td><td>Goals Saved Above Expected (GSAx) at 5v5, 4v4, and 3v3</td><td>The backups on each team (every goalie below the starter)</td></tr>
+            <tr><td>Penalty Kill</td><td>Goals saved beyond what the shots predict while shorthanded</td><td>GSAx while the goalie's team is a skater or two down (4v5, 3v5, 3v4)</td><td>The backups on each team (every goalie below the starter)</td></tr>
+            <tr><td>Power Play</td><td>Goals saved beyond what the shots predict while the goalie's team is on the power play</td><td>GSAx while the goalie's team is a skater or two up (5v4, 5v3, 4v3)</td><td>The backups on each team (every goalie below the starter)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How WAR Is Calculated</h3>
+      <p>
+        A player's WAR for a component is the difference between their own rate and replacement level, scaled by their ice time and converted
+        from goals to wins:
+      </p>
+      <p>$$ \text{WAR}_{\text{component}} = (\text{rate} - \text{replacement rate}) \times \text{hours played} \times \dfrac{k}{4 \bar{g}} $$</p>
+      <p>
+        where \( \bar{g} \) is that season's league average goals per team per game (counting only goals scored against a real goalie, to match
+        the components, which all exclude empty-net play) and \( k \) is the Pythagorean exponent, a sabermetrics method that relates goals
+        scored and allowed to win percentage, used here in reverse to translate a goal swing into a win swing. The 4 comes from taking the
+        Pythagorean formula's slope at an average team, where \( k / (4 \bar{g}) \) is the number of wins one extra goal is worth. I fit \( k
+        \) once, to the standings of every NHL season in the data, and it comes out at 2.15. Because \( \bar{g} \) is each season's own league
+        average, the same \( k \) works out to somewhere between 4.5 and 5.5 goals per win, depending on how much scoring there was that
+        season.
+      </p>
+      <p>
+        For example, take a forward in 2025-2026 with a +0.48 Even Strength Offense rating, against a replacement level of -0.02. That is 0.50
+        expected goals per hour better than replacement. Over 24 hours of even strength ice time, that is about 12.0 expected goals, and at
+        that season's 0.192 wins per goal, the component is worth about 2.3 wins.
+      </p>
+      <p>
+        WAR here is a season total in wins. Among skaters who played at least half a season (leaving out the three shortened seasons), the
+        median is about 0.5 WAR, the top quarter are above 1.25, the top 10% are above 2.3, and the best skater each season lands between about
+        4.7 and 8.9. Goalies are more spread out: among goalies with at least a quarter of a season, the median is about 0.9 and the top 10%
+        are above 4.5.
+      </p>
+
+      <h3>Replacement Level</h3>
+      <p>
+        Replacement level is the performance of an easy-to-find player, a fringe lineup regular. For each component, I compute a
+        replacement-level rate per position from the players ranked below a cutoff in ice time on their own team in that situation. That ties
+        replacement level to who is realistically available on a roster, not to a fixed league-wide percentile. Each component is measured
+        against its own replacement level. The cutoffs are hand-picked.
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table results-value-table">
+          <thead>
+            <tr><th>Situation</th><th>Used for</th><th>Forwards ranked</th><th>Defensemen ranked</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Even strength</td><td>Even Strength Offense, Even Strength Defense, even-strength finishing, and penalties</td><td>14th or lower</td><td>8th or lower</td></tr>
+            <tr><td>Power play</td><td>Power Play Offense, Power Play Defense, and power-play finishing</td><td>10th or lower</td><td>4th or lower</td></tr>
+            <tr><td>Penalty kill</td><td>Penalty Kill Offense, Penalty Kill Defense, and penalty-kill finishing</td><td>8th or lower</td><td>6th or lower</td></tr>
+            <tr><td>Goalies</td><td>Even Strength, Penalty Kill, and Power Play</td><td colspan="2">Every goalie ranked below the team's starter</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Finishing</h3>
+      <p>
+        Finishing is a player's actual goals minus the xG of their own shots (goals above expected), then taken above replacement. A
+        replacement-level shooter isn't an average shooter: in every season, replacement-level forwards scored only about 72% to 86% of their
+        xG at 5v5 while regular forwards scored close to all of it. So the baseline is the rate depth players actually shoot at, and a
+        regular's finishing WAR is their goals above expected minus what a replacement-level shooter would have scored on the same number of
+        shots, converted to wins. Whether that gap is real finishing talent or shot quality the xG model can't see (passes and screens) can't
+        be separated with public data. This is the finishing piece of a goals-above-replacement measure: because depth players really do shoot
+        worse than xG, an average finisher is worth more than zero above replacement.
+      </p>
+      <p>
+        Finishing is measured separately by the strength the shooter's team was at: 5v5, 5v4, 4v5, and three groups of rarer states, "Other
+        even strength" (4v4 and 3v3), "Other power play" (5v3 and 4v3), and "Other penalty kill" (3v5 and 3v4). Each group has its own
+        replacement rate, taken from the depth players of the matching situation, and the pieces add up to a player's finishing WAR.
+      </p>
+
+      <h3>Penalties</h3>
+      <p>
+        Penalties are net minutes drawn minus minutes taken, valued at the xG a power play is worth per minute. Every penalty is valued as a
+        full power play, for simplicity. That value is fit for each season from the five before it and depends on the situation the penalty was
+        taken in: roughly 0.09 to 0.11 xG per minute at 5v5 (so a two-minute minor is worth about 0.2 xG to the other team), and about 0.19 to
+        0.26 when the team is already shorthanded, since that pushes the game further into a lopsided state.
+      </p>
+      <p>
+        Penalties are split the same way as finishing, by the strength the committing player's team was at before the penalty: 5v5, 5v4, 4v5,
+        Other even strength (4v4 and 3v3), Other power play (5v3 and 4v3), and Other penalty kill (3v5 and 3v4). The rarer groups are too small
+        to fit their own value per minute, so each uses the value of the nearest main state: Other even strength uses the 5v5 value, Other
+        power play uses 5v4, and Other penalty kill uses 4v5.
+      </p>
+      <p class="table-intro">Only penalties that are an individual player's doing count:</p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Penalty</th><th>Charged to</th><th>Credited to</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>An ordinary penalty</td><td>The player who took it</td><td>The player who drew it</td></tr>
+            <tr><td>A penalty nobody drew (puck over the glass, embellishment)</td><td>The player who took it</td><td>No one</td></tr>
+            <tr><td>A team penalty (too many men, bench minors, unsuccessful challenges)</td><td>No one, since the "taker" only served the time</td><td>No one</td></tr>
+            <tr><td>Matching fighting majors</td><td>Cancel out for each fighter</td><td>Cancel out for each fighter</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Penalty value is measured against replacement the same way as finishing, using the penalty rate per hour of ice time of even-strength
+        depth players, because the special-teams pools alone are too thin to give a stable baseline.
+      </p>
+
+      <h3>Goalie WAR</h3>
+      <p>
+        Goalies skip RAPM entirely and get their own WAR built from Goals Saved Above Expected (GSAx), the xG against minus the actual goals
+        against, at even strength, on the penalty kill, and on the power play, measured against the backups on each team (every goalie below
+        the starter) and converted to wins the same way as skaters. Short misses (explained in the <a href="#xg-model">xG section</a>) aren't
+        in the shot data, so goalies get no credit for them.
+      </p>
+
+      <h3>Limitations and Things to Keep in Mind</h3>
+      <ul class="model-list">
+        <li>Scorers rate a bit above playmakers. xG can't see passing or screens (see the <a href="#xg-model">xG limitations</a>), so the shooter who finishes a chance is credited with beating xG while the passer is credited only through on-ice ratings.</li>
+        <li>Goalie WAR depends on an xG model that doesn't know who is shooting. The xG model only knows which hand the shooter shoots with, so a goalie who faces more dangerous shooters than average, or whose team gives up more screens and passes than the model can see, gets credit or blame that isn't theirs.</li>
+        <li>WAR is a counting stat. Missed games and shortened seasons lower a player's WAR, so a player who was hurt has fewer chances to add wins.</li>
+        <li>League totals float. Nothing pins league WAR to a fixed number, so it moves with how many players are above replacement and how lucky the goalies and shooters were that year. In a typical season, about 40% of skaters finish below 0 WAR (between 34% and 43% across the 17 seasons), so compare seasons using ranks and percentiles more than raw totals.</li>
+        <li>The replacement-level cutoffs are hand-picked. Moving them shifts every player's WAR.</li>
+        <li>Penalties are all valued as a full power play. That is a simplification, since a minor ends early when the power play scores and overlapping penalties don't each give a full extra power play.</li>
+        <li>Empty-net and other very rare situations aren't included. Play with a goalie pulled, and any state outside the ones listed in the <a href="#rapm-model">RAPM</a> section, counts toward neither RAPM nor WAR, including empty-net goals scored and allowed.</li>
+        <li>The first five seasons use in-sample xG. Treat 2009-2010 through 2013-2014 as approximate (see the <a href="#xg-model">xG limitations</a>).</li>
+        <li>Some games are missing shift data. Five games have no or partial shift data, so they are left out of or only partly counted in WAR (see the <a href="#rapm-model">RAPM limitations</a>).</li>
+      </ul>
+      </div>
+    </details>
+  </div>

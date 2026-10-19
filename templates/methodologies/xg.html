@@ -1,0 +1,341 @@
+{# A methodology table built from a CSV the xG project writes (see methodology_table in app.py): the CSV's numbers are formatted here and nothing is typed into the page #}
+{% macro csv_table(name, headers, table_class, fmt, overrides={}) %}
+{% set rows = methodology_table(name, fmt, overrides) %}
+          <div class="table-scroll">
+            <table class="model-stats-table {{ table_class }}">
+              <thead>
+                <tr><th>Season</th>{% for header in headers %}<th>{{ header }}</th>{% endfor %}</tr>
+              </thead>
+              <tbody>
+{% if rows %}{% for row in rows %}
+                <tr{% if row.in_sample %} class="in-sample-row"{% elif row.total %} class="total-row"{% endif %}>
+{% for cell in row.cells %}                  <td>{{ cell }}</td>
+{% endfor %}                </tr>
+{% endfor %}{% else %}
+                <tr><td colspan="{{ headers|length + 1 }}">The data file for this table ({{ name }}.csv) hasn't been added yet.</td></tr>
+{% endif %}
+              </tbody>
+            </table>
+          </div>
+{% endmacro %}
+
+  <div id="xg-model" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Expected Goals (xG)</h2></summary>
+      <div class="model-body">
+      <h3>What Are Expected Goals?</h3>
+      <p>
+        Expected goals (xG) is the probability that a given shot becomes a goal. It captures shot quality, so a breakaway and a point shot are
+        valued differently instead of both counting as one shot. A shot with an xG of 0.20, for example, goes in about once in every five
+        tries, so a team that takes ten of them is expected to score about two goals. The model is trained entirely on shot-event data that I
+        scrape myself, rather than relying on a third-party model. It covers every unblocked shot attempt (goals, shots on goal, and missed
+        shots) from the 2009-2010 through 2025-2026 regular seasons: 1,726,876 shots and 117,224 goals. Blocked shots are left out because the
+        coordinates recorded for them are where the shot was blocked, not where it was taken from. Overtime shots are included, but shootout
+        attempts are not.
+      </p>
+      <p>
+        xG is the foundation for much of the rest of this page. <a href="#rapm-model">RAPM</a> uses the xG of every shot while a player is on
+        the ice as the thing it tries to explain, and <a href="#war-model">WAR</a> builds on RAPM while also using xG to measure finishing
+        (goals above xG), goaltending (goals saved above xG), and the value of drawing and taking penalties.
+      </p>
+
+      <h3>The Six Models</h3>
+      <p>
+        Instead of training one single model across every strength state, I train a separate gradient-boosted classifier (XGBoost, a
+        decision-tree model that learns from past shots) for six different groups of similar situations, and I build that set of six models
+        again for every season, so each season has its own six models. Each shot is used to train the model for the situation it was taken in.
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Situations It Covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5v5</td>
+              <td>5v5</td>
+            </tr>
+            <tr>
+              <td>Other Even Strength</td>
+              <td>4v4 and 3v3</td>
+            </tr>
+            <tr>
+              <td>Power Play</td>
+              <td>5v4, 5v3, 4v3, and any state where the shooter has more skaters</td>
+            </tr>
+            <tr>
+              <td>Penalty Kill</td>
+              <td>4v5, 3v5, 3v4, and any state where the shooter has fewer skaters</td>
+            </tr>
+            <tr>
+              <td>Empty Net Against</td>
+              <td>Any shot at a net with no goalie in it</td>
+            </tr>
+            <tr>
+              <td>Empty Net For</td>
+              <td>Any shot taken by a team with no goalie in net</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Data</h3>
+      <p>
+        These are the shots the xG model works with, counted by the exact situation each was taken in. The shots-on-goal tabs count only goals
+        and shots on goal, the unblocked-shots tabs add the missed shots, and the last two tabs show the shooting percentage (goals divided by
+        shots) for each. In the tables, EN stands for empty net, and short misses (explained below) are not counted.
+      </p>
+      <p>
+        There are a few things to keep in mind with the data. Shots recorded as "short" misses (a miss reason added in 2023-2024, explained
+        below) are much closer to fanned attempts than real shots, so I don't use them in the xG model. Three seasons were shortened, which
+        shows up as low counts: 2012-2013 (lockout), 2019-2020 (COVID-19), and 2020-2021 (COVID-19). The "Other" column holds rare situations
+        such as double-minor and matching-penalty combinations. 2009-2010's larger "Other" count comes mostly from shots whose strength could
+        not be determined, because of gaps in the NHL's shift data for that season. 3v3 shots jump from 2015-2016 onward because that is when
+        3-on-3 overtime was introduced; the handful before then come from rare stretches of 3-on-3 in earlier seasons.
+      </p>
+
+      <div class="model-tabs" data-tabs>
+        <div class="view-toggle" role="tablist" aria-label="Shot counts and shooting percentages">
+          <button type="button" role="tab" id="tab-shots-sog-counts" aria-controls="panel-shots-sog-counts" aria-selected="true" class="active">All Shots on Goal</button>
+          <button type="button" role="tab" id="tab-shots-unblocked-counts" aria-controls="panel-shots-unblocked-counts" aria-selected="false" tabindex="-1">All Unblocked Shots</button>
+          <button type="button" role="tab" id="tab-shots-sog-pct" aria-controls="panel-shots-sog-pct" aria-selected="false" tabindex="-1">Shots on Goal Shooting %</button>
+          <button type="button" role="tab" id="tab-shots-unblocked-pct" aria-controls="panel-shots-unblocked-pct" aria-selected="false" tabindex="-1">Unblocked Shots Shooting %</button>
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-shots-sog-counts" aria-labelledby="tab-shots-sog-counts">
+          <p class="table-title">Shots on goal by situation</p>
+          {{ csv_table('xg_shots_on_goal_by_situation', ['5v5', '5v4', '4v5', '4v4', '3v3', '5v3', '4v3', 'EN Against', 'EN For', 'Other', 'Penalty Shots', 'Total'], 'shot-counts-table', 'integer') }}
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-shots-unblocked-counts" aria-labelledby="tab-shots-unblocked-counts" hidden>
+          <p class="table-title">Unblocked shot attempts by situation</p>
+          {{ csv_table('xg_unblocked_shots_by_situation', ['5v5', '5v4', '4v5', '4v4', '3v3', '5v3', '4v3', 'EN Against', 'EN For', 'Other', 'Penalty Shots', 'Total'], 'shot-counts-table', 'integer') }}
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-shots-sog-pct" aria-labelledby="tab-shots-sog-pct" hidden>
+          <p class="table-title">Shooting percentage (goals per shot on goal) by situation</p>
+          {{ csv_table('xg_shots_on_goal_shooting_pct', ['5v5', '5v4', '4v5', '4v4', '3v3', '5v3', '4v3', 'EN Against', 'EN For', 'Other', 'Penalty Shots', 'All'], 'shot-counts-table', 'percent1', {'penalty_shots': 'percent0'}) }}
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-shots-unblocked-pct" aria-labelledby="tab-shots-unblocked-pct" hidden>
+          <p class="table-title">Shooting percentage (goals per unblocked shot attempt) by situation</p>
+          {{ csv_table('xg_unblocked_shooting_pct', ['5v5', '5v4', '4v5', '4v4', '3v3', '5v3', '4v3', 'EN Against', 'EN For', 'Other', 'Penalty Shots', 'All'], 'shot-counts-table', 'percent1', {'penalty_shots': 'percent0'}) }}
+        </div>
+      </div>
+
+      <h3>How It Is Trained</h3>
+      <p>
+        Each season's models are trained on the five seasons before it and not on the season being scored, so every shot is scored by a model
+        that has not seen it. Training on the season being scored makes its xG more descriptive of that season, but the goal is a model that is
+        predictive of the next season, so a model is never trained on the seasons it is used on. Five seasons is enough shots to learn from,
+        without reaching so far back that it is learning an old style of play. The first five seasons in the data (2009-2010 through 2013-2014)
+        don't have five earlier seasons to train on, so they share the model trained for 2014-2015, a simple way to cover the older data. That
+        means those five seasons are in-sample (their shots were part of the model's training data).
+      </p>
+      <p>
+        All six models share the same XGBoost settings, and xG is never rescaled to match the number of goals scored, so every xG value is
+        exactly what the model predicted.
+      </p>
+      <p>
+        One correction is applied before training. NHL arenas record shot locations a little differently, so each arena's shot distances are
+        nudged toward the league-wide distribution for that season, by a weight of n / (n + 2000), where n is the number of shots in that
+        arena-season. A small, noisy arena-season is left mostly alone and a large one is corrected almost fully. The 2000 is a hand-picked
+        constant.
+      </p>
+      <p>
+        Penalty shots aren't ordinary shots, so they aren't part of the training data. Each is simply given the conversion rate of the penalty
+        shots in the previous five seasons instead, so the value follows the current scoring environment.
+      </p>
+
+      <h3>The Model Features</h3>
+      <p>
+        Every shot is described by 37 engineered features, chosen for their variety and because every one of them can be built from public
+        data. The feature table below lists what each one is and the values it can take, and the importance chart shows how much each
+        contributes to the 5v5 model.
+      </p>
+
+      <div class="model-tabs" data-tabs>
+        <div class="view-toggle" role="tablist" aria-label="Feature views">
+          <button type="button" role="tab" id="tab-xg-features-table" aria-controls="panel-xg-features-table" aria-selected="true" class="active">Feature Table</button>
+          <button type="button" role="tab" id="tab-xg-features-plot" aria-controls="panel-xg-features-plot" aria-selected="false" tabindex="-1">Feature Importance Chart</button>
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-xg-features-table" aria-labelledby="tab-xg-features-table">
+          <div class="table-scroll">
+          <table class="model-stats-table model-feature-table">
+            <thead>
+              <tr><th class="feature-group-col"><span class="visually-hidden">Group</span></th><th>Feature</th><th>What it is</th><th>Values</th></tr>
+            </thead>
+            <tbody>
+            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Where and how the shot was taken</span></th><td>Distance</td><td>The distance from the shot origin to the center of the goal</td><td>Numerical value in feet</td></tr>
+            <tr><td>Angle</td><td>The angle of the shot away from the line straight out from the center of the goal</td><td>Numerical value in degrees</td></tr>
+            <tr><td>Behind Net</td><td>If the shot came from behind the goal line</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Crossed Royal Road</td><td>If the puck crossed the middle of the ice, side to side, between the previous event and the shot</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Off Wing</td><td>If the shot came from the shooter's off wing (a left-handed shooter on the right side, or the reverse)</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Shot X Norm</td><td>How far along the length of the rink the shot was taken, normalized so the shooter is always attacking the same side</td><td>Numerical value in feet</td></tr>
+            <tr><td>Shot Y Norm</td><td>How far to either side of the middle of the ice the shot was taken, normalized so the shooter is always attacking the same side</td><td>Numerical value in feet</td></tr>
+            <tr><td>Shot Type</td><td>How the shot was taken</td><td>Wrist, snap, slap, backhand, tip-in, deflected, wrap-around, poke, bat, between-legs, cradle, or unknown (when the NHL didn't record a type)</td></tr>
+            <tr><td>Shooter Shoots</td><td>The handedness of the shooter</td><td>Left or right, or unknown (when the NHL doesn't list it)</td></tr>
+            <tr><th class="feature-group-label" rowspan="14" scope="rowgroup"><span>What led to the shot</span></th><td>Prior Event Type</td><td>What the previous event was</td><td>Faceoff, shot on goal, hit, blocked shot, missed shot, giveaway, takeaway, goal, penalty, or none (no usable previous event)</td></tr>
+            <tr><td>Prior Miss Reason</td><td>If the previous event was a missed shot, how it missed</td><td>Wide left, wide right, wide of the net, high and wide left, high and wide right, above the crossbar, over the net, hit the crossbar, hit the left post, hit the right post, hit the goalpost, short, failed bank attempt, unknown, or none (the previous event wasn't a missed shot)</td></tr>
+            <tr><td>Prior Event Elapsed</td><td>Time between the previous event and the shot</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Distance Change</td><td>How much closer to or farther from the goal the puck is compared with the previous event</td><td>Numerical value in feet (negative means the puck moved closer to the net)</td></tr>
+            <tr><td>Angle Change</td><td>How much the angle to the goal changed from the previous event</td><td>Numerical value in degrees</td></tr>
+            <tr><td>Prior Event Speed</td><td>How fast the puck traveled from the previous event to the shot</td><td>Numerical value in feet per second (capped at 50)</td></tr>
+            <tr><td>Lateral Movement</td><td>How far the puck moved side to side since the previous event</td><td>Numerical value in feet</td></tr>
+            <tr><td>Same Team As Prior Event</td><td>If the previous event belonged to the shooter's own team</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Prior X Norm</td><td>How far along the length of the rink the previous event was, normalized so the shooter is always attacking the same side</td><td>Numerical value in feet</td></tr>
+            <tr><td>Prior Y Norm</td><td>How far to either side of the middle of the ice the previous event was, normalized so the shooter is always attacking the same side</td><td>Numerical value in feet</td></tr>
+            <tr><td>Is Rush</td><td>If the shot is classified as a rush shot (if it came within four seconds of an event in the neutral or defensive zone, with no stoppage in play in between)</td><td>0 or 1 (0 means it wasn't, 1 means it was)</td></tr>
+            <tr><td>Rebound Chain Position</td><td>How many rebounds deep the shot is in a scramble, where each rebound is a follow-up shot by the same team within three seconds of its own shot on goal, with the count capped at 3</td><td>0 (not a rebound), 1, 2, or 3 (three or more)</td></tr>
+            <tr><td>Time Since Chain Start</td><td>Time since the first shot of the rebound chain</td><td>Numerical value in seconds (blank for shots that aren't part of a rebound chain)</td></tr>
+            <tr><td>Distance Since Chain Start</td><td>How far the shot is from the first shot of the rebound chain</td><td>Numerical value in feet (blank for shots that aren't part of a rebound chain)</td></tr>
+            <tr><th class="feature-group-label" rowspan="9" scope="rowgroup"><span>Game situation</span></th><td>Strength</td><td>The on-ice situation when the shot was taken, as the shooter's skaters against the opponent's (the empty net models use each team's skater counts instead)</td><td>The possible values differ per model: 5v5: not used (every shot is 5v5); Other Even Strength: 4v4, 3v3 (periods 1 to 3), 3v3ot (overtime); Power Play: 5v4, 5v3, 4v3, etc.; Penalty Kill: 4v5, 3v4, 3v5, etc.; Empty Net For: 6v5, 6v4, 5v5, 5v4, etc.; Empty Net Against: 5v6, 5v5, 4v6, 5v4, etc.</td></tr>
+            <tr><td>Strength Elapsed</td><td>Time the current on-ice situation (skater counts and goalies in net) has been in effect, such as time into a power play</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Score State</td><td>The shooting team's goal lead at the time of the shot, capped at plus or minus 3</td><td>-3 to 3 (whole goals)</td></tr>
+            <tr><td>Period Number</td><td>The period of the game</td><td>1, 2, 3, or 4 (overtime)</td></tr>
+            <tr><td>Time Remaining In Period</td><td>Time left in the period</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Is Home</td><td>If the shooting team is the home team</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Is B2B</td><td>If the shooting team is playing the second game of a back-to-back</td><td>0 or 1 (0 means it didn't, 1 means it did)</td></tr>
+            <tr><td>Time Since Last Offensive-Zone Faceoff Win</td><td>Time since the shooting team won an offensive-zone faceoff, if there has been no whistle since</td><td>Numerical value in seconds (blank if there was no such faceoff win)</td></tr>
+            <tr><td>Shots Since Last Offensive-Zone Faceoff Win</td><td>Shots the team has taken since that faceoff win</td><td>Whole number of shots (blank if there was no such faceoff win)</td></tr>
+            <tr><th class="feature-group-label" rowspan="5" scope="rowgroup"><span>Players and fatigue</span></th><td>Shooter Shift Length</td><td>Time the shooter has been on their current shift</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Opponent Shift Length Min</td><td>The shortest current shift among the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Opponent Shift Length Avg</td><td>The average current shift of the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Opponent Shift Length Max</td><td>The longest current shift among the opposing skaters on the ice</td><td>Numerical value in seconds</td></tr>
+            <tr><td>Goalie Catches</td><td>The goalie's handedness</td><td>Left, right, or unknown (when the NHL doesn't list it)</td></tr>
+            </tbody>
+          </table>
+        </div>
+          <p>
+            Two of the categorical features changed over the seasons, so not every value exists in every season. The shot type gained four options in
+            2022-2023 (bat, poke, between-legs, and cradle). The NHL's miss reasons were broad through 2022-2023 (wide of the net, over the net, goalpost,
+            and hit the crossbar), but in 2023-2024 they became more specific (wide left, wide right, high and wide left, high and wide right, above the
+            crossbar, hit the left post, hit the right post, and hit the crossbar, short) with one more option (failed bank attempt) added in 2024-2025.
+          </p>
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-xg-features-plot" aria-labelledby="tab-xg-features-plot" hidden>
+          <figure class="model-figure">
+            <img
+              src="{{ url_for('static', filename='assets/methodologies/xg_feature_importance_light.webp') }}"
+              data-light="{{ url_for('static', filename='assets/methodologies/xg_feature_importance_light.webp') }}"
+              data-dark="{{ url_for('static', filename='assets/methodologies/xg_feature_importance_dark.webp') }}"
+              alt="Bar chart of how much each feature contributes to the 5v5 xG model"
+              class="model-figure-img"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+          <p>
+            The chart shows the 5v5 model, which has 36 of the 37 features (it doesn't use strength state as a feature since every shot in it is 5v5). Each
+            bar is a feature's share of the total gain (how much its splits improve the model).
+          </p>
+        </div>
+      </div>
+
+      <h3>Where Shots Are Worth the Most</h3>
+      <p>
+        The map below shows the average xG of a 5v5 shot from each spot between the red line and the end boards, using every out-of-sample
+        season from 2014-2015 through 2025-2026 and leaving blank any spot with fewer than 10 shots. It shows what the model learned about
+        geometry: xG climbs steadily toward the crease and is highest straight out in front of the net, which lines up with the <a
+        href="#term-shot-danger-zones">shot danger zones</a>.
+      </p>
+
+      <figure class="model-figure">
+        <img
+          src="{{ url_for('static', filename='assets/methodologies/xg_shot_map_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/methodologies/xg_shot_map_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/methodologies/xg_shot_map_dark.webp') }}"
+          alt="Heat map of average xG per 5v5 shot by location from the red line to the end boards"
+          class="model-figure-img"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+      <p>
+        One thing to keep in mind is the area behind the goal line, which looks dangerous on this map but isn't. The NHL records a shot at the
+        spot where the shooter was when it happened, so a wrap-around shot, which starts behind the net and ends up on the goalie from close
+        range, is logged as a shot from behind the net, and the model rates those shots highly. Few shots are taken from back there, so a
+        handful of goals can also make a spot look better than it is. In reality these shots score far less often than the model expects:
+        across the out-of-sample seasons, 5v5 shots from behind the net scored about 430 goals against about 660 expected.
+      </p>
+
+      <h3 id="xg-results">Model Performance</h3>
+      <p>
+        AUC (area under the ROC curve) measures how well the model separates goals from non-goals, where 0.5 is no better than random and 1.0
+        is perfect separation. Log loss measures how close the predicted probabilities are to what happened (lower is better), and calibration
+        is total predicted xG divided by actual goals, where 1.00 means the model predicted exactly the right number of goals. Every season
+        from 2014-2015 on is scored out of sample, and the shaded seasons mark the in-sample seasons. The charts show the three main models
+        (5v5, power play, and penalty kill), while the tables include all six.
+      </p>
+
+
+      <div class="model-tabs" data-tabs>
+        <div class="view-toggle" role="tablist" aria-label="xG results">
+          <button type="button" role="tab" id="tab-xg-results-auc" aria-controls="panel-xg-results-auc" aria-selected="true" class="active">AUC</button>
+          <button type="button" role="tab" id="tab-xg-results-logloss" aria-controls="panel-xg-results-logloss" aria-selected="false" tabindex="-1">Log Loss</button>
+          <button type="button" role="tab" id="tab-xg-results-calibration" aria-controls="panel-xg-results-calibration" aria-selected="false" tabindex="-1">Calibration</button>
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-xg-results-auc" aria-labelledby="tab-xg-results-auc">
+          <figure class="model-figure">
+            <img
+              src="{{ url_for('static', filename='assets/methodologies/xg_auc_by_season_light.webp') }}"
+              data-light="{{ url_for('static', filename='assets/methodologies/xg_auc_by_season_light.webp') }}"
+              data-dark="{{ url_for('static', filename='assets/methodologies/xg_auc_by_season_dark.webp') }}"
+              alt="Line chart of xG model AUC by season for the 5v5, power play, and penalty kill models"
+              class="model-figure-img"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+
+          <p class="table-title">AUC (higher is better)</p>
+          {{ csv_table('xg_auc_by_season', ['5v5', 'PP', 'PK', 'Other ES', 'EN Against', 'EN For', 'Overall'], 'season-results-table', 'decimal3') }}
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-xg-results-logloss" aria-labelledby="tab-xg-results-logloss" hidden>
+          <figure class="model-figure">
+            <img
+              src="{{ url_for('static', filename='assets/methodologies/xg_log_loss_by_season_light.webp') }}"
+              data-light="{{ url_for('static', filename='assets/methodologies/xg_log_loss_by_season_light.webp') }}"
+              data-dark="{{ url_for('static', filename='assets/methodologies/xg_log_loss_by_season_dark.webp') }}"
+              alt="Line chart of xG model log loss by season for the 5v5, power play, and penalty kill models"
+              class="model-figure-img"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+          <p class="table-title">Log loss (lower is better)</p>
+          {{ csv_table('xg_log_loss_by_season', ['5v5', 'PP', 'PK', 'Other ES', 'EN Against', 'EN For', 'All Situations'], 'season-results-table', 'decimal3') }}
+        </div>
+        <div class="model-tab-panel" role="tabpanel" id="panel-xg-results-calibration" aria-labelledby="tab-xg-results-calibration" hidden>
+          <figure class="model-figure">
+            <img
+              src="{{ url_for('static', filename='assets/methodologies/xg_calibration_by_season_light.webp') }}"
+              data-light="{{ url_for('static', filename='assets/methodologies/xg_calibration_by_season_light.webp') }}"
+              data-dark="{{ url_for('static', filename='assets/methodologies/xg_calibration_by_season_dark.webp') }}"
+              alt="Line chart of xG model calibration by season for the 5v5, power play, and penalty kill models"
+              class="model-figure-img"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+          <p class="table-title">Calibration (closer to 1.00 is better)</p>
+          {{ csv_table('xg_calibration_by_season', ['5v5', 'PP', 'PK', 'Other ES', 'EN Against', 'EN For', 'All Situations'], 'season-results-table', 'decimal2') }}
+        </div>
+      </div>
+
+      <h3>Limitations and Things to Keep in Mind</h3>
+      <ul class="model-list">
+        <li>Power-play xG is the weakest model. Public play-by-play has no passing or screen information, and those are what make many power-play chances dangerous, so power-play AUC has slipped from about 0.73 in 2014-2015 to about 0.67 in 2025-2026, and its calibration has run high (up to 1.15) in recent seasons.</li>
+        <li>The small models are noisy. They train on only a few hundred to a few thousand shots a season, so penalty kill calibration, for example, ranges from 0.84 to 1.12 across seasons.</li>
+        <li>xG can't see passing or screens. A player who sets up good chances gets credit only through on-ice ratings, while the shooter who finishes them gets credit for beating xG, so scorers tend to rate a bit above playmakers.</li>
+        <li>The model doesn't know who is shooting or in net. It only knows which hand the shooter shoots with and the goalie catches with. That is deliberate, since finishing and goaltending are measured separately, but it means xG is the chance an average shooter would score against an average goalie.</li>
+        <li>Blocked shots aren't modeled, so a player or team who blocks shots well gets no xG credit for it.</li>
+        <li>Second shots in a scramble count in full. A flurry discount is used only for <a href="#rapm-model">RAPM</a>, so a player's own xG totals count every shot in a rebound chain at full value.</li>
+        <li>Penalty shots use a fixed value (per season) that doesn't vary by shooter, goalie, or the actual shot taken.</li>
+        <li>The prior miss reason changed in 2023-2024. It carries more detail in recent seasons than in older ones (see the features above).</li>
+        <li>The first five seasons are in-sample. Their xG, and anything built on it, is flattered a little, so treat 2009-2010 through 2013-2014 as a bit more descriptive than predictive.</li>
+        <li>Some NHL data is missing. Five games have no or partial shift data, so they are missing from, or only partly counted in, the on-ice stats, RAPM and WAR, though their shots and goals still count in individual stats. Three are in 2009-2010 and have none (PIT at CAR on 2009-10-14, NYI at DAL on 2010-01-08, and SJS at CBJ on 2010-02-10), one is in 2010-2011 and has about half (WSH at CAR on 2010-10-27), and one is in 2013-2014 and has none (CBJ at DAL on 2014-04-09). In 2009-2010, 2,161 shots (about 2.1% of the season's shots) have no strength state because of gaps in the shift data: 256 are from the three games above and the rest are spread over about 290 other games. They count in the all-situations stats but not in the 5v5, 5v4 or 4v5 splits, and the xG model scores them with its catch-all other even strength model, so that season's xG is less reliable. One game in 2009-2010 (TBL at FLA on 2010-01-16) has no faceoff data.</li>
+      </ul>
+
+      </div>
+    </details>
+  </div>

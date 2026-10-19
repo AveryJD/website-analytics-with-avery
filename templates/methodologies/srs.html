@@ -1,0 +1,57 @@
+  <div id="srs-model" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Simple Rating System (SRS)</h2></summary>
+      <div class="model-body">
+      <h3>What Is SRS?</h3>
+      <p>
+        SRS gives every team one rating for a season: how many goals per game better or worse than an average team it was, after adjusting for the
+        opponents it played and for home ice. Put simply, it is a team's goal differential per game, adjusted for who it played and where. It solves for a whole season's worth of results all at once, so the fit isn't sensitive to which order
+        the games were played in. SRS is fit separately for every regular season from 2009-2010 through 2025-2026. For a rating that updates after every game instead, see <a href="#elo-model">Elo</a> above.
+      </p>
+
+      <h3>How SRS Is Calculated</h3>
+      <p>
+        It estimates a single rating for every team, plus one shared home-ice advantage value <span>\( H \)</span>, by minimizing the sum of squared
+        residuals between each team's predicted and actual goal margins across every game in a season. A (home) team's predicted margin
+        <span>\( \hat{m}_h \)</span> against an away team in any given game is simply the difference between the two teams' ratings, adjusted for home
+        ice:
+      </p>
+      <p>$$ \hat{m}_h = (R_h - R_a) + H $$</p>
+      <p>
+        The optimization then solves for the full set of team ratings and <span>\( H \)</span> that minimize the total squared error between every
+        predicted margin <span>\( \hat{m}_g \)</span> and the actual margin <span>\( m_g \)</span> across all <span>\( n \)</span> games in the season:
+      </p>
+      <p>$$ \underset{R,\, H}{\arg\min} \sum_{g=1}^{n} (m_g - \hat{m}_g)^2 $$</p>
+      <p>The ratings are also constrained so that the league-wide average rating <span>\( \bar{R} \)</span> is zero.</p>
+      <p class="table-intro">
+        The final output is a single rating per team. Taking the difference between any two teams' ratings and adding the home-ice advantage gives the
+        model's predicted goal margin if those two teams played each other, with <span>\( R_h \)</span> as the home team and <span>\( R_a \)</span> as
+        the away team. For example, a home team rated +0.40 against an away team rated -0.20 is predicted to win by 0.40 - (-0.20) + 0.26 = 0.86 goals, using a typical
+        home-ice value of 0.26. The table below lists what goes into the fit and what it solves for:
+      </p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Piece</th><th>What it is</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Game margin (input)</td><td>The home team's goals minus the away team's goals in a regular-season game (a shootout win counts as a one-goal margin)</td></tr>
+            <tr><td>Team rating (solved for)</td><td>One value per team, in goals per game above or below the league average</td></tr>
+            <tr><td>Home-ice advantage, H (solved for)</td><td>One value shared by every team, fit alongside the ratings (it averages about 0.26 goals per game, and ranges from 0.13 to 0.36 across seasons)</td></tr>
+            <tr><td>Constraint (rule for the fit)</td><td>The ratings average zero, so a rating only means something against the other teams in the same season</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Limitations and Things to Keep in Mind</h3>
+      <ul class="model-list">
+        <li>It measures goals, not shot quality. Good or bad luck in scoring and goaltending is part of a team's rating.</li>
+        <li>Every goal counts the same. Blowouts and empty-net goals count fully, and a shootout win counts as a one-goal margin.</li>
+        <li>One blowout can pull a rating a lot. The fit uses squared error with no cap on the goal margin, so a single lopsided game counts for more than several close ones.</li>
+        <li>It's one rating for the whole season. A team that changed a lot at the deadline still gets a single rating, so SRS can't show a trend.</li>
+        <li>Ratings compare teams within a season only. They average zero each season, and shortened seasons have fewer games behind each rating.</li>
+        <li>Home ice is one shared value. It is the same for every team within a season.</li>
+      </ul>
+      </div>
+    </details>
+  </div>

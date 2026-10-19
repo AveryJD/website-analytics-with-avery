@@ -1,0 +1,114 @@
+  <div id="elo-model" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Elo Ratings</h2></summary>
+      <div class="model-body">
+      <h3>What Is Elo?</h3>
+      <p>
+        A team's win-loss record alone doesn't capture the strength of the opponents it played or how close those games actually were. Elo addresses
+        that by giving every team a single rating that updates after each game based on how the actual result compared to what was expected, so a win
+        over a strong team moves the rating more than a win over a weak one. Elo covers every regular-season game from 2009-2010 through 2025-2026.
+        Because ratings update after every result, Elo reflects a team's current form and trajectory over the course of a season, rather than a single
+        fixed-in-time snapshot.
+      </p>
+
+      <h3>How Ratings Update</h3>
+      <h4>Elo Calculation</h4>
+      <p>
+        Team Elo ratings update after every game of a season, starting every team at a rating of 1500 at the start of each season. Before a game, each
+        team's expected score (between 0 and 1) is calculated from the ratings gap between the two teams using the standard logistic Elo expectation
+        formula, where team A is the home team, <span>\( R_A \)</span> and <span>\( R_B \)</span> are the two teams' ratings, <span>\( H = 30 \)</span> is a fixed
+        home-ice advantage added to the home team's rating, and <span>\( D = 400 \)</span> is the Elo scale factor that controls how quickly the expected
+        score approaches 0 or 1 as the ratings gap grows. The away team's expected score is \( 1 - E_A \):
+      </p>
+      <p>$$ E_A = \dfrac{1}{1 + 10^{\frac{R_B - (R_A + H)}{D}}} $$</p>
+      <p>
+        After the game, the home team's rating shifts based on the difference between the actual result <span>\( S_A \)</span> and the expected score
+        <span>\( E_A \)</span>, scaled by a K-factor of 20 and a margin-of-victory multiplier <span>\( M \)</span>, and the away team's rating moves by the same
+        amount in the opposite direction:
+      </p>
+      <p>$$ R_A' = R_A + K (S_A - E_A) \times M $$</p>
+      <p class="table-intro">The constants are:</p>
+      <div class="table-scroll">
+        <table class="model-stats-table model-decisions-table">
+          <thead>
+            <tr><th>Constant</th><th>Value</th><th>What it is</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Starting rating</td><td>1500</td><td>Every team's rating at the start of each season</td></tr>
+            <tr><td>Home-ice advantage (H)</td><td>30</td><td>Added to the home team's rating before the expected score is calculated</td></tr>
+            <tr><td>Scale (D)</td><td>400</td><td>How quickly the expected score approaches 0 or 1 as the ratings gap grows</td></tr>
+            <tr><td>K-factor (K)</td><td>20</td><td>How far a single result can move a rating</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        To get a feel for the scale, a team rated 100 points higher than its opponent has an expected score of about 0.64, and the 30-point home-ice
+        advantage on its own is worth an expected score of about 0.54.
+      </p>
+      <h4>Scoring Results</h4>
+      <p class="table-intro">
+        Results aren't scored as a simple win/loss. Each result type is assigned a fixed value for <span>\( S_A \)</span>, so a regulation win is worth
+        full credit while overtime and shootout results are worth partial credit in both directions, and the rating system reflects how close a game
+        actually was, not just who won:
+      </p>
+<div class="table-scroll">
+        <table class="model-stats-table results-value-table">
+          <thead>
+            <tr>
+              <th>Result</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Regulation Win</td>
+              <td>1.0</td>
+            </tr>
+            <tr>
+              <td>Overtime Win</td>
+              <td>0.9</td>
+            </tr>
+            <tr>
+              <td>Shootout Win</td>
+              <td>0.7</td>
+            </tr>
+            <tr>
+              <td>Shootout Loss</td>
+              <td>0.3</td>
+            </tr>
+            <tr>
+              <td>Overtime Loss</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>Regulation Loss</td>
+              <td>0.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>The Margin-of-Victory Multiplier</h4>
+      <p>
+        The margin-of-victory multiplier scales each rating change by how lopsided the final score was, where the margin is the winner's goals minus the loser's. It grows with the goal margin on a log scale,
+        so each extra goal counts for less than the one before. It is also dampened as the gap between the two teams' ratings widens, so a blowout win
+        by the stronger team moves ratings less than the same margin from the weaker team. Shootout results always use a flat multiplier of 1.0
+        instead, since the shootout goal differential isn't a meaningful measure of game control.
+      </p>
+      <p>
+        The formula is adapted from <a href="https://neilpaine.substack.com/p/how-my-nhl-elo-ratings-and-forecast" target="_blank">Neil Paine's NHL Elo
+        methodology</a>, where <span>\( R_w \)</span> and <span>\( R_l \)</span> are the winning and losing team's ratings:
+      </p>
+      <p>$$ M = \dfrac{(0.6686 \ln(\text{margin}) + 0.8048) \times 2.05}{(R_w - R_l) \times 0.001 + 2.05} $$</p>
+
+      <h3>Limitations and Things to Keep in Mind</h3>
+      <ul class="model-list">
+        <li>Hockey is noisy. Even a good Elo picks the winner only a little more often than always picking the home team: across all 20,382 games, picking the team with the higher Elo (home ice included) was right 56.5% of the time, against 54.2% for always picking the home team.</li>
+        <li>It only knows scores. Injuries, goalies, lineup changes, and rest aren't considered.</li>
+        <li>Empty-net goals inflate the margin. A late empty-net goal widens the final margin, so the winner's rating gain is larger than the game's closeness suggests.</li>
+        <li>Ratings reset every season. Every team starts at 1500, so early-season ratings sit close together and depend on opponents whose own ratings are still settling, and ratings aren't comparable from one season to the next.</li>
+        <li>Home ice is one fixed value. It is the same 30 points for every team and every season.</li>
+      </ul>
+      </div>
+    </details>
+  </div>

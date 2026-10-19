@@ -1,0 +1,824 @@
+  <div id="glossary" class="card-section model-panel">
+    <details class="model-details">
+      <summary><h2>Glossary</h2></summary>
+      <div class="model-body">
+        <p>
+          A reference for common hockey analytics, statistics, and data science terms, whether you're reading through this site or hockey analytics
+          content elsewhere. Search for a term, or open a section below.
+        </p>
+        <div class="glossary-search-row">
+          <input type="search" id="glossary-search" class="glossary-search" placeholder="Search the glossary" aria-label="Search the glossary" autocomplete="off">
+          <span class="glossary-total">123 terms</span>
+        </div>
+        <p id="glossary-empty" class="glossary-empty" hidden>No matching terms.</p>
+        <div class="glossary-groups">
+        <details class="glossary-group">
+          <summary><h3>Basic Hockey Terms <span class="glossary-count">(25)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-positions">
+              <h4>Positions (Skater, Forward, Defenseman, Goalie)</h4>
+              <p>
+                A skater is any player who isn't the goalie. Skaters are forwards (a center and a left and right winger) and defensemen. A team typically
+                dresses 12 forwards, 6 defensemen, and 2 goalies, and plays with five skaters and a goalie on the ice at full strength.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-lines-and-pairs">
+              <h4>Forward Lines and Defense Pairs</h4>
+              <p>
+                Teams change players constantly. Forwards play in groups of three (a center and two wingers) called lines, and defensemen play in groups of two
+                called pairs. A team usually dresses four forward lines and three defense pairs, with the top lines and pairs playing the most.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-zones">
+              <h4>Zones (Offensive, Neutral, Defensive)</h4>
+              <p>
+                The two blue lines split the ice into three zones. A team's defensive zone is the end it's defending, its offensive zone is the end it's
+                attacking, and the neutral zone is the middle.
+              </p>
+              <figure class="model-figure model-figure--uniform">
+                <img
+                  src="{{ url_for('static', filename='assets/methodologies/ice_zones_light.webp') }}"
+                  data-light="{{ url_for('static', filename='assets/methodologies/ice_zones_light.webp') }}"
+                  data-dark="{{ url_for('static', filename='assets/methodologies/ice_zones_dark.webp') }}"
+                  alt="The full rink split by the blue lines into the defensive, neutral, and offensive zones"
+                  class="model-figure-img"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </figure>
+            </div>
+            <div class="glossary-term" id="term-faceoff">
+              <h4>Faceoff</h4>
+              <p>
+                How play starts or restarts. An official drops the puck between one player from each team, usually the centers, who battle for possession.
+                Faceoffs happen at the start of each period and after stoppages.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-preseason">
+              <h4>Preseason</h4>
+              <p>
+                The exhibition games a team plays before the regular season starts, where coaches test lineups and look at prospects. They don't count in the
+                standings.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-regular-season">
+              <h4>Regular Season</h4>
+              <p>
+                The schedule of games that decides the standings. Each team plays 84 (used to be 82) games, and the standings decide which 16 teams (8 per
+                conference) reach the playoffs.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-playoffs">
+              <h4>Playoffs</h4>
+              <p>The postseason tournament for the 16 teams that qualify. It is a series of best-of-seven rounds that ends with the Stanley Cup Final.</p>
+            </div>
+            <div class="glossary-term" id="term-home-ice-advantage">
+              <h4>Home-Ice Advantage</h4>
+              <p>The statistical edge a team gets from playing in its own arena.</p>
+            </div>
+            <div class="glossary-term" id="term-overtime">
+              <h4>Overtime/Overtime Loss</h4>
+              <p>
+                If a regular season game is tied after 60 minutes of play, it goes to a five-minute overtime with three skaters a side (four a side before
+                2015-2016), and then a shootout if it's still tied. A team that loses in overtime or a shootout still earns one standings point (an overtime loss, OTL), where a regulation loss
+                earns none.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-penalty-shot">
+              <h4>Penalty Shot/Shootout</h4>
+              <p>
+                A penalty shot is a free, uncontested attempt on the goalie, awarded when a player is fouled on a breakaway. A shootout is the series of
+                one-on-one attempts used to settle a game that is still tied after overtime.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-shot-types">
+              <h4>Shot on Goal/Missed Shot/Blocked Shot</h4>
+              <p>
+                The three things that can happen to a shot attempt. A shot on goal reaches the net and is either saved or scores. A missed shot goes wide of
+                the net or hits the post or crossbar without going in. A blocked shot is stopped by a defending skater before it reaches the net.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-shot-style-types">
+              <h4>Shot Types</h4>
+              <p>
+                How a shot was taken. A wrist shot is a quick sweeping release, a snap shot is a shorter, faster motion, and a slap shot uses a full wind-up
+                for the hardest shot. A backhand uses the back of the blade, a tip-in redirects a shot or pass on purpose, and a deflection is a shot that
+                changes direction off a player or stick on its way to the net. A wrap-around starts from behind the net. A poke is a short stab at the puck
+                with the stick, a bat knocks the puck out of the air, a between-the-legs shot is taken through the shooter's own legs, and a cradle is a
+                lacrosse-style shot where the puck is carried on the blade and flipped at the net.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-slot">
+              <h4>Slot</h4>
+              <p>
+                The area in the middle of the ice in front of the net, between the faceoff circles. It is where the best scoring chances come from, so most
+                high-danger shots are taken from the slot.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-point-shot">
+              <h4>Point Shot</h4>
+              <p>
+                A shot from a player at the blue line, far from the net. A single point shot is usually a low-quality chance, but it can be effective through
+                screens, tips, and rebounds.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-breakaway">
+              <h4>Breakaway</h4>
+              <p>
+                A skater gets past every defender and has only the goalie to beat, with a clear path to the net. It is one of the highest-quality chances in
+                the game.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-rebound">
+              <h4>Rebound</h4>
+              <p>
+                A rebound happens when the puck strikes the goaltender (or occasionally the goalpost or crossbar) and bounces back out into play, rather than
+                being caught or frozen by the goalie.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-odd-man-rush">
+              <h4>Odd-Man Rush</h4>
+              <p>
+                A rush where the attackers outnumber the defenders, such as a 2-on-1 or 3-on-2. They create dangerous chances because the defense can't cover
+                everyone.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-screen">
+              <h4>Screen</h4>
+              <p>A player standing in front of the goalie to block their view of the puck, making it harder to make the save.</p>
+            </div>
+            <div class="glossary-term" id="term-strength-state">
+              <h4>Strength State</h4>
+              <p>The number of skaters each team has on the ice, (5v5, 5v4, 4v5, etc.).</p>
+            </div>
+            <div class="glossary-term" id="term-even-strength">
+              <h4>Even Strength (ES)</h4>
+              <p>Play with both teams skating the same number of skaters, most commonly 5v5.</p>
+            </div>
+            <div class="glossary-term" id="term-power-play">
+              <h4>Power Play (PP)</h4>
+              <p>
+                When a team has more skaters on the ice than its opponent because of a penalty (5v4 is the most common). Together with the penalty kill, it
+                makes up special teams.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-penalty-kill">
+              <h4>Penalty Kill (PK)</h4>
+              <p>
+                When a team has fewer skaters on the ice than its opponent because of a penalty (4v5 is the most common), and is trying to keep the other team
+                from scoring until the penalty ends. Together with the power play, it makes up special teams.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-empty-net">
+              <h4>Empty Net/Pulled Goalie</h4>
+              <p>A net with no goalie in it, usually because a trailing team takes its goalie off the ice and deploys an extra skater.</p>
+            </div>
+            <div class="glossary-term" id="term-on-the-fly">
+              <h4>On-the-Fly Change</h4>
+              <p>A line change made while play is happening instead of at a stoppage.</p>
+            </div>
+            <div class="glossary-term" id="term-back-to-back">
+              <h4>Back-to-Back</h4>
+              <p>A team plays on two days in a row, so its second game comes on less rest.</p>
+            </div>
+          </div>
+        </details>
+        <details class="glossary-group">
+          <summary><h3>Advanced Hockey Terms <span class="glossary-count">(12)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-shot-danger-zones">
+              <h4>Shot Danger Zones (HDC/MDC/LDC)</h4>
+              <p>
+                Shots are sorted into three zones by where they were taken, measured from the center of the goal. A high-danger chance (HDC) is a shot attempt
+                within 29 feet and between the lines from the faceoff dots to two feet outside the goalposts. A medium-danger chance (MDC) is a shot attempt
+                from 29 to 43 feet, between the same lines. A low-danger chance (LDC) is a shot attempt from anywhere else: beyond 43 feet, from a wide angle
+                outside the lines, or from behind the goal line.
+              </p>
+              <figure class="model-figure model-figure--uniform">
+                <img
+                  src="{{ url_for('static', filename='assets/methodologies/danger_zones_light.webp') }}"
+                  data-light="{{ url_for('static', filename='assets/methodologies/danger_zones_light.webp') }}"
+                  data-dark="{{ url_for('static', filename='assets/methodologies/danger_zones_dark.webp') }}"
+                  alt="Offensive zone showing the high, medium, and low shot danger zones"
+                  class="model-figure-img"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </figure>
+            </div>
+            <div class="glossary-term" id="term-royal-road">
+              <h4>Royal Road</h4>
+              <p>
+                An imaginary line running the length of the ice through the center of both nets. A shot or pass that crosses it tends to be more dangerous,
+                since it forces the goalie to move laterally.
+              </p>
+              <figure class="model-figure model-figure--uniform">
+                <img
+                  src="{{ url_for('static', filename='assets/methodologies/royal_road_light.webp') }}"
+                  data-light="{{ url_for('static', filename='assets/methodologies/royal_road_light.webp') }}"
+                  data-dark="{{ url_for('static', filename='assets/methodologies/royal_road_dark.webp') }}"
+                  alt="The full rink with the royal road drawn as a dashed line down the middle of the ice"
+                  class="model-figure-img"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </figure>
+            </div>
+            <div class="glossary-term" id="term-off-wing">
+              <h4>Off Wing</h4>
+              <p>
+                A shot taken from the side of the ice opposite a player's shooting hand (like a left shot playing the right wing), which tends to open up a
+                better shooting angle toward the net.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-rush-shot">
+              <h4>Rush Shot</h4>
+              <p>Any shot attempt within four seconds of an event in the neutral or defensive zone, with no stoppage in play in between.</p>
+            </div>
+            <div class="glossary-term" id="term-shift">
+              <h4>Shift</h4>
+              <p>The time from when a player gets on the ice to when they get off the ice.</p>
+            </div>
+            <div class="glossary-term" id="term-stint">
+              <h4>Stint</h4>
+              <p>A period of time when all the same players stay on the ice, ending as soon as any one of them changes. A shift can span several stints.</p>
+            </div>
+            <div class="glossary-term" id="term-zone-entry-zone-exit">
+              <h4>Zone Entry/Zone Exit</h4>
+              <p>
+                A player carrying, passing, or dumping the puck into the offensive zone (entry) or out of the defensive zone (exit). A "controlled" entry/exit
+                keeps possession of the puck, while a dump-in/dump-out gives it up in exchange for territory.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-score-state">
+              <h4>Score State</h4>
+              <p>The goal differential at a given point in a game (tied, up one, down two, etc.), which strongly influences how teams play.</p>
+            </div>
+            <div class="glossary-term" id="term-score-effects">
+              <h4>Score Effects</h4>
+              <p>
+                The tendency for teams to change their style of play based on score state (trailing teams tend to attack more, leading teams tend to play more
+                defensively).
+              </p>
+            </div>
+            <div class="glossary-term" id="term-deployment-context">
+              <h4>Deployment Context</h4>
+              <p>
+                How a player is used, as opposed to how well they play: the quality of their teammates and opponents (QoT and QoC) and how often their shifts
+                start in the offensive zone.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-quality-of-competition">
+              <h4>Quality of Competition (QoC)</h4>
+              <p>A measure of how strong the opposing players a skater faces are on average, relative to the rest of the league.</p>
+            </div>
+            <div class="glossary-term" id="term-quality-of-teammates">
+              <h4>Quality of Teammates (QoT)</h4>
+              <p>A measure of how strong a player's own teammates are on average, relative to the rest of the league.</p>
+            </div>
+          </div>
+        </details>
+        <details class="glossary-group">
+          <summary><h3>Hockey Rules <span class="glossary-count">(15)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-offside">
+              <h4>Offside</h4>
+              <p>
+                A stoppage called when an attacking player crosses the offensive blue line ahead of the puck. Play restarts with a faceoff in the neutral zone.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-icing">
+              <h4>Icing</h4>
+              <p>
+                A stoppage called when a team shoots the puck from behind the center red line all the way past the opponent's goal line and no one touches it.
+                Play restarts with a faceoff in the zone of the team that iced it, and that team can't change players. A team that is shorthanded is allowed to
+                ice the puck.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-goaltender-interference">
+              <h4>Goaltender Interference</h4>
+              <p>
+                Contact with the goalie in or around their crease that stops them from making a save. If an attacking player interferes, the goal doesn't count
+                and a minor penalty can be called. If a defender pushes an attacker into the goalie, it isn't interference.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-penalty">
+              <h4>Penalty</h4>
+              <p>
+                A rule violation that sends a player to the penalty box, so their team plays a skater short (a power play for the other team). How long they
+                sit depends on the type of penalty: minor, double minor, major, misconduct, or match.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-minor-penalty">
+              <h4>Minor Penalty</h4>
+              <p>
+                A 2-minute penalty for common infractions like tripping or hooking. The penalized team plays a skater short, and the penalty ends early if the
+                other team scores on the power play.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-common-minors">
+              <h4>Common Minor Penalties</h4>
+              <p>
+                The most frequently called minors are tripping, hooking, slashing, holding, interference, high-sticking, roughing, cross-checking, delay of
+                game (like shooting the puck over the glass from your own zone), and too many men on the ice.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-double-minor">
+              <h4>Double Minor</h4>
+              <p>
+                A 4-minute penalty served as two back-to-back minors, usually for high-sticking that draws blood. A power play goal ends the first minor, and
+                the second minor starts right after.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-major-penalty">
+              <h4>Major Penalty</h4>
+              <p>
+                A 5-minute penalty for more serious infractions, such as fighting. It stays in effect for the full five minutes even if the other team scores,
+                so the penalized team can give up more than one power play goal.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-fighting">
+              <h4>Fighting</h4>
+              <p>
+                Two players dropping their gloves and throwing punches. Each fighter gets a 5-minute major, which cancels out, so teams usually stay at even
+                strength. The player who starts the fight (the instigator) also gets a minor and a 10-minute misconduct.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-misconduct">
+              <h4>Misconduct/Game Misconduct</h4>
+              <p>
+                A misconduct is a 10-minute penalty for unsportsmanlike behavior that sends the player off but lets their team stay at full strength with a
+                replacement. A game misconduct ejects the player for the rest of the game, and their team stays at full strength unless another penalty came
+                with it.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-match-penalty">
+              <h4>Match Penalty</h4>
+              <p>
+                The most serious penalty, called when a player tries to injure an opponent. The player is ejected, their team plays shorthanded for five
+                minutes (another player serves the time), and the league reviews the play for a suspension.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-delayed-penalty">
+              <h4>Delayed Penalty</h4>
+              <p>
+                When a penalty is called but the team that was fouled still has the puck, play continues until the penalized team touches it. The fouled team
+                usually pulls its goalie for an extra attacker during that time, and if it scores before the whistle, the penalized player may not have to
+                serve their minor.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-coincidental-penalties">
+              <h4>Coincidental Penalties</h4>
+              <p>
+                Equal penalties called on both teams at the same time, such as two minors or two majors. Both players sit but neither team gets a power play,
+                so teams play 4v4 for coincidental minors.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-coachs-challenge">
+              <h4>Coach's Challenge</h4>
+              <p>
+                A coach can ask for a video review of a goal for offside or goaltender interference. If the call is overturned, the goal is wiped out, and if
+                it stands, the challenging team is given a minor penalty for delay of game.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-last-change">
+              <h4>Last Change</h4>
+              <p>
+                The home team gets the final line change after every stoppage, so it can choose its matchups after seeing who the visiting team sends out. It
+                is one reason home teams do slightly better.
+              </p>
+            </div>
+          </div>
+        </details>
+        <details class="glossary-group">
+          <summary><h3>Basic Hockey Stats <span class="glossary-count">(28)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-games-played">
+              <h4>Games Played (GP)</h4>
+              <p>The number of games a player appeared in or a team has played.</p>
+            </div>
+            <div class="glossary-term" id="term-goal">
+              <h4>Goal</h4>
+              <p>
+                The puck completely crossing the goal line between the posts and under the crossbar. Each goal adds one to the team's score, and the team with
+                more goals at the end of the game wins.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-assist">
+              <h4>Assist</h4>
+              <p>
+                Credit given to up to two players who touched the puck just before a teammate scored. Their touches have to be consecutive, so no opposing
+                player can touch the puck in between. The last passer gets the primary assist and the one before that gets the secondary assist. Not every goal
+                has assists, and some have only one.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-point">
+              <h4>Point</h4>
+              <p>
+                A goal or an assist: a player's points are their goals plus their assists. Not to be confused with the standings points a team earns for
+                winning.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-game-winning-goal">
+              <h4>Game-Winning Goal (GWG)</h4>
+              <p>
+                The goal that gives the winning team the lead it never gives up. It is the goal that puts the winner one ahead of the loser's final total, so
+                in a 4-2 win it is the team's third goal. A shootout winner counts as the game-winning goal.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-power-play-goal">
+              <h4>Power Play Goal (PPG)</h4>
+              <p>A goal scored by the team with the extra skater while it is on the power play.</p>
+            </div>
+            <div class="glossary-term" id="term-shorthanded-goal">
+              <h4>Shorthanded Goal (SHG)</h4>
+              <p>A goal scored by the team that is down a skater, which is rare and usually comes off a turnover.</p>
+            </div>
+            <div class="glossary-term" id="term-shots">
+              <h4>Shots (SOG)</h4>
+              <p>
+                The number of shots on goal a player or team takes, usually shown as a total or per game. It leaves out missed and blocked shots, so it is
+                smaller than the total number of shot attempts.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-shooting-percentage">
+              <h4>Shooting Percentage (SH%)</h4>
+              <p>The percentage of shots on goal that result in a goal. Calculated as goals divided by total shots on goal.</p>
+            </div>
+            <div class="glossary-term" id="term-goals-for-against">
+              <h4>Goals For/Goals Against (GF/GA)</h4>
+              <p>The goals a team scores (GF) and the goals it allows (GA), either over a season or while a player is on the ice.</p>
+            </div>
+            <div class="glossary-term" id="term-goal-differential">
+              <h4>Goal Differential</h4>
+              <p>A team's goals scored minus its goals allowed, including goals awarded for shootout wins.</p>
+            </div>
+            <div class="glossary-term" id="term-plus-minus">
+              <h4>Plus-Minus</h4>
+              <p>
+                A raw count of the goals scored for minus the goals scored against while a player is on the ice, not counting goals scored while their team has
+                the power play. Simple, but credits and blames a player for
+                every goal regardless of who else was on the ice.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-time-on-ice">
+              <h4>Time on Ice (TOI)</h4>
+              <p>The amount of game time a player spends on the ice, reported in either total minutes or as a per-game average.</p>
+            </div>
+            <div class="glossary-term" id="term-hits">
+              <h4>Hits</h4>
+              <p>
+                A body check that separates an opponent from the puck. Hits are counted by the arena's scorekeeper, so the totals vary a little from arena to
+                arena.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-blocks">
+              <h4>Blocks</h4>
+              <p>A shot attempt stopped by a defending skater before it reaches the net.</p>
+            </div>
+            <div class="glossary-term" id="term-giveaways-takeaways">
+              <h4>Giveaways/Takeaways</h4>
+              <p>
+                A giveaway is a turnover where a player loses the puck to the other team, and a takeaway is when a player steals it. Both are judged by the
+                scorekeeper, so they are somewhat subjective.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-penalty-minutes">
+              <h4>Penalty Minutes (PIM)</h4>
+              <p>The total minutes a player accumulates from penalties they take. A minor adds 2, a major adds 5, and a misconduct adds 10.</p>
+            </div>
+            <div class="glossary-term" id="term-penalties-drawn-taken">
+              <h4>Penalties Drawn/Taken</h4>
+              <p>
+                Penalties taken are the ones a player is called for, and penalties drawn are the ones called against the other team because of them. Drawn
+                minus taken is a player's net penalties.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-faceoff-win-percentage">
+              <h4>Faceoff Win Percentage (FO%)</h4>
+              <p>The percentage of faceoffs a player or team wins.</p>
+            </div>
+            <div class="glossary-term" id="term-power-play-pct">
+              <h4>Power Play Percentage (PP%)</h4>
+              <p>The share of a team's power plays that end in a goal.</p>
+            </div>
+            <div class="glossary-term" id="term-penalty-kill-pct">
+              <h4>Penalty Kill Percentage (PK%)</h4>
+              <p>The share of the penalties a team kills off without allowing a power play goal.</p>
+            </div>
+            <div class="glossary-term" id="term-saves-shots-against">
+              <h4>Saves/Shots Against (SA)</h4>
+              <p>Shots against are the shots on goal a goalie faces, and saves are the ones they stop, so saves equal shots against minus goals allowed.</p>
+            </div>
+            <div class="glossary-term" id="term-save-percentage">
+              <h4>Save Percentage (SV%)</h4>
+              <p>The percentage of shots on goal a goalie stops. Calculated as saves divided by shots on goal.</p>
+            </div>
+            <div class="glossary-term" id="term-gaa">
+              <h4>Goals Against Average (GAA)</h4>
+              <p>The goals a goalie allows per 60 minutes played.</p>
+            </div>
+            <div class="glossary-term" id="term-shutout">
+              <h4>Shutout (SO)</h4>
+              <p>A game in which a goalie allows no goals for the entire game. If two goalies split a game, neither gets the shutout.</p>
+            </div>
+            <div class="glossary-term" id="term-record">
+              <h4>Record (W-L-OTL)</h4>
+              <p>
+                A team's results as wins, regulation losses, and overtime losses. Wins are worth two standings points, overtime losses one, and regulation
+                losses none.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-points-pct">
+              <h4>Points Percentage (P%)</h4>
+              <p>
+                The percentage of available standings points a team has earned (2 for a win, 1 for an overtime or shootout loss, 0 for a regulation loss).
+                Calculated as points divided by two times games played.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-counting-stat">
+              <h4>Counting Stat</h4>
+              <p>
+                A stat that adds up over a season, like goals or WAR, so a player who plays more games has more chances to add to it. A rate stat, such as goals per game or per 60, is scaled by playing time instead.
+              </p>
+            </div>
+          </div>
+        </details>
+        <details class="glossary-group">
+          <summary><h3>Advanced Hockey Stats <span class="glossary-count">(26)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-per-60">
+              <h4>Per 60 (/60)</h4>
+              <p>
+                A stat scaled to what it would be over 60 minutes of play, which is one full game of ice time: the count times 60 divided by the minutes
+                played. It compares players with different ice time, which per-game numbers don't.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-relative">
+              <h4>Relative (Rel)</h4>
+              <p>
+                A stat compared with the team's own result when the player is off the ice (the team's rate with them on the ice minus its rate with them off).
+              </p>
+            </div>
+            <div class="glossary-term" id="term-corsi">
+              <h4>Corsi (CF%)</h4>
+              <p>
+                The share of all shot attempts (shots on goal, missed shots, and blocked shots) a team or player accounts for while on the ice. A common proxy
+                for puck possession.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-fenwick">
+              <h4>Fenwick (FF%)</h4>
+              <p>
+                The share of unblocked shot attempts (shots on goal and missed shots) a team or player accounts for while on the ice. (Corsi, but without
+                blocked shots).
+              </p>
+            </div>
+            <div class="glossary-term" id="term-individual-attempts">
+              <h4>Individual Shot Attempts (iCF/iFF)</h4>
+              <p>A player's own shot attempts. iCF counts every attempt (goals, shots on goal, misses, and blocks) and iFF leaves out blocks.</p>
+            </div>
+            <div class="glossary-term" id="term-scoring-chances">
+              <h4>Scoring Chances (SCF/SCA)</h4>
+              <p>Shot attempts taken from areas likely to produce a goal, counted for (SCF) and against (SCA) while a player is on the ice.</p>
+            </div>
+            <div class="glossary-term" id="term-on-ice-shooting-save">
+              <h4>On-Ice Shooting %/Save % (oiSH%/oiSV%)</h4>
+              <p>
+                A team or player's shooting and save percentages while they're on the ice, as opposed to just their own individual shots or saves. The two
+                components that make up PDO.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-pdo">
+              <h4>PDO</h4>
+              <p>
+                The sum of a team or player's on-ice shooting percentage and save percentage. A PDO far from 100 often signals unsustainable puck luck rather
+                than true talent.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-zone-start-percentage">
+              <h4>Zone Start Percentage (OZS% or DZS%)</h4>
+              <p>The percentage of a player's non-neutral-zone and non-on-the-fly shifts that begin with an offensive-zone or defensive-zone faceoff.</p>
+            </div>
+            <div class="glossary-term" id="term-primary-points">
+              <h4>Primary Points</h4>
+              <p>A player's goals plus primary (first) assists, excluding secondary assists.</p>
+            </div>
+            <div class="glossary-term" id="term-ipp">
+              <h4>Individual Point Percentage (IPP)</h4>
+              <p>The share of a team's goals while a player is on the ice that the player earned a point on, either scoring or assisting.</p>
+            </div>
+            <div class="glossary-term" id="term-expected-goals">
+              <h4>Expected Goals (xG)</h4>
+              <p>
+                The probability that a given shot results in a goal, based on shot location, type, and situational context. See the <a href="#xg-model">xG
+                model</a> above.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-ixg">
+              <h4>Individual Expected Goals (ixG)</h4>
+              <p>The sum of the xG of the shots one player took themselves. Comparing it to their actual goals gives their goals above expected.</p>
+            </div>
+            <div class="glossary-term" id="term-expected-goals-against">
+              <h4>Expected Goals Against (xGA)</h4>
+              <p>The sum of expected goals value from shots taken against a team or while a player is on the ice.</p>
+            </div>
+            <div class="glossary-term" id="term-xgf">
+              <h4>Expected Goals For % (xGF%)</h4>
+              <p>
+                The share of the expected goals in a player's or team's ice time that go to their own side. Calculated as xGF divided by the sum of xGF and xGA.
+                Above 50% means they create better chances than they allow. Similar to Corsi, but each shot is weighted by its quality.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-gax">
+              <h4>Goals Above Expected (GAx)</h4>
+              <p>
+                A shooter's actual goals minus the xG of their own shots. A positive number means they scored more than an average shooter would have on the
+                same shots.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-finishing">
+              <h4>Finishing</h4>
+              <p>
+                How a player's goals compare with the xG of their own shots (goals above expected). A positive number means they scored more than an average
+                shooter would have on the same shots. In WAR it is taken above replacement, and it can't separate real shooting talent from shot quality the xG
+                model can't see.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-gsax">
+              <h4>Goals Saved Above Expected (GSAx)</h4>
+              <p>
+                A goalie's actual goals allowed subtracted from the number of goals an average goalie would be expected to allow on the same shots, based on
+                xG.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-gsaa">
+              <h4>Goals Saved Above Average (GSAA)</h4>
+              <p>
+                How many goals a goalie saved compared with an average goalie who faced the same number of shots: the league-average save percentage times
+                their shots against, minus their goals against. It is like GSAx but doesn't account for how dangerous the shots were.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-regularized-adjusted-plus-minus">
+              <h4>Regularized Adjusted Plus-Minus (RAPM)</h4>
+              <p>
+                A ridge-regression-based method for isolating a player's on-ice impact from the effects of their teammates and competition. See the
+                <a href="#rapm-model">RAPM model</a> above.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-replacement-level">
+              <h4>Replacement Level</h4>
+              <p>The performance baseline WAR is measured against. The production expected from a readily available fringe player.</p>
+            </div>
+            <div class="glossary-term" id="term-goals-above-replacement">
+              <h4>Goals Above Replacement (GAR)</h4>
+              <p>
+                A player's goals above what a replacement-level player would have produced in the same role, before converting to wins. WAR is GAR converted to
+                wins.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-war">
+              <h4>Wins Above Replacement (WAR)</h4>
+              <p>
+                A single number expressing how many wins a player added over a season compared to a replacement-level player. See the <a href="#war-model">WAR
+                model</a> above.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-elo-rating">
+              <h4>Elo Rating</h4>
+              <p>
+                A sequentially updating team-strength rating that shifts after every game based on the result and how expected it was. See
+                <a href="#elo-model">Elo ratings</a> above.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-simple-rating-system">
+              <h4>Simple Rating System (SRS)</h4>
+              <p>
+                A team-strength rating fit across an entire season at once by minimizing error between predicted and actual goal margins. See
+                <a href="#srs-model">SRS</a> above.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-pythagorean-exponent">
+              <h4>Pythagorean Exponent</h4>
+              <p>
+                The exponent k in the Pythagorean formula, which estimates a team's win percentage from goals scored and allowed (goals for to the power k,
+                divided by goals for to the power k plus goals against to the power k). WAR uses it to convert goals into wins. See the
+                <a href="#war-model">WAR model</a> above.
+              </p>
+            </div>
+          </div>
+        </details>
+        <details class="glossary-group">
+          <summary><h3>Data Science Terms <span class="glossary-count">(17)</span></h3></summary>
+          <div class="glossary-grid">
+            <div class="glossary-term" id="term-sample-size">
+              <h4>Sample Size</h4>
+              <p>The number of observations behind a number. Small samples are noisy: a player's shooting percentage over 20 shots says little.</p>
+            </div>
+            <div class="glossary-term" id="term-percentile">
+              <h4>Percentile/Percentile Rank</h4>
+              <p>The share of the qualifying pool that a player ranks above. A player in the 90th percentile ranks above 90% of the pool.</p>
+            </div>
+            <div class="glossary-term" id="term-standard-deviation">
+              <h4>Standard Deviation</h4>
+              <p>
+                A measure of how spread out values are around their average. In a bell-shaped distribution, about two-thirds of values fall within one standard
+                deviation of the average.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-regression-to-the-mean">
+              <h4>Regression to the Mean</h4>
+              <p>
+                The tendency for extreme results, good or bad, to move back toward average the next time, because part of them was luck. A player who shoots
+                far above their xG one season will usually shoot closer to normal the next.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-ridge-regression">
+              <h4>Ridge Regression</h4>
+              <p>
+                A regression technique that shrinks coefficient estimates toward zero to reduce overfitting, especially useful when predictors (like individual
+                players) are numerous and collinear.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-collinearity">
+              <h4>Collinearity</h4>
+              <p>
+                When two inputs move together so closely that a model can't tell which one is responsible. Linemates who are almost always on the ice together
+                are the classic hockey case.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-covariate">
+              <h4>Covariate</h4>
+              <p>
+                An extra input to a model that isn't the thing being measured but can affect the outcome, such as home ice or score state in RAPM. Including it adjusts for it, so players aren't credited or blamed for it.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-prior">
+              <h4>Prior</h4>
+              <p>
+                The starting estimate that a new estimate is pulled toward before the data is considered. In RAPM, it is built from the player's rating last season.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-gradient-boosting">
+              <h4>Gradient Boosting</h4>
+              <p>
+                A machine learning technique that builds a strong model out of many small decision trees, each one trained to correct the errors of the trees
+                before it. XGBoost is a popular implementation. A model that sorts each input into a category (such as goal or no goal) is called a classifier.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-one-hot-encoding">
+              <h4>One-Hot Encoding</h4>
+              <p>
+                A way of turning a categorical value into numeric columns a model can use, with one column per possible category that's set to 1 for the
+                matching category and 0 for every other.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-gain">
+              <h4>Gain (Feature Importance)</h4>
+              <p>
+                How much a feature's splits improve a tree model, used to rank how important each feature is. It favors features with many distinct values, so
+                it can overstate their effect.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-in-sample-vs-out-of-sample">
+              <h4>In-Sample vs. Out-of-Sample</h4>
+              <p>
+                In-sample results are measured on data the model was trained on and flatter it; out-of-sample results are measured on data it never saw, and
+                are the honest test.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-overfitting">
+              <h4>Overfitting</h4>
+              <p>
+                When a model learns the quirks and noise of its training data instead of the real patterns, so it looks great on data it has seen and worse on
+                new data.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-roc-curve">
+              <h4>ROC Curve (Receiver Operating Characteristic)</h4>
+              <p>
+                A plot of a classification model's true positive rate against its false positive rate across every possible decision threshold, used to
+                visualize how well it separates two outcomes.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-auc">
+              <h4>AUC (Area Under the Curve)</h4>
+              <p>
+                The area under the ROC curve, condensing it into a single number: a measure of how well a classification model separates positive and negative
+                outcomes, where 0.5 is no better than random and 1.0 is perfect separation.
+              </p>
+            </div>
+            <div class="glossary-term" id="term-log-loss">
+              <h4>Log Loss</h4>
+              <p>A score for how close a model's predicted probabilities are to what actually happened, punishing confident misses hard. Lower is better.</p>
+            </div>
+            <div class="glossary-term" id="term-calibration">
+              <h4>Calibration</h4>
+              <p>Whether predicted probabilities mean what they say. A common check is total predicted divided by total actual, where 1.00 is perfect.</p>
+            </div>
+          </div>
+        </details>
+        </div>
+      </div>
+    </details>
+  </div>
