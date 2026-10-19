@@ -57,9 +57,7 @@
 .plot-grid img {
   display: block;
   width: 100%;
-  border: var(--border);
   border-radius: var(--main-radius);
-  box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 768px) {

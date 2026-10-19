@@ -76,6 +76,9 @@
 
   --box-shadow: 0 1px 2px rgba(16, 18, 30, 0.06), 0 6px 20px rgba(16, 18, 30, 0.06);
   --box-shadow-hover: 0 2px 4px rgba(16, 18, 30, 0.08), 0 10px 28px rgba(16, 18, 30, 0.14);
+  --preview-shadow: var(--box-shadow);
+  --preview-shadow-hover: var(--box-shadow-hover);
+  --preview-hover-scale: 1.02;
 }
 
 html.dark-mode {
@@ -90,6 +93,35 @@ html.dark-mode {
 
   --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
   --box-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.5), 0 10px 28px rgba(0, 0, 0, 0.45);
+  --preview-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 12px 32px rgba(0, 0, 0, 0.65);
+  --preview-shadow-hover: 0 3px 8px rgba(0, 0, 0, 0.7), 0 16px 40px rgba(0, 0, 0, 0.75);
+}
+
+.project-panel .player-card,
+.other-project-preview img,
+.stats-preview-img {
+  box-shadow: var(--preview-shadow);
+}
+
+.project-panel .player-card:hover,
+.other-project-preview img:hover,
+.stats-preview-img:hover {
+  transform: none;
+  box-shadow: var(--preview-shadow);
+}
+
+.player-card,
+.schedule-preview,
+.plot-grid img {
+  box-shadow: var(--preview-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.player-card:hover,
+.schedule-preview:hover,
+.plot-grid img:hover {
+  transform: scale(var(--preview-hover-scale));
+  box-shadow: var(--preview-shadow-hover);
 }
 
 * {
