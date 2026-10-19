@@ -84,7 +84,7 @@ Some more interesting observations:
 
 - The team with the lowest points percentage to win the Cup: the 2011-2012 Los Angeles Kings with 0.579 pts%, ranked 13th in the standings.
 
-- The team with the highest points percentage that did not win the Cup: the 2022-23 Boston Bruins with 0.823 pts%, ranked 1st in the standings.
+- The team with the highest points percentage that did not win the Cup: the 2022-2023 Boston Bruins with 0.823 pts%, ranked 1st in the standings.
 
 - The team with the highest contender score to win the Cup: the 2023-2024 Colorado Avalanche with a score of 51.86, ranked 2nd in the standings.
 

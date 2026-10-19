@@ -1,12 +1,12 @@
 Breakouts, Bounce Backs, and Bottom-of-the-Graphs
 January 9, 2026
-At the midway point of the 2025-26 NHL season, player performance across the league has varied widely, from unexpected breakouts to strong bounce-back campaigns and disappointing downturns. This post highlights one forward, defenseman, and goaltender from each category to explore some of the biggest swings in player performance this season.
+At the midway point of the 2025-2026 NHL season, player performance across the league has varied widely, from unexpected breakouts to strong bounce-back campaigns and disappointing downturns. This post highlights one forward, defenseman, and goaltender from each category to explore some of the biggest swings in player performance this season.
 
 # Introduction
 
 *Note: This post was written using an earlier version of my player card model and design. The player cards shown below are from that older version and the project has since been updated with a new model and visuals.*
 
-With the 2025-26 season at its halfway point, I wanted to take a closer look at several players having particularly interesting seasons. I focused on three categories: breakout seasons, where a player is performing significantly better than in previous years; bounce-back seasons, where a player is playing at a high level again after one or more down seasons; and, to keep the alliteration going, bottom-of-the-graph seasons, where a player is having possibly the worst season of their career, as illustrated by their metrics appearing at the bottom of the visualized graphs.
+With the 2025-2026 season at its halfway point, I wanted to take a closer look at several players having particularly interesting seasons. I focused on three categories: breakout seasons, where a player is performing significantly better than in previous years; bounce-back seasons, where a player is playing at a high level again after one or more down seasons; and, to keep the alliteration going, bottom-of-the-graph seasons, where a player is having possibly the worst season of their career, as illustrated by their metrics appearing at the bottom of the visualized graphs.
 
 For each category, I selected one forward, one defenseman, and one goaltender. Some of these players have already received plenty of attention, while others have flown more under the radar than I think they should. These selections aren’t necessarily the most extreme examples of each category, but rather players I specifically wanted to take a deeper look at. All player sections are accompanied by my custom NHL player cards for each player, which have been updated to include all games up until January 8th.
 
