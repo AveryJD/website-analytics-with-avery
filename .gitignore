@@ -3,8 +3,4 @@
 .DS_Store
 
 *.db
-/data/stats_dashboard_data
-/static/assets/stats_and_dashboards
-/static/assets/team_logos
-/templates/stats_and_dashboards
-database/stats_dashboard_database.py
+
