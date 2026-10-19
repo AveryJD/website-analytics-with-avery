@@ -31,11 +31,11 @@
   margin-bottom: 0.35rem;
 }
 
-/* Each other project is its text with a small preview image beside it */
+/* Each other project is its text with a preview image beside it, in the same two columns (and gap) as the card project panels above */
 .other-project {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
-  gap: 1rem 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem 2.5rem;
   align-items: center;
 }
 
