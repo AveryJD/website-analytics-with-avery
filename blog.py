@@ -5,10 +5,11 @@ import markdown
 from bs4 import BeautifulSoup
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-POSTS_FOLDER = os.path.join(BASE_DIR, 'static', 'posts')
+POSTS_FOLDER = os.path.join(BASE_DIR, 'content', 'posts')
 
 SITE_URL = 'https://analyticswithavery.com'
-DEFAULT_SHARE_IMAGE = f'{SITE_URL}/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png'
+DEFAULT_IMAGE = '/static/assets/brand/analyticswithavery_logo.png'
+DEFAULT_SHARE_IMAGE = '/static/assets/brand/share_image.png'
 
 DATE_FORMAT = '%B %d, %Y'
 UPDATED_PREFIX = 'Updated:'
@@ -29,16 +30,18 @@ def parse_date(date_str):
     return datetime.strptime(date_str, DATE_FORMAT).date().isoformat()
 
 
-def share_image_url(soup):
-    """Absolute URL of the first image in a post, or the site logo if it has none."""
-    first_image = soup.find('img', src=True)
-    if first_image is None:
-        return DEFAULT_SHARE_IMAGE
+def first_image(soup):
+    """Site-relative (or absolute) URL of the first image in a post, or the site logo if it has none."""
+    first = soup.find('img', src=True)
+    if first is None:
+        return DEFAULT_IMAGE
+    return first['src']
 
-    src = first_image['src']
-    if src.startswith(('http://', 'https://')):
-        return src
-    return SITE_URL + '/' + src.lstrip('/')
+
+def absolute_url(url):
+    if url.startswith(('http://', 'https://')):
+        return url
+    return SITE_URL + '/' + url.lstrip('/')
 
 
 def load_post(filename):
@@ -76,6 +79,7 @@ def load_post(filename):
         'html.parser',
     )
     optimize_post_images(soup)
+    image = first_image(soup)
 
     return {
         'id': post_id,
@@ -87,7 +91,8 @@ def load_post(filename):
         'modified_iso_date': modified or iso_date,
         'preview': preview,
         'content': str(soup),
-        'share_image': share_image_url(soup),
+        'image': image,
+        'share_image': absolute_url(DEFAULT_SHARE_IMAGE if image == DEFAULT_IMAGE else image),
     }
 
 
