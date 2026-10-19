@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
+{% block css_early %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/docs.css') }}">
+{% endblock %}
+
 {% block title %}Analytics With Avery | NHL Team Cards{% endblock %}
 {% block meta_description %}Explore Avery Doiron's NHL Team Cards, featuring team analytics, rankings, and visual stat cards.{% endblock %}
 {% block meta_keywords %}Analytics With Avery, NHL team cards, hockey analytics, NHL team analytics, sports analytics{% endblock %}
 
 {% block og_title %}Analytics With Avery | NHL Team Cards{% endblock %}
 {% block og_description %}View NHL Team Cards created by Avery Doiron, featuring custom rankings, stats, and analytics.{% endblock %}
-{% block og_image %}https://analyticswithavery.com/static/assets/preview_cards/team_preview_card_0_light.webp{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/cards/team_cards/team_preview_card_0_light.webp{% endblock %}
 {% block og_url %}https://analyticswithavery.com/team_cards{% endblock %}
 
 {% block twitter_title %}Analytics With Avery | NHL Team Cards{% endblock %}
 {% block twitter_description %}Explore Avery Doiron's NHL Team Cards with rankings, stats, and analytics.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/preview_cards/team_preview_card_0_light.webp{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/cards/team_cards/team_preview_card_0_light.webp{% endblock %}
 
 {% block content %}
   <h1>NHL Team Cards</h1>
@@ -56,11 +61,7 @@
 
         <div class="player-card">
           <div id="team-loading-spinner-0" class="card-loading-spinner">
-            <div class="spinner-dots" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span>
-              <span></span>
-            </div>
+            <div class="spinner-ring" aria-hidden="true"></div>
           </div>
 
           <a id="team-card-link-0" href="" target="_blank">
@@ -98,11 +99,7 @@
 
         <div class="player-card">
           <div id="team-loading-spinner-1" class="card-loading-spinner">
-            <div class="spinner-dots" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span>
-              <span></span>
-            </div>
+            <div class="spinner-ring" aria-hidden="true"></div>
           </div>
 
           <a id="team-card-link-1" href="" target="_blank">
@@ -138,11 +135,7 @@
 
         <div class="player-card">
           <div id="team-loading-spinner-2" class="card-loading-spinner">
-            <div class="spinner-dots" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span>
-              <span></span>
-            </div>
+            <div class="spinner-ring" aria-hidden="true"></div>
           </div>
 
           <a id="team-card-link-2" href="" target="_blank">
@@ -153,11 +146,9 @@
     </div>
   </div>
 
-  <div class="card-section">
-    {% include "components/team_card_explanation.html" %}
-  </div>
+{% include "cards/team_card_guide.html" %}
 
   <div class="content-button back-link-button">
-    <a href="/projects">Back to all projects</a>
+    <a href="/projects">Back to All Projects</a>
   </div>
 {% endblock %}

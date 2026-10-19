@@ -1,70 +1,96 @@
 {% extends "base.html" %}
 
+{% block css_early %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+{% endblock %}
+
 {% block title %}Analytics With Avery | Projects{% endblock %}
 {% block meta_description %}Explore Avery Doiron's hockey analytics projects, including custom NHL player stat cards that visualize performance using advanced data models.{% endblock %}
 {% block meta_keywords %}Analytics With Avery, NHL analytics projects, NHL player cards, hockey player cards, hockey projects, sports analytics{% endblock %}
 
 {% block og_title %}Analytics With Avery | Projects{% endblock %}
 {% block og_description %}Discover NHL player cards built using advanced hockey analytics and clean visuals.{% endblock %}
-{% block og_image %}https://analyticswithavery.com/static/assets/preview_cards/player_preview_card_0_light.webp{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/cards/player_cards/player_preview_card_0_light.webp{% endblock %}
 {% block og_url %}https://analyticswithavery.com/projects{% endblock %}
 
 {% block twitter_title %}Analytics With Avery | NHL Player Card Projects{% endblock %}
 {% block twitter_description %}Explore Avery Doiron's hockey analytics projects and custom NHL player cards.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/preview_cards/player_preview_card_0_light.webp{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/cards/player_cards/player_preview_card_0_light.webp{% endblock %}
 
 {% block content %}
   <h1>Projects</h1>
 
-  <div class="card-section">
+  <div class="panel">
     <h2>What's on This Page</h2>
     <p>
-      This page displays my hockey analytics projects, including custom NHL player cards, custom NHL team cards, and a genetic
-      algorithm for generating optimized NHL schedules. The code for all of my projects is fully available on my <a href="https://github.com/AveryJD" target="_blank">GitHub</a>.
+      This page displays my hockey analytics projects, including custom NHL player cards, custom NHL team cards, interactive
+      NHL stats and dashboards, and a genetic algorithm for generating optimized NHL schedules. The code for all of my projects is fully available on my <a href="https://github.com/AveryJD" target="_blank">GitHub</a>.
     </p>
 
-    <div class="horizontal-buttons">
-      <div class="content-button"><a href="#player-cards">Player Cards</a></div>
-      <div class="content-button"><a href="#team-cards">Team Cards</a></div>
-      <div class="content-button"><a href="#schedule-ga">Schedule GA</a></div>
-      <div class="content-button"><a href="#interview-analysis">Interview Analysis</a></div>
+    <div class="horizontal-buttons horizontal-buttons--left">
+      <div class="content-button content-button--secondary"><a href="#player-cards">Player Cards</a></div>
+      <div class="content-button content-button--secondary"><a href="#team-cards">Team Cards</a></div>
+      <div class="content-button content-button--secondary"><a href="#other-projects">Other Projects</a></div>
     </div>
   </div>
 
-  <div id="player-cards" class="card-section">
-    <h2>NHL Player Cards</h2>
+  <div id="player-cards" class="panel project-panel">
+    <div class="project-panel-text">
+      <h2>NHL Player Cards</h2>
+      <p>
+        I've created NHL player stat cards that combine advanced analytics, custom models, and clean visuals to highlight player performance.
+        You can explore over 12,300 individual cards of forwards, defensemen, and goalies from the past 17 seasons!
+        The project is mostly complete, but I continue to make occasional improvements to the models and visuals.
+      </p>
 
-    <p>
-      I've created NHL player stat cards that combine advanced analytics, custom models, and clean visuals to highlight player performance.
-      You can explore over 12,300 individual cards of forwards, defensemen, and goalies from the past 17 seasons! 
-      The project is mostly complete, but I continue to make occasional improvements to the models and visuals.
-    </p>
-
-    <div class="content-button">
-      <a href="/player_cards">View Player Cards</a>
+      <div class="content-button content-button--left">
+        <a href="/player_cards">View Player Cards</a>
+      </div>
     </div>
 
-    <div class="player-card">
-      <img
-        src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_light.webp') }}"
-        data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_light.webp') }}"
-        data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_0_dark.webp') }}"
-        alt="Sample NHL player card for Sidney Crosby showing WAR, 5v5 offense/defense, and season trends"
-        class="preview-theme-card"
-        loading="lazy"
-        decoding="async"
-      >
+    <div class="project-panel-preview">
+      <div class="player-card">
+        <img
+          src="{{ url_for('static', filename='assets/cards/player_cards/player_preview_card_0_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/cards/player_cards/player_preview_card_0_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/cards/player_cards/player_preview_card_0_dark.webp') }}"
+          alt="Sample NHL player card for Sidney Crosby showing WAR, 5v5 offense/defense, and season trends"
+          class="preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
     </div>
   </div>
 
-  <div id="team-cards" class="card-section">
-    <h2>NHL Team Cards</h2>
+  <div id="team-cards" class="panel project-panel project-panel--reverse">
+    <div class="project-panel-text">
+      <h2>NHL Team Cards</h2>
+      <p>
+        I've created NHL team stat cards that combine advanced analytics, custom ratings, and clean visuals to highlight team performance.
+        You can explore over 500 team cards from the past 19 seasons! Like my player cards, this project is mostly complete,
+        but updates are occasionally made.
+      </p>
 
-    <p>
-      I've created NHL team stat cards that combine advanced analytics, custom ratings, and clean visuals to highlight team performance.
-      You can explore over 500 team cards from the past 19 seasons! Like my player cards, this project is mostly complete, 
-      but updates are occasionally made.
-    </p>
+      <div class="content-button content-button--left">
+        <a href="/team_cards">View Team Cards</a>
+      </div>
+    </div>
+
+    <div class="project-panel-preview">
+      <div class="player-card">
+        <img
+          src="{{ url_for('static', filename='assets/cards/team_cards/team_preview_card_0_light.webp') }}"
+          data-light="{{ url_for('static', filename='assets/cards/team_cards/team_preview_card_0_light.webp') }}"
+          data-dark="{{ url_for('static', filename='assets/cards/team_cards/team_preview_card_0_dark.webp') }}"
+          alt="Sample NHL team card for the Carolina Hurricanes showing standings, 5v5 stats, and Elo rating trends"
+          class="preview-theme-card"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+    </div>
+  </div>
 
     <div class="content-button">
       <a href="/team_cards">View Team Cards</a>
@@ -83,39 +109,60 @@
     </div>
   </div>
 
-  <div id="schedule-ga" class="card-section">
-    <h2>NHL Schedule Genetic Algorithm</h2>
+  <div id="other-projects" class="panel project-panel project-panel--stacked">
+    <div class="project-panel-text">
+      <h2>Other Projects</h2>
+      <p>
+        These projects are less analytics-focused, but are other computer science-related hockey projects.
+      </p>
 
-    <p>
-      I've built a genetic algorithm that generates optimized NHL regular season schedules, balancing rest, home/away
-      streak, and travel distance across all 32 teams. It started as my final project for an Evolutionary Computation
-      course, and I've continued developing it since.
-    </p>
+      <div class="other-project">
+        <div class="other-project-text">
+          <h3>NHL Schedule Genetic Algorithm</h3>
+          <p>
+            I've built a genetic algorithm that generates optimized NHL regular season schedules, balancing rest, home/away
+            streaks, and travel distance across all 32 teams. It started as my final project for an Evolutionary Computation
+            course, and I've continued developing it since.
+          </p>
 
-    <div class="content-button">
-      <a href="/schedule_ga">View Schedule GA</a>
-    </div>
+          <div class="content-button content-button--left">
+            <a href="/schedule_ga">View Schedule GA</a>
+          </div>
+        </div>
 
-    <img
-      class="schedule-preview"
-      src="{{ url_for('static', filename='assets/preview_cards/schedule_preview.webp') }}"
-      alt="Preview of an NHL schedule generated by the genetic algorithm"
-      loading="lazy"
-      decoding="async"
-    >
-  </div>
+        <div class="other-project-preview">
+          <img
+            src="{{ url_for('static', filename='assets/other_projects/schedule_ga/schedule_preview.webp') }}"
+            alt="Season schedule calendar for the Anaheim Ducks generated by the genetic algorithm"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      </div>
 
-  <div id="interview-analysis" class="card-section">
-    <h2>NHL Interview Analysis</h2>
+      <div class="other-project">
+        <div class="other-project-text">
+          <h3>NHL Interview Analysis</h3>
+          <p>
+            As part of my summer research, I completed a natural language processing project analyzing NHL player and coach
+            interview transcripts to explore the relationship between language and performance. I'm still finalizing the
+            project before publishing the whole thing here.
+          </p>
 
-    <p>
-      As part of my summer research, I completed a natural language processing project analyzing NHL player and coach
-      interview transcripts to explore the relationship between language and performance. I'm still finalizing the
-      write-up before publishing it here.
-    </p>
+          <div class="content-button content-button--left">
+            <a href="/interview_analysis">View NHL Interview Analysis</a>
+          </div>
+        </div>
 
-    <div class="content-button">
-      <a href="/interview_analysis">View NHL Interview Analysis</a>
+        <div class="other-project-preview">
+          <img
+            src="{{ url_for('static', filename='assets/other_projects/interview_analysis/sentiment_over_season.webp') }}"
+            alt="Scatter plot of postgame interview sentiment scores over the season for all teams, colored by win or loss"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
