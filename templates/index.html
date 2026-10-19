@@ -1,187 +1,128 @@
 {% extends "base.html" %}
 
+{% block css_early %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+{% endblock %}
+
 {% block title %}Analytics With Avery | Home Page{% endblock %}
 {% block meta_description %}Explore hockey analytics projects, data-driven insights, and blogs from computer science student and sports analytics enthusiast Avery Doiron.{% endblock %}
 {% block meta_keywords %}Analytics With Avery, Avery Doiron, NHL analytics, hockey data science, NHL player cards, hockey blog, sports analytics{% endblock %}
 
 {% block og_title %}Analytics With Avery | Avery Doiron’s Hockey Analytics & Data Science Portfolio{% endblock %}
 {% block og_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
-{% block og_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block og_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
 {% block og_url %}https://analyticswithavery.com/{% endblock %}
 
 {% block twitter_title %}Analytics With Avery | Avery Doiron’s Hockey Analytics & Data Science Portfolio{% endblock %}
 {% block twitter_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png{% endblock %}
+{% block twitter_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
+
+{% macro card_fan(kind, cards) %}
+  <div class="card-preview">
+    {%- for name in cards %}
+    <img
+      src="{{ url_for('static', filename='assets/cards/' ~ kind ~ '_cards/' ~ kind ~ '_preview_card_' ~ loop.index ~ '_light.webp') }}"
+      data-light="{{ url_for('static', filename='assets/cards/' ~ kind ~ '_cards/' ~ kind ~ '_preview_card_' ~ loop.index ~ '_light.webp') }}"
+      data-dark="{{ url_for('static', filename='assets/cards/' ~ kind ~ '_cards/' ~ kind ~ '_preview_card_' ~ loop.index ~ '_dark.webp') }}"
+      alt="Sample NHL {{ kind }} card for {{ name }}"
+      class="player-card preview-theme-card"
+      loading="lazy"
+      decoding="async"
+    >
+    {%- endfor %}
+  </div>
+{% endmacro %}
 
 {% block content %}
-  <h1>Analytics With Avery</h1>
-
-  <div class="card-section">
-    <h2>Welcome</h2>
-    <p>
+  <section class="hero">
+    <h1>Analytics With Avery</h1>
+    <p class="hero-lead">
       I'm Avery Doiron, a computer science and mathematics student who builds hockey analytics projects and writes about the
-      numbers behind the game. This site is home to my signature NHL player and team cards, my hockey analytics blog, and more about
-      my background and work. You can learn more about me below or keep scrolling to see some of my content.
+      numbers behind the game. Explore my signature NHL player and team cards, my analytics blog, and more about my work.
     </p>
+  </section>
 
-    <div class="horizontal-buttons">
-      <div class="content-button"><a href="/profile_about">About Me</a></div>
-      <div class="content-button"><a href="/content_about">About My Content</a></div>
-    </div>
-
-    <div class="horizontal-buttons">
-      <div class="content-button"><a href="/education">Education</a></div>
-      <div class="content-button"><a href="/experience">Experience</a></div>
-      <div class="content-button"><a href="/cv">CV</a></div>
-      <div class="content-button"><a href="/contact">Contact</a></div>
-    </div>
-  </div>
-
-  <div class="card-section">
+  <div class="section-header">
     <h2>Featured Projects</h2>
-
-    <div class="featured-project">
-      <div class="content-button">
-        <h2><a href="/player_cards">NHL Player Cards</a></h2>
-      </div>
-      <div class="card-preview">
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_1_dark.webp') }}"
-          alt="Sample NHL player card for Moritz Seider showing WAR, 5v5 offense/defense, and season trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_2_dark.webp') }}"
-          alt="Sample NHL player card for David Pastrnak showing WAR, 5v5 offense/defense, and season trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_3_dark.webp') }}"
-          alt="Sample NHL player card for Miro Heiskanen showing WAR, 5v5 offense/defense, and season trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/player_preview_card_4_dark.webp') }}"
-          alt="Sample NHL player card for Nikita Kucherov showing WAR, 5v5 offense/defense, and season trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-    </div>
-
-    <div class="featured-project">
-      <div class="content-button">
-        <h2><a href="/team_cards">NHL Team Cards</a></h2>
-      </div>
-      <div class="card-preview">
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_1_dark.webp') }}"
-          alt="Sample NHL team card for the Anaheim Ducks showing standings, 5v5 stats, and Elo rating trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_2_dark.webp') }}"
-          alt="Sample NHL team card for the Utah Mammoth showing standings, 5v5 stats, and Elo rating trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_3_dark.webp') }}"
-          alt="Sample NHL team card for the Florida Panthers showing standings, 5v5 stats, and Elo rating trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-        <img
-          src="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
-          data-light="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_light.webp') }}"
-          data-dark="{{ url_for('static', filename='assets/preview_cards/team_preview_card_4_dark.webp') }}"
-          alt="Sample NHL team card for the New York Rangers showing standings, 5v5 stats, and Elo rating trends"
-          class="player-card preview-theme-card"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-    </div>
-
-    <div class="horizontal-buttons">
-      <div class="content-button"><a href="/projects">View All Projects</a></div>
-      <div class="content-button"><a href="/models">View the Models</a></div>
-    </div>
+    <a href="/projects">View All Projects &rarr;</a>
   </div>
 
-  <div class="blog-section">
-    <h2>Newest Blog Post</h2>
+  <div class="project-grid">
+    <article class="project-card">
+      <div class="project-card-body">
+        <h3>NHL Player Cards</h3>
+        <p>Custom stat cards for forwards, defensemen, and goalies, built on my own xG, RAPM, and WAR models.</p>
+      </div>
+      {{ card_fan('player', ['Moritz Seider', 'David Pastrnak', 'Miro Heiskanen', 'Nikita Kucherov']) }}
+      <div class="project-card-footer">
+        <div class="content-button content-button--left">
+          <a href="/player_cards">View Player Cards</a>
+        </div>
+      </div>
+    </article>
 
-    <div class="newest-post">
-      <h2><a href="/blog/{{ post['url'] }}">{{ post['title'] }}</a></h2>
-      <h4>{{ post['date'] }}</h4>
-      <p>{{ post['preview'] }}</p>
-    </div>
-
-    <div class="content-button">
-      <a href="/blog">View All Posts</a>
-    </div>
+    <article class="project-card">
+      <div class="project-card-body">
+        <h3>NHL Team Cards</h3>
+        <p>Season snapshots for every team, combining standings, 5v5 results, and Elo rating trends.</p>
+      </div>
+      {{ card_fan('team', ['the Anaheim Ducks', 'the Utah Mammoth', 'the Florida Panthers', 'the New York Rangers']) }}
+      <div class="project-card-footer">
+        <div class="content-button content-button--left">
+          <a href="/team_cards">View Team Cards</a>
+        </div>
+      </div>
+    </article>
   </div>
 
-  <div class="x-section">
-    <h2>Featured Socials Posts</h2>
-
-    <div class="socials-posts-container">
-      <div class="social-post">
-        <div id="x-tweet-embed" class="x-tweet-embed" data-tweet-id="2077183228499362297"></div>
-      </div>
-
-      <div class="social-post">
-        <blockquote
-          class="instagram-media instagram-embed-blockquote"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/p/Dbjgb0voLVp/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14">
-          <div class="instagram-embed-inner">
-            <a href="https://www.instagram.com/p/Dbjgb0voLVp/?utm_source=ig_embed&amp;utm_campaign=loading" class="instagram-embed-link" target="_blank">View this post on Instagram</a>
-          </div>
-        </blockquote>
-      </div>
-    </div>
-
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8">
-    </script>
-    <script async src="//www.instagram.com/embed.js"></script>
-
-    <div class="content-button">
-      <a href="/socials">My Socials</a>
-    </div>
+  <div class="section-header">
+    <h2>Read My Blog</h2>
+    <a href="/blog">View All Posts &rarr;</a>
   </div>
 
-  <div class="card-section">
+  <div class="project-grid">
+    {% for p in posts %}
+    <article class="project-card project-card--post">
+      <div class="project-card-body">
+        <h3>{{ p['title'] }}</h3>
+        <p class="post-date">{{ p['date'] }}</p>
+        <p>{{ p['preview'] }}</p>
+        <div class="content-button content-button--left">
+          <a href="/blog/{{ p['url'] }}">Read Post</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="section-header">
+    <h2>Who I Am</h2>
+  </div>
+
+  <div class="home-split">
+    <section class="panel about-strip">
+      <img
+        class="about-strip-photo"
+        src="{{ url_for('static', filename='assets/profile/profile_picture.png') }}"
+        alt="Avery Doiron"
+        loading="lazy"
+        decoding="async"
+      >
+      <h2>About Avery</h2>
+      <p>
+        Computer science student at St. Francis Xavier University, working toward a career in sports analytics.
+      </p>
+      <div class="horizontal-buttons horizontal-buttons--left">
+        <div class="content-button"><a href="/profile_about">About Me</a></div>
+        <div class="content-button"><a href="/experience">Experience</a></div>
+        <div class="content-button"><a href="/education">Education</a></div>
+        <div class="content-button"><a href="/cv">CV</a></div>
+        <div class="content-button"><a href="/contact">Contact</a></div>
+      </div>
+    </section>
+
+    <section class="panel support-panel">
     <h2>Support My Work</h2>
     <p>
       I plan to keep all of my content completely free, but if you really enjoy any of my projects or blog posts, you can send me a donation. 
@@ -190,8 +131,41 @@
       Thank you to anyone who chooses to donate to me!
     </p>
 
-    <div class="content-button">
+    <div class="content-button content-button--left">
       <a href="https://www.buymeacoffee.com/analyticswithavery" target="_blank" rel="noopener noreferrer">Donate</a>
     </div>
+    </section>
   </div>
+
+  <div class="section-header">
+    <h2>Featured Socials Posts</h2>
+    <a href="/socials">My Socials &rarr;</a>
+  </div>
+
+  <div class="social-grid">
+    <section class="panel social-panel">
+      <h2>X/Twitter</h2>
+      <div id="x-tweet-embed" class="x-tweet-embed" data-tweet-id="2077183228499362297"></div>
+    </section>
+
+    <section class="panel social-panel">
+      <h2>Instagram</h2>
+      <blockquote
+        class="instagram-media instagram-embed-blockquote"
+        data-instgrm-captioned
+        data-instgrm-permalink="https://www.instagram.com/p/Dbjgb0voLVp/?utm_source=ig_embed&amp;utm_campaign=loading"
+        data-instgrm-version="14">
+        <div class="instagram-embed-inner">
+          <a href="https://www.instagram.com/p/Dbjgb0voLVp/?utm_source=ig_embed&amp;utm_campaign=loading" class="instagram-embed-link" target="_blank">View this post on Instagram</a>
+        </div>
+      </blockquote>
+    </section>
+  </div>
+
+  <script
+    async
+    src="https://platform.twitter.com/widgets.js"
+    charset="utf-8">
+  </script>
+  <script async src="//www.instagram.com/embed.js"></script>
 {% endblock %}
