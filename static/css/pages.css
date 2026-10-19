@@ -17,6 +17,10 @@
   display: inline-block;
   width: 4.5rem;
   height: 4.5rem;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: var(--text-main);
+  border: 2px solid var(--text-main);
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
@@ -31,12 +35,15 @@
 }
 
 .socials-icon {
+  display: block;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: white;
-  outline: 2px solid var(--line);
-  outline-offset: -1px;
+  filter: invert(1);
+}
+
+html.dark-mode .socials-icon {
+  filter: none;
 }
 
 .socials-icon:hover {
