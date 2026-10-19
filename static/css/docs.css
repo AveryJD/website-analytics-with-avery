@@ -1,0 +1,558 @@
+/* ==================== METHODOLOGIES PAGE: GLOSSARY AND COLLAPSIBLE MODEL WRITE-UPS ==================== */
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: fit-content;
+  gap: 0.25rem;
+  margin: 1.5rem auto 1.5rem;
+  padding: 0.25rem;
+  background: var(--bg-subtle);
+  border: var(--border);
+  border-radius: var(--button-radius);
+}
+
+.view-toggle button {
+  font-family: var(--font-main);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: calc(var(--button-radius) - 2px);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.view-toggle button:hover {
+  color: var(--text-main);
+}
+
+.view-toggle button.active {
+  background: var(--bg-section);
+  color: var(--text-main);
+  border-color: var(--line);
+  box-shadow: 0 1px 2px rgba(16, 18, 30, 0.1);
+}
+
+/* Toggleable groups: a flat underline tab bar on top and a thin rule underneath mark where the group starts and ends */
+
+.model-tabs {
+  margin: 2rem 0 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--border);
+}
+
+.model-tabs > .view-toggle {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: var(--border);
+  border-radius: 0;
+}
+
+.model-tabs > .view-toggle button {
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+}
+
+.model-tabs > .view-toggle button.active {
+  background: none;
+  box-shadow: none;
+  border-bottom-color: var(--text-main);
+}
+
+.model-tabs > .model-tab-panel > :first-child {
+  margin-top: 0;
+}
+
+.model-tabs > .model-tab-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.glossary-category {
+  margin-top: 2.5rem;
+}
+
+.glossary-category:first-child {
+  margin-top: 0;
+}
+
+#goalie-explanation {
+  margin-top: 2.5rem;
+}
+
+.glossary-category h3 {
+  text-align: left;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.glossary-term {
+  background-color: var(--bg-card);
+  border: var(--border);
+  border-radius: var(--main-radius);
+  padding: 1rem 1.25rem;
+}
+
+.glossary-term h4 {
+  margin-bottom: 0.4rem;
+}
+
+.glossary-term p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.model-steps {
+  text-align: left;
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.model-list {
+  text-align: left;
+  margin: 0.5rem 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.model-body h3 {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.model-body h4 {
+  text-align: left;
+  margin-top: 1.75rem;
+}
+
+/* A subheading straight after a section heading sits as close as a paragraph would */
+.model-body h3 + h4 {
+  margin-top: 0.35rem;
+}
+
+.model-body .glossary-term h4 {
+  margin-top: 0;
+}
+
+/* ----- Glossary: search + one dropdown per group ----- */
+
+.glossary-search-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.glossary-search {
+  flex: 1 1 auto;
+  max-width: 24rem;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  border: var(--border);
+  border-radius: var(--button-radius);
+}
+
+.glossary-search:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.glossary-total,
+.glossary-count {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: var(--text-muted);
+}
+
+.glossary-empty {
+  margin: 0.5rem 0;
+  color: var(--text-muted);
+}
+
+.glossary-group {
+  margin-top: 0.75rem;
+  background-color: var(--bg-section);
+  border: var(--border);
+  border-radius: var(--main-radius);
+}
+
+.glossary-group[hidden],
+.glossary-term[hidden] {
+  display: none;
+}
+
+.glossary-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.glossary-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.model-body .glossary-group > summary h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  transition: color 0.15s ease;
+}
+
+.glossary-group > summary:hover h3 {
+  color: var(--link);
+}
+
+.glossary-group > summary:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: var(--main-radius);
+}
+
+.glossary-group > summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.2rem;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.glossary-group[open] > summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.glossary-group[open] > summary {
+  border-bottom: var(--border);
+}
+
+.glossary-group .glossary-grid {
+  padding: 1rem 1.1rem 1.1rem;
+  margin-top: 0;
+}
+
+/* Long equations can't wrap, so let them scroll within their own line instead of widening the whole page. */
+
+.model-body .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+@media (max-width: 768px) {
+  .model-body .katex {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+.model-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.model-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--main-radius);
+  border: var(--border);
+}
+
+.model-figure--narrow img {
+  max-width: 36rem;
+  width: 100%;
+}
+
+/* The xG charts don't need the full card width, so cap them a bit smaller (still scaling down on narrow screens) */
+
+#xg-model .model-figure img {
+  max-width: min(100%, 50rem);
+}
+
+/* Every methodology figure is shown at the same width (the glossary's rink diagrams included, so no figure's title or text comes out bigger
+   than another's). All the images are 1800 px wide, so the same display width means the same text size. */
+
+.glossary-term {
+  container-type: inline-size;
+}
+
+.model-figure--uniform img {
+  width: 100%;
+  max-width: min(100%, 50rem);
+  height: auto;
+}
+
+/* The glossary's diagrams are shown a bit smaller than the model figures */
+
+.glossary-term .model-figure--uniform img {
+  max-width: min(100%, 36rem);
+}
+
+.model-figure-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.model-figure-row .model-figure {
+  margin: 1.5rem 0 0;
+}
+
+.model-stats-table.model-feature-table {
+  min-width: 0;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.model-stats-table.model-feature-table td,
+.model-stats-table.model-feature-table th {
+  white-space: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+.model-feature-table tbody td:first-of-type {
+  font-weight: bold;
+}
+
+.model-stats-table.model-feature-table th.feature-group-col,
+.model-stats-table.model-feature-table th.feature-group-label {
+  width: 2.75rem;
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.model-stats-table.model-feature-table th.feature-group-label {
+  background-color: var(--bg-subtle);
+}
+
+.model-feature-table .feature-group-label span {
+  display: inline-block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .model-figure-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.model-decisions-table {
+  min-width: 44rem;
+  text-align: left;
+}
+
+/* The skater and goalie WAR component tables share column widths so they line up */
+.model-decisions-table.war-components-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.war-components-table th:nth-child(1) { width: 18%; }
+.war-components-table th:nth-child(2) { width: 26%; }
+.war-components-table th:nth-child(3) { width: 30%; }
+.war-components-table th:nth-child(4) { width: 26%; }
+
+.model-stats-table.model-decisions-table td,
+.model-stats-table.model-decisions-table th {
+  white-space: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+.model-stats-table .in-sample-row td {
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.model-stats-table .total-row td {
+  background-color: var(--bg-subtle);
+}
+
+.model-stats-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 36rem;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.results-value-table {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.model-stats-table td,
+.model-stats-table th {
+  padding: 0.5rem 0.75rem;
+  border: var(--border);
+  white-space: nowrap;
+}
+
+.model-stats-table td {
+  background-color: var(--bg-card);
+}
+
+.model-stats-table th {
+  font-weight: bold;
+  background-color: var(--bg-section);
+}
+
+/* The three xG results-by-season tables share one layout so their number columns line up from table to table */
+
+.model-stats-table.season-results-table {
+  table-layout: fixed;
+  min-width: 54rem;
+}
+
+.season-results-table th:first-child,
+.season-results-table td:first-child {
+  width: 7rem;
+}
+
+/* The two "every shot" tables are 13 columns wide, so they share one compact fixed layout:
+   the number columns match from table to table and the headers can wrap onto two lines. */
+
+.model-stats-table.shot-counts-table {
+  table-layout: fixed;
+  min-width: 64rem;
+  font-size: 0.85rem;
+}
+
+.shot-counts-table th,
+.shot-counts-table td {
+  padding: 0.5rem 0.4rem;
+}
+
+.shot-counts-table th {
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.shot-counts-table th:first-child,
+.shot-counts-table td:first-child {
+  width: 6.5rem;
+}
+
+/* A title sitting right above a table: keep it close to its own table, with room above it */
+
+.model-body .table-title {
+  margin: 1.25rem 0 0.25rem;
+}
+
+/* Every table gets the same space above and below. The space comes from the wrapper, so the table
+   itself carries no margin; a table with a title sits close under that title instead. */
+
+.model-body .table-scroll {
+  margin: 1.5rem 0;
+}
+
+.model-body .table-scroll .model-stats-table {
+  margin: 0;
+}
+
+.model-body .table-title + .table-scroll {
+  margin-top: 0.25rem;
+}
+
+/* A one-line lead-in sits close above its table, like a table title */
+.model-body p.table-intro {
+  margin-bottom: 0.25rem;
+}
+
+.model-body .table-intro + .table-scroll {
+  margin-top: 0.25rem;
+}
+
+.model-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.model-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.model-details > summary h2 {
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.model-details > summary:hover h2 {
+  color: var(--link);
+}
+
+.model-details > summary:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+  border-radius: var(--button-radius);
+}
+
+.model-details > summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.25rem;
+  border-right: 3px solid var(--text-muted);
+  border-bottom: 3px solid var(--text-muted);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.model-details[open] > summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.model-details[open] > summary {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 768px) {
+  .model-stats-table {
+    font-size: 0.8rem;
+  }
+}

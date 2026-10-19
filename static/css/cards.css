@@ -1,0 +1,253 @@
+/* ==================== PLAYER AND TEAM CARD PROJECTS (CARD FANS, CARD PAGES, FILTERS) ==================== */
+
+/* The fan of cards is stacked in one grid cell, so the box is always exactly as tall as a card.
+   cqw units resolve against the surrounding .project-card (the nearest size container). */
+
+.card-preview {
+  --card-w: clamp(160px, 35cqw, 340px);
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* The band around each card is a fixed fraction of the card's own width, so the
+   border-to-card ratio stays the same at every screen size. */
+
+.card-preview img {
+  grid-area: 1 / 1;
+  width: var(--card-w);
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: calc(var(--card-w) * var(--card-border-ratio));
+  object-fit: contain;
+}
+
+.card-preview img:nth-child(1) { transform: translateX(-24cqw) translateY(1.1cqw) rotate(-8deg); z-index: 1; }
+
+.card-preview img:nth-child(2) { transform: translateX(-8cqw) rotate(-3deg); z-index: 2; }
+
+.card-preview img:nth-child(3) { transform: translateX(8cqw) rotate(3deg); z-index: 3; }
+
+.card-preview img:nth-child(4) { transform: translateX(24cqw) translateY(1.1cqw) rotate(8deg); z-index: 4; }
+
+.card-preview img:hover {
+  z-index: 10;
+  transform: scale(1.02) translateX(var(--x, 0)) translateY(var(--y, 0)) rotate(var(--r, 0deg));
+  box-shadow: var(--box-shadow-hover);
+}
+
+.card-preview img:nth-child(1):hover { --x: -24cqw; --y: 1.1cqw; --r: -8deg; }
+
+.card-preview img:nth-child(2):hover { --x: -8cqw; --r: -3deg; }
+
+.card-preview img:nth-child(3):hover { --x: 8cqw; --r: 3deg; }
+
+.card-preview img:nth-child(4):hover { --x: 24cqw; --y: 1.1cqw; --r: 8deg; }
+
+.filter-form {
+  border-radius: var(--main-radius);
+  padding: 1.5rem;
+  max-width: 100%;
+  align-items: center;
+}
+
+.filters-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 20rem));
+  justify-content: center;
+  align-items: start;
+  gap: 0.75rem 1rem;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.filters-row > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.compare-card .filters-row {
+  grid-template-columns: minmax(0, 20rem);
+}
+
+.filters-row label {
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.filters-row select {
+  font-family: var(--font-main);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--button-radius);
+  border: var(--border);
+  width: 100%;
+  max-width: 20rem;
+  text-align: center;
+  text-align-last: center;
+  font-size: 1.05rem;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filters-row select:hover {
+  border-color: var(--text-muted);
+}
+
+.filters-row select:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.compare-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.compare-card {
+  flex: 0 0 49.5%;
+  max-width: 49.5%;
+  box-sizing: border-box;
+  padding-bottom: 0rem;
+}
+
+.filter-form h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.compare-card h5 {
+  margin: 0rem;
+}
+
+.player-card {
+  position: relative;
+  display: block;
+  align-content: center;
+  margin: 2rem auto;
+  max-width: min(40rem, calc((100vh - var(--nav-height) - 4rem) * 5 / 6));
+  overflow: hidden;
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 5 / 6;
+  background-color: var(--bg-card);
+}
+
+.player-card a,
+.card-loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--main-radius);
+}
+
+.player-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--main-radius);
+  padding: calc(var(--card-border-ratio) * 100%);
+}
+
+.player-card:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+@media (max-width: 1200px) {
+  .card-preview {
+    height: 26rem;
+    margin-bottom: 3rem
+  }
+
+  .card-preview img:nth-child(1) { transform: translateX(-17cqw) translateY(0.7cqw) rotate(-7deg); }
+
+  .card-preview img:nth-child(2) { transform: translateX(-5.7cqw) rotate(-2deg); }
+
+  .card-preview img:nth-child(3) { transform: translateX(5.7cqw) rotate(2deg); }
+
+  .card-preview img:nth-child(4) { transform: translateX(17cqw) translateY(0.7cqw) rotate(7deg); }
+
+  .card-preview img:hover {
+    z-index: 10;
+    transform: scale(1.02) translateX(var(--x, 0)) translateY(var(--y, 0)) rotate(var(--r, 0deg));
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .card-preview img:nth-child(1):hover { --x: -17cqw; --y: 0.7cqw; --r: -7deg; }
+
+  .card-preview img:nth-child(2):hover { --x: -5.7cqw; --r: -2deg; }
+
+  .card-preview img:nth-child(3):hover { --x: 5.7cqw; --r: 2deg; }
+
+  .card-preview img:nth-child(4):hover { --x: 17cqw; --y: 0.7cqw; --r: 7deg; }
+}
+
+@media (max-width: 768px) {
+  .filters-row {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .filters-row select {
+    font-size: 0.8rem;
+  }
+
+  /* Compare cards sit side by side down to this width, then stack */
+
+  .compare-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .compare-card .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-preview {
+    height: auto;
+    aspect-ratio: 8 / 5;
+    margin-top: 1rem;
+  }
+
+  .card-preview {
+    --card-w: clamp(160px, 45cqw, 340px);
+  }
+
+  .card-preview img:nth-child(1) { transform: translateX(-11cqw) translateY(0.35cqw) rotate(-5deg); }
+
+  .card-preview img:nth-child(2) { transform: translateX(-3.5cqw) rotate(-2deg); }
+
+  .card-preview img:nth-child(3) { transform: translateX(3.5cqw) rotate(2deg); }
+
+  .card-preview img:nth-child(4) { transform: translateX(11cqw) translateY(0.35cqw) rotate(5deg); }
+
+  .card-preview img:hover {
+    z-index: 10;
+    transform: scale(1.02) translateX(var(--x, 0)) translateY(var(--y, 0)) rotate(var(--r, 0deg));
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .card-preview img:nth-child(1):hover { --x: -11cqw; --y: 0.35cqw; --r: -5deg; }
+
+  .card-preview img:nth-child(2):hover { --x: -3.5cqw; --r: -1deg; }
+
+  .card-preview img:nth-child(3):hover { --x: 3.5cqw; --r: 1deg; }
+
+  .card-preview img:nth-child(4):hover { --x: 11cqw; --y: 0.35cqw; --r: 5deg; }
+}

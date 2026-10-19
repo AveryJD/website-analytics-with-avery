@@ -1,0 +1,67 @@
+/* ==================== RESPONSIVE RULES THAT COVER SEVERAL SECTIONS (EVERY PAGE) ==================== */
+
+
+
+@media (max-width: 860px) {
+  .project-grid,
+  .home-split,
+  .social-grid,
+  .project-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  main > h1 {
+    font-size: 2.4rem;
+    margin: 1.75rem 0 1.25rem;
+  }
+
+  main > h1::after {
+    width: 4rem;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+
+  main h3 {
+    font-size: 1.1rem;
+  }
+
+  main h4 {
+    font-size: 0.95rem;
+  }
+
+  main p {
+    font-size: 1rem;
+  }
+
+  main li {
+    font-size: 1rem;
+  }
+
+  :root {
+    --nav-height: 3.75rem;
+  }
+
+  .about-section,
+  .education-section,
+  .experience-section,
+  .socials-section,
+  .cv-section,
+  .card-section,
+  .blog-section,
+  .x-section,
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .horizontal-buttons {
+    gap: 0.5rem;
+  }
+}

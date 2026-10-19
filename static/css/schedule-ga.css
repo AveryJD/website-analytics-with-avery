@@ -1,0 +1,71 @@
+/* ==================== SCHEDULE GA PROJECT PAGE ==================== */
+
+.hyperparameter-plot-grid {
+  margin-bottom: 2.5rem;
+}
+
+.schedule-select-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0.5rem auto 0;
+  max-width: 20rem;
+  font-size: 1rem;
+}
+
+.schedule-select-row label {
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.schedule-select-row select {
+  font-family: var(--font-main);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--button-radius);
+  border: var(--border);
+  width: 100%;
+  max-width: 20rem;
+  text-align: center;
+  text-align-last: center;
+  font-size: 1.05rem;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.schedule-select-row select:hover {
+  border-color: var(--text-muted);
+}
+
+.schedule-select-row select:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.plot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.plot-grid img {
+  display: block;
+  width: 100%;
+  border: var(--border);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 768px) {
+
+  .plot-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

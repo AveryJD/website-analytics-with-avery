@@ -1,57 +1,56 @@
 
-// Close a single Content/Profile nav dropdown
-function closeNavGroup(group) {
-  const panel = document.getElementById(`${group}Dropdown`);
-  const toggle = document.querySelector(`.nav-group-toggle--${group}`);
+// ----- Navigation: About dropdown (desktop) and hamburger menu (mobile) -----
+const navBar = document.querySelector(".nav-bar");
+const navMenuToggle = document.querySelector(".nav-menu-toggle");
+const navDropdown = document.querySelector(".nav-dropdown");
+const navDropdownToggle = document.querySelector(".nav-dropdown-toggle");
 
-  if (panel) panel.classList.remove("open");
-  if (toggle) toggle.setAttribute("aria-expanded", "false");
+function setAboutMenuOpen(open) {
+  if (!navDropdown || !navDropdownToggle) return;
+  navDropdown.classList.toggle("open", open);
+  navDropdownToggle.setAttribute("aria-expanded", String(open));
 }
 
-// Toggle the Content or Profile nav dropdown (left/right half of the nav bar)
-function toggleNavGroup(group) {
-  const panel = document.getElementById(`${group}Dropdown`);
-  const toggle = document.querySelector(`.nav-group-toggle--${group}`);
-  if (!panel) return;
-
-  const willOpen = !panel.classList.contains("open");
-
-  // only one nav dropdown open at a time
-  ["content", "profile"].forEach(closeNavGroup);
-
-  if (willOpen) {
-    panel.classList.add("open");
-    if (toggle) toggle.setAttribute("aria-expanded", "true");
-  }
+function setMobileMenuOpen(open) {
+  if (!navBar || !navMenuToggle) return;
+  navBar.classList.toggle("menu-open", open);
+  navMenuToggle.setAttribute("aria-expanded", String(open));
+  if (!open) setAboutMenuOpen(false);
 }
 
-// Close nav dropdowns when resizing to a large screen where the full nav shows
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 1024) {
-    ["content", "profile"].forEach(closeNavGroup);
-  }
-});
+function closeNavMenus() {
+  setAboutMenuOpen(false);
+  setMobileMenuOpen(false);
+}
 
-// Close an open nav dropdown when clicking outside of it or its toggle button
-document.addEventListener("click", (event) => {
-  ["content", "profile"].forEach(group => {
-    const panel = document.getElementById(`${group}Dropdown`);
-    const toggle = document.querySelector(`.nav-group-toggle--${group}`);
-    if (!panel || !panel.classList.contains("open")) return;
-
-    const clickedInsidePanel = panel.contains(event.target);
-    const clickedToggle = toggle && toggle.contains(event.target);
-
-    if (!clickedInsidePanel && !clickedToggle) {
-      closeNavGroup(group);
-    }
+if (navDropdownToggle) {
+  navDropdownToggle.addEventListener("click", () => {
+    setAboutMenuOpen(!navDropdown.classList.contains("open"));
   });
+}
+
+if (navMenuToggle) {
+  navMenuToggle.addEventListener("click", () => {
+    setMobileMenuOpen(!navBar.classList.contains("menu-open"));
+  });
+}
+
+// Close menus when clicking outside of the nav
+document.addEventListener("click", (event) => {
+  if (navBar && !navBar.contains(event.target)) closeNavMenus();
 });
 
-// Close any open nav dropdown on Escape
+// Close menus on Escape
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    ["content", "profile"].forEach(closeNavGroup);
+  if (event.key === "Escape") closeNavMenus();
+});
+
+// Close menus when the viewport width changes (ignores the height-only resizes mobile browsers fire while scrolling)
+let lastViewportWidth = window.innerWidth;
+window.addEventListener("resize", () => {
+  if (window.innerWidth !== lastViewportWidth) {
+    lastViewportWidth = window.innerWidth;
+    closeNavMenus();
   }
 });
 
@@ -61,7 +60,7 @@ function getSiteMode() {
 
 function updatePreviewThemeCards() {
   const isDark = document.documentElement.classList.contains("dark-mode");
-  const themedImages = document.querySelectorAll(".preview-theme-card, .cv-image, .download-image");
+  const themedImages = document.querySelectorAll(".preview-theme-card, .cv-image, .download-image, .model-figure-img");
 
   themedImages.forEach(img => {
     img.src = isDark ? img.dataset.dark : img.dataset.light;
@@ -398,43 +397,9 @@ const PRELOAD_TEAM_CARDS = {
   2: { season: "2025-2026", team: "Montreal Canadiens" }
 };
 
-// Show the skater explanation section when a Forward/Defense is selected,
-// and the goalie explanation section when a Goalie is selected. Supports
-// pages with more than one position select (e.g. compare cards) by showing
-// each section if any of the *visible* selected positions call for it.
-// Hidden selects (e.g. the compare view's forms while the single view is
-// active) are ignored, otherwise their default value would force a section
-// to stay visible regardless of what's actually selected on screen.
-// Returns the updateVisibility function so callers can re-run it after
-// something else (like switching views) changes which selects are visible.
-function setupPositionExplanationToggle() {
-  const skaterSection = document.getElementById("skater-explanation");
-  const goalieSection = document.getElementById("goalie-explanation");
-  if (!skaterSection && !goalieSection) return null;
-
-  const positionSelects = Array.from(document.querySelectorAll('select[name="position"]'));
-  if (positionSelects.length === 0) return null;
-
-  function updateVisibility() {
-    const visibleSelects = positionSelects.filter(sel => sel.offsetParent !== null);
-    const values = visibleSelects.map(sel => sel.value);
-    const hasSkater = values.some(v => v === "F" || v === "D");
-    const hasGoalie = values.some(v => v === "G");
-
-    if (skaterSection) skaterSection.style.display = hasSkater ? "" : "none";
-    if (goalieSection) goalieSection.style.display = hasGoalie ? "" : "none";
-  }
-
-  positionSelects.forEach(sel => sel.addEventListener("change", updateVisibility));
-  updateVisibility();
-
-  return updateVisibility;
-}
-
 // Toggle between the single-card view and the compare-cards view on a
 // card page using a pair of buttons marked with data-view="single"/"compare".
-// onChange, if given, runs after every switch (used to refresh the
-// skater/goalie explanation visibility once hidden selects change).
+// onChange, if given, runs after every switch.
 function setupViewToggle(toggleId, singleId, compareId, onChange) {
   const toggle = document.getElementById(toggleId);
   const singleView = document.getElementById(singleId);
@@ -472,7 +437,7 @@ function setupScheduleFilter() {
     const isLeague = value === "league";
     const fileTeam = isLeague ? "entire" : value.toLowerCase();
 
-    img.src = `/static/assets/schedule_ga/calendars/${fileTeam}_schedule.webp`;
+    img.src = `/static/assets/other_projects/schedule_ga/calendars/${fileTeam}_schedule.webp`;
     img.alt = isLeague
       ? "Entire 2026-2027 NHL season schedule generated by the genetic algorithm"
       : `${selected.textContent.trim()} 2026-2027 season schedule generated by the genetic algorithm`;
@@ -486,9 +451,8 @@ const playerFilters = [];
   }
 });
 
-const refreshExplanationVisibility = setupPositionExplanationToggle();
-setupViewToggle("player-view-toggle", "player-single-view", "player-compare-view", refreshExplanationVisibility);
-setupViewToggle("team-view-toggle", "team-single-view", "team-compare-view", refreshExplanationVisibility);
+setupViewToggle("player-view-toggle", "player-single-view", "player-compare-view");
+setupViewToggle("team-view-toggle", "team-single-view", "team-compare-view");
 
 const teamFilters = [];
 ["0", "1", "2"].forEach(suffix => {
@@ -538,4 +502,115 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshVisibleCards();
     });
   }
+});
+
+// ----- Methodologies page: open whatever a link points to (page load, hash change, or in-page link) -----
+// Handles a whole section (e.g. #war-model) or a single glossary term (e.g. #term-gsax), which lives inside
+// the glossary section and one of its group dropdowns.
+function openModelWriteup(hash) {
+  if (!hash || hash.length < 2) return;
+  let target = null;
+  try {
+    target = document.querySelector(hash);
+  } catch (e) {
+    return;
+  }
+  if (!target) return;
+
+  let opened = false;
+  const openDetails = (details) => {
+    if (!details.open) {
+      details.open = true;
+      opened = true;
+    }
+  };
+
+  const own = target.querySelector(":scope > details.model-details");
+  if (own) openDetails(own);
+  for (let el = target.parentElement; el; el = el.parentElement) {
+    if (el.tagName === "DETAILS") openDetails(el);
+  }
+
+  // The browser's own jump happened while the target was hidden, so scroll again now that it's open
+  if (opened) target.scrollIntoView({ block: "start" });
+}
+
+openModelWriteup(window.location.hash);
+window.addEventListener("hashchange", () => openModelWriteup(window.location.hash));
+document.addEventListener("click", (event) => {
+  const link = event.target.closest('a[href^="#"]');
+  if (link) openModelWriteup(link.getAttribute("href"));
+});
+
+// ----- Glossary search: filter terms, open the groups that have matches, and restore the groups afterward -----
+(function setupGlossarySearch() {
+  const input = document.getElementById("glossary-search");
+  if (!input) return;
+
+  const groups = Array.from(document.querySelectorAll(".glossary-group"));
+  const emptyMessage = document.getElementById("glossary-empty");
+  let savedOpenStates = null;
+
+  function normalize(text) {
+    return text.toLowerCase().replace(/\s+/g, " ");
+  }
+
+  input.addEventListener("input", () => {
+    const query = normalize(input.value.trim());
+
+    if (!query) {
+      groups.forEach((group, i) => {
+        group.hidden = false;
+        group.querySelectorAll(".glossary-term").forEach(term => { term.hidden = false; });
+        if (savedOpenStates) group.open = savedOpenStates[i];
+      });
+      savedOpenStates = null;
+      if (emptyMessage) emptyMessage.hidden = true;
+      return;
+    }
+
+    if (!savedOpenStates) savedOpenStates = groups.map(group => group.open);
+
+    let anyMatch = false;
+    groups.forEach(group => {
+      let groupMatches = 0;
+      group.querySelectorAll(".glossary-term").forEach(term => {
+        const matches = normalize(term.textContent).includes(query);
+        term.hidden = !matches;
+        if (matches) groupMatches += 1;
+      });
+      group.hidden = groupMatches === 0;
+      group.open = groupMatches > 0;
+      if (groupMatches > 0) anyMatch = true;
+    });
+    if (emptyMessage) emptyMessage.hidden = anyMatch;
+  });
+})();
+
+// ----- Toggles on the Methodologies page (e.g. AUC / Log Loss / Calibration): one panel visible at a time -----
+document.querySelectorAll("[data-tabs]").forEach((group) => {
+  const tabs = Array.from(group.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+  function select(index) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.classList.toggle("active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      if (panels[i]) panels[i].hidden = !selected;
+    });
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i));
+    tab.addEventListener("keydown", (event) => {
+      const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+      if (!step) return;
+      const next = (i + step + tabs.length) % tabs.length;
+      select(next);
+      tabs[next].focus();
+      event.preventDefault();
+    });
+  });
 });

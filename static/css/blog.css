@@ -1,0 +1,438 @@
+/* ==================== BLOG LIST AND BLOG POST PAGES ==================== */
+
+.blog-section h4 {
+  margin: 0rem;
+  text-align: center;
+}
+
+.blog-section p {
+  margin: 0rem;
+  padding-top: 0.6rem;
+}
+
+.blog-section a {
+  text-decoration: none;
+}
+
+.blog-section .content-button,
+.x-section .content-button {
+  margin-top: 1.25rem;
+}
+
+.newest-post,
+.featured-project,
+.social-post {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-section);
+  border: var(--border);
+  border-radius: var(--main-radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.featured-project + .horizontal-buttons {
+  margin-top: 1.25rem;
+}
+
+.featured-project + .featured-project {
+  margin-top: 1.5rem;
+}
+
+.blog-post {
+  font-family: var(--font-blog);
+  background-color: var(--bg-section);
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  margin: 1.25rem 0;
+  padding: 3rem 5%;
+  text-align: center;
+  border-radius: var(--main-radius);
+}
+
+.blog-post h2 {
+  text-align: center;
+}
+
+.blog-post h5 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.blog-post img {
+  max-width: 100%;
+  display: block;
+  margin: 1.25rem auto;
+}
+
+.blog-text {
+  width: 90%;
+  margin: auto;
+}
+
+.blog-text p {
+  font-size: 1.2rem;
+}
+
+.blog-text h1 {
+  font-size: 2.25rem;
+  text-align: center;
+  padding-bottom: 0.3rem;
+  margin: 0;
+}
+
+.blog-text h2 {
+  font-size: 1.75rem;
+  text-align: left;
+  padding: 0rem;
+  padding-bottom: 0.3rem;
+}
+
+.blog-text h3 {
+  font-size: 1.25rem;
+  text-align: left;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.blog-text h4 {
+  font-size: 1rem;
+  text-align: left;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.blog-text table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  table-layout: auto;
+  text-align: center;
+}
+
+.blog-text table td {
+  padding: 0.3rem;
+  background-color: var(--bg-card);
+  border: var(--border);
+}
+
+.blog-text table th {
+  font-weight: bold;
+  background-color: var(--bg-section);
+  border: var(--border);
+}
+
+.blog-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.single-player-card {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.single-player-card img {
+  flex: 0 0 auto; 
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
+
+.players-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.players-line img {
+  flex: 0 0 auto; 
+  width: 23%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
+
+.extras-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.extras-line img {
+  flex: 0 0 auto; 
+  width: 18%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
+
+.special-teams {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.special-teams p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.award-podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.award-card img {
+  display: block;
+  height: auto;
+  border-radius: 5px;
+}
+
+.first-place img {
+  width: 100%;
+  border: 5px solid rgb(212, 175, 55);
+}
+
+.second-place img {
+  width: 90%;
+  border: 5px solid rgb(202, 208, 207);
+}
+
+.third-place img {
+  width: 80%;
+  border: 5px solid rgb(205, 127, 50);
+}
+
+.award-runner-up {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.award-runner-up img {
+  width: 25%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  border: 5px solid rgb(117, 124, 136);
+}
+
+.list-graphic {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.list-graphic img {
+  flex: 0 0 auto; 
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0rem;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.post-list-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+  padding: 1.5rem;
+  background-color: var(--bg-section);
+  border: var(--border);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.post-list-item:hover {
+  border-color: var(--text-muted);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* The title link stretches over the whole card so the entire post is clickable */
+
+.post-list-link,
+.post-list-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-list-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--main-radius);
+}
+
+.post-list-item:hover .post-list-link {
+  text-decoration: underline;
+}
+
+.post-list-item:has(.post-list-link:focus-visible) {
+  outline: 2px solid var(--text-main);
+  outline-offset: 2px;
+}
+
+.post-list-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+  border: var(--border);
+  border-radius: calc(var(--main-radius) - 0.25rem);
+}
+
+.post-list-thumb img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.post-list-text .post-date {
+  margin: 0 0 0.35rem;
+}
+
+.post-list-text h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.post-list-preview {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .post-list-item {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .post-list-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-post {
+    padding: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .blog-post h2 {
+    font-size: 1.7rem;
+  }
+
+  .blog-post h5 {
+    font-size: 1rem;
+  }
+
+  .blog-text p {
+    font-size: 0.85rem;
+  }
+
+  .blog-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .blog-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .blog-text h3 {
+    font-size: 0.95rem;
+  }
+
+  .blog-text table {
+    width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .single-player-card img {
+    width: 80%;
+  }
+
+  .players-line img {
+    width: 28%;
+  }
+
+  .extras-line img {
+    width: 28%;
+  }
+
+  .special-teams {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+  }
+
+  .award-podium {
+    gap: 0.5rem;
+  }
+
+  .award-card img {
+    border-radius: 2px;
+  }
+
+  .first-place img {
+    width: 100%;
+    border: 2px solid rgb(212, 175, 55);
+  }
+
+  .second-place img {
+    width: 95%;
+    border: 2px solid rgb(202, 208, 207);
+  }
+
+  .third-place img {
+    width: 90%;
+    border: 2px solid rgb(205, 127, 50);
+  }
+
+  .award-runner-up img {
+    border-radius: 2px;
+    border: 2px solid rgb(117, 124, 136);
+  }
+
+  .list-graphic img {
+    width: 100%;
+  }
+
+  .blog-text {
+    width: 100%;
+  }
+}

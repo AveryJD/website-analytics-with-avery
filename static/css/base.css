@@ -1,0 +1,403 @@
+/* ==================== FONTS, VARIABLES, GENERAL STYLES, AND SHARED SECTION PANELS (EVERY PAGE) ==================== */
+
+@font-face {
+  font-family: "Nav Header";
+  src: url("/static/assets/fonts/nav-header.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nav Sub Header";
+  src: url("/static/assets/fonts/nav-sub-header.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("/static/assets/fonts/main.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Main";
+  src: url("/static/assets/fonts/main-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blog";
+  src: url("/static/assets/fonts/blog.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blog";
+  src: url("/static/assets/fonts/blog-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --primary-blue: rgb(99, 99, 255);
+  --primary-red: rgb(255, 99, 99);
+
+  --primary-purple: rgb(210, 110, 210);
+
+  --bg-page: rgb(244, 245, 248);
+  --bg-section: rgb(255, 255, 255);
+  --bg-subtle: rgb(238, 239, 244);
+  --bg-card: rgb(255, 255, 255);
+
+  --text-main: rgb(18, 18, 24);
+  --text-muted: rgb(96, 100, 114);
+  --line: rgb(215, 218, 227);
+  --border: 1px solid var(--line);
+  --link: var(--primary-blue);
+  --link-visited: var(--primary-blue);
+
+  --accent-gradient: linear-gradient(90deg, var(--primary-red), var(--primary-purple), var(--primary-blue));
+  --button-bg: var(--primary-blue);
+
+  --card-border-ratio: 0.02;
+  --main-radius: 0.75rem;
+  --button-radius: 0.5rem;
+  --card-radius: 4px;
+  --nav-height: 4.25rem;
+  --content-width: 72rem;
+  --font-main: "Main", sans-serif;
+  --font-nav-title: "Nav Header", system-ui;
+  --font-nav-sub: "Nav Sub Header", system-ui;
+  --font-blog: "Blog", monospace;
+
+  --box-shadow: 0 1px 2px rgba(16, 18, 30, 0.06), 0 6px 20px rgba(16, 18, 30, 0.06);
+  --box-shadow-hover: 0 2px 4px rgba(16, 18, 30, 0.08), 0 10px 28px rgba(16, 18, 30, 0.14);
+}
+
+html.dark-mode {
+  --bg-page: rgb(20, 20, 22);
+  --bg-section: rgb(32, 32, 35);
+  --bg-subtle: rgb(44, 44, 49);
+  --bg-card: rgb(39, 39, 39);
+
+  --text-main: rgb(244, 244, 247);
+  --text-muted: rgb(160, 163, 176);
+  --line: rgb(60, 60, 67);
+
+  --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
+  --box-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.5), 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main,
+main p,
+main li,
+main h1,
+main h2,
+main h3,
+.blog-text,
+.blog-text p,
+.blog-text h1,
+.blog-text h2,
+.blog-text h3,
+.blog-text h4 {
+  color: var(--text-main);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+  font-family: var(--font-main);
+}
+
+main p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: left;
+  margin-top: 0rem;
+  margin-bottom: 1.25rem;
+}
+
+main li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+main > h1 {
+  font-family: var(--font-nav-title);
+  font-size: 3.25rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 0;
+  margin: 2.5rem 0 1.75rem;
+}
+
+main > h1::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 3px;
+  margin: 0.85rem auto 0;
+  border-radius: 2px;
+  background: var(--accent-gradient);
+}
+
+main h2 {
+  font-size: 1.85rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+main h2 + p {
+  margin-top: 0.6rem;
+}
+
+main h3 {
+  font-size: 1.4rem;
+  margin: 0rem;
+}
+
+main h3 + p,
+main h4 + p {
+  margin-top: 0.35rem;
+}
+
+main h4 {
+  font-size: 1.05rem;
+  margin: 0rem;
+}
+
+main a:link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+main a:visited {
+  color: var(--link-visited);
+  text-decoration: none;
+}
+
+main a:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+main [id] {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+.main-image {
+  width: 17rem;
+  height: 100%;
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.main-image-round {
+  width: 17rem;
+  height: 100%;
+  border-radius: 50%;
+  border: var(--border);
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-beside-image {
+  overflow: visible;
+  margin-top: 0.6rem;
+}
+
+.about-section,
+.socials-section,
+.x-section,
+.education-section,
+.experience-section,
+.cv-section,
+.not-found-section,
+.blog-section,
+.card-section,
+.panel {
+  margin: 1.25rem 0;
+  padding: 2rem 2.5rem;
+  background-color: var(--bg-section);
+  border: var(--border);
+  border-radius: var(--main-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.card-section {
+  text-align: center;
+  justify-content: center;
+}
+
+/* Shared buttons and badges (used on several pages) */
+
+.content-button {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.content-button h2 {
+  margin: 0;
+}
+
+.back-link-button {
+  margin-bottom: 1.25rem;
+}
+
+.content-button a,
+.generate-button {
+  font-family: var(--font-main);
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  color: var(--text-main);
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.coming-soon-badge {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: var(--border);
+  border-radius: var(--button-radius);
+  margin: 0.5rem 0;
+  cursor: default;
+}
+
+.content-button a:hover,
+.generate-button:hover {
+  color: var(--text-main);
+  text-decoration: none;
+  background-color: var(--bg-subtle);
+  border-color: var(--text-muted);
+}
+
+.content-button a:link,
+.content-button a:visited {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.content-button a:focus-visible,
+.generate-button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.horizontal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.generate-button {
+  margin: 0.75rem auto;
+}
+
+/* Hides text visually but keeps it for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Loading spinner shown over a card while it generates: a hollow ring with one spinning arc */
+.card-loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--main-radius);
+  background-color: var(--bg-card);
+}
+
+.spinner-ring {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  /* A red to purple to blue arc (the site's accent colours) over a faint track, cut into a ring by the mask */
+  background:
+    conic-gradient(var(--primary-red) 0deg, var(--primary-purple) 135deg, var(--primary-blue) 270deg, transparent 270deg),
+    var(--line);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.4rem), #000 calc(100% - 0.4rem));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 0.4rem), #000 calc(100% - 0.4rem));
+  animation: spinner-rotate 0.9s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner-ring {
+    animation-duration: 2.5s;
+  }
+}
+
