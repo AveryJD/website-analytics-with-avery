@@ -38,7 +38,7 @@ def get_team_card_db():
         conn.close()
 
 
-def import_team_card_data(csv_folder=os.path.join(BASE_DIR, 'data', 'team_card_data', 'card_data')):
+def import_team_card_data(csv_folder=os.path.join(BASE_DIR, 'data', 'card_data', 'team_card_data')):
     with get_team_card_db() as conn:
         for filename in os.listdir(csv_folder):
             if filename == '.DS_Store':

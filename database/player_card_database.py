@@ -39,7 +39,7 @@ def get_player_card_db():
         conn.close()
 
 
-def import_player_card_data(csv_folder=os.path.join(BASE_DIR, 'data', 'player_card_data', 'card_data')):
+def import_player_card_data(csv_folder=os.path.join(BASE_DIR, 'data', 'card_data', 'player_card_data')):
     with get_player_card_db() as conn:
         for folder in ['forwards', 'defensemen', 'goalies']:
             for filename in os.listdir(f'{csv_folder}/{folder}'):
