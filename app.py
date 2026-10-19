@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file, Response, url_for, abort
 import click
+import csv
 import io
 import logging
 import os
@@ -9,12 +10,15 @@ from collections import OrderedDict
 from datetime import date
 from functools import lru_cache
 
+# The player card project reads its card data, fonts, and team logos from this site's data folder
+os.environ.setdefault('NHL_CARD_DATA_DIR', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data'))
+
 from blog import POSTS, POSTS_BY_URL
 from database.player_card_database import get_player_card_db, delete_player_card_tables, create_player_card_tables, import_player_card_data
 from database.team_card_database import get_team_card_db, delete_team_card_tables, create_team_card_tables, import_team_card_data
 
-from player_card_project.generate_cards.card_generation import make_player_card
-from team_card_project.generate_cards.card_generation import make_team_card
+from player_card_project.card_generation import make_player_card
+from team_card_project.card_generation import make_team_card
 
 
 
@@ -39,7 +43,6 @@ POSITION_NAMES = {
     'G': 'Goalie'
 }
 
-
 SCHEDULE_GA_TEAMS = [
     'ANA', 'BOS', 'BUF', 'CGY', 'CAR', 'CHI', 'COL', 'CBJ', 'DAL', 'DET',
     'EDM', 'FLA', 'LAK', 'MIN', 'MTL', 'NSH', 'NJD', 'NYI', 'NYR', 'OTT',
@@ -49,6 +52,59 @@ SCHEDULE_GA_TEAMS = [
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+
+
+# ----- Methodology tables: the xG project writes the numbers behind each table to a CSV (model_tables/ in that project); copy them into
+# static/assets/methodologies/ (next to the plots) and the methodologies page formats them into tables, so no number is typed into the page by hand -----
+METHODOLOGY_TABLE_DIR = os.path.join(app.static_folder, 'assets', 'methodologies')
+TOTAL_ROW_SEASONS = ('Total', 'All seasons')
+
+
+def format_table_value(value, fmt):
+    """
+    Format one table number from a CSV cell: 'decimal3' (0.799), 'decimal2' (1.00), 'integer' (1,234), 'percent1' (8.1%) or 'percent0' (30%), with a dash for a blank cell.
+
+    :param value: The CSV cell text
+    :param fmt: One of the format names above
+    :return: The text shown in the table
+    """
+    if value is None or value.strip() == '':
+        return '\u2013'
+    number = float(value)
+    if fmt.startswith('decimal'):
+        return f'{number:.{int(fmt[len("decimal"):])}f}'
+    if fmt.startswith('percent'):
+        return f'{100 * number:.{int(fmt[len("percent"):])}f}%'
+    return f'{int(round(number)):,}'
+
+
+def methodology_table(name, fmt, overrides=None):
+    """
+    Read one methodology table's CSV (first column 'season', optional 'in_sample' column, then one column per number) into rows ready to display.
+
+    :param name: The CSV's file name without '.csv'
+    :param fmt: The format name for every number column (see format_table_value)
+    :param overrides: An optional {csv column: format name} dict for columns that differ
+    :return: A list of {'cells': [str, ...], 'in_sample': bool, 'total': bool} rows, or None if the CSV isn't there
+    """
+    path = os.path.join(METHODOLOGY_TABLE_DIR, f'{name}.csv')
+    if not os.path.exists(path):
+        return None
+    overrides = overrides or {}
+    rows = []
+    with open(path, newline='') as f:
+        for record in csv.DictReader(f):
+            in_sample = str(record.get('in_sample', '')).strip().lower() == 'true'
+            numbers = [(column, value) for column, value in record.items() if column not in ('season', 'in_sample')]
+            rows.append({
+                'cells': [record['season']] + [format_table_value(value, overrides.get(column, fmt)) for column, value in numbers],
+                'in_sample': in_sample,
+                'total': record['season'] in TOTAL_ROW_SEASONS,
+            })
+    return rows
+
+
+app.jinja_env.globals['methodology_table'] = methodology_table
 
 
 @app.errorhandler(404)
@@ -61,20 +117,20 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Static pages included in the sitemap: endpoint name -> template file.
 SITEMAP_PAGES = {
     'home': 'templates/index.html',
-    'profile_about': 'templates/about_me.html',
-    'contact': 'templates/contact.html',
-    'education': 'templates/education.html',
-    'experience': 'templates/experience.html',
-    'cv': 'templates/cv.html',
-    'content_about': 'templates/about_content.html',
-    'socials': 'templates/socials.html',
+    'profile_about': 'templates/profile/about_me.html',
+    'contact': 'templates/profile/contact.html',
+    'education': 'templates/profile/education.html',
+    'experience': 'templates/profile/experience.html',
+    'cv': 'templates/profile/cv.html',
+    'content_about': 'templates/profile/about_content.html',
+    'socials': 'templates/profile/socials.html',
     'projects': 'templates/projects.html',
-    'models': 'templates/models.html',
-    'blog': 'templates/blog.html',
-    'player_cards': 'templates/player_cards.html',
-    'team_cards': 'templates/team_cards.html',
-    'schedule_ga': 'templates/schedule_ga.html',
-    'interview_analysis': 'templates/interview_analysis.html',
+    'methodologies': 'templates/methodologies/methodologies.html',
+    'blog': 'templates/blog/blog.html',
+    'player_cards': 'templates/cards/player_cards.html',
+    'team_cards': 'templates/cards/team_cards.html',
+    'schedule_ga': 'templates/other_projects/schedule_ga.html',
+    'interview_analysis': 'templates/other_projects/interview_analysis.html',
 }
 
 @lru_cache(maxsize=None)
@@ -83,7 +139,7 @@ def get_last_modified(template_path):
     falling back to today's date if git history isn't available."""
     try:
         result = subprocess.run(
-            ['git', 'log', '-1', '--format=%ad', '--date=short', '--', template_path],
+            ['git', 'log', '-1', '--follow', '--format=%ad', '--date=short', '--', template_path],
             capture_output=True, text=True, cwd=BASE_DIR, timeout=5
         )
         date_str = result.stdout.strip()
@@ -122,8 +178,7 @@ def set_cached_card_image(key, png_bytes):
 
 @app.route('/')
 def home():
-    most_recent_post = POSTS[0] if POSTS else None
-    return render_template('index.html', post=most_recent_post)
+    return render_template('index.html', posts=POSTS[:2])
 
 
 @app.route('/sitemap.xml')
@@ -161,54 +216,55 @@ def sitemap():
 
 @app.route('/profile_about')
 def profile_about():
-    return render_template('about_me.html')
+    return render_template('profile/about_me.html')
 
 @app.route('/education')
 def education():
-    return render_template('education.html')
+    return render_template('profile/education.html')
 
 @app.route('/experience')
 def experience():
-    return render_template('experience.html')
+    return render_template('profile/experience.html')
 
 @app.route('/cv')
 def cv():
-    return render_template('cv.html')
+    return render_template('profile/cv.html')
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('profile/contact.html')
 
 @app.route('/socials')
 def socials():
-    return render_template('socials.html')
+    return render_template('profile/socials.html')
 
 @app.route('/content_about')
 def content_about():
-    return render_template('about_content.html')
+    return render_template('profile/about_content.html')
 
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
 
-@app.route('/models')
-def models():
-    return render_template('models.html')
+
+@app.route('/methodologies')
+def methodologies():
+    return render_template('methodologies/methodologies.html')
 
 @app.route('/schedule_ga')
 def schedule_ga():
     teams = sorted(SCHEDULE_GA_TEAMS, key=lambda t: TEAM_NAMES[t])
-    return render_template('schedule_ga.html', teams=teams, team_names=TEAM_NAMES)
+    return render_template('other_projects/schedule_ga.html', teams=teams, team_names=TEAM_NAMES)
 
 @app.route('/interview_analysis')
 def interview_analysis():
-    return render_template('interview_analysis.html')
+    return render_template('other_projects/interview_analysis.html')
 
 
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html', posts=POSTS)
+    return render_template('blog/blog.html', posts=POSTS)
 
 @app.route('/blog/<string:post_url>')
 def blog_post(post_url):
@@ -218,7 +274,7 @@ def blog_post(post_url):
 
     logging.info(f"========== Blog post opened: {post['title']} ==========")
 
-    return render_template('blog_post.html', post=post)
+    return render_template('blog/blog_post.html', post=post)
 
 
 
@@ -254,7 +310,7 @@ def player_cards():
         }
 
     return render_template(
-        'player_cards.html',
+        'cards/player_cards.html',
         players_list=players,
         player_teams_data=player_teams_data,
         seasons=seasons,
@@ -310,7 +366,7 @@ def team_cards():
         }
 
     return render_template(
-        'team_cards.html',
+        'cards/team_cards.html',
         teams=teams,
         team_cards_data=team_cards_data,
         team_names=TEAM_NAMES,
