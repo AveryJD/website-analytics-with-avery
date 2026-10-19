@@ -1,39 +1,36 @@
-{% macro navlink(href, label, extra=[]) %}
-{%- set is_active = request.path == href or (href != '/' and request.path.startswith(href + '/')) or request.path in extra -%}
-<a href="{{ href }}"{% if is_active %} class="active"{% endif %}>{{ label }}</a>
+{% macro navlink(href, label, extra=[], prefix=None) %}
+{%- set is_active = request.path == href or (href != '/' and request.path.startswith(href + '/')) or request.path in extra or (prefix and request.path.startswith(prefix)) -%}
+<a href="{{ href }}"{% if is_active %} class="active" aria-current="page"{% endif %}>{{ label }}</a>
 {%- endmacro %}
 
-<nav class="nav-bar">
+{%- set about_paths = ['/profile_about', '/content_about', '/experience', '/education', '/cv', '/contact', '/socials'] %}
 
+<nav class="nav-bar" aria-label="Main">
   <div class="nav-row">
-    <div class="site-masthead">
-      <a href="/" class="site-logo-link">
-        <img src="/static/assets/analytics_with_avery_logos/analyticswithavery_logo.png" alt="Analytics With Avery logo" class="site-logo">
-      </a>
-    </div>
+    <a href="/" class="site-brand{% if request.path == '/' %} active{% endif %}"{% if request.path == '/' %} aria-current="page"{% endif %}>
+      <img src="/static/assets/brand/icon-192x192.png" alt="" class="site-logo">
+      <span class="site-name">Analytics With Avery</span>
+    </a>
 
-    <div class="nav-links">
-      <ul class="nav-link-group nav-link-group--content">
-        <li>{{ navlink('/projects', 'Projects', extra=['/player_cards', '/team_cards', '/schedule_ga', '/interview_analysis']) }}</li>
-        <li>{{ navlink('/models', 'Models') }}</li>
-        <li>{{ navlink('/blog', 'Blog') }}</li>
-        <li>{{ navlink('/socials', 'Socials') }}</li>
-        <li>{{ navlink('/content_about', 'About My Content') }}</li>
-      </ul>
-
-      <ul class="nav-link-group nav-link-group--profile">
-        <li>{{ navlink('/experience', 'Experience') }}</li>
-        <li>{{ navlink('/education', 'Education') }}</li>
-        <li>{{ navlink('/cv', 'CV') }}</li>
-        <li>{{ navlink('/contact', 'Contact') }}</li>
-        <li>{{ navlink('/profile_about', 'About Me') }}</li>
-      </ul>
-    </div>
-
-    <div class="nav-group-toggles">
-      <button type="button" class="nav-group-toggle nav-group-toggle--content" onclick="toggleNavGroup('content')" aria-expanded="false" aria-controls="contentDropdown">Content</button>
-      <button type="button" class="nav-group-toggle nav-group-toggle--profile" onclick="toggleNavGroup('profile')" aria-expanded="false" aria-controls="profileDropdown">Profile</button>
-    </div>
+    <ul class="nav-links" id="nav-menu">
+      <li>{{ navlink('/projects', 'Projects', extra=['/player_cards', '/team_cards', '/schedule_ga', '/interview_analysis', '/dashboards'], prefix='/stats/') }}</li>
+      <li>{{ navlink('/methodologies', 'Methodologies') }}</li>
+      <li>{{ navlink('/blog', 'Blog') }}</li>
+      <li class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle{% if request.path in about_paths %} active{% endif %}" aria-expanded="false" aria-haspopup="true" aria-controls="about-menu">About</button>
+        <ul class="nav-dropdown-menu" id="about-menu">
+          <li class="nav-dropdown-label">Analytics With Avery</li>
+          <li>{{ navlink('/content_about', 'About My Content') }}</li>
+          <li>{{ navlink('/socials', 'Socials') }}</li>
+          <li class="nav-dropdown-label">Avery Doiron</li>
+          <li>{{ navlink('/profile_about', 'About Me') }}</li>
+          <li>{{ navlink('/experience', 'Experience') }}</li>
+          <li>{{ navlink('/education', 'Education') }}</li>
+          <li>{{ navlink('/cv', 'CV') }}</li>
+          <li>{{ navlink('/contact', 'Contact') }}</li>
+        </ul>
+      </li>
+    </ul>
 
     <div class="nav-controls">
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
@@ -52,26 +49,14 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
+
+      <button type="button" class="nav-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
     </div>
-  </div>
-
-  <div id="contentDropdown" class="nav-group-dropdown nav-group-dropdown--content">
-    <ul class="dropdown-links">
-      <li>{{ navlink('/projects', 'Projects', extra=['/player_cards', '/team_cards', '/schedule_ga', '/interview_analysis']) }}</li>
-      <li>{{ navlink('/models', 'Models') }}</li>
-      <li>{{ navlink('/blog', 'Blog') }}</li>
-      <li>{{ navlink('/socials', 'Socials') }}</li>
-      <li>{{ navlink('/content_about', 'About My Content') }}</li>
-    </ul>
-  </div>
-
-  <div id="profileDropdown" class="nav-group-dropdown nav-group-dropdown--profile">
-    <ul class="dropdown-links">
-      <li>{{ navlink('/experience', 'Experience') }}</li>
-      <li>{{ navlink('/education', 'Education') }}</li>
-      <li>{{ navlink('/cv', 'CV') }}</li>
-      <li>{{ navlink('/contact', 'Contact') }}</li>
-      <li>{{ navlink('/profile_about', 'About Me') }}</li>
-    </ul>
   </div>
 </nav>
