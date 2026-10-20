@@ -23,8 +23,8 @@ Markdown==3.10
 MarkupSafe==3.0.3
 matplotlib==3.10.7
 more-itertools==10.8.0
-nhl-player-stat-cards @ git+https://github.com/AveryJD/project-nhl-player-cards.git@main
-nhl-team-stat-cards @ git+https://github.com/AveryJD/project-nhl-team-cards.git@main
+nhl-player-cards @ git+https://github.com/AveryJD/nhl-player-cards.git@main
+nhl-team-cards @ git+https://github.com/AveryJD/nhl-team-cards.git@main
 numpy==2.3.5
 packaging==25.0
 pandas==2.3.3
