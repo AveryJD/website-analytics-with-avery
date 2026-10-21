@@ -15,25 +15,24 @@
   <title>{% block title %}Analytics With Avery{% endblock %}</title>
 
   <meta name="description" content="{% block meta_description %}Analytics With Avery{% endblock %}">
-  <meta name="keywords" content="{% block meta_keywords %}Analytics With Avery{% endblock %}">
   <meta name="author" content="Avery Doiron">
 
   <meta property="og:site_name" content="Analytics With Avery">
-  <meta property="og:title" content="{% block og_title %}Analytics With Avery{% endblock %}">
-  <meta property="og:description" content="{% block og_description %}Analytics With Avery{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ self.meta_description() }}{% endblock %}">
   <meta property="og:image" content="{% block og_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}">
-  <meta property="og:url" content="{% block og_url %}https://analyticswithavery.com/{% endblock %}">
+  <meta property="og:url" content="{% block og_url %}https://analyticswithavery.com{{ request.path }}{% endblock %}">
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   {% block article_meta %}{% endblock %}
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@analyticswavery">
   <meta name="twitter:creator" content="@analyticswavery">
-  <meta name="twitter:title" content="{% block twitter_title %}Analytics With Avery{% endblock %}">
-  <meta name="twitter:description" content="{% block twitter_description %}Analytics With Avery{% endblock %}">
-  <meta name="twitter:image" content="{% block twitter_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}">
+  <meta name="twitter:title" content="{% block twitter_title %}{{ self.title() }}{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}{{ self.meta_description() }}{% endblock %}">
+  <meta name="twitter:image" content="{% block twitter_image %}{{ self.og_image() }}{% endblock %}">
 
-  <link rel="canonical" href="{{ request.base_url }}">
+  <link rel="canonical" href="https://analyticswithavery.com{{ request.path }}">
 
   <script type="application/ld+json">
   {

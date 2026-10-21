@@ -5,18 +5,10 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
 {% endblock %}
 
-{% block title %}Analytics With Avery | Home Page{% endblock %}
-{% block meta_description %}Explore hockey analytics projects, data-driven insights, and blogs from computer science student and sports analytics enthusiast Avery Doiron.{% endblock %}
-{% block meta_keywords %}Analytics With Avery, Avery Doiron, NHL analytics, hockey data science, NHL player cards, hockey blog, sports analytics{% endblock %}
+{% block title %}Home Page | Analytics With Avery{% endblock %}
+{% block meta_description %}Hockey analytics by Avery Doiron: custom NHL player and team cards, models like xG and WAR, an NHL schedule optimizer, and a blog.{% endblock %}
 
-{% block og_title %}Analytics With Avery | Avery Doiron’s Hockey Analytics & Data Science Portfolio{% endblock %}
-{% block og_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
 {% block og_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
-{% block og_url %}https://analyticswithavery.com/{% endblock %}
-
-{% block twitter_title %}Analytics With Avery | Avery Doiron’s Hockey Analytics & Data Science Portfolio{% endblock %}
-{% block twitter_description %}Explore NHL analytics, player cards, and hockey data science projects.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
 
 {% macro card_fan(kind, cards) %}
   <div class="card-preview">

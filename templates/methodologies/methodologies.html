@@ -4,18 +4,10 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/docs.css') }}">
 {% endblock %}
 
-{% block title %}Analytics With Avery | Methodologies{% endblock %}
-{% block meta_description %}How Avery Doiron's NHL analytics methodologies work, including the expected goals (xG) model, Regularized Adjusted Plus-Minus (RAPM), Wins Above Replacement (WAR), Elo ratings, and Simple Rating System (SRS), with how each model is built, how well the xG model performs, and a hockey analytics glossary.{% endblock %}
-{% block meta_keywords %}Analytics With Avery, hockey analytics methodologies, expected goals, xG model, shot danger zones, RAPM, Regularized Adjusted Plus-Minus, WAR, Wins Above Replacement, Elo ratings, Simple Rating System, SRS, model validation, hockey analytics glossary{% endblock %}
+{% block title %}Methodologies | Analytics With Avery{% endblock %}
+{% block meta_description %}How the xG, RAPM, WAR, Elo, and SRS models behind my NHL player and team cards are built, how well they perform, and a hockey glossary.{% endblock %}
 
-{% block og_title %}Analytics With Avery | Methodologies{% endblock %}
-{% block og_description %}A walkthrough of the xG, RAPM, WAR, Elo, and SRS methodologies behind the NHL player and team cards, how each model is built, how well the xG model works, and a glossary of hockey analytics terms.{% endblock %}
 {% block og_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
-{% block og_url %}https://analyticswithavery.com/methodologies{% endblock %}
-
-{% block twitter_title %}Analytics With Avery | Methodologies{% endblock %}
-{% block twitter_description %}A walkthrough of the xG, RAPM, WAR, Elo, and SRS methodologies behind the NHL player and team cards, how each model is built, how well the xG model works, and a glossary of hockey analytics terms.{% endblock %}
-{% block twitter_image %}https://analyticswithavery.com/static/assets/brand/share_image.png{% endblock %}
 
 {% block extra_head %}
   <link rel="stylesheet"
@@ -34,7 +26,6 @@
           crossorigin="anonymous"
           onload="renderMathInElement(document.body);"></script>
 {% endblock %}
-
 
 {% block content %}
   <h1>Methodologies</h1>
