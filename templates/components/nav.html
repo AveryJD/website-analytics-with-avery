@@ -8,8 +8,7 @@
 <nav class="nav-bar" aria-label="Main">
   <div class="nav-row">
     <a href="/" class="site-brand{% if request.path == '/' %} active{% endif %}"{% if request.path == '/' %} aria-current="page"{% endif %}>
-      <img src="{{ url_for('static', filename='assets/brand/logo_circle_light_128.webp') }}" width="128" height="128" alt="" class="site-logo logo-light">
-      <img src="{{ url_for('static', filename='assets/brand/logo_circle_dark_128.webp') }}" width="128" height="128" alt="" class="site-logo logo-dark">
+      <img src="{{ url_for('static', filename='assets/brand/icon-192x192.png') }}" alt="" class="site-logo">
       <span class="site-name">Analytics With Avery</span>
     </a>
 
