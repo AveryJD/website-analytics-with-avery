@@ -256,6 +256,11 @@ main [id] {
   margin-bottom: 1rem;
 }
 
+html:not(.dark-mode) .logo-dark,
+html.dark-mode .logo-light {
+  display: none;
+}
+
 .main-image-round {
   width: 17rem;
   height: 100%;
