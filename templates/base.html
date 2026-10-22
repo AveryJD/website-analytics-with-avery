@@ -89,11 +89,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
   {% block css_late %}{% endblock %}
-  <link rel="icon" href="{{ url_for('static', filename='assets/brand/favicon.png') }}" type="image/png">
+  <link rel="icon" href="{{ url_for('static', filename='assets/brand/favicon.ico') }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='assets/brand/favicon-48.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='assets/brand/favicon.png') }}">
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/brand/icon-180x180.png') }}">
-
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='assets/brand/icon-192x192.png') }}">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Analytics With Avery">

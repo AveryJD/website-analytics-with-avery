@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_FOLDER = os.path.join(BASE_DIR, 'content', 'posts')
 
 SITE_URL = 'https://analyticswithavery.com'
-DEFAULT_IMAGE = '/static/assets/brand/analyticswithavery_logo.png'
+DEFAULT_IMAGE = '/static/assets/brand/logo_square_dark.webp'
 DEFAULT_SHARE_IMAGE = '/static/assets/brand/share_image.png'
 
 DATE_FORMAT = '%B %d, %Y'
